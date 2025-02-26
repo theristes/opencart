@@ -1,33 +1,34 @@
 <?php
 // Heading
-$_['heading_title']     = 'Marcas';
+$_['heading_title']           = 'Fabricantes';
 
 // Text
-$_['text_success']      = 'Marca modificado com sucesso!';
-$_['text_list']         = 'Listando marcas';
-$_['text_add']          = 'Nova marca';
-$_['text_edit']         = 'Editando marca';
-$_['text_default']      = 'Padrão';
-$_['text_percent']      = 'Percentual';
-$_['text_amount']       = 'Valor fixo';
-$_['text_keyword']      = 'Não utilize espaços, substitua os espaços por - (hífen), e certifique-se que a palavra é exclusiva em toda a loja.';
+$_['text_success']            = 'Sucesso: Você modificou os fabricantes!';
+$_['text_list']               = 'Lista de Fabricantes';
+$_['text_add']                = 'Adicionar Fabricante';
+$_['text_edit']               = 'Editar Fabricante';
+$_['text_default']            = 'Padrão';
+$_['text_keyword']            = 'Não use espaços, em vez disso, substitua os espaços por - e certifique-se de que a URL SEO seja globalmente única.';
 
 // Column
-$_['column_name']       = 'Marca';
-$_['column_sort_order'] = 'Posição';
-$_['column_action']     = 'Ação';
+$_['column_image']            = 'Imagem';
+$_['column_name']             = 'Nome do Fabricante';
+$_['column_sort_order']       = 'Ordem de Classificação';
+$_['column_action']           = 'Ação';
 
 // Entry
-$_['entry_name']        = 'Marca';
-$_['entry_store']       = 'Lojas';
-$_['entry_keyword']     = 'URL amigável';
-$_['entry_image']       = 'Logo';
-$_['entry_sort_order']  = 'Posição';
-$_['entry_type']        = 'Tipo';
+$_['entry_name']              = 'Nome do Fabricante';
+$_['entry_store']             = 'Lojas';
+$_['entry_keyword']           = 'Palavra-chave';
+$_['entry_image']             = 'Imagem';
+$_['entry_sort_order']        = 'Ordem de Classificação';
+$_['entry_layout']            = 'Substituição de Layout';
 
 // Error
-$_['error_permission']  = 'Atenção: Você não tem permissão para modificar as marcas!';
-$_['error_name']        = 'Marca deve ter entre 1 e 64 caracteres!';
-$_['error_keyword']     = 'URL amigável já está em uso!';
-$_['error_unique']      = 'A URL amigável deve ser exclusiva!';
-$_['error_product']     = 'Atenção: Esta marca não pode ser excluída, pois está vinculada a %s produtos!';
+$_['error_warning']           = 'Aviso: Por favor, verifique o formulário cuidadosamente para erros!';
+$_['error_permission']        = 'Aviso: Você não tem permissão para modificar fabricantes!';
+$_['error_name']              = 'O nome do fabricante deve ter entre 1 e 64 caracteres!';
+$_['error_keyword']           = 'A URL SEO deve ter entre 1 e 64 caracteres!';
+$_['error_keyword_exists']    = 'A URL SEO deve ser única!';
+$_['error_keyword_character'] = 'A palavra-chave só pode usar os caracteres a-z, 0-9, - e _!';
+$_['error_product']           = 'Aviso: Este fabricante não pode ser excluído, pois está atualmente atribuído a %s produtos!';

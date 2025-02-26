@@ -14,3 +14,4 @@ $_['column_action']     = 'Ação';
 
 // Error
 $_['error_permission'] = 'Atenção: Você não tem permissão para modificar as extensões do tipo frete!';
+$_['error_extension']  = 'Aviso: A extensão não existe!';

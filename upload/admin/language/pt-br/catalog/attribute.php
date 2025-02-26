@@ -20,6 +20,7 @@ $_['entry_attribute_group']  = 'Grupo de atributos';
 $_['entry_sort_order']       = 'Posição';
 
 // Error
+$_['error_warning']          = 'Aviso: Por favor, verifique o formulário cuidadosamente para erros!';
 $_['error_permission']       = 'Atenção: Você não tem permissão para modificar os atributos!';
 $_['error_attribute_group']  = 'Grupo de atributos é obrigatório!';
 $_['error_name']             = 'Atributo deve ter entre 1 e 64 caracteres!';

@@ -171,3 +171,4 @@ $_['error_format_mb']				= 'Aviso: O arquivo carregado excede o tamanho máximo:
 $_['error_format_gb']				= 'Aviso: O arquivo carregado excede o tamanho máximo: %s gigabytes!';
 
 $_['ckeditor']                      = 'pt';
+$_['datepicker']                    = 'pt-br';

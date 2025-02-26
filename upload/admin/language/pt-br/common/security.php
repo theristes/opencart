@@ -1,26 +1,47 @@
 <?php
 // Heading
-$_['heading_title']    = 'Procedimento de segurança';
+$_['heading_title']                   = 'Notificação de Segurança Importante!';
 
 // Text
-$_['text_success']     = 'Você moveu a pasta storage com sucesso!';
-$_['text_admin']       = 'Edite o arquivo admin/config.php e modifique';
-$_['text_security']    = 'É muito importante que você mova a pasta storage para fora do diretório público (public_html, www ou htdocs por exemplo), de modo que ela não seja acessível pela web.';
-$_['text_choose']      = 'Escolha como deseja mover o diretório de armazenamento';
-$_['text_automatic']   = 'Mover automaticamente';
-$_['text_manual']      = 'Mover manualmente';
-$_['text_move']        = 'Mover';
-$_['text_to']          = 'para';
-$_['text_config']      = 'Edite o arquivo config.php e modifique';
-$_['text_admin']       = 'Edite o arquivo admin/config.php e modifique';
+$_['text_install']                    = 'Excluir diretório de instalação';
+$_['text_install_description']        = 'Seu diretório de instalação precisa ser excluído!';
+$_['text_install_success']            = 'Sucesso: O diretório de instalação foi excluído!';
+$_['text_storage']                    = 'Mover diretório de armazenamento';
+$_['text_storage_description']        = 'É muito importante que você mova o diretório de armazenamento para fora do diretório web (por exemplo, public_html, www ou htdocs).';
+$_['text_storage_move']               = 'Movendo %s para %s de %s arquivos de armazenamento';
+$_['text_storage_success']            = 'Sucesso: O diretório de armazenamento foi movido!';
+$_['text_storage_delete']             = 'Excluir diretório de armazenamento anterior';
+$_['text_storage_delete_description'] = 'Seu diretório de armazenamento anterior precisa ser excluído!';
+$_['text_storage_delete_success']     = 'Sucesso: O diretório de armazenamento anterior foi excluído!';
+$_['text_admin']                      = 'Mover diretório de administração';
+$_['text_admin_description']          = 'Por favor, digite um novo nome de diretório de administração no campo abaixo.';
+$_['text_admin_move']                 = 'Movendo %s para %s de %s arquivos de administração';
+$_['text_admin_success']              = 'Sucesso: O diretório de administração foi movido!';
+$_['text_admin_delete']               = 'Excluir diretório de administração anterior';
+$_['text_admin_delete_description']   = 'Seu diretório de administração anterior precisa ser excluído!';
+$_['text_admin_delete_success']       = 'Sucesso: O diretório de administração anterior foi excluído!';
+$_['text_path']                       = 'Caminho';
 
-// Button
-$_['button_move']      = 'Mover';
-$_['button_manual']    = 'Manual';
+// Entry
+$_['entry_path']                      = 'Caminho';
+$_['entry_path_current']              = 'Caminho Atual';
+$_['entry_path_new']                  = 'Novo Caminho';
+$_['entry_name']                      = 'Nome do Diretório';
+
+// Buttons
+$_['button_move']                     = 'Mover';
+
+// Help
+$_['help_storage']                    = 'O nome do diretório de armazenamento deve começar com armazenamento. ex. `storage_`.';
 
 // Error
-$_['error_permission'] = 'Atenção: Você não tem permissão para mover a pasta storage!';
-$_['error_path']       = 'Atenção: Caminho inválido!';
-$_['error_directory']  = 'Atenção: Diretório inválido!';
-$_['error_exists']     = 'Atenção: O diretório já existe!';
-$_['error_writable']   = 'Atenção: Os arquivos config.php e admin/config.php não tem permissão de escrita!';
+$_['error_permission']                = 'Aviso: Você não tem permissão para modificar a segurança!';
+$_['error_install']                   = 'Aviso: O diretório de instalação não existe!';
+$_['error_storage']                   = 'Aviso: O diretório de armazenamento não existe!';
+$_['error_storage_root']              = 'Aviso: O diretório de armazenamento deve estar fora da raiz da web!';
+$_['error_storage_name']              = 'Aviso: O nome do diretório de armazenamento deve começar com `storage`! ex. `storage_`.';
+$_['error_admin']                     = 'Aviso: O diretório de administração não existe!';
+$_['error_admin_allowed']             = 'Aviso: Este nome de diretório de administração não pode ser usado!';
+$_['error_admin_exists']              = 'Aviso: O diretório de administração já existe!';
+$_['error_writable']                  = 'Aviso: config.php e admin/config.php precisam ser graváveis!';
+$_['error_remove']                    = 'Aviso: O diretório não existe para remover!';

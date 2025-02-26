@@ -1,55 +1,56 @@
 <?php
 // Heading
-$_['heading_title']        = 'Personalizar cadastro';
+$_['heading_title']        = 'Campos Personalizados';
 
 // Text
-$_['text_success']         = 'Campo personalizado modificado com sucesso!';
-$_['text_list']            = 'Listando campos personalizados';
-$_['text_add']             = 'Novo campo personalizado';
-$_['text_edit']            = 'Editando campo personalizado';
-$_['text_choose']          = 'Com opção de seleção';
-$_['text_select']          = 'Menu de seleção';
-$_['text_radio']           = 'Única seleção';
-$_['text_checkbox']        = 'Multipla seleção';
-$_['text_input']           = 'Campo de texto simples';
-$_['text_text']            = 'Texto em uma linha';
-$_['text_textarea']        = 'Texto em várias linhas';
-$_['text_file']            = 'Arquivo para upload';
+$_['text_success']         = 'Sucesso: Você modificou os campos personalizados!';
+$_['text_list']            = 'Lista de Campos Personalizados';
+$_['text_add']             = 'Adicionar Campo Personalizado';
+$_['text_edit']            = 'Editar Campo Personalizado';
+$_['text_choose']          = 'Escolher';
+$_['text_select']          = 'Selecionar';
+$_['text_radio']           = 'Rádio';
+$_['text_checkbox']        = 'Caixa de Seleção';
+$_['text_input']           = 'Entrada';
+$_['text_text']            = 'Texto';
+$_['text_textarea']        = 'Área de Texto';
+$_['text_file']            = 'Arquivo';
 $_['text_date']            = 'Data';
-$_['text_datetime']        = 'Data e hora';
+$_['text_datetime']        = 'Data e Hora';
 $_['text_time']            = 'Hora';
-$_['text_account']         = 'Dados do cliente';
-$_['text_address']         = 'Endereço do cliente';
-$_['text_affiliate']       = 'Dados do afiliado';
-$_['text_regex']           = 'Validação por regex';
-$_['text_custom_field']    = 'Detalhes';
-$_['text_value']           = 'Valores';
+$_['text_account']         = 'Conta';
+$_['text_address']         = 'Endereço';
+$_['text_affiliate']       = 'Afiliado';
+$_['text_regex']           = 'Regex';
+$_['text_custom_field']    = 'Campo Personalizado';
+$_['text_value']           = 'Valores de Campos Personalizados';
 
 // Column
-$_['column_name']          = 'Nome do Campo';
-$_['column_location']      = 'Localização do campo';
-$_['column_type']          = 'Tipo de campo';
-$_['column_sort_order']    = 'Posição';
+$_['column_name']          = 'Nome do Campo Personalizado';
+$_['column_location']      = 'Localização';
+$_['column_type']          = 'Tipo';
+$_['column_status']        = 'Status';
+$_['column_sort_order']    = 'Ordem de Classificação';
 $_['column_action']        = 'Ação';
 
 // Entry
-$_['entry_name']           = 'Nome do campo';
-$_['entry_location']       = 'Localização do campo';
-$_['entry_type']           = 'Tipo de campo';
-$_['entry_value']          = 'Valor padrão';
-$_['entry_validation']     = 'Validação regex';
-$_['entry_custom_value']   = 'Texto da opção';
-$_['entry_customer_group'] = 'Exibir para';
-$_['entry_required']       = 'Obrigatório para';
-$_['entry_status']         = 'Situação';
-$_['entry_sort_order']     = 'Posição';
+$_['entry_name']           = 'Nome do Campo Personalizado';
+$_['entry_location']       = 'Localização';
+$_['entry_type']           = 'Tipo';
+$_['entry_value']          = 'Valor';
+$_['entry_validation']     = 'Validação';
+$_['entry_custom_value']   = 'Nome do Valor do Campo Personalizado';
+$_['entry_customer_group'] = 'Grupo de Clientes';
+$_['entry_required']       = 'Obrigatório';
+$_['entry_status']         = 'Status';
+$_['entry_sort_order']     = 'Ordem de Classificação';
 
 // Help
-$_['help_regex']           = 'Exemplo de regex: /[a-zA-Z0-9_-]/';
-$_['help_sort_order']      = 'Posição do campo no cadastro. Use o sinal de menos para contar para trás a partir do último campo no conjunto';
+$_['help_regex']           = 'Use regex. Ex: /[^a-zA-Z0-9_-]/';
+$_['help_sort_order']      = 'Use menos para contar para trás a partir do último campo do conjunto.';
 
 // Error
-$_['error_permission']     = 'Atenção: Você não tem permissão para personalizar o cadastro!';
-$_['error_name']           = 'O nome do campo deve ter entre 1 e 128 caracteres!';
-$_['error_type']           = 'É necessário adicionar opções!';
-$_['error_custom_value']   = 'O texto da opção deve ter entre 1 e 128 caracteres!';
+$_['error_permission']     = 'Aviso: Você não tem permissão para modificar campos personalizados!';
+$_['error_name']           = 'O nome do campo personalizado deve ter entre 1 e 128 caracteres!';
+$_['error_type']           = 'Aviso: Valores de campos personalizados são obrigatórios!';
+$_['error_custom_value']   = 'O nome do valor personalizado deve ter entre 1 e 128 caracteres!';

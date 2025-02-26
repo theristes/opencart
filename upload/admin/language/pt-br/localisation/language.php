@@ -17,6 +17,7 @@ $_['column_action']     = 'Ação';
 // Entry
 $_['entry_name']        = 'Idioma';
 $_['entry_code']        = 'Código';
+$_['entry_extension']   = 'Extensão';
 $_['entry_locale']      = 'Localidade';
 $_['entry_status']      = 'Situação';
 $_['entry_sort_order']  = 'Posição';

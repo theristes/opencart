@@ -7,6 +7,7 @@ $_['text_success']           = 'Estado modificado com sucesso!';
 $_['text_list']              = 'Listando estados';
 $_['text_add']               = 'Novo estado';
 $_['text_edit']              = 'Editando estado';
+$_['text_filter']            = 'Filtro';
 
 // Column
 $_['column_name']            = 'Estado';
