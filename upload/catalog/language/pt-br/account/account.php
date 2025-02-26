@@ -1,27 +1,26 @@
 <?php
 // Heading
-$_['heading_title']         = 'Minha conta';
+$_['heading_title']       = 'Minha Conta';
 
 // Text
-$_['text_account']          = 'Minha conta';
-$_['text_my_account']       = 'Minha conta';
-$_['text_my_orders']        = 'Meus pedidos';
-$_['text_my_affiliate']     = 'Dados de afiliado';
-$_['text_my_newsletter']    = 'Meu informativo';
-$_['text_edit']             = 'Informações da conta';
-$_['text_password']         = 'Modificar senha';
-$_['text_address']          = 'Endereços';
-$_['text_credit_card']      = 'Cartões de crédito';
-$_['text_wishlist']         = 'Lista de desejos';
-$_['text_account_wishlist'] = 'Modificar sua lista de desejos';
-$_['text_order']            = 'Histórico de pedidos';
-$_['text_download']         = 'Downloads';
-$_['text_reward']           = 'Pontos';
-$_['text_return']           = 'Devoluções';
-$_['text_transaction']      = 'Transações';
-$_['text_newsletter']       = 'Novidades, ofertas e promoções por e-mail';
-$_['text_recurring']        = 'Assinaturas';
-$_['text_transactions']     = 'Transações';
-$_['text_affiliate_add']    = 'Registre-se sua conta de afiliado';
-$_['text_affiliate_edit']   = 'Editar suas informações de afiliado';
-$_['text_tracking']         = 'Código de rastreamento personalizado';
+$_['text_account']        = 'Conta';
+$_['text_my_account']     = 'Minha Conta';
+$_['text_my_orders']      = 'Meus Pedidos';
+$_['text_my_affiliate']   = 'Minha Conta de Afiliado';
+$_['text_my_newsletter']  = 'Newsletter';
+$_['text_edit']           = 'Editar as informações da sua conta';
+$_['text_password']       = 'Alterar sua senha';
+$_['text_address']        = 'Modificar as entradas do seu catálogo de endereços';
+$_['text_payment_method'] = 'Métodos de pagamento armazenados';
+$_['text_wishlist']       = 'Modificar sua lista de desejos';
+$_['text_order']          = 'Visualizar seu histórico de pedidos';
+$_['text_subscription']   = 'Assinaturas';
+$_['text_download']       = 'Downloads';
+$_['text_reward']         = 'Seus Pontos de Recompensa';
+$_['text_return']         = 'Visualizar suas solicitações de devolução';
+$_['text_transaction']    = 'Suas Transações';
+$_['text_newsletter']     = 'Inscrever / cancelar inscrição na newsletter';
+$_['text_transactions']   = 'Transações';
+$_['text_affiliate_add']  = 'Registrar-se para uma conta de afiliado';
+$_['text_affiliate_edit'] = 'Editar suas informações de afiliado';
+$_['text_tracking']       = 'Código de Rastreamento de Afiliado Personalizado';

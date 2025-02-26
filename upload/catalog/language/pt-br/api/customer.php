@@ -1,12 +1,13 @@
 <?php
 // Text
-$_['text_success']       = 'O cliente foi modificado com sucesso.';
+$_['text_success']         = 'Você modificou os clientes com sucesso';
 
 // Error
-$_['error_permission']   = 'Atenção: Você não tem permissão para acessar a API.';
-$_['error_customer']     = 'Você deve selecionar um cliente.';
-$_['error_firstname']    = 'O nome deve ter entre 1 e 32 caracteres.';
-$_['error_lastname']     = 'O sobrenome deve entre 1 e 32 caracteres.';
-$_['error_email']        = 'O e-mail não é válido.';
-$_['error_telephone']    = 'O telefone deve ter entre 10 e 11 caracteres.';
-$_['error_custom_field'] = 'O campo %s é obrigatório.';
+$_['error_customer']       = 'Aviso: Cliente não pôde ser encontrado!';
+$_['error_customer_group'] = 'O grupo de clientes não parece ser válido!';
+$_['error_firstname']      = 'O nome deve ter entre 1 e 32 caracteres!';
+$_['error_lastname']       = 'O sobrenome deve ter entre 1 e 32 caracteres!';
+$_['error_email']          = 'O endereço de e-mail não parece ser válido!';
+$_['error_telephone']      = 'O telefone deve ter entre 3 e 32 caracteres!';
+$_['error_custom_field']   = '%s obrigatório!';
+$_['error_regex']          = '%s não é uma entrada válida!';
