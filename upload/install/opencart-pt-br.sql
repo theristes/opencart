@@ -1285,7 +1285,7 @@ VALUES (1, 0),
 --
 
 INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `sort_order`, `status`)
-VALUES (1, 'English', 'en-gb', 'en-gb,en', 1, 1);
+VALUES (1, 'Portugues', 'pt-br', 'pt-br,pt', 1, 1);
 
 -----------------------------------------------------------
 
