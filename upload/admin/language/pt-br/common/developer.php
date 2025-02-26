@@ -3,10 +3,15 @@
 $_['heading_title']    = 'Configurações para desenvolvedor';
 
 // Text
-$_['text_success']     = 'As configurações para desenvolvedor foram atualizadas!';
-$_['text_theme']       = 'Tema';
-$_['text_sass']        = 'SASS';
-$_['text_cache']       = 'O cache do %s foi atualizado!';
+$_['text_developer_success'] = 'Sucesso: Você modificou as configurações de desenvolvedor!';
+$_['text_cache_success']     = 'Sucesso: Você limpou o cache!';
+$_['text_theme_success']     = 'Sucesso: Você limpou o cache do tema!';
+$_['text_sass_success']      = 'Sucesso: Você limpou o cache SASS!';
+$_['text_vendor_success']    = 'Sucesso: Você limpou o cache do fornecedor!';
+$_['text_theme']             = 'Tema';
+$_['text_sass']              = 'SASS';
+$_['text_cache']             = 'Cache';
+$_['text_vendor']            = 'Fornecedor';
 
 // Column
 $_['column_component'] = 'Componente';

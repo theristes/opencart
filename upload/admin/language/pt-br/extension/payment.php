@@ -3,15 +3,16 @@
 $_['heading_title']     = 'Pagamentos';
 
 // Text
-$_['text_success']      = 'Pagamento modificado com sucesso!';
-$_['text_list']         = 'Listando pagamentos';
-$_['text_recommended']  = 'Soluções recomendadas';
+$_['text_success']      = 'Sucesso: Você modificou os pagamentos!';
+$_['text_list']         = 'Lista de Pagamentos';
 
 // Column
-$_['column_name']       = 'Pagamento';
-$_['column_status']     = 'Situação';
-$_['column_sort_order'] = 'Posição';
+$_['column_name']       = 'Método de Pagamento';
+$_['column_vendor']     = 'Fornecedor';
+$_['column_status']     = 'Status';
+$_['column_sort_order'] = 'Ordem de Classificação';
 $_['column_action']     = 'Ação';
 
 // Error
-$_['error_permission'] = 'Atenção: Você não tem permissão para modificar as extensões do tipo pagamento!';
+$_['error_permission']  = 'Aviso: Você não tem permissão para modificar pagamentos!';
+$_['error_extension']   = 'Aviso: A extensão não existe!';

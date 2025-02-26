@@ -1,11 +1,13 @@
 <?php
 // Heading
-$_['heading_title']    = 'Log de erros';
+$_['heading_title']    = 'Log de Erros';
 
 // Text
-$_['text_success']     = 'Seu log de erros foi completamente apagado!';
-$_['text_list']        = 'Listando erros';
+$_['text_success']     = 'Sucesso: Você limpou o log de erros com sucesso!';
+$_['text_list']        = 'Lista de Erros';
 
 // Error
-$_['error_warning']    = 'Atenção: O arquivo %s possui o tamanho de %s!';
-$_['error_permission'] = 'Atenção: Você não tem permissão para limpar o log de ​erros!';
+$_['error_permission'] = 'Aviso: Você não tem permissão para limpar o log de erros!';
+$_['error_file']       = 'Aviso: O arquivo %s não pôde ser encontrado!';
+$_['error_size']       = 'Aviso: O arquivo de log de erros %s está %s!';
+$_['error_empty']      = 'Aviso: O arquivo de log %s está vazio!';
