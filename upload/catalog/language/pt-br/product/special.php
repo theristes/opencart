@@ -3,7 +3,7 @@
 $_['heading_title']     = 'Produtos em promoção';
 
 // Text
-$_['text_empty']        = 'Não há produtos em promoção.';
+$_['text_no_results']        = 'Não há produtos em promoção.';
 $_['text_quantity']     = 'Qtd:';
 $_['text_manufacturer'] = 'Marca:';
 $_['text_model']        = 'Modelo:';

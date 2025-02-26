@@ -1,0 +1,33 @@
+<?php
+// Text
+$_['text_subject']               = '%s - Assinatura %s';
+$_['text_greeting']              = 'Obrigado pelo seu interesse no produto %s. Sua solicitação de assinatura foi recebida e será processada assim que o pagamento for confirmado.';
+$_['text_link']                  = 'Para visualizar sua assinatura, clique no link abaixo:';
+$_['text_promotion']             = 'Sucesso: Um recurso promocional foi adicionado com sucesso a esta assinatura!';
+$_['text_subscription_duration'] = '%s a cada %d %s(s) por %d pagamento(s)';
+$_['text_subscription_cancel']   = '%s a cada %d %s(s) até ser cancelado';
+$_['text_subscription_detail']   = 'Detalhes da Assinatura';
+$_['text_instruction']           = 'Instruções';
+$_['text_orders_id']             = 'ID do Pedido:';
+$_['text_date_added']            = 'Data de Adição:';
+$_['text_order_status']          = 'Status do Pedido:';
+$_['text_payment_method']        = 'Método de Pagamento:';
+$_['text_payment_address']       = 'Endereço de Pagamento';
+$_['text_email']                 = 'E-mail:';
+$_['text_telephone']             = 'Telefone:';
+$_['text_ip']                    = 'Endereço IP:';
+$_['text_products']              = 'Produtos';
+$_['text_product']               = 'Produto';
+$_['text_model']                 = 'Modelo';
+$_['text_quantity']              = 'Quantidade';
+$_['text_price']                 = 'Preço';
+$_['text_order_total']           = 'Totais do Pedido';
+$_['text_total']                 = 'Total';
+$_['text_comment']               = 'Os comentários para sua assinatura são:';
+$_['text_description']           = 'Descrição';
+$_['text_day']                   = 'dia';
+$_['text_week']                  = 'semana';
+$_['text_semi_month']            = 'quinzena';
+$_['text_month']                 = 'mês';
+$_['text_year']                  = 'ano';
+$_['text_footer']                = 'Por favor, responda a este e-mail se você tiver alguma dúvida.';

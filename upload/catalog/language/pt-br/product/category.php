@@ -22,3 +22,5 @@ $_['text_rating_desc']  = 'Avaliação (maior)';
 $_['text_model_asc']    = 'Modelo (A - Z)';
 $_['text_model_desc']   = 'Modelo (Z - A)';
 $_['text_limit']        = 'Exibir:';
+
+$_['text_no_results']  = 'Não há produtos para listar nesta categoria.';

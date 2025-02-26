@@ -1,35 +1,38 @@
 <?php
 // Heading
-$_['heading_title']             = 'Informações da conta';
+$_['heading_title']             = 'Suas Informações de Afiliado';
 
 // Text
-$_['text_account']              = 'Programa de afiliados';
+$_['text_account']              = 'Conta';
 $_['text_affiliate']            = 'Afiliado';
-$_['text_my_affiliate']         = 'Minha conta de afiliado';
-$_['text_payment']              = 'Informações financeiras';
+$_['text_my_affiliate']         = 'Minha Conta de Afiliado';
+$_['text_payment']              = 'Informações de Pagamento';
 $_['text_cheque']               = 'Cheque';
 $_['text_paypal']               = 'PayPal';
-$_['text_bank']                 = 'Transferência bancária';
-$_['text_success']              = 'As informações da sua conta foram modificadas.';
-$_['text_agree']                = 'Você precisa aceitar o contrato de <a href="%s" class="agree"><b>%s</b></a>';
+$_['text_bank']                 = 'Transferência Bancária';
+$_['text_success']              = 'Sucesso: Sua conta de afiliado foi atualizada com sucesso.';
+$_['text_agree']                = 'Eu li e concordo com os <a href="%s" class="modal-link"><b>%s</b></a>';
 
 // Entry
-$_['entry_company']             = 'Referência';
-$_['entry_website']             = 'Site';
-$_['entry_tax']                 = 'CPF';
-$_['entry_payment']             = 'Receber por';
-$_['entry_cheque']              = 'Beneficiário';
-$_['entry_paypal']              = 'E-mail no payPal';
-$_['entry_bank_name']           = 'Banco';
-$_['entry_bank_branch_number']  = 'Agência';
-$_['entry_bank_swift_code']     = 'Código do banco';
-$_['entry_bank_account_name']   = 'Titular da conta';
-$_['entry_bank_account_number'] = 'Conta corrente';
+$_['entry_company']             = 'Empresa';
+$_['entry_website']             = 'Website';
+$_['entry_tax']                 = 'ID Fiscal';
+$_['entry_payment_method']      = 'Método de Pagamento';
+$_['entry_cheque']              = 'Nome do Beneficiário do Cheque';
+$_['entry_paypal']              = 'Conta de E-mail do PayPal';
+$_['entry_bank_name']           = 'Nome do Banco';
+$_['entry_bank_branch_number']  = 'Número ABA/BSB (Número da Agência)';
+$_['entry_bank_swift_code']     = 'Código SWIFT';
+$_['entry_bank_account_name']   = 'Nome da Conta';
+$_['entry_bank_account_number'] = 'Número da Conta';
 
 // Error
-$_['error_agree']               = 'Atenção: Você precisa aceitar o contrato de %s.';
-$_['error_cheque']              = 'O beneficiário é obrigatório.';
-$_['error_paypal']              = 'O e-mail no PayPal não é válido.';
-$_['error_bank_account_name']   = 'O titular da conta é obrigatório.';
-$_['error_bank_account_number'] = 'A conta corrente é obrigatória.';
-$_['error_custom_field']        = 'O campo %s é obrigatório.';
+$_['error_token']               = 'Aviso: Token de afiliado inválido!';
+$_['error_agree']               = 'Aviso: Você deve concordar com os %s!';
+$_['error_payment_method']      = 'Método de pagamento obrigatório!';
+$_['error_cheque']              = 'Nome do beneficiário do cheque obrigatório!';
+$_['error_paypal']              = 'O endereço de e-mail do PayPal não parece ser válido!';
+$_['error_bank_account_name']   = 'Nome da conta obrigatório!';
+$_['error_bank_account_number'] = 'Número da conta obrigatório!';
+$_['error_custom_field']        = '%s obrigatório!';
+$_['error_regex']               = '%s não é uma entrada válida!';
