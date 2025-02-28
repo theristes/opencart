@@ -1239,16 +1239,6 @@ VALUES (1, 'opencart'),
 -----------------------------------------------------------
 
 --
--- Dumping data for table `oc_geo_zone`
---
-
-INSERT INTO `oc_geo_zone` (`geo_zone_id`, `name`, `description`)
-VALUES (3, 'UK VAT Zone', 'UK VAT'),
-       (4, 'UK Shipping', 'UK Shipping Zones');
-
------------------------------------------------------------
-
---
 -- Dumping data for table `oc_information`
 --
 
@@ -2256,26 +2246,6 @@ VALUES (1, 1, 'Pendente'),
 INSERT INTO `oc_tax_class` (`tax_class_id`, `title`, `description`)
 VALUES (9, 'Taxable Goods', 'Taxed goods'),
        (10, 'Downloadable Products', 'Downloadable');
-
------------------------------------------------------------
-
---
--- Dumping data for table `oc_tax_rate`
---
-
-INSERT INTO `oc_tax_rate` (`tax_rate_id`, `geo_zone_id`, `name`, `rate`, `type`)
-VALUES (86, 3, 'VAT (20%)', '20.0000', 'P'),
-       (87, 3, 'Eco Tax (-2.00)', '2.0000', 'F');
-
------------------------------------------------------------
-
---
--- Dumping data for table `oc_tax_rate_to_customer_group`
---
-
-INSERT INTO `oc_tax_rate_to_customer_group` (`tax_rate_id`, `customer_group_id`)
-VALUES (86, 1),
-       (87, 1);
 
 -----------------------------------------------------------
 
