@@ -498,9 +498,14 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 
 		fclose($file);
 		
-		$outup ='$option['http_server'];$option['http_server']admin/';
+		$output = [
+			    "status" => "success",
+			    "adminURL" => $option['http_server'] . 'admin/',
+			    "storeURL" => $option['http_server']
+			];
 
-		return $output;
+
+		return json_encode($output);
 	}
 
 	/**
