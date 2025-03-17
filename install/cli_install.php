@@ -497,11 +497,8 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 		fwrite($file, $output);
 
 		fclose($file);
-
-		// Return success message
-		$output  = 'SUCCESS! OpenCart successfully installed on your server' . "\n";
-		$output .= 'Store link: ' . $option['http_server'] . "\n";
-		$output .= 'Admin link: ' . $option['http_server'] . 'admin/' . "\n\n";
+		
+		$outup ='$option['http_server'];$option['http_server']admin/';
 
 		return $output;
 	}
