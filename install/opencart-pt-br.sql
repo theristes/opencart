@@ -158,27 +158,24 @@ VALUES (25, '', 0, 1, 3, 1, '2009-01-31 01:04:25', '2011-05-30 12:14:55'),
 
 --
 -- Dumping data for table `oc_category_description`
---
-
-INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keyword`)
-VALUES (28, 1, 'Monitores', '', 'Monitores', '', ''),
-       (33, 1, 'Câmeras', '', 'Câmeras', '', ''),
-       (32, 1, 'Webcams', '', 'Webcams', '', ''),
-       (31, 1, 'Scanners', '', 'Scanners', '', ''),
-       (30, 1, 'Impressoras', '', 'Impressoras', '', ''),
-       (29, 1, 'Mouses e Trackballs', '', 'Mouses e Trackballs', '', ''),
-       (27, 1, 'Mac', '', 'Mac', '', ''),
-       (26, 1, 'PC', '', 'PC', '', ''),
-       (17, 1, 'Software', '', 'Software', '', ''),
-       (25, 1, 'Componentes', '', 'Componentes', '', ''),
-       (24, 1, 'Telefones e PDAs', '', 'Telefones e PDAs', '', ''),
-       (20, 1, 'Desktops', '&lt;p&gt;\r\n       Exemplo de texto de descrição de categoria&lt;/p&gt;\r\n', 'Desktops', 'Exemplo de descrição de categoria', ''),
-       (34, 1, 'Reprodutores de MP3', '&lt;p&gt;\r\n    A Shop Laptop apresenta apenas as melhores ofertas de portáteis do mercado. Ao comparar ofertas de portáteis de lojas como PC World, Comet, Dixons, The Link e Carphone Warehouse, a Shop Laptop tem a seleção mais abrangente de portáteis na internet. Na Shop Laptop, orgulhamo-nos de oferecer aos clientes as melhores ofertas de portáteis. De portáteis recondicionados a netbooks, a Shop Laptop garante que todos os portáteis - em todas as cores, estilos, tamanhos e especificações técnicas - sejam apresentados no site ao preço mais baixo possível.&lt;/p&gt;\r\n', 'Reprodutores de MP3', '', ''),
-       (18, 1, 'Portáteis', '&lt;p&gt;\r\n        A Shop Laptop apresenta apenas as melhores ofertas de portáteis do mercado. Ao comparar ofertas de portáteis de lojas como PC World, Comet, Dixons, The Link e Carphone Warehouse, a Shop Laptop tem a seleção mais abrangente de portáteis na internet. Na Shop Laptop, orgulhamo-nos de oferecer aos clientes as melhores ofertas de portáteis. De portáteis recondicionados a netbooks, a Shop Laptop garante que todos os portáteis - em todas as cores, estilos, tamanhos e especificações técnicas - sejam apresentados no site ao preço mais baixo possível.&lt;/p&gt;\r\n', 'Portáteis', '', ''),
-       (45, 1, 'Windows', '', 'Windows', '', ''),
-       (46, 1, 'Macs', '', 'Macs', '', ''),
-       (57, 1, 'Tablets', '', 'Tablets', '', '');
-
+--INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keyword`)
+VALUES (28, 1, 'Cuidados com a Visão', '', 'Cuidados com a Visão', '', ''),
+       (33, 1, 'Maternidade e Bebês', '', 'Maternidade e Bebês', '', ''),
+       (32, 1, 'Autocuidados', '', 'Autocuidados', '', ''),
+       (31, 1, 'Primeiros Socorros', '', 'Primeiros Socorros', '', ''),
+       (30, 1, 'Higiene Bucal', '', 'Higiene Bucal', '', ''),
+       (29, 1, 'Bem-estar e Relaxamento', '', 'Bem-estar e Relaxamento', '', ''),
+       (27, 1, 'Medicina Natural', '', 'Medicina Natural', '', ''),
+       (26, 1, 'Medicamentos', '', 'Medicamentos', '', ''),
+       (17, 1, 'Higiene Pessoal', '', 'Higiene Pessoal', '', ''),
+       (25, 1, 'Primeiros Socorros', '', 'Primeiros Socorros', '', ''),
+       (24, 1, 'Saúde Sexual', '', 'Saúde Sexual', '', ''),
+       (20, 1, 'Vitaminas e Suplementos', '&lt;p&gt;\r\n       Suplementos para sua saúde e bem-estar.&lt;/p&gt;\r\n', 'Vitaminas e Suplementos', 'Suplementos e vitaminas para um estilo de vida saudável.', ''),
+       (34, 1, 'Bem-estar e Relaxamento', '&lt;p&gt;\r\n    Produtos para relaxamento e qualidade de vida, como chás, óleos essenciais e aromaterapia.&lt;/p&gt;\r\n', 'Bem-estar e Relaxamento', '', ''),
+       (18, 1, 'Vitaminas e Suplementos', '&lt;p&gt;\r\n        Suplementos e vitaminas para fortalecer sua saúde e imunidade.&lt;/p&gt;\r\n', 'Vitaminas e Suplementos', '', ''),
+       (45, 1, 'Cuidados com a Pele', '', 'Cuidados com a Pele', '', ''),
+       (46, 1, 'Dermocosméticos', '', 'Dermocosméticos', '', ''),
+       (57, 1, 'Cuidados Femininos', '', 'Cuidados Femininos', '', '');
 -----------------------------------------------------------
 
 --
