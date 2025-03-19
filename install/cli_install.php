@@ -1,32 +1,4 @@
 <?php
-// Command line tool for installing opencart
-// Original Author: Vineet Naik <vineet.naik@kodeplay.com> <naikvin@gmail.com>
-// Updated and maintained by OpenCart
-// (Currently tested on linux only)
-//
-// Usage:
-//
-//   php cli_install.php install --username    admin
-//                               --email       email@example.com
-//                               --password    password
-//                               --http_server http://localhost/opencart/
-//                               --language    en-gb
-//                               --db_driver   mysqli
-//                               --db_hostname localhost
-//                               --db_username root
-//                               --db_password pass
-//                               --db_database opencart
-//								 --db_port     3306
-//                               --db_prefix   oc_
-//
-//                               --db_ssl_key
-//                               --db_ssl_cert
-//                               --db_ssl_ca
-//
-// Example:
-//
-// php c://xampp/htdocs/opencart-master/upload/install/cli_install.php install --username admin --password --email email@example.com --http_server http://localhost/opencart-master/upload/ --language en-gb --db_driver mysqli --db_hostname localhost --db_username root --db_database opencart-master --db_port 3306 --db_prefix oc_
-//
 
 namespace Install;
 
@@ -81,19 +53,13 @@ $response->addHeader('Content-Type: text/plain; charset=utf-8');
 $registry->set('response', $response);
 
 set_error_handler(function(int $code, string $message, string $file, int $line) {
-	// error was suppressed with the @-operator
 	if (error_reporting() === 0) {
 		return false;
 	}
-
 	throw new \ErrorException($message, 0, $code, $file, $line);
 });
 
-/**
- * Class CliInstall
- *
- * @package Opencart\Install
- */
+
 class CliInstall extends \Opencart\System\Engine\Controller {
 	/**
 	 * Index
@@ -107,10 +73,7 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			$argv = [];
 		}
 
-		// Just displays the path to the file
 		$script = array_shift($argv);
-
-		// Get the arguments passed with the command
 		$command = array_shift($argv);
 
 		switch ($command) {
