@@ -7158,7 +7158,7 @@ SELECT 100, 0;
 
 
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-(101, 'product 20', 'test 1', '', '', '', '', '', 'test 2', '', '', 995, 5, 'catalog/demo/ipod_classic_1.jpg', 8, 1, '100.0000', 0, 9, '2009-02-08', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 2, 1, 1, 0, 1, '2009-02-08 17:21:51', '2011-09-30 01:07:06');
+VALUES (101, 'product 20', 'test 1', '', '', '', '', '', 'test 2', '', '', 995, 5, 'catalog/demo/ipod_classic_1.jpg', 8, 1, '100.0000', 0, 9, '2009-02-08', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 2, 1, 1, 0, 1, '2009-02-08 17:21:51', '2011-09-30 01:07:06');
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 101, 1, 'Sabonete Líquido Nivea Creme Care 250ml', 'Sabonete líquido Nivea Creme Care, frasco de 250ml.', '', 'Sabonete Líquido Nivea Creme Care 250ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
