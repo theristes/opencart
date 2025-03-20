@@ -6297,15 +6297,6 @@ INSERT INTO oc_category_description (category_id, language_id, name, description
 VALUES (7, 1, 'Produtos para Lentes de Contato', 'Produtos para Lentes de Contato category description', 'Produtos para Lentes de Contato', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (7, 0);
 
--- Insert product 'Solução Similar Renu Plus 8ml'
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (21, '310119052136', '310119052136', '', '310119052136', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/310119052136.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
-SELECT 21, 1, 'Solução Similar Renu Plus 8ml', 'Solução similar Renu Plus para lentes de contato, frasco de 8ml.', '', 'Solução Similar Renu Plus 8ml', '', '';
-INSERT INTO oc_product_to_category (product_id, category_id)
-SELECT 21, 7;
-INSERT INTO oc_product_to_store (product_id, store_id)
-SELECT 21, 0;
 
 -- Insert product 'Solução Multiação Boston Simplus'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
@@ -6812,6 +6803,19 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 VALUES (65, 0);
 
 
+
+-- Insert product 'Solução Similar Renu Plus 8ml'
+INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
+VALUES (66, '310119052136', '310119052136', '', '310119052136', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/310119052136.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
+SELECT 66, 1, 'Solução Similar Renu Plus 8ml', 'Solução similar Renu Plus para lentes de contato, frasco de 8ml.', '', 'Solução Similar Renu Plus 8ml', '', '';
+INSERT INTO oc_product_to_category (product_id, category_id)
+SELECT 66, 7;
+INSERT INTO oc_product_to_store (product_id, store_id)
+SELECT 66, 0;
+
+
+
 -- Insert product 'Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
 VALUES (67, '4005808552481', '4005808552481', '', '4005808552481', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808552481.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
@@ -6880,7 +6884,7 @@ SELECT 73, 1, 'Desodorante Aerossol Nivea Clear Skin 150ml', 'Desodorante aeross
 INSERT INTO oc_product_to_category (product_id, category_id)
 SELECT 73, 16;
 INSERT INTO oc_product_to_store (product_id, store_id)
-SELECT 73), 0;
+SELECT 73, 0;
 
 -- Insert product 'Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
@@ -6946,11 +6950,20 @@ SELECT 79, 0;
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
 VALUES (80, '4005808806423', '4005808806423', '', '4005808806423', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808806423.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
-SELECT 81, 1, 'Sabonete Nivea Aveia 90g', 'Sabonete Nivea Aveia, barra de 90g.', '', 'Sabonete Nivea Aveia 90g', '', '';
+SELECT 80, 1, 'Sabonete Nivea Aveia 90g', 'Sabonete Nivea Aveia, barra de 90g.', '', 'Sabonete Nivea Aveia 90g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
-SELECT 81, 16;
+SELECT 80, 16;
 INSERT INTO oc_product_to_store (product_id, store_id)
-SELECT 81, 0;
+SELECT 80, 0;
+
+
+--81?
+--81?
+--81?
+--81?
+--81?
+--81?
+
 
 -- Insert product 'Sabonete Nivea Leite 90g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
