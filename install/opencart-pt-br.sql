@@ -3366,6 +3366,7 @@ VALUES (1, 1, 'Badakhshan', 'BDS', 1),
        (1554, 101, 'Kohkiluyeh and Buyer Ahmad', 'KBA', 1),
        (1555, 101, 'Bushehr', 'BSH', 1),
        (1556, 101, 'Fars', 'FAR', 1);
+
 INSERT INTO `oc_zone` (`zone_id`, `country_id`, `name`, `code`, `status`)
 VALUES (1557, 101, 'Hormozgan', 'HRM', 1),
        (1558, 101, 'Sistan and Baluchistan', 'SBL', 1),
@@ -4765,6 +4766,7 @@ VALUES (1557, 101, 'Hormozgan', 'HRM', 1),
        (3090, 203, 'Värmland', 'S', 1),
        (3091, 203, 'Västerbotten', 'AC', 1),
        (3092, 203, 'Västernorrland', 'Y', 1);
+
 INSERT INTO `oc_zone` (`zone_id`, `country_id`, `name`, `code`, `status`)
 VALUES (3093, 203, 'Västmanland', 'U', 1),
        (3094, 203, 'Västra Götaland', 'O', 1),
@@ -6051,7 +6053,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (1, 0);
 
 -- Insert product 'Gel para Barba e Bigode Castanho'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (1, '11509031310', '11509031310', '', '11509031310', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/11509031310.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (1, '11509031310', '11509031310', '', '11509031310', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/11509031310.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 1, 1, 'Gel para Barba e Bigode Castanho', 'Gel para barba e bigode Grecin 5, 28g, tonalidade castanha.', '', 'Gel para Barba e Bigode Castanho', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id) VALUES (1, 1);
@@ -6059,7 +6061,7 @@ INSERT INTO oc_product_to_store (product_id, store_id) VALUES (1, 0);
 
 -- Insert product 'Gel para Barba e Bigode Preto'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (2, '11509031334', '11509031334', '', '11509031334', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/11509031334.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (2, '11509031334', '11509031334', '', '11509031334', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/11509031334.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 2, 1, 'Gel para Barba e Bigode Preto', 'Gel para barba e bigode Grecin 5, 28g, tonalidade preta.', '', 'Gel para Barba e Bigode Preto', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id) VALUES (2, 1);
@@ -6074,7 +6076,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (2, 0);
 
 -- Insert product 'Unhas Mini Length'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (3, '12742012784', '12742012784', '', '12742012784', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/12742012784.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (3, '12742012784', '12742012784', '', '12742012784', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/12742012784.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 3, 1, 'Unhas Mini Length', 'Kit de unhas postiças mini length, 20 unidades.', '', 'Unhas Mini Length', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6091,7 +6093,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (3, 0);
 
 -- Insert product 'Absorvente Interno Tampax Regular'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (4, '20800600323', '20800600323', '', '20800600323', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/20800600323.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (4, '20800600323', '20800600323', '', '20800600323', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/20800600323.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 4, 1, 'Absorvente Interno Tampax Regular', 'Absorvente interno Tampax, 10 unidades, tamanho regular.', '', 'Absorvente Interno Tampax Regular', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6101,7 +6103,7 @@ SELECT 4, 0;
 
 -- Insert product 'Absorvente Interno Tampax Super com Aplicador'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (5, '20800600330', '20800600330', '', '20800600330', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/20800600330.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (5, '20800600330', '20800600330', '', '20800600330', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/20800600330.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 5, 1, 'Absorvente Interno Tampax Super com Aplicador', 'Absorvente interno Tampax Super, com aplicador, 10 unidades.', '', 'Absorvente Interno Tampax Super com Aplicador', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6111,7 +6113,7 @@ SELECT 5, 0;
 
 -- Insert product 'Absorvente Interno Tampax Super Plus'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (6, '20800600347', '20800600347', '', '20800600347', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/20800600347.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (6, '20800600347', '20800600347', '', '20800600347', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/20800600347.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 6, 1, 'Absorvente Interno Tampax Super Plus', 'Absorvente interno Tampax Super Plus, 10 unidades.', '', 'Absorvente Interno Tampax Super Plus', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6128,7 +6130,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (4, 0);
 
 -- Insert product 'Metamucil Laranja'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (7, '20800750158', '20800750158', '', '20800750158', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/20800750158.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (7, '20800750158', '20800750158', '', '20800750158', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/20800750158.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 7, 1, 'Metamucil Laranja', 'Suplemento alimentar Metamucil, sabor laranja, para auxiliar na digestão.', '', 'Metamucil Laranja', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6138,7 +6140,7 @@ SELECT 7, 0;
 
 -- Insert product 'Metamucil Laranja 10 Sachês'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (8, '20800750165', '20800750165', '', '20800750165', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/20800750165.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (8, '20800750165', '20800750165', '', '20800750165', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/20800750165.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 8, 1, 'Metamucil Laranja 10 Sachês', 'Suplemento alimentar Metamucil, sabor laranja, em sachês, 10 unidades.', '', 'Metamucil Laranja 10 Sachês', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6155,7 +6157,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (5, 0);
 
 -- Insert product 'Escova Dental Oral-B 3D White Luxe Pro Flex'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (9, '3014260010669', '3014260010669', '', '3014260010669', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260010669.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (9, '3014260010669', '3014260010669', '', '3014260010669', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260010669.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 9, 1, 'Escova Dental Oral-B 3D White Luxe Pro Flex', 'Escova dental Oral-B 3D White Luxe Pro Flex, com tecnologia avançada para clareamento e limpeza profunda.', '', 'Escova Dental Oral-B 3D White Luxe Pro Flex', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6165,7 +6167,7 @@ SELECT 9, 0;
 
 -- Insert product 'Escova Dental Oral-B 3D White Luxe Pro Flex 2x1'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (10, '3014260010980', '3014260010980', '', '3014260010980', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260010980.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (10, '3014260010980', '3014260010980', '', '3014260010980', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260010980.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 10, 1, 'Escova Dental Oral-B 3D White Luxe Pro Flex 2x1', 'Kit com 2 escovas dentais Oral-B 3D White Luxe Pro Flex, macias, para clareamento e limpeza profunda.', '', 'Escova Dental Oral-B 3D White Luxe Pro Flex 2x1', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6175,7 +6177,7 @@ SELECT 10, 0;
 
 -- Insert product 'Escova Dental Oral-B Complete Macia'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (11, '3014260014445', '3014260014445', '', '3014260014445', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260014445.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (11, '3014260014445', '3014260014445', '', '3014260014445', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260014445.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 11, 1, 'Escova Dental Oral-B Complete Macia', 'Escova dental Oral-B Complete, macia, com design ergonômico para uma limpeza eficiente.', '', 'Escova Dental Oral-B Complete Macia', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6185,7 +6187,7 @@ SELECT 11, 0;
 
 -- Insert product 'Escova Dental Oral-B Kids Mickey'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (12, '3014260019723', '3014260019723', '', '3014260019723', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260019723.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (12, '3014260019723', '3014260019723', '', '3014260019723', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260019723.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 12, 1, 'Escova Dental Oral-B Kids Mickey', 'Escova dental Oral-B Kids, temática Mickey Mouse, macia e suave, ideal para crianças.', '', 'Escova Dental Oral-B Kids Mickey', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6195,7 +6197,7 @@ SELECT 12, 0;
 
 -- Insert product 'Carga Gillette Mach3 Turbo'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (13, '3014260275143', '3014260275143', '', '3014260275143', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260275143.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (13, '3014260275143', '3014260275143', '', '3014260275143', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260275143.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 13, 1, 'Carga Gillette Mach3 Turbo', 'Carga de lâminas Gillette Mach3 Turbo, 2 unidades, para um barbear suave e preciso.', '', 'Carga Gillette Mach3 Turbo', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6205,7 +6207,7 @@ SELECT 13, 0;
 
 -- Insert product 'Escova Dental Oral-B Infantil Stages 8'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (14, '3014260278922', '3014260278922', '', '3014260278922', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260278922.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (14, '3014260278922', '3014260278922', '', '3014260278922', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260278922.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 14, 1, 'Escova Dental Oral-B Infantil Stages 8', 'Escova dental Oral-B Infantil Stages 8, macia, projetada para crianças a partir de 8 anos.', '', 'Escova Dental Oral-B Infantil Stages 8', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6215,7 +6217,7 @@ SELECT 14, 5;
 
 -- Insert product 'Escova Dental Oral-B Infantil Stages 1'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (15, '3014260278939', '3014260278939', '', '3014260278939', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260278939.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (15, '3014260278939', '3014260278939', '', '3014260278939', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260278939.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 15, 1, 'Escova Dental Oral-B Infantil Stages 1', 'Escova dental Oral-B Infantil Stages 1, macia, projetada para crianças a partir de 1 ano.', '', 'Escova Dental Oral-B Infantil Stages 1', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6225,7 +6227,7 @@ SELECT 15, 0;
 
 -- Insert product 'Escova Dental Oral-B Infantil Stages 2'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (16, '3014260279288', '3014260279288', '', '3014260279288', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260279288.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (16, '3014260279288', '3014260279288', '', '3014260279288', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260279288.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 16, 1, 'Escova Dental Oral-B Infantil Stages 2', 'Escova dental Oral-B Infantil Stages 2, macia, projetada para crianças a partir de 2 anos.', '', 'Escova Dental Oral-B Infantil Stages 2', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6235,7 +6237,7 @@ SELECT 16, 0;
 
 -- Insert product 'Carga Gillette Sensor 3'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (17, '3014260329822', '3014260329822', '', '3014260329822', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260329822.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (17, '3014260329822', '3014260329822', '', '3014260329822', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260329822.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 17, 1, 'Carga Gillette Sensor 3', 'Carga de lâminas Gillette Sensor 3, 2 unidades, para um barbear confortável e preciso.', '', 'Carga Gillette Sensor 3', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6245,7 +6247,7 @@ SELECT 17, 0;
 
 -- Insert product 'Carga Gillette Sensor 3 com 4 Lâminas'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (18, '3014260329839', '3014260329839', '', '3014260329839', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260329839.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (18, '3014260329839', '3014260329839', '', '3014260329839', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260329839.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 18, 1, 'Carga Gillette Sensor 3 com 4 Lâminas', 'Carga de lâminas Gillette Sensor 3, com 4 unidades, para um barbear suave e eficiente.', '', 'Carga Gillette Sensor 3 com 4 Lâminas', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6255,7 +6257,7 @@ SELECT 18, 0;
 
 -- Insert product 'Escova Dental Oral-B Classic Limpeza Brilhante'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (19, '3014260807078', '3014260807078', '', '3014260807078', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260807078.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (19, '3014260807078', '3014260807078', '', '3014260807078', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260807078.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 19, 1, 'Escova Dental Oral-B Classic Limpeza Brilhante', 'Escova dental Oral-B Classic, com cerdas macias e design clássico para uma limpeza brilhante.', '', 'Escova Dental Oral-B Classic Limpeza Brilhante', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6265,7 +6267,7 @@ SELECT 19, 0;
 
 -- Insert product 'Escova Dental Oral-B Classic Limpeza 40 Média'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (20, '3014260833176', '3014260833176', '', '3014260833176', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3014260833176.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (20, '3014260833176', '3014260833176', '', '3014260833176', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3014260833176.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 20, 1, 'Escova Dental Oral-B Classic Limpeza 40 Média', 'Escova dental Oral-B Classic Limpeza 40 com cerdas médias.', '', 'Escova Dental Oral-B Classic Limpeza 40 Média', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6282,7 +6284,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (6, 0);
 
 -- Insert product 'Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (21, '3086123493131', '3086123493131', '', '3086123493131', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3086123493131.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (21, '3086123493131', '3086123493131', '', '3086123493131', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3086123493131.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 21, 1, 'Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos', 'Aparelho de barbear Bic Comfort 3 Hybrid com 6 cartuchos de reposição.', '', 'Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6300,7 +6302,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (7, 0);
 
 -- Insert product 'Solução Multiação Boston Simplus'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (22, '310119052440', '310119052440', '', '310119052440', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/310119052440.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (22, '310119052440', '310119052440', '', '310119052440', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/310119052440.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 22, 1, 'Solução Multiação Boston Simplus', 'Solução multiação Boston Simplus para lentes de contato.', '', 'Solução Multiação Boston Simplus', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6317,7 +6319,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (8, 0);
 
 -- Insert product 'Hidratante Corporal Lipikar Baume AP+ La Roche-Posay'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (23, '3337872418587', '3337872418587', '', '3337872418587', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3337872418587.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (23, '3337872418587', '3337872418587', '', '3337872418587', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3337872418587.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 23, 1, 'Hidratante Corporal Lipikar Baume AP+ La Roche-Posay', 'Hidratante corporal Lipikar Baume AP+ da La Roche-Posay.', '', 'Hidratante Corporal Lipikar Baume AP+ La Roche-Posay', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6334,7 +6336,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (9, 0);
 
 -- Insert product 'Sabo Líquido Saforelle Soin Lavant Doux 250ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (24, '3401365334248', '3401365334248', '', '3401365334248', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3401365334248.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (24, '3401365334248', '3401365334248', '', '3401365334248', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3401365334248.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 24, 1, 'Sabo Líquido Saforelle Soin Lavant Doux 250ml', 'Sabo líquido Saforelle Soin Lavant Doux, frasco de 250ml.', '', 'Sabo Líquido Saforelle Soin Lavant Doux 250ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6344,7 +6346,7 @@ SELECT 24, 0;
 
 -- Insert product 'Sabo Líquido Saforelle Ultra Hydratant 250ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (25, '3401597168758', '3401597168758', '', '3401597168758', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3401597168758.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (25, '3401597168758', '3401597168758', '', '3401597168758', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3401597168758.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 25, 1, 'Sabo Líquido Saforelle Ultra Hydratant 250ml', 'Sabo líquido Saforelle Ultra Hydratant, frasco de 250ml.', '', 'Sabo Líquido Saforelle Ultra Hydratant 250ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6361,7 +6363,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (10, 0);
 
 -- Insert product 'Perfume de France Vodka Extreme Masculino'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (26, '3454090001213', '3454090001213', '', '3454090001213', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3454090001213.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (26, '3454090001213', '3454090001213', '', '3454090001213', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3454090001213.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 26, 1, 'Perfume de France Vodka Extreme Masculino', 'Perfume de France Vodka Extreme masculino.', '', 'Perfume de France Vodka Extreme Masculino', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6371,7 +6373,7 @@ SELECT 26, 0;
 
 -- Insert product 'Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (27, '3454090002685', '3454090002685', '', '3454090002685', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3454090002685.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (27, '3454090002685', '3454090002685', '', '3454090002685', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3454090002685.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 27, 1, 'Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT', 'Perfume I Love P.E. for Women, 3.3oz EDT, da Paris Elysees.', '', 'Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6382,7 +6384,7 @@ SELECT 27, 0;
 
 -- Insert product 'Perfume Billion Woman Paris Elysees 3.3oz EDT'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (28, '3454090002838', '3454090002838', '', '3454090002838', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3454090002838.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (28, '3454090002838', '3454090002838', '', '3454090002838', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3454090002838.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 28, 1, 'Perfume Billion Woman Paris Elysees 3.3oz EDT', 'Perfume Billion Woman, 3.3oz EDT, da Paris Elysees.', '', 'Perfume Billion Woman Paris Elysees 3.3oz EDT', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6392,7 +6394,7 @@ SELECT 28, 0;
 
 -- Insert product 'Perfume Vodka Night Paris Elysees 3.3oz EDT'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (29, '3454090002913', '3454090002913', '', '3454090002913', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3454090002913.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (29, '3454090002913', '3454090002913', '', '3454090002913', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3454090002913.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 29, 1, 'Perfume Vodka Night Paris Elysees 3.3oz EDT', 'Perfume Vodka Night, 3.3oz EDT, da Paris Elysees.', '', 'Perfume Vodka Night Paris Elysees 3.3oz EDT', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6402,7 +6404,7 @@ SELECT 29, 0;
 
 -- Insert product 'Perfume Vodka Man Paris Elysees EDT Masculino'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (30, '3454090002920', '3454090002920', '', '3454090002920', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3454090002920.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (30, '3454090002920', '3454090002920', '', '3454090002920', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3454090002920.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 30, 1, 'Perfume Vodka Man Paris Elysees EDT Masculino', 'Perfume Vodka Man Eau de Toilette da Paris Elysees, perfume masculino.', '', 'Perfume Vodka Man Paris Elysees EDT Masculino', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6412,7 +6414,7 @@ SELECT 30, 0;
 
 -- Insert product 'Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (31, '3454090003019', '3454090003019', '', '3454090003019', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3454090003019.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (31, '3454090003019', '3454090003019', '', '3454090003019', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3454090003019.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (31, 1, 'Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino', 'Perfume La Petite Fleur Blanche da Paris Elysees, Eau de Toilette feminino, 100ml.', '', 'Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6423,7 +6425,7 @@ VALUES (31, 0);
 
 -- Insert product 'Perfume La Petit Paris Elysees Fleur Secrete 100ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (32, '3454090003248', '3454090003248', '', '3454090003248', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3454090003248.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (32, '3454090003248', '3454090003248', '', '3454090003248', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3454090003248.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (32, 1, 'Perfume La Petit Paris Elysees Fleur Secrete 100ml', 'Perfume La Petit Paris Elysees Fleur Secrete, 100ml.', '', 'Perfume La Petit Paris Elysees Fleur Secrete 100ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6440,7 +6442,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (11, 0);
 
 -- Insert product 'Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (33, '353885771504', '353885771504', '', '353885771504', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/353885771504.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (33, '353885771504', '353885771504', '', '353885771504', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/353885771504.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (33, 1, 'Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras', 'Tiras para medidor de glicemia OneTouch Ultra, pacote com 50 tiras.', '', 'Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6457,7 +6459,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (12, 0);
 
 -- Insert product 'Fralda Huggies Little Swimmers Tamanho M 11 Unidades'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (34, '36000393521', '36000393521', '', '36000393521', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/36000393521.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (34, '36000393521', '36000393521', '', '36000393521', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/36000393521.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (34, 1, 'Fralda Huggies Little Swimmers Tamanho M 11 Unidades', 'Fralda Huggies Little Swimmers tamanho M, pacote com 11 unidades.', '', 'Fralda Huggies Little Swimmers Tamanho M 11 Unidades', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6467,7 +6469,7 @@ VALUES (34, 0);
 
 -- Insert product 'Fralda Huggies Little Swimmers Tamanho G 10 Unidades'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (35, '36000393538', '36000393538', '', '36000393538', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/36000393538.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (35, '36000393538', '36000393538', '', '36000393538', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/36000393538.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (35, 1, 'Fralda Huggies Little Swimmers Tamanho G 10 Unidades', 'Fralda Huggies Little Swimmers tamanho G, pacote com 10 unidades.', '', 'Fralda Huggies Little Swimmers Tamanho G 10 Unidades', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6484,7 +6486,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (13, 0);
 
 -- Insert product 'Colírio Hyabak 3,2mg/ml União Química Similar'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (36, '3662042000058', '3662042000058', '', '3662042000058', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3662042000058.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (36, '3662042000058', '3662042000058', '', '3662042000058', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3662042000058.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 36, 1, 'Colírio Hyabak 3,2mg/ml União Química Similar', 'Colírio Hyabak 3,2mg/ml, similar da União Química.', '', 'Colírio Hyabak 3,2mg/ml União Química Similar', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6501,7 +6503,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (14, 0);
 
 -- Insert product 'Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (37, '3662042000249', '3662042000249', '', '3662042000249', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/3662042000249.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (37, '3662042000249', '3662042000249', '', '3662042000249', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/3662042000249.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 37, 1, 'Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas', 'Gel ocular Blephagel, 40g, com 100 compressas esterilizadas.', '', 'Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6518,7 +6520,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (15, 0);
 
 -- Insert product 'Máscara de Tratamento Aussie Moist 236ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (38, '381519004711', '381519004711', '', '381519004711', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/381519004711.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (38, '381519004711', '381519004711', '', '381519004711', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/381519004711.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 38, 1, 'Máscara de Tratamento Aussie Moist 236ml', 'Máscara de tratamento Aussie Moist, frasco de 236ml.', '', 'Máscara de Tratamento Aussie Moist 236ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6528,7 +6530,7 @@ SELECT 38, 0;
 
 -- Insert product 'Agulha Descartável 4mm Penta Point para Caneta 100 Unidades'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (39, '382903204786', '382903204786', '', '382903204786', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/382903204786.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (39, '382903204786', '382903204786', '', '382903204786', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/382903204786.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 39, 1, 'Agulha Descartável 4mm Penta Point para Caneta 100 Unidades', 'Agulha descartável 4mm Penta Point para caneta de insulina, caixa com 100 unidades.', '', 'Agulha Descartável 4mm Penta Point para Caneta 100 Unidades', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6538,7 +6540,7 @@ SELECT 39, 0;
 
 -- Insert product 'Agulha BD Ultra-Fine Penta Point Easy 4mm BD'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (40, '382903204892', '382903204892', '', '382903204892', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/382903204892.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (40, '382903204892', '382903204892', '', '382903204892', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/382903204892.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 40, 1, 'Agulha BD Ultra-Fine Penta Point Easy 4mm BD', 'Agulha BD Ultra-Fine Penta Point Easy 4mm da BD.', '', 'Agulha BD Ultra-Fine Penta Point Easy 4mm BD', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6555,7 +6557,7 @@ INSERT INTO oc_category_to_store (category_id, store_id) VALUES (16, 0);
 
 -- Insert product 'Bateria Energizer Max 9V'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (41, '39800013613', '39800013613', '', '39800013613', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/39800013613.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (41, '39800013613', '39800013613', '', '39800013613', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/39800013613.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 41, 1, 'Bateria Energizer Max 9V', 'Bateria Energizer Max 9V.', '', 'Bateria Energizer Max 9V', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6565,7 +6567,7 @@ SELECT 41, 0;
 
 -- Insert product 'Bateria Eveready Alcalina 9V'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (42, '39800028907', '39800028907', '', '39800028907', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/39800028907.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (42, '39800028907', '39800028907', '', '39800028907', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/39800028907.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 42, 1, 'Bateria Eveready Alcalina 9V', 'Bateria Eveready alcalina 9V.', '', 'Bateria Eveready Alcalina 9V', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6575,7 +6577,7 @@ SELECT 42, 0;
 
 -- Insert product 'Leite em Pó Nan H.A. 400g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (43, '4005500073727', '4005500073727', '', '4005500073727', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005500073727.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (43, '4005500073727', '4005500073727', '', '4005500073727', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005500073727.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (43, 1, 'Leite em Pó Nan H.A. 400g', 'Leite em pó Nan H.A., lata de 400g.', '', 'Leite em Pó Nan H.A. 400g', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6585,7 +6587,7 @@ VALUES (43, 0);
 
 -- Insert product 'Desodorante Roll-On Nivea Clear Skin 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (44, '4005808185719', '4005808185719', '', '4005808185719', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808185719.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (44, '4005808185719', '4005808185719', '', '4005808185719', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808185719.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (44, 1, 'Desodorante Roll-On Nivea Clear Skin 50ml', 'Desodorante roll-on Nivea Clear Skin, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Clear Skin 50ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6594,7 +6596,7 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 VALUES (44, 0);
 -- Insert product 'Desodorante Aerossol Nivea D''Effect Senses 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (45, '4005808231065', '4005808231065', '', '4005808231065', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808231065.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (45, '4005808231065', '4005808231065', '', '4005808231065', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808231065.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 45, 1, 'Desodorante Aerossol Nivea D''Effect Senses 150ml', 'Desodorante aerossol Nivea D''Effect Senses, frasco de 150ml.', '', 'Desodorante Aerossol Nivea D''Effect Senses 150ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6604,7 +6606,7 @@ SELECT 45, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Men Dry Impact 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (46, '4005808257553', '4005808257553', '', '4005808257553', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808257553.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (46, '4005808257553', '4005808257553', '', '4005808257553', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808257553.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 46, 1, 'Desodorante Roll-On Nivea Men Dry Impact 50ml', 'Desodorante roll-on Nivea Men Dry Impact, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Dry Impact 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6614,7 +6616,7 @@ SELECT 46, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Men Fresh Active 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (47, '4005808257577', '4005808257577', '', '4005808257577', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808257577.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (47, '4005808257577', '4005808257577', '', '4005808257577', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808257577.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 47, 1, 'Desodorante Roll-On Nivea Men Fresh Active 50ml', 'Desodorante roll-on Nivea Men Fresh Active, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Fresh Active 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6624,7 +6626,7 @@ SELECT 47, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Dry Comfort 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (48, '4005808257584', '4005808257584', '', '4005808257584', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808257584.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (48, '4005808257584', '4005808257584', '', '4005808257584', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808257584.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 48, 1, 'Desodorante Roll-On Nivea Dry Comfort 50ml', 'Desodorante roll-on Nivea Dry Comfort, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Dry Comfort 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6634,7 +6636,7 @@ SELECT 48, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Fresh Natural 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (49, '4005808257591', '4005808257591', '', '4005808257591', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808257591.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (49, '4005808257591', '4005808257591', '', '4005808257591', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808257591.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 49, 1, 'Desodorante Roll-On Nivea Fresh Natural 50ml', 'Desodorante roll-on Nivea Fresh Natural, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Fresh Natural 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6644,7 +6646,7 @@ SELECT 49, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Men Cool Kick 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (50, '4005808257607', '4005808257607', '', '4005808257607', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808257607.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (50, '4005808257607', '4005808257607', '', '4005808257607', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808257607.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 50, 1, 'Desodorante Roll-On Nivea Men Cool Kick 50ml', 'Desodorante roll-on Nivea Men Cool Kick, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Cool Kick 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6654,7 +6656,7 @@ SELECT 50, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Sensitive Protect 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (51, '4005808257621', '4005808257621', '', '4005808257621', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808257621.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (51, '4005808257621', '4005808257621', '', '4005808257621', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808257621.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 51, 1, 'Desodorante Roll-On Nivea Sensitive Protect 50ml', 'Desodorante roll-on Nivea Sensitive Protect, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Sensitive Protect 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6664,7 +6666,7 @@ SELECT 51, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Pearl & Beauty 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (52, '4005808257669', '4005808257669', '', '4005808257669', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808257669.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (52, '4005808257669', '4005808257669', '', '4005808257669', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808257669.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 52, 1, 'Desodorante Roll-On Nivea Pearl & Beauty 50ml', 'Desodorante roll-on Nivea Pearl & Beauty, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Pearl & Beauty 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6674,7 +6676,7 @@ SELECT 52, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Double Effect 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (53, '4005808257720', '4005808257720', '', '4005808257720', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808257720.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (53, '4005808257720', '4005808257720', '', '4005808257720', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808257720.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (53, 1, 'Desodorante Roll-On Nivea Double Effect 50ml', 'Desodorante roll-on Nivea Double Effect, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Double Effect 50ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6684,7 +6686,7 @@ VALUES (53, 0);
 
 -- Insert product 'Protetor Solar Facial Nivea Light Feeling FPS 30'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (54, '4005808263202', '4005808263202', '', '4005808263202', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808263202.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (54, '4005808263202', '4005808263202', '', '4005808263202', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808263202.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (54, 1, 'Protetor Solar Facial Nivea Light Feeling FPS 30', 'Protetor solar facial Nivea Light Feeling FPS 30.', '', 'Protetor Solar Facial Nivea Light Feeling FPS 30', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6694,7 +6696,7 @@ VALUES (54, 0);
 
 -- Insert product 'Desodorante Aerossol Nivea Men Silver Protect 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (55, '4005808305964', '4005808305964', '', '4005808305964', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808305964.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (55, '4005808305964', '4005808305964', '', '4005808305964', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808305964.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (55, 1, 'Desodorante Aerossol Nivea Men Silver Protect 150ml', 'Desodorante aerossol Nivea Men Silver Protect, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Men Silver Protect 150ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6704,7 +6706,7 @@ VALUES (55, 0);
 
 -- Insert product 'Desodorante Roll-On Nivea Men Silver Protect 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (56, '4005808307326', '4005808307326', '', '4005808307326', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808307326.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (56, '4005808307326', '4005808307326', '', '4005808307326', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808307326.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (56, 1, 'Desodorante Roll-On Nivea Men Silver Protect 50ml', 'Desodorante roll-on Nivea Men Silver Protect, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Silver Protect 50ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6714,7 +6716,7 @@ VALUES (56, 0);
 
 -- Insert product 'Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (57, '4005808309436', '4005808309436', '', '4005808309436', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808309436.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (57, '4005808309436', '4005808309436', '', '4005808309436', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808309436.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (57, 1, 'Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca', 'Loção hidratante Nivea In-Shower Milk, 200ml, para pele extra seca.', '', 'Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6724,7 +6726,7 @@ VALUES (57, 0);
 
 -- Insert product 'Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (58, '4005808310999', '4005808310999', '', '4005808310999', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808310999.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (58, '4005808310999', '4005808310999', '', '4005808310999', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808310999.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (58, 1, 'Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele', 'Loção hidratante Nivea Express, 200ml, para todos os tipos de pele.', '', 'Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6734,7 +6736,7 @@ VALUES (58, 0);
 
 -- Insert product 'Loção Firmadora Nivea Q10 + Vitamina C 200ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (59, '4005808311286', '4005808311286', '', '4005808311286', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808311286.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (59, '4005808311286', '4005808311286', '', '4005808311286', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808311286.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (59, 1, 'Loção Firmadora Nivea Q10 + Vitamina C 200ml', 'Loção firmadora Nivea Q10 + Vitamina C, frasco de 200ml.', '', 'Loção Firmadora Nivea Q10 + Vitamina C 200ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6744,7 +6746,7 @@ VALUES (59, 0);
 
 -- Insert product 'Loção Deo-Hidratante Corporal Nivea Milk 400ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (60, '4005808315697', '4005808315697', '', '4005808315697', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808315697.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (60, '4005808315697', '4005808315697', '', '4005808315697', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808315697.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (60, 1, 'Loção Deo-Hidratante Corporal Nivea Milk 400ml', 'Loção deo-hidratante corporal Nivea Milk, frasco de 400ml.', '', 'Loção Deo-Hidratante Corporal Nivea Milk 400ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6754,7 +6756,7 @@ VALUES (60, 0);
 
 -- Insert product 'Loção Hidratante Nivea Soft Milk 200ml para Pele Seca'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (61, '4005808335435', '4005808335435', '', '4005808335435', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808335435.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (61, '4005808335435', '4005808335435', '', '4005808335435', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808335435.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (61, 1, 'Loção Hidratante Nivea Soft Milk 200ml para Pele Seca', 'Loção hidratante Nivea Soft Milk, 200ml, para pele seca.', '', 'Loção Hidratante Nivea Soft Milk 200ml para Pele Seca', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6764,7 +6766,7 @@ VALUES (61, 0);
 
 -- Insert product 'Protetor Labial Nivea Med Repair FPS 15 4,8g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (62, '4005808369621', '4005808369621', '', '4005808369621', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808369621.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (62, '4005808369621', '4005808369621', '', '4005808369621', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808369621.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (62, 1, 'Protetor Labial Nivea Med Repair FPS 15 4,8g', 'Protetor labial Nivea Med Repair FPS 15, blister de 4,8g.', '', 'Protetor Labial Nivea Med Repair FPS 15 4,8g', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6774,7 +6776,7 @@ VALUES (62, 0);
 
 -- Insert product 'Sabonete Líquido Nivea Creme Soft 250ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (63, '4005808513550', '4005808513550', '', '4005808513550', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808513550.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (63, '4005808513550', '4005808513550', '', '4005808513550', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808513550.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (63, 1, 'Sabonete Líquido Nivea Creme Soft 250ml', 'Sabonete líquido Nivea Creme Soft, frasco de 250ml.', '', 'Sabonete Líquido Nivea Creme Soft 250ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6784,7 +6786,7 @@ VALUES (63, 0);
 
 -- Insert product 'Sabonete Nivea Erva Limão e Óleos 90g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (64, '4005808530878', '4005808530878', '', '4005808530878', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808530878.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (64, '4005808530878', '4005808530878', '', '4005808530878', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808530878.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (64, 1, 'Sabonete Nivea Erva Limão e Óleos 90g', 'Sabonete Nivea Erva Limão e Óleos, barra de 90g.', '', 'Sabonete Nivea Erva Limão e Óleos 90g', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6794,7 +6796,7 @@ VALUES (64, 0);
 
 -- Insert product 'Espuma de Barbear Nivea Men Silver Protect 200ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (65, '4005808540143', '4005808540143', '', '4005808540143', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808540143.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (65, '4005808540143', '4005808540143', '', '4005808540143', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808540143.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (65, 1, 'Espuma de Barbear Nivea Men Silver Protect 200ml', 'Espuma de barbear Nivea Men Silver Protect, frasco de 200ml.', '', 'Espuma de Barbear Nivea Men Silver Protect 200ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6806,7 +6808,7 @@ VALUES (65, 0);
 
 -- Insert product 'Solução Similar Renu Plus 8ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (66, '310119052136', '310119052136', '', '310119052136', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/310119052136.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (66, '310119052136', '310119052136', '', '310119052136', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/310119052136.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 66, 1, 'Solução Similar Renu Plus 8ml', 'Solução similar Renu Plus para lentes de contato, frasco de 8ml.', '', 'Solução Similar Renu Plus 8ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6818,7 +6820,7 @@ SELECT 66, 0;
 
 -- Insert product 'Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (67, '4005808552481', '4005808552481', '', '4005808552481', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808552481.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (67, '4005808552481', '4005808552481', '', '4005808552481', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808552481.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 67, 1, 'Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml', 'Pack de antitranspirante aerossol Nivea Invisible Black & White Clear, 2 unidades de 150ml cada, leve mais pague menos.', '', 'Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6828,7 +6830,7 @@ SELECT 67, 0;
 
 -- Insert product 'Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (68, '4005808555307', '4005808555307', '', '4005808555307', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808555307.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (68, '4005808555307', '4005808555307', '', '4005808555307', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808555307.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 68, 1, 'Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml', 'Protetor solar Nivea Sun Protect & Hidrata FPS 30, frasco de 200ml.', '', 'Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6838,7 +6840,7 @@ SELECT 68, 0;
 
 -- Insert product 'Protetor Solar Nivea Sun FPS 30 125ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (69, '4005808555321', '4005808555321', '', '4005808555321', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808555321.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (69, '4005808555321', '4005808555321', '', '4005808555321', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808555321.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 69, 1, 'Protetor Solar Nivea Sun FPS 30 125ml', 'Protetor solar Nivea Sun FPS 30, frasco de 125ml.', '', 'Protetor Solar Nivea Sun FPS 30 125ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6848,7 +6850,7 @@ SELECT 69, 0;
 
 -- Insert product 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (70, '4005808555345', '4005808555345', '', '4005808555345', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808555345.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (70, '4005808555345', '4005808555345', '', '4005808555345', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808555345.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 70, 1, 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml', 'Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 200ml.', '', 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6858,7 +6860,7 @@ SELECT 70, 0;
 
 -- Insert product 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (71, '4005808555352', '4005808555352', '', '4005808555352', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808555352.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (71, '4005808555352', '4005808555352', '', '4005808555352', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808555352.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 71, 1, 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml', 'Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 125ml.', '', 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6868,7 +6870,7 @@ SELECT 71, 0;
 
 -- Insert product 'Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (72, '4005808555383', '4005808555383', '', '4005808555383', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808555383.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (72, '4005808555383', '4005808555383', '', '4005808555383', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808555383.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 72, 1, 'Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml', 'Protetor solar Nivea Sun Protect & Bronze FPS 30, frasco de 125ml.', '', 'Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6878,7 +6880,7 @@ SELECT 72, 0;
 
 -- Insert product 'Desodorante Aerossol Nivea Clear Skin 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (73, '4005808631322', '4005808631322', '', '4005808631322', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808631322.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (73, '4005808631322', '4005808631322', '', '4005808631322', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808631322.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 73, 1, 'Desodorante Aerossol Nivea Clear Skin 150ml', 'Desodorante aerossol Nivea Clear Skin, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Clear Skin 150ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6888,7 +6890,7 @@ SELECT 73, 0;
 
 -- Insert product 'Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (74, '4005808662388', '4005808662388', '', '4005808662388', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808662388.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (74, '4005808662388', '4005808662388', '', '4005808662388', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808662388.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 74, 1, 'Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml', 'Desodorante aerossol Nivea Sensitive, sem perfume, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6898,7 +6900,7 @@ SELECT 74, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Sensitive Pure 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (75, '4005808663927', '4005808663927', '', '4005808663927', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808663927.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (75, '4005808663927', '4005808663927', '', '4005808663927', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808663927.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 75, 1, 'Desodorante Roll-On Nivea Sensitive Pure 50ml', 'Desodorante roll-on Nivea Sensitive Pure, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Sensitive Pure 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6908,7 +6910,7 @@ SELECT 75, 0;
 
 -- Insert product 'Desodorante Aerossol Nivea Feminino Stress Protect 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (76, '4005808715688', '4005808715688', '', '4005808715688', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808715688.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (76, '4005808715688', '4005808715688', '', '4005808715688', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808715688.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 76, 1, 'Desodorante Aerossol Nivea Feminino Stress Protect 150ml', 'Desodorante aerossol Nivea Feminino Stress Protect, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Feminino Stress Protect 150ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6918,7 +6920,7 @@ SELECT 76, 0;
 
 -- Insert product 'Desodorante Aerossol Nivea Men Stress Protect 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (77, '4005808715695', '4005808715695', '', '4005808715695', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808715695.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (77, '4005808715695', '4005808715695', '', '4005808715695', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808715695.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 77, 1, 'Desodorante Aerossol Nivea Men Stress Protect 150ml', 'Desodorante aerossol Nivea Men Stress Protect, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Men Stress Protect 150ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6928,7 +6930,7 @@ SELECT 77, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Feminino Stress Protect 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (78, '4005808719273', '4005808719273', '', '4005808719273', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808719273.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (78, '4005808719273', '4005808719273', '', '4005808719273', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808719273.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 78, 1, 'Desodorante Roll-On Nivea Feminino Stress Protect 50ml', 'Desodorante roll-on Nivea Feminino Stress Protect, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Feminino Stress Protect 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6938,7 +6940,7 @@ SELECT 78, 0;
 
 -- Insert product 'Loção Hidratante Nivea Milk para Pele Extra Seca 200ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (79, '4005808802616', '4005808802616', '', '4005808802616', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808802616.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (79, '4005808802616', '4005808802616', '', '4005808802616', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808802616.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 79, 1, 'Loção Hidratante Nivea Milk para Pele Extra Seca 200ml', 'Loção hidratante Nivea Milk para pele extra seca, frasco de 200ml.', '', 'Loção Hidratante Nivea Milk para Pele Extra Seca 200ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6948,7 +6950,7 @@ SELECT 79, 0;
 
 -- Insert product 'Sabonete Nivea Aveia 90g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (80, '4005808806423', '4005808806423', '', '4005808806423', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808806423.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (80, '4005808806423', '4005808806423', '', '4005808806423', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808806423.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 80, 1, 'Sabonete Nivea Aveia 90g', 'Sabonete Nivea Aveia, barra de 90g.', '', 'Sabonete Nivea Aveia 90g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6967,7 +6969,7 @@ SELECT 80, 0;
 
 -- Insert product 'Sabonete Nivea Leite 90g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (82, '4005808806430', '4005808806430', '', '4005808806430', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808806430.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (82, '4005808806430', '4005808806430', '', '4005808806430', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808806430.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 82, 1, 'Sabonete Nivea Leite 90g', 'Sabonete Nivea Leite, barra de 90g.', '', 'Sabonete Nivea Leite 90g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6977,7 +6979,7 @@ SELECT 82, 0;
 
 -- Insert product 'Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (83, '4005808812875', '4005808812875', '', '4005808812875', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808812875.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (83, '4005808812875', '4005808812875', '', '4005808812875', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808812875.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 83, 1, 'Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g', 'Creme facial antissinais dia Nivea Q10 Plus FPS 30, caixa de 52g.', '', 'Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6987,7 +6989,7 @@ SELECT 83, 0;
 
 -- Insert product 'Desodorante Roll-On Sensitive Balm'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (84, '4005808829835', '4005808829835', '', '4005808829835', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808829835.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (84, '4005808829835', '4005808829835', '', '4005808829835', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808829835.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 84, 1, 'Desodorante Roll-On Sensitive Balm', 'Desodorante roll-on Sensitive Balm.', '', 'Desodorante Roll-On Sensitive Balm', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -6997,7 +6999,7 @@ SELECT 84, 0;
 
 -- Insert product 'Sabonete Antibacteriano Nivea Suave 85g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (85, '4005808834815', '4005808834815', '', '4005808834815', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808834815.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (85, '4005808834815', '4005808834815', '', '4005808834815', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808834815.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 85, 1, 'Sabonete Antibacteriano Nivea Suave 85g', 'Sabonete antibacteriano Nivea Suave, barra de 85g.', '', 'Sabonete Antibacteriano Nivea Suave 85g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7007,7 +7009,7 @@ SELECT 85, 0;
 
 -- Insert product 'Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (86, '4005808837311', '4005808837311', '', '4005808837311', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808837311.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (86, '4005808837311', '4005808837311', '', '4005808837311', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808837311.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 86, 1, 'Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml', 'Desodorante aerossol Nivea Feminino Pearl & Beauty, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7017,7 +7019,7 @@ SELECT 86, 0;
 
 -- Insert product 'Protetor Labial Nivea Original Care 4,8g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (87, '4005808850617', '4005808850617', '', '4005808850617', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808850617.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (87, '4005808850617', '4005808850617', '', '4005808850617', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808850617.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 87, 1, 'Protetor Labial Nivea Original Care 4,8g', 'Protetor labial Nivea Original Care, blister de 4,8g.', '', 'Protetor Labial Nivea Original Care 4,8g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7027,7 +7029,7 @@ SELECT 87, 0;
 
 -- Insert product 'Protetor Labial Nivea Morango 4,8g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (88, '4005808850839', '4005808850839', '', '4005808850839', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808850839.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (88, '4005808850839', '4005808850839', '', '4005808850839', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808850839.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 88, 1, 'Protetor Labial Nivea Morango 4,8g', 'Protetor labial Nivea Morango, blister de 4,8g.', '', 'Protetor Labial Nivea Morango 4,8g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7037,7 +7039,7 @@ SELECT 88, 0;
 
 -- Insert product 'Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (89, '4005808890590', '4005808890590', '', '4005808890590', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808890590.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (89, '4005808890590', '4005808890590', '', '4005808890590', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808890590.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 89, 1, 'Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g', 'Hidratante suave para rosto, corpo e mãos Nivea Soft, pote de 98g.', '', 'Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7047,7 +7049,7 @@ SELECT 89, 0;
 
 -- Insert product 'Desodorante Aerossol Nivea Feminino Powder Comfort 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (90, '4005808910328', '4005808910328', '', '4005808910328', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808910328.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (90, '4005808910328', '4005808910328', '', '4005808910328', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808910328.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 90, 1, 'Desodorante Aerossol Nivea Feminino Powder Comfort 150ml', 'Desodorante aerossol Nivea Feminino Powder Comfort, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Feminino Powder Comfort 150ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7057,7 +7059,7 @@ SELECT 90, 0;
 
 -- Insert product 'Desodorante Roll-On Nivea Feminino Powder Comfort 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (91, '4005808919833', '4005808919833', '', '4005808919833', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808919833.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (91, '4005808919833', '4005808919833', '', '4005808919833', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808919833.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 91, 1, 'Desodorante Roll-On Nivea Feminino Powder Comfort 50ml', 'Desodorante roll-on Nivea Feminino Powder Comfort, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Feminino Powder Comfort 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7067,7 +7069,7 @@ SELECT 91, 0;
 
 -- Insert product 'Loção Hidratante Firmadora Nivea Q10 Plus 200ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (92, '4005808949007', '4005808949007', '', '4005808949007', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005808949007.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (92, '4005808949007', '4005808949007', '', '4005808949007', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005808949007.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (92, 1, 'Loção Hidratante Firmadora Nivea Q10 Plus 200ml', 'Loção hidratante firmadora Nivea Q10 Plus, frasco de 200ml.', '', 'Loção Hidratante Firmadora Nivea Q10 Plus 200ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7078,7 +7080,7 @@ VALUES (92, 0);
 
 -- Insert product 'Loção Deo-Hidratante Nivea Soft Milk 400ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (93, '4005900004956', '4005900004956', '', '4005900004956', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005900004956.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (93, '4005900004956', '4005900004956', '', '4005900004956', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005900004956.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (93, 1, 'Loção Deo-Hidratante Nivea Soft Milk 400ml', 'Loção deo-hidratante Nivea Soft Milk, frasco de 400ml.', '', 'Loção Deo-Hidratante Nivea Soft Milk 400ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7088,7 +7090,7 @@ VALUES (93, 0);
 
 -- Insert product 'Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (94, '4005900020536', '4005900020536', '', '4005900020536', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005900020536.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (94, '4005900020536', '4005900020536', '', '4005900020536', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005900020536.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (94, 1, 'Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml', 'Antitranspirante aerossol Nivea Dry Comfort Plus, leve 200ml pague 150ml.', '', 'Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7098,7 +7100,7 @@ VALUES (94, 0);
 
 -- Insert product 'Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (95, '4005900036667', '4005900036667', '', '4005900036667', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005900036667.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (95, '4005900036667', '4005900036667', '', '4005900036667', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005900036667.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (95, 1, 'Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml', 'Desodorante aerossol Nivea Feminino Invisible Black & White Clear, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7108,7 +7110,7 @@ VALUES (95, 0);
 
 -- Insert product 'Desodorante Roll-On Nivea Invisible Black & White Clear 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (96, '4005900036704', '4005900036704', '', '4005900036704', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005900036704.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (96, '4005900036704', '4005900036704', '', '4005900036704', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005900036704.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (96, 1, 'Desodorante Roll-On Nivea Invisible Black & White Clear 50ml', 'Desodorante roll-on Nivea Invisible Black & White Clear, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Invisible Black & White Clear 50ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7118,7 +7120,7 @@ VALUES (96, 0);
 
 -- Insert product 'Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (97, '4005900036728', '4005900036728', '', '4005900036728', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005900036728.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (97, '4005900036728', '4005900036728', '', '4005900036728', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005900036728.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 VALUES (97, 1, 'Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml', 'Desodorante aerossol Nivea Men Invisible Black & White Power, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml', '', '');
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7128,7 +7130,7 @@ VALUES (97, 0);
 
 -- Insert product 'Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (98, '4005900036759', '4005900036759', '', '4005900036759', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005900036759.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (98, '4005900036759', '4005900036759', '', '4005900036759', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005900036759.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 98, 1, 'Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml', 'Desodorante roll-on Nivea Men Invisible Black & White Power, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7138,7 +7140,7 @@ SELECT 98, 0;
 
 -- Insert product 'Sabonete Nivea Hidratante Lavanda 90g'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (99, '4005900087256', '4005900087256', '', '4005900087256', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005900087256.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (99, '4005900087256', '4005900087256', '', '4005900087256', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005900087256.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 99, 1, 'Sabonete Nivea Hidratante Lavanda 90g', 'Sabonete Nivea Hidratante Lavanda, barra de 90g.', '', 'Sabonete Nivea Hidratante Lavanda 90g', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7148,7 +7150,7 @@ SELECT 99, 0;
 
 -- Insert product 'Sabonete Líquido Nivea Creme Care 250ml'
 INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status)
-VALUES (100, '4005900095268', '4005900095268', '', '4005900095268', '', '', '', '', 100, 7, 'https://storage.googleapis.com/myfarmax.appspot.com/farmax-shop/product/4005900095268.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
+VALUES (100, '4005900095268', '4005900095268', '', '4005900095268', '', '', '', '', 100, 7, '/image_proxy.php?end=farmax-shop/product/4005900095268.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
 INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
 SELECT 100, 1, 'Sabonete Líquido Nivea Creme Care 250ml', 'Sabonete líquido Nivea Creme Care, frasco de 250ml.', '', 'Sabonete Líquido Nivea Creme Care 250ml', '', '';
 INSERT INTO oc_product_to_category (product_id, category_id)
@@ -7157,11 +7159,16 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT 100, 0;
 
 
-INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`, `mpn`, `location`, `variant`, `override`, `quantity`, `stock_status_id`, `image`, `manufacturer_id`, `shipping`, `price`, `points`, `tax_class_id`, `date_available`, `weight`, `weight_class_id`, `length`, `width`, `height`, `length_class_id`, `subtract`, `minimum`, `sort_order`, `status`, `date_added`, `date_modified`)
-VALUES (101, 'Product 9', '', '', '', '', '', '', '', '', '', 994, 6, 'catalog/demo/ipod_nano_1.jpg', 8, 0, '100.0000', 100, 9, '2009-02-03', '5.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 2, 1, 1, 0, 1, '2009-02-03 18:09:19', '2011-09-30 01:07:12');
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword)
-SELECT 101, 1, 'Sabonete Líquido Nivea Creme Care 250ml', 'Sabonete líquido Nivea Creme Care, frasco de 250ml.', '', 'Sabonete Líquido Nivea Creme Care 250ml', '', '';
-INSERT INTO oc_product_to_category (product_id, category_id)
-SELECT 101, 16;
-INSERT INTO oc_product_to_store (product_id, store_id)
-SELECT 101, 0;
+-- Insert seo_url:
+INSERT INTO `oc_seo_url` (`store_id`, `language_id`, `query`, `keyword`)
+SELECT
+    0 AS `store_id`, -- Default store ID
+    1 AS `language_id`, -- Default language ID
+    CONCAT('product_id=', p.`product_id`) AS `query`, -- Query string
+    LOWER(REPLACE(REPLACE(REPLACE(REPLACE(pd.`name`, ' ', '-'), '/', '-'), '(', ''), ')', '')) AS `keyword` 
+FROM
+    `oc_product` p
+JOIN
+    `oc_product_description` pd ON p.`product_id` = pd.`product_id`
+WHERE
+    pd.`language_id` = 1; -- Filter by default language
