@@ -6361,12 +6361,16 @@ VALUES (1, 30, 0, 1);
 
 
 
+INSERT INTO esquina_popular.oc_category
+(category_id, image, parent_id, `column`, sort_order, status)
+VALUES(0, '', 0, 0, 0, 0);
+
 --- APPEND: Theristes Gomes Marques de Oliveira
 
 -- SQL inserts for OpenCart products and categories
 -- Insert category 'Cuidados com a Barba'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (1, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (1, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (1, 1, 'Cuidados com a Barba', 'Cuidados com a Barba category description', 'Cuidados com a Barba', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (1, 0);
@@ -6392,8 +6396,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Beleza e Estética'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (2, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (2, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (2, 1, 'Beleza e Estética', 'Beleza e Estética category description', 'Beleza e Estética', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (2, 0);
@@ -6409,8 +6413,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Higiene Feminina'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (3, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (3, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (3, 1, 'Higiene Feminina', 'Higiene Feminina category description', 'Higiene Feminina', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (3, 0);
@@ -6446,8 +6450,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Saúde e Bem-Estar'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (4, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (4, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (4, 1, 'Saúde e Bem-Estar', 'Saúde e Bem-Estar category description', 'Saúde e Bem-Estar', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (4, 0);
@@ -6473,8 +6477,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Higiene Bucal'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (5, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (5, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (5, 1, 'Higiene Bucal', 'Higiene Bucal category description', 'Higiene Bucal', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (5, 0);
@@ -6600,8 +6604,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Higiene Pessoal'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (6, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (6, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (6, 1, 'Higiene Pessoal', 'Higiene Pessoal category description', 'Higiene Pessoal', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (6, 0);
@@ -6617,8 +6621,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Produtos para Lentes de Contato'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (7, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (7, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (7, 1, 'Produtos para Lentes de Contato', 'Produtos para Lentes de Contato category description', 'Produtos para Lentes de Contato', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (7, 0);
@@ -6644,8 +6648,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Cuidados com a Pele'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (8, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (8, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (8, 1, 'Cuidados com a Pele', 'Cuidados com a Pele category description', 'Cuidados com a Pele', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (8, 0);
@@ -6661,8 +6665,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Higiene Íntima'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (9, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (9, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (9, 1, 'Higiene Íntima', 'Higiene Íntima category description', 'Higiene Íntima', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (9, 0);
@@ -6688,8 +6692,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Perfumes'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (10, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (10, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (10, 1, 'Perfumes', 'Perfumes category description', 'Perfumes', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (10, 0);
@@ -6765,8 +6769,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Produtos para Diabetes'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (11, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (11, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (11, 1, 'Produtos para Diabetes', 'Produtos para Diabetes category description', 'Produtos para Diabetes', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (11, 0);
@@ -6782,8 +6786,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Produtos para Bebês'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (12, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (12, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (12, 1, 'Produtos para Bebês', 'Produtos para Bebês category description', 'Produtos para Bebês', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (12, 0);
@@ -6809,8 +6813,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Medicamentos'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (13, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (13, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (13, 1, 'Medicamentos', 'Medicamentos category description', 'Medicamentos', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (13, 0);
@@ -6826,8 +6830,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Produtos Oftalmológicos'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (14, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (14, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (14, 1, 'Produtos Oftalmológicos', 'Produtos Oftalmológicos category description', 'Produtos Oftalmológicos', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (14, 0);
@@ -6843,8 +6847,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Cuidados com o Cabelo'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (15, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (15, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (15, 1, 'Cuidados com o Cabelo', 'Cuidados com o Cabelo category description', 'Cuidados com o Cabelo', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (15, 0);
@@ -6880,8 +6884,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Pilhas e Baterias'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (16, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (16, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (16, 1, 'Pilhas e Baterias', 'Pilhas e Baterias category description', 'Pilhas e Baterias', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (16, 0);
@@ -7987,8 +7991,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Vitaminas e Suplementos'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (17, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (17, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (17, 1, 'Vitaminas e Suplementos', 'Vitaminas e Suplementos category description', 'Vitaminas e Suplementos', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (17, 0);
@@ -8004,8 +8008,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Suplementos Alimentares'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (18, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (18, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (18, 1, 'Suplementos Alimentares', 'Suplementos Alimentares category description', 'Suplementos Alimentares', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (18, 0);
@@ -8031,8 +8035,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Produtos para Cabelo'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (19, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (19, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (19, 1, 'Produtos para Cabelo', 'Produtos para Cabelo category description', 'Produtos para Cabelo', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (19, 0);
@@ -9108,8 +9112,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Produtos para Saúde'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (20, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (20, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (20, 1, 'Produtos para Saúde', 'Produtos para Saúde category description', 'Produtos para Saúde', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (20, 0);
@@ -9975,8 +9979,8 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT LAST_INSERT_ID(), 0;
 
 -- Insert category 'Higiene Infantil'
-INSERT INTO oc_category (category_id, image, parent_id, top, column, sort_order, status)
-VALUES (21, '', 0, 1, 1, 0, 1);
+INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status)
+VALUES (21, '', 0, 1, 0, 1);
 INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword)
 VALUES (21, 1, 'Higiene Infantil', 'Higiene Infantil category description', 'Higiene Infantil', '', '');
 INSERT INTO oc_category_to_store (category_id, store_id) VALUES (21, 0);
