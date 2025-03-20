@@ -7074,16 +7074,14 @@ INSERT INTO oc_product_to_store (product_id, store_id)
 SELECT 100, 0;
 
 
--- Insert seo_url:
-INSERT INTO `oc_seo_url` (`store_id`, `language_id`, `query`, `keyword`)
+-- Insert SEO_URL:
+
+INSERT INTO `oc_seo_url` (`store_id`, `language_id`, `key`, `value`, `keyword`, `sort_order`)
 SELECT
     0 AS `store_id`, -- Default store ID
     1 AS `language_id`, -- Default language ID
-    CONCAT('product_id=', p.`product_id`) AS `query`, -- Query string
-    LOWER(REPLACE(REPLACE(REPLACE(REPLACE(pd.`name`, ' ', '-'), '/', '-'), '(', ''), ')', '')) AS `keyword` 
-FROM
-    `oc_product` p
-JOIN
-    `oc_product_description` pd ON p.`product_id` = pd.`product_id`
-WHERE
-    pd.`language_id` = 1; -- Filter by default language
+    'product_id' AS `key`, -- Key for product
+    pd.`product_id` AS `value`, -- Value (product ID)
+    LOWER(REPLACE(REPLACE(REPLACE(REPLACE(pd.`name`, ' ', '-'), '/', '-'), '(', ''), ')', '')) AS `keyword`, -- Generate keyword from product name
+    0 AS `sort_order` -- Default sort order
+FROM `oc_product_description` pd
