@@ -1248,35 +1248,6 @@ VALUES (1, 1, 'Centímetro', 'cm'),
        (2, 1, 'Milímetro', 'mm'),
        (3, 1, 'Polegada', 'in');
 
------------------------------------------------------------
-
---
--- Dumping data for table `oc_manufacturer`
---
-
-INSERT INTO `oc_manufacturer` (`manufacturer_id`, `name`, `image`, `sort_order`)
-VALUES (5, 'HTC', 'catalog/demo/htc_logo.jpg', 0),
-       (6, 'Palm', 'catalog/demo/palm_logo.jpg', 0),
-       (7, 'Hewlett-Packard', 'catalog/demo/hp_logo.jpg', 0),
-       (8, 'Apple', 'catalog/demo/apple_logo.jpg', 0),
-       (9, 'Canon', 'catalog/demo/canon_logo.jpg', 0),
-       (10, 'Sony', 'catalog/demo/sony_logo.jpg', 0);
-
------------------------------------------------------------
-
---
--- Dumping data for table `oc_manufacturer_to_store`
---
-
-INSERT INTO `oc_manufacturer_to_store` (`manufacturer_id`, `store_id`)
-VALUES (5, 0),
-       (6, 0),
-       (7, 0),
-       (8, 0),
-       (9, 0),
-       (10, 0);
-
------------------------------------------------------------
 
 --
 -- Dumping data for table `oc_module`
@@ -1284,7 +1255,7 @@ VALUES (5, 0),
 
 INSERT INTO `oc_module` (`module_id`, `name`, `code`, `setting`)
 VALUES (1, 'Category Banner', 'opencart.banner', '{"name":"Category Banner","banner_id":"6","effect":"fade","items":"1","controls":"0","indicators":"0","interval":"5000","width":"200","height":"180","status":"1"}'),
-       (2, 'Featured', 'opencart.featured', '{"name":"Featured","product_name":"","product":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"axis":"horizontal","limit":"20","width":"120","height":"120","status":"1"}'),
+       (2, 'Featured', 'opencart.featured', '{"name":"Featured","product_name":"","product":[2, 5, 7, 9, 11, 19, 33, 43, 44, 48, 52, 54, 55, 66, 68, 76, 79, 87, 91, 95],"axis":"horizontal","limit":"20","width":"80","height":"120","status":"1"}'),
        (3, 'Homepage Slideshow', 'opencart.banner', '{"name":"Homepage Slideshow","banner_id":"7","effect":"slide","items":"1","controls":"1","indicators":"1","interval":"5000","width":"1140","height":"380","status":"1"}'),
        (4, 'Homepage Manufacturers', 'opencart.banner', '{"name":"Homepage Manufacturers","banner_id":"8","effect":"slide","items":"5","controls":"1","indicators":"1","interval":"5000","width":"130","height":"100","status":"1"}');
 
@@ -6086,114 +6057,114 @@ INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,loca
 	 (100,0,'4005900095268','4005900095268','','4005900095268','','','','',NULL,NULL,100,7,'catalog/4005900095268.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
 
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (1,1,'Gel para Barba e Bigode Castanho','Gel para barba e bigode Grecin 5, 28g, tonalidade castanha.','','Gel para Barba e Bigode Castanho','',''),
-	 (2,1,'Gel para Barba e Bigode Preto','Gel para barba e bigode Grecin 5, 28g, tonalidade preta.','','Gel para Barba e Bigode Preto','',''),
+	 (1,1,'Gel para Barba Castanho','Gel para barba e bigode Grecin 5, 28g, tonalidade castanha.','','Gel para Barba e Bigode Castanho','',''),
+	 (2,1,'Gel para Barba Preto','Gel para barba e bigode Grecin 5, 28g, tonalidade preta.','','Gel para Barba e Bigode Preto','',''),
 	 (3,1,'Unhas Mini Length','Kit de unhas postiças mini length, 20 unidades.','','Unhas Mini Length','',''),
-	 (4,1,'Absorvente Interno Tampax Regular','Absorvente interno Tampax, 10 unidades, tamanho regular.','','Absorvente Interno Tampax Regular','',''),
-	 (5,1,'Absorvente Interno Tampax Super com Aplicador','Absorvente interno Tampax Super, com aplicador, 10 unidades.','','Absorvente Interno Tampax Super com Aplicador','',''),
-	 (6,1,'Absorvente Interno Tampax Super Plus','Absorvente interno Tampax Super Plus, 10 unidades.','','Absorvente Interno Tampax Super Plus','',''),
+	 (4,1,'Absorvente Tampax Regular','Absorvente interno Tampax, 10 unidades, tamanho regular.','','Absorvente Interno Tampax Regular','',''),
+	 (5,1,'Absorvente Tampax Super com Aplicador','Absorvente interno Tampax Super, com aplicador, 10 unidades.','','Absorvente Interno Tampax Super com Aplicador','',''),
+	 (6,1,'Absorvente Tampax Super Plus','Absorvente interno Tampax Super Plus, 10 unidades.','','Absorvente Interno Tampax Super Plus','',''),
 	 (7,1,'Metamucil Laranja','Suplemento alimentar Metamucil, sabor laranja, para auxiliar na digestão.','','Metamucil Laranja','',''),
-	 (8,1,'Metamucil Laranja 10 Sachês','Suplemento alimentar Metamucil, sabor laranja, em sachês, 10 unidades.','','Metamucil Laranja 10 Sachês','',''),
-	 (9,1,'Escova Dental Oral-B 3D White Luxe Pro Flex','Escova dental Oral-B 3D White Luxe Pro Flex, com tecnologia avançada para clareamento e limpeza profunda.','','Escova Dental Oral-B 3D White Luxe Pro Flex','',''),
-	 (10,1,'Escova Dental Oral-B 3D White Luxe Pro Flex 2x1','Kit com 2 escovas dentais Oral-B 3D White Luxe Pro Flex, macias, para clareamento e limpeza profunda.','','Escova Dental Oral-B 3D White Luxe Pro Flex 2x1','','');
+	 (8,1,'Metamucil Laranja','Suplemento alimentar Metamucil, sabor laranja, em sachês, 10 unidades.','','Metamucil Laranja 10 Sachês','',''),
+	 (9,1,'Escova Oral-B Pro Flex','Escova dental Oral-B 3D White Luxe Pro Flex, com tecnologia avançada para clareamento e limpeza profunda.','','Escova Dental Oral-B 3D White Luxe Pro Flex','',''),
+	 (10,1,'Escova Oral-B Pro Flex','Kit com 2 escovas dentais Oral-B 3D White Luxe Pro Flex, macias, para clareamento e limpeza profunda.','','Escova Dental Oral-B 3D White Luxe Pro Flex 2x1','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (11,1,'Escova Dental Oral-B Complete Macia','Escova dental Oral-B Complete, macia, com design ergonômico para uma limpeza eficiente.','','Escova Dental Oral-B Complete Macia','',''),
-	 (12,1,'Escova Dental Oral-B Kids Mickey','Escova dental Oral-B Kids, temática Mickey Mouse, macia e suave, ideal para crianças.','','Escova Dental Oral-B Kids Mickey','',''),
-	 (13,1,'Carga Gillette Mach3 Turbo','Carga de lâminas Gillette Mach3 Turbo, 2 unidades, para um barbear suave e preciso.','','Carga Gillette Mach3 Turbo','',''),
-	 (14,1,'Escova Dental Oral-B Infantil Stages 8','Escova dental Oral-B Infantil Stages 8, macia, projetada para crianças a partir de 8 anos.','','Escova Dental Oral-B Infantil Stages 8','',''),
-	 (15,1,'Escova Dental Oral-B Infantil Stages 1','Escova dental Oral-B Infantil Stages 1, macia, projetada para crianças a partir de 1 ano.','','Escova Dental Oral-B Infantil Stages 1','',''),
-	 (16,1,'Escova Dental Oral-B Infantil Stages 2','Escova dental Oral-B Infantil Stages 2, macia, projetada para crianças a partir de 2 anos.','','Escova Dental Oral-B Infantil Stages 2','',''),
+	 (11,1,'Escova Oral-B','Escova dental Oral-B Complete, macia, com design ergonômico para uma limpeza eficiente.','','Escova Dental Oral-B Complete Macia','',''),
+	 (12,1,'Escova Oral-B Mickey','Escova dental Oral-B Kids, temática Mickey Mouse, macia e suave, ideal para crianças.','','Escova Dental Oral-B Kids Mickey','',''),
+	 (13,1,'Carga  Mach3 Turbo','Carga de lâminas Gillette Mach3 Turbo, 2 unidades, para um barbear suave e preciso.','','Carga Gillette Mach3 Turbo','',''),
+	 (14,1,'Escova Oral-B Infantil','Escova dental Oral-B Infantil Stages 8, macia, projetada para crianças a partir de 8 anos.','','Escova Dental Oral-B Infantil Stages 8','',''),
+	 (15,1,'Escova Oral-B Infantil','Escova dental Oral-B Infantil Stages 1, macia, projetada para crianças a partir de 1 ano.','','Escova Dental Oral-B Infantil Stages 1','',''),
+	 (16,1,'Escova Oral-B Infantil','Escova dental Oral-B Infantil Stages 2, macia, projetada para crianças a partir de 2 anos.','','Escova Dental Oral-B Infantil Stages 2','',''),
 	 (17,1,'Carga Gillette Sensor 3','Carga de lâminas Gillette Sensor 3, 2 unidades, para um barbear confortável e preciso.','','Carga Gillette Sensor 3','',''),
-	 (18,1,'Carga Gillette Sensor 3 com 4 Lâminas','Carga de lâminas Gillette Sensor 3, com 4 unidades, para um barbear suave e eficiente.','','Carga Gillette Sensor 3 com 4 Lâminas','',''),
-	 (19,1,'Escova Dental Oral-B Classic Limpeza Brilhante','Escova dental Oral-B Classic, com cerdas macias e design clássico para uma limpeza brilhante.','','Escova Dental Oral-B Classic Limpeza Brilhante','',''),
-	 (20,1,'Escova Dental Oral-B Classic Limpeza 40 Média','Escova dental Oral-B Classic Limpeza 40 com cerdas médias.','','Escova Dental Oral-B Classic Limpeza 40 Média','','');
+	 (18,1,'Carga Gillette 4 Lâminas','Carga de lâminas Gillette Sensor 3, com 4 unidades, para um barbear suave e eficiente.','','Carga Gillette Sensor 3 com 4 Lâminas','',''),
+	 (19,1,'Escova Oral-B Classic','Escova dental Oral-B Classic, com cerdas macias e design clássico para uma limpeza brilhante.','','Escova Dental Oral-B Classic Limpeza Brilhante','',''),
+	 (20,1,'Escova Oral-B Classic','Escova dental Oral-B Classic Limpeza 40 com cerdas médias.','','Escova Dental Oral-B Classic Limpeza 40 Média','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (21,1,'Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos','Aparelho de barbear Bic Comfort 3 Hybrid com 6 cartuchos de reposição.','','Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos','',''),
-	 (22,1,'Solução Multiação Boston Simplus','Solução multiação Boston Simplus para lentes de contato.','','Solução Multiação Boston Simplus','',''),
-	 (23,1,'Hidratante Corporal Lipikar Baume AP+ La Roche-Posay','Hidratante corporal Lipikar Baume AP+ da La Roche-Posay.','','Hidratante Corporal Lipikar Baume AP+ La Roche-Posay','',''),
-	 (24,1,'Sabo Líquido Saforelle Soin Lavant Doux 250ml','Sabo líquido Saforelle Soin Lavant Doux, frasco de 250ml.','','Sabo Líquido Saforelle Soin Lavant Doux 250ml','',''),
-	 (25,1,'Sabo Líquido Saforelle Ultra Hydratant 250ml','Sabo líquido Saforelle Ultra Hydratant, frasco de 250ml.','','Sabo Líquido Saforelle Ultra Hydratant 250ml','',''),
-	 (26,1,'Perfume de France Vodka Extreme Masculino','Perfume de France Vodka Extreme masculino.','','Perfume de France Vodka Extreme Masculino','',''),
-	 (27,1,'Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT','Perfume I Love P.E. for Women, 3.3oz EDT, da Paris Elysees.','','Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT','',''),
-	 (28,1,'Perfume Billion Woman Paris Elysees 3.3oz EDT','Perfume Billion Woman, 3.3oz EDT, da Paris Elysees.','','Perfume Billion Woman Paris Elysees 3.3oz EDT','',''),
-	 (29,1,'Perfume Vodka Night Paris Elysees 3.3oz EDT','Perfume Vodka Night, 3.3oz EDT, da Paris Elysees.','','Perfume Vodka Night Paris Elysees 3.3oz EDT','',''),
-	 (30,1,'Perfume Vodka Man Paris Elysees EDT Masculino','Perfume Vodka Man Eau de Toilette da Paris Elysees, perfume masculino.','','Perfume Vodka Man Paris Elysees EDT Masculino','','');
+	 (21,1,'Bic Comfort 3 Hybrid','Aparelho de barbear Bic Comfort 3 Hybrid com 6 cartuchos de reposição.','','Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos','',''),
+	 (22,1,'Solução Boston Simplus','Solução multiação Boston Simplus para lentes de contato.','','Solução Multiação Boston Simplus','',''),
+	 (23,1,'Hidratante Lipikar','Hidratante corporal Lipikar Baume AP+ da La Roche-Posay.','','Hidratante Corporal Lipikar Baume AP+ La Roche-Posay','',''),
+	 (24,1,'Sabo Líquido Saforelle','Sabo líquido Saforelle Soin Lavant Doux, frasco de 250ml.','','Sabo Líquido Saforelle Soin Lavant Doux 250ml','',''),
+	 (25,1,'Sabo Líquido Saforelle','Sabo líquido Saforelle Ultra Hydratant, frasco de 250ml.','','Sabo Líquido Saforelle Ultra Hydratant 250ml','',''),
+	 (26,1,'Extreme Masculino','Perfume de France Vodka Extreme masculino.','','Perfume de France Vodka Extreme Masculino','',''),
+	 (27,1,'I Love','Perfume I Love P.E. for Women, 3.3oz EDT, da Paris Elysees.','','Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT','',''),
+	 (28,1,'Billion Woman','Perfume Billion Woman, 3.3oz EDT, da Paris Elysees.','','Perfume Billion Woman Paris Elysees 3.3oz EDT','',''),
+	 (29,1,'Vodka Night','Perfume Vodka Night, 3.3oz EDT, da Paris Elysees.','','Perfume Vodka Night Paris Elysees 3.3oz EDT','',''),
+	 (30,1,'Vodka Man','Perfume Vodka Man Eau de Toilette da Paris Elysees, perfume masculino.','','Perfume Vodka Man Paris Elysees EDT Masculino','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (31,1,'Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino','Perfume La Petite Fleur Blanche da Paris Elysees, Eau de Toilette feminino, 100ml.','','Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino','',''),
-	 (32,1,'Perfume La Petit Paris Elysees Fleur Secrete 100ml','Perfume La Petit Paris Elysees Fleur Secrete, 100ml.','','Perfume La Petit Paris Elysees Fleur Secrete 100ml','',''),
-	 (33,1,'Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras','Tiras para medidor de glicemia OneTouch Ultra, pacote com 50 tiras.','','Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras','',''),
-	 (34,1,'Fralda Huggies Little Swimmers Tamanho M 11 Unidades','Fralda Huggies Little Swimmers tamanho M, pacote com 11 unidades.','','Fralda Huggies Little Swimmers Tamanho M 11 Unidades','',''),
-	 (35,1,'Fralda Huggies Little Swimmers Tamanho G 10 Unidades','Fralda Huggies Little Swimmers tamanho G, pacote com 10 unidades.','','Fralda Huggies Little Swimmers Tamanho G 10 Unidades','',''),
-	 (36,1,'Colírio Hyabak 3,2mg/ml União Química Similar','Colírio Hyabak 3,2mg/ml, similar da União Química.','','Colírio Hyabak 3,2mg/ml União Química Similar','',''),
-	 (37,1,'Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas','Gel ocular Blephagel, 40g, com 100 compressas esterilizadas.','','Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas','',''),
-	 (38,1,'Máscara de Tratamento Aussie Moist 236ml','Máscara de tratamento Aussie Moist, frasco de 236ml.','','Máscara de Tratamento Aussie Moist 236ml','',''),
-	 (39,1,'Agulha Descartável 4mm Penta Point para Caneta 100 Unidades','Agulha descartável 4mm Penta Point para caneta de insulina, caixa com 100 unidades.','','Agulha Descartável 4mm Penta Point para Caneta 100 Unidades','',''),
-	 (40,1,'Agulha BD Ultra-Fine Penta Point Easy 4mm BD','Agulha BD Ultra-Fine Penta Point Easy 4mm da BD.','','Agulha BD Ultra-Fine Penta Point Easy 4mm BD','','');
+	 (31,1,'La Petite Fleur Blanche','Perfume La Petite Fleur Blanche da Paris Elysees, Eau de Toilette feminino, 100ml.','','Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino','',''),
+	 (32,1,'La Petit Fleur Secrete','Perfume La Petit Paris Elysees Fleur Secrete, 100ml.','','Perfume La Petit Paris Elysees Fleur Secrete 100ml','',''),
+	 (33,1,'OneTouch Ultra','Tiras para medidor de glicemia OneTouch Ultra, pacote com 50 tiras.','','Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras','',''),
+	 (34,1,'Fralda Huggies Tam M','Fralda Huggies Little Swimmers tamanho M, pacote com 11 unidades.','','Fralda Huggies Little Swimmers Tamanho M 11 Unidades','',''),
+	 (35,1,'Fralda Huggies Tam G','Fralda Huggies Little Swimmers tamanho G, pacote com 10 unidades.','','Fralda Huggies Little Swimmers Tamanho G 10 Unidades','',''),
+	 (36,1,'Colírio Hyabak','Colírio Hyabak 3,2mg/ml, similar da União Química.','','Colírio Hyabak 3,2mg/ml União Química Similar','',''),
+	 (37,1,'Gel Ocular Blephagel','Gel ocular Blephagel, 40g, com 100 compressas esterilizadas.','','Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas','',''),
+	 (38,1,'Máscara Aussie Moist','Máscara de tratamento Aussie Moist, frasco de 236ml.','','Máscara de Tratamento Aussie Moist 236ml','',''),
+	 (39,1,'Agulha Descartável 4mm','Agulha descartável 4mm Penta Point para caneta de insulina, caixa com 100 unidades.','','Agulha Descartável 4mm Penta Point para Caneta 100 Unidades','',''),
+	 (40,1,'Agulha BD Ultra-Fine','Agulha BD Ultra-Fine Penta Point Easy 4mm da BD.','','Agulha BD Ultra-Fine Penta Point Easy 4mm BD','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (41,1,'Bateria Energizer Max 9V','Bateria Energizer Max 9V.','','Bateria Energizer Max 9V','',''),
-	 (42,1,'Bateria Eveready Alcalina 9V','Bateria Eveready alcalina 9V.','','Bateria Eveready Alcalina 9V','',''),
-	 (43,1,'Leite em Pó Nan H.A. 400g','Leite em pó Nan H.A., lata de 400g.','','Leite em Pó Nan H.A. 400g','',''),
-	 (44,1,'Desodorante Roll-On Nivea Clear Skin 50ml','Desodorante roll-on Nivea Clear Skin, frasco de 50ml.','','Desodorante Roll-On Nivea Clear Skin 50ml','',''),
-	 (45,1,'Desodorante Aerossol Nivea D''Effect Senses 150ml','Desodorante aerossol Nivea D''Effect Senses, frasco de 150ml.','','Desodorante Aerossol Nivea D''Effect Senses 150ml','',''),
-	 (46,1,'Desodorante Roll-On Nivea Men Dry Impact 50ml','Desodorante roll-on Nivea Men Dry Impact, frasco de 50ml.','','Desodorante Roll-On Nivea Men Dry Impact 50ml','',''),
-	 (47,1,'Desodorante Roll-On Nivea Men Fresh Active 50ml','Desodorante roll-on Nivea Men Fresh Active, frasco de 50ml.','','Desodorante Roll-On Nivea Men Fresh Active 50ml','',''),
-	 (48,1,'Desodorante Roll-On Nivea Dry Comfort 50ml','Desodorante roll-on Nivea Dry Comfort, frasco de 50ml.','','Desodorante Roll-On Nivea Dry Comfort 50ml','',''),
-	 (49,1,'Desodorante Roll-On Nivea Fresh Natural 50ml','Desodorante roll-on Nivea Fresh Natural, frasco de 50ml.','','Desodorante Roll-On Nivea Fresh Natural 50ml','',''),
-	 (50,1,'Desodorante Roll-On Nivea Men Cool Kick 50ml','Desodorante roll-on Nivea Men Cool Kick, frasco de 50ml.','','Desodorante Roll-On Nivea Men Cool Kick 50ml','','');
+	 (41,1,'Bat. Energizer','Bateria Energizer Max 9V.','','Bateria Energizer Max 9V','',''),
+	 (42,1,'Bat. Eveready Alcalina','Bateria Eveready alcalina 9V.','','Bateria Eveready Alcalina 9V','',''),
+	 (43,1,'Leite em Pó Nan H.A','Leite em pó Nan H.A., lata de 400g.','','Leite em Pó Nan H.A. 400g','',''),
+	 (44,1,'Roll-On Nivea Clear Skin','Desodorante roll-on Nivea Clear Skin, frasco de 50ml.','','Desodorante Roll-On Nivea Clear Skin 50ml','',''),
+	 (45,1,'Aerossol Nivea D''Effect Senses','Desodorante aerossol Nivea D''Effect Senses, frasco de 150ml.','','Desodorante Aerossol Nivea D''Effect Senses 150ml','',''),
+	 (46,1,'Roll-On Nivea Men Dry Impact','Desodorante roll-on Nivea Men Dry Impact, frasco de 50ml.','','Desodorante Roll-On Nivea Men Dry Impact 50ml','',''),
+	 (47,1,'Roll-On Nivea Men Fresh Active','Desodorante roll-on Nivea Men Fresh Active, frasco de 50ml.','','Desodorante Roll-On Nivea Men Fresh Active 50ml','',''),
+	 (48,1,'Roll-On Nivea Dry Comfort','Desodorante roll-on Nivea Dry Comfort, frasco de 50ml.','','Desodorante Roll-On Nivea Dry Comfort 50ml','',''),
+	 (49,1,'Roll-On Nivea Fresh Natural','Desodorante roll-on Nivea Fresh Natural, frasco de 50ml.','','Desodorante Roll-On Nivea Fresh Natural 50ml','',''),
+	 (50,1,'Roll-On Nivea Men Cool','Desodorante roll-on Nivea Men Cool Kick, frasco de 50ml.','','Desodorante Roll-On Nivea Men Cool Kick 50ml','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (51,1,'Desodorante Roll-On Nivea Sensitive Protect 50ml','Desodorante roll-on Nivea Sensitive Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Sensitive Protect 50ml','',''),
-	 (52,1,'Desodorante Roll-On Nivea Pearl & Beauty 50ml','Desodorante roll-on Nivea Pearl & Beauty, frasco de 50ml.','','Desodorante Roll-On Nivea Pearl & Beauty 50ml','',''),
-	 (53,1,'Desodorante Roll-On Nivea Double Effect 50ml','Desodorante roll-on Nivea Double Effect, frasco de 50ml.','','Desodorante Roll-On Nivea Double Effect 50ml','',''),
-	 (54,1,'Protetor Solar Facial Nivea Light Feeling FPS 30','Protetor solar facial Nivea Light Feeling FPS 30.','','Protetor Solar Facial Nivea Light Feeling FPS 30','',''),
-	 (55,1,'Desodorante Aerossol Nivea Men Silver Protect 150ml','Desodorante aerossol Nivea Men Silver Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Men Silver Protect 150ml','',''),
-	 (56,1,'Desodorante Roll-On Nivea Men Silver Protect 50ml','Desodorante roll-on Nivea Men Silver Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Men Silver Protect 50ml','',''),
-	 (57,1,'Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca','Loção hidratante Nivea In-Shower Milk, 200ml, para pele extra seca.','','Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca','',''),
-	 (58,1,'Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele','Loção hidratante Nivea Express, 200ml, para todos os tipos de pele.','','Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele','',''),
-	 (59,1,'Loção Firmadora Nivea Q10 + Vitamina C 200ml','Loção firmadora Nivea Q10 + Vitamina C, frasco de 200ml.','','Loção Firmadora Nivea Q10 + Vitamina C 200ml','',''),
-	 (60,1,'Loção Deo-Hidratante Corporal Nivea Milk 400ml','Loção deo-hidratante corporal Nivea Milk, frasco de 400ml.','','Loção Deo-Hidratante Corporal Nivea Milk 400ml','','');
+	 (51,1,'Roll-On Nivea Sensitive Protect','Desodorante roll-on Nivea Sensitive Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Sensitive Protect 50ml','',''),
+	 (52,1,'Roll-On Nivea Pearl & Beauty','Desodorante roll-on Nivea Pearl & Beauty, frasco de 50ml.','','Desodorante Roll-On Nivea Pearl & Beauty 50ml','',''),
+	 (53,1,'Roll-On Nivea Double Effect','Desodorante roll-on Nivea Double Effect, frasco de 50ml.','','Desodorante Roll-On Nivea Double Effect 50ml','',''),
+	 (54,1,'Protetor Light Feeling','Protetor solar facial Nivea Light Feeling FPS 30.','','Protetor Solar Facial Nivea Light Feeling FPS 30','',''),
+	 (55,1,'Aerossol Nivea Men Silver','Desodorante aerossol Nivea Men Silver Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Men Silver Protect 150ml','',''),
+	 (56,1,'Roll-On Nivea Men Silver','Desodorante roll-on Nivea Men Silver Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Men Silver Protect 50ml','',''),
+	 (57,1,'Loção Nivea In-Shower ','Loção hidratante Nivea In-Shower Milk, 200ml, para pele extra seca.','','Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca','',''),
+	 (58,1,'Loção Nivea Express','Loção hidratante Nivea Express, 200ml, para todos os tipos de pele.','','Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele','',''),
+	 (59,1,'Loção Firmadora Nivea','Loção firmadora Nivea Q10 + Vitamina C, frasco de 200ml.','','Loção Firmadora Nivea Q10 + Vitamina C 200ml','',''),
+	 (60,1,'Loção Deo-Hidratante','Loção deo-hidratante corporal Nivea Milk, frasco de 400ml.','','Loção Deo-Hidratante Corporal Nivea Milk 400ml','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (61,1,'Loção Hidratante Nivea Soft Milk 200ml para Pele Seca','Loção hidratante Nivea Soft Milk, 200ml, para pele seca.','','Loção Hidratante Nivea Soft Milk 200ml para Pele Seca','',''),
-	 (62,1,'Protetor Labial Nivea Med Repair FPS 15 4,8g','Protetor labial Nivea Med Repair FPS 15, blister de 4,8g.','','Protetor Labial Nivea Med Repair FPS 15 4,8g','',''),
-	 (63,1,'Sabonete Líquido Nivea Creme Soft 250ml','Sabonete líquido Nivea Creme Soft, frasco de 250ml.','','Sabonete Líquido Nivea Creme Soft 250ml','',''),
-	 (64,1,'Sabonete Nivea Erva Limão e Óleos 90g','Sabonete Nivea Erva Limão e Óleos, barra de 90g.','','Sabonete Nivea Erva Limão e Óleos 90g','',''),
-	 (65,1,'Espuma de Barbear Nivea Men Silver Protect 200ml','Espuma de barbear Nivea Men Silver Protect, frasco de 200ml.','','Espuma de Barbear Nivea Men Silver Protect 200ml','',''),
-	 (66,1,'Solução Similar Renu Plus 8ml','Solução similar Renu Plus para lentes de contato, frasco de 8ml.','','Solução Similar Renu Plus 8ml','',''),
-	 (67,1,'Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml','Pack de antitranspirante aerossol Nivea Invisible Black & White Clear, 2 unidades de 150ml cada, leve mais pague menos.','','Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml','',''),
-	 (68,1,'Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml','Protetor solar Nivea Sun Protect & Hidrata FPS 30, frasco de 200ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml','',''),
-	 (69,1,'Protetor Solar Nivea Sun FPS 30 125ml','Protetor solar Nivea Sun FPS 30, frasco de 125ml.','','Protetor Solar Nivea Sun FPS 30 125ml','',''),
-	 (70,1,'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml','Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 200ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml','','');
+	 (61,1,'Loção Hidratante Nivea','Loção hidratante Nivea Soft Milk, 200ml, para pele seca.','','Loção Hidratante Nivea Soft Milk 200ml para Pele Seca','',''),
+	 (62,1,'Protetor Labial Nivea','Protetor labial Nivea Med Repair FPS 15, blister de 4,8g.','','Protetor Labial Nivea Med Repair FPS 15 4,8g','',''),
+	 (63,1,'Sab. Líquido Nivea','Sabonete líquido Nivea Creme Soft, frasco de 250ml.','','Sabonete Líquido Nivea Creme Soft 250ml','',''),
+	 (64,1,'Sab. Nivea Erva Limão e Óleos','Sabonete Nivea Erva Limão e Óleos, barra de 90g.','','Sabonete Nivea Erva Limão e Óleos 90g','',''),
+	 (65,1,'Espuma de Barbear Nivea','Espuma de barbear Nivea Men Silver Protect, frasco de 200ml.','','Espuma de Barbear Nivea Men Silver Protect 200ml','',''),
+	 (66,1,'Solução Similar Renu','Solução similar Renu Plus para lentes de contato, frasco de 8ml.','','Solução Similar Renu Plus 8ml','',''),
+	 (67,1,'Pack Invisible Black & White Clear','Pack de antitranspirante aerossol Nivea Invisible Black & White Clear, 2 unidades de 150ml cada, leve mais pague menos.','','Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml','',''),
+	 (68,1,'Protetor Nivea Sun Protect & Hidrata','Protetor solar Nivea Sun Protect & Hidrata FPS 30, frasco de 200ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml','',''),
+	 (69,1,'Protetor Nivea Sun FPS','Protetor solar Nivea Sun FPS 30, frasco de 125ml.','','Protetor Solar Nivea Sun FPS 30 125ml','',''),
+	 (70,1,'Protetor Nivea Sun Protect & Hidrata FPS','Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 200ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (71,1,'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml','Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 125ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml','',''),
-	 (72,1,'Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml','Protetor solar Nivea Sun Protect & Bronze FPS 30, frasco de 125ml.','','Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml','',''),
-	 (73,1,'Desodorante Aerossol Nivea Clear Skin 150ml','Desodorante aerossol Nivea Clear Skin, frasco de 150ml.','','Desodorante Aerossol Nivea Clear Skin 150ml','',''),
-	 (74,1,'Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml','Desodorante aerossol Nivea Sensitive, sem perfume, frasco de 150ml.','','Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml','',''),
-	 (75,1,'Desodorante Roll-On Nivea Sensitive Pure 50ml','Desodorante roll-on Nivea Sensitive Pure, frasco de 50ml.','','Desodorante Roll-On Nivea Sensitive Pure 50ml','',''),
-	 (76,1,'Desodorante Aerossol Nivea Feminino Stress Protect 150ml','Desodorante aerossol Nivea Feminino Stress Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Stress Protect 150ml','',''),
-	 (77,1,'Desodorante Aerossol Nivea Men Stress Protect 150ml','Desodorante aerossol Nivea Men Stress Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Men Stress Protect 150ml','',''),
-	 (78,1,'Desodorante Roll-On Nivea Feminino Stress Protect 50ml','Desodorante roll-on Nivea Feminino Stress Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Feminino Stress Protect 50ml','',''),
-	 (79,1,'Loção Hidratante Nivea Milk para Pele Extra Seca 200ml','Loção hidratante Nivea Milk para pele extra seca, frasco de 200ml.','','Loção Hidratante Nivea Milk para Pele Extra Seca 200ml','',''),
-	 (80,1,'Sabonete Nivea Aveia 90g','Sabonete Nivea Aveia, barra de 90g.','','Sabonete Nivea Aveia 90g','','');
+	 (71,1,'Protetor Nivea Sun Protect & Hidrata FPS','Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 125ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml','',''),
+	 (72,1,'Protetor Nivea Sun Protect & Bronze FPS','Protetor solar Nivea Sun Protect & Bronze FPS 30, frasco de 125ml.','','Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml','',''),
+	 (73,1,'Aerossol Nivea Clear Skin','Desodorante aerossol Nivea Clear Skin, frasco de 150ml.','','Desodorante Aerossol Nivea Clear Skin 150ml','',''),
+	 (74,1,'Aerossol Nivea Sensitive Sem Perfume','Desodorante aerossol Nivea Sensitive, sem perfume, frasco de 150ml.','','Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml','',''),
+	 (75,1,'Roll-On Nivea Sensitive','Desodorante roll-on Nivea Sensitive Pure, frasco de 50ml.','','Desodorante Roll-On Nivea Sensitive Pure 50ml','',''),
+	 (76,1,'Aerossol Nivea Feminino Stress','Desodorante aerossol Nivea Feminino Stress Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Stress Protect 150ml','',''),
+	 (77,1,'Aerossol Nivea Men Stress','Desodorante aerossol Nivea Men Stress Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Men Stress Protect 150ml','',''),
+	 (78,1,'Roll-On Nivea Feminino Stress','Desodorante roll-on Nivea Feminino Stress Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Feminino Stress Protect 50ml','',''),
+	 (79,1,'Loção Hidratante Nivea Milk','Loção hidratante Nivea Milk para pele extra seca, frasco de 200ml.','','Loção Hidratante Nivea Milk para Pele Extra Seca 200ml','',''),
+	 (80,1,'Sabonete Nivea Aveia','Sabonete Nivea Aveia, barra de 90g.','','Sabonete Nivea Aveia 90g','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (82,1,'Sabonete Nivea Leite 90g','Sabonete Nivea Leite, barra de 90g.','','Sabonete Nivea Leite 90g','',''),
-	 (83,1,'Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g','Creme facial antissinais dia Nivea Q10 Plus FPS 30, caixa de 52g.','','Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g','',''),
-	 (84,1,'Desodorante Roll-On Sensitive Balm','Desodorante roll-on Sensitive Balm.','','Desodorante Roll-On Sensitive Balm','',''),
-	 (85,1,'Sabonete Antibacteriano Nivea Suave 85g','Sabonete antibacteriano Nivea Suave, barra de 85g.','','Sabonete Antibacteriano Nivea Suave 85g','',''),
-	 (86,1,'Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml','Desodorante aerossol Nivea Feminino Pearl & Beauty, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml','',''),
-	 (87,1,'Protetor Labial Nivea Original Care 4,8g','Protetor labial Nivea Original Care, blister de 4,8g.','','Protetor Labial Nivea Original Care 4,8g','',''),
-	 (88,1,'Protetor Labial Nivea Morango 4,8g','Protetor labial Nivea Morango, blister de 4,8g.','','Protetor Labial Nivea Morango 4,8g','',''),
-	 (89,1,'Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g','Hidratante suave para rosto, corpo e mãos Nivea Soft, pote de 98g.','','Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g','',''),
-	 (90,1,'Desodorante Aerossol Nivea Feminino Powder Comfort 150ml','Desodorante aerossol Nivea Feminino Powder Comfort, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Powder Comfort 150ml','',''),
-	 (91,1,'Desodorante Roll-On Nivea Feminino Powder Comfort 50ml','Desodorante roll-on Nivea Feminino Powder Comfort, frasco de 50ml.','','Desodorante Roll-On Nivea Feminino Powder Comfort 50ml','','');
+	 (82,1,'Sabonete Nivea Leite','Sabonete Nivea Leite, barra de 90g.','','Sabonete Nivea Leite 90g','',''),
+	 (83,1,'Creme Antissinais Dia Nivea','Creme facial antissinais dia Nivea Q10 Plus FPS 30, caixa de 52g.','','Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g','',''),
+	 (84,1,'Roll-On Sensitive Balm','Desodorante roll-on Sensitive Balm.','','Desodorante Roll-On Sensitive Balm','',''),
+	 (85,1,'Sabonete Antibacteriano Nivea Suave','Sabonete antibacteriano Nivea Suave, barra de 85g.','','Sabonete Antibacteriano Nivea Suave 85g','',''),
+	 (86,1,'Aerossol Nivea Feminino Pearl & Beauty','Desodorante aerossol Nivea Feminino Pearl & Beauty, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml','',''),
+	 (87,1,'Protetor Labial Nivea Original Care','Protetor labial Nivea Original Care, blister de 4,8g.','','Protetor Labial Nivea Original Care 4,8g','',''),
+	 (88,1,'Protetor Labial Nivea Morango','Protetor labial Nivea Morango, blister de 4,8g.','','Protetor Labial Nivea Morango 4,8g','',''),
+	 (89,1,'Hidratante Nivea Soft','Hidratante suave para rosto, corpo e mãos Nivea Soft, pote de 98g.','','Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g','',''),
+	 (90,1,'Aerossol Nivea Feminino Powder','Desodorante aerossol Nivea Feminino Powder Comfort, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Powder Comfort 150ml','',''),
+	 (91,1,'Roll-On Nivea Feminino Powder','Desodorante roll-on Nivea Feminino Powder Comfort, frasco de 50ml.','','Desodorante Roll-On Nivea Feminino Powder Comfort 50ml','','');
 INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
-	 (92,1,'Loção Hidratante Firmadora Nivea Q10 Plus 200ml','Loção hidratante firmadora Nivea Q10 Plus, frasco de 200ml.','','Loção Hidratante Firmadora Nivea Q10 Plus 200ml','',''),
-	 (93,1,'Loção Deo-Hidratante Nivea Soft Milk 400ml','Loção deo-hidratante Nivea Soft Milk, frasco de 400ml.','','Loção Deo-Hidratante Nivea Soft Milk 400ml','',''),
-	 (94,1,'Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml','Antitranspirante aerossol Nivea Dry Comfort Plus, leve 200ml pague 150ml.','','Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml','',''),
-	 (95,1,'Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml','Desodorante aerossol Nivea Feminino Invisible Black & White Clear, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml','',''),
-	 (96,1,'Desodorante Roll-On Nivea Invisible Black & White Clear 50ml','Desodorante roll-on Nivea Invisible Black & White Clear, frasco de 50ml.','','Desodorante Roll-On Nivea Invisible Black & White Clear 50ml','',''),
-	 (97,1,'Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml','Desodorante aerossol Nivea Men Invisible Black & White Power, frasco de 150ml.','','Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml','',''),
-	 (98,1,'Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml','Desodorante roll-on Nivea Men Invisible Black & White Power, frasco de 50ml.','','Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml','',''),
-	 (99,1,'Sabonete Nivea Hidratante Lavanda 90g','Sabonete Nivea Hidratante Lavanda, barra de 90g.','','Sabonete Nivea Hidratante Lavanda 90g','',''),
-	 (100,1,'Sabonete Líquido Nivea Creme Care 250ml','Sabonete líquido Nivea Creme Care, frasco de 250ml.','','Sabonete Líquido Nivea Creme Care 250ml','','');
+	 (92,1,'Loção Hidratante Firmadora Nivea Q10 Plus','Loção hidratante firmadora Nivea Q10 Plus, frasco de 200ml.','','Loção Hidratante Firmadora Nivea Q10 Plus 200ml','',''),
+	 (93,1,'Loção Deo-Hidratante Nivea Soft Milk','Loção deo-hidratante Nivea Soft Milk, frasco de 400ml.','','Loção Deo-Hidratante Nivea Soft Milk 400ml','',''),
+	 (94,1,'Aerossol Nivea Dry Comfort Plus','Antitranspirante aerossol Nivea Dry Comfort Plus, leve 200ml pague 150ml.','','Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml','',''),
+	 (95,1,'Aerossol Nivea Feminino Invisible Black','Desodorante aerossol Nivea Feminino Invisible Black & White Clear, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml','',''),
+	 (96,1,'Roll-On Nivea Invisible Black','Desodorante roll-on Nivea Invisible Black & White Clear, frasco de 50ml.','','Desodorante Roll-On Nivea Invisible Black & White Clear 50ml','',''),
+	 (97,1,'Aerossol Nivea Men Invisible Black','Desodorante aerossol Nivea Men Invisible Black & White Power, frasco de 150ml.','','Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml','',''),
+	 (98,1,'Roll-On Nivea Men Invisible Black','Desodorante roll-on Nivea Men Invisible Black & White Power, frasco de 50ml.','','Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml','',''),
+	 (99,1,'Sab. Nivea Hidratante Lavanda','Sabonete Nivea Hidratante Lavanda, barra de 90g.','','Sabonete Nivea Hidratante Lavanda 90g','',''),
+	 (100,1,'Sab. Líquido Nivea Creme Care','Sabonete líquido Nivea Creme Care, frasco de 250ml.','','Sabonete Líquido Nivea Creme Care 250ml','','');
 INSERT INTO oc_product_to_store (product_id,store_id) VALUES
 	 (1,0),
 	 (2,0),
