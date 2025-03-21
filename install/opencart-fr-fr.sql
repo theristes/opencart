@@ -100,18 +100,18 @@ VALUES (6, 'HP Products', 1),
 INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `language_id`, `title`, `link`, `image`, `sort_order`)
 VALUES (99, 7, 1, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/Gillette.jpg', 0),
        (100, 6, 1, 'HP Banner', 'index.php?route=product/manufacturer.info&amp;manufacturer_id=7', 'catalog/demo/compaq_presario.jpg', 0),
-       (101, 8, 1, 'NFL', '', 'catalog/demo/manufacturer/nfl.png', 0),
-       (102, 8, 1, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0),
-       (103, 8, 1, 'Sony', '', 'catalog/demo/manufacturer/sony.png', 0),
-       (104, 8, 1, 'Coca Cola', '', 'catalog/demo/manufacturer/cocacola.png', 0),
-       (105, 8, 1, 'Burger King', '', 'catalog/demo/manufacturer/burgerking.png', 0),
-       (106, 8, 1, 'Canon', '', 'catalog/demo/manufacturer/canon.png', 0),
-       (107, 8, 1, 'Harley Davidson', '', 'catalog/demo/manufacturer/harley.png', 0),
-       (108, 8, 1, 'Dell', '', 'catalog/demo/manufacturer/dell.png', 0),
-       (109, 8, 1, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0),
+       (101, 8, 1, 'NFL', '', 'catalog/demo/manufacturer/pg.png', 0),
+       (102, 8, 1, 'RedBull', '', 'catalog/demo/manufacturer/loreal.png', 0),
+       (103, 8, 1, 'Sony', '', 'catalog/demo/manufacturer/baushlomb.png', 0),
+       (104, 8, 1, 'Coca Cola', '', 'catalog/demo/manufacturer/oralb.png', 0),
+       (105, 8, 1, 'Burger King', '', 'catalog/demo/manufacturer/bic.png', 0),
+       (106, 8, 1, 'Canon', '', 'catalog/demo/manufacturer/nivea.png', 0),
+       (107, 8, 1, 'Harley Davidson', '', 'catalog/demo/manufacturer/nestle.png', 0),
+       (108, 8, 1, 'Dell', '', 'catalog/demo/manufacturer/gillette.png', 0),
+       (109, 8, 1, 'Disney', '', 'catalog/demo/manufacturer/huggies.png', 0),
        (110, 7, 1, 'MacBookAir', '', 'catalog/demo/banners/Nivea.jpg', 0),
-       (111, 8, 1, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0),
-       (112, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0);
+       (111, 8, 1, 'Starbucks', '', 'catalog/demo/manufacturer/saforelle.png', 0),
+       (112, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/jj.png', 0);
 
 -----------------------------------------------------------
 

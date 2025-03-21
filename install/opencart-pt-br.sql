@@ -93,20 +93,21 @@ VALUES (6, 'Produtos HP', 1),
 --
 
 INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `language_id`, `title`, `link`, `image`, `sort_order`)
-VALUES (79, 7, 1, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/Gillette.jpg', 0),
-       (87, 6, 1, 'HP Banner', 'index.php?route=product/manufacturer.info&amp;manufacturer_id=7', 'catalog/demo/compaq_presario.jpg', 0),
-       (94, 8, 1, 'NFL', '', 'catalog/demo/manufacturer/nfl.png', 0),
-       (95, 8, 1, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0),
-       (96, 8, 1, 'Sony', '', 'catalog/demo/manufacturer/sony.png', 0),
-       (91, 8, 1, 'Coca Cola', '', 'catalog/demo/manufacturer/cocacola.png', 0),
-       (92, 8, 1, 'Burger King', '', 'catalog/demo/manufacturer/burgerking.png', 0),
-       (93, 8, 1, 'Canon', '', 'catalog/demo/manufacturer/canon.png', 0),
-       (88, 8, 1, 'Harley Davidson', '', 'catalog/demo/manufacturer/harley.png', 0),
-       (89, 8, 1, 'Dell', '', 'catalog/demo/manufacturer/dell.png', 0),
-       (90, 8, 1, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0),
-       (80, 7, 1, 'MacBookAir', '', 'catalog/demo/banners/Nivea.jpg', 0),
-       (97, 8, 1, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0),
-       (98, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0);
+VALUES 
+(79, 7, 1, 'Gillette', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/Gillette.jpg', 0),
+(87, 6, 1, 'Compaq Presario', 'index.php?route=product/manufacturer.info&amp;manufacturer_id=7', 'catalog/demo/compaq_presario.jpg', 0),
+(94, 8, 1, 'Procter & Gamble', '', 'catalog/demo/manufacturer/pg.png', 0),
+(95, 8, 1, 'Loreal', '', 'catalog/demo/manufacturer/loreal.png', 0),
+(96, 8, 1, 'Baushlomb', '', 'catalog/demo/manufacturer/baushlomb.png', 0),
+(91, 8, 1, 'Oral-B', '', 'catalog/demo/manufacturer/oralb.png', 0),
+(92, 8, 1, 'Bic', '', 'catalog/demo/manufacturer/bic.png', 0),
+(93, 8, 1, 'Nivea', '', 'catalog/demo/manufacturer/nivea.png', 0),
+(88, 8, 1, 'Nestle', '', 'catalog/demo/manufacturer/nestle.png', 0),
+(89, 8, 1, 'Gillette', '', 'catalog/demo/manufacturer/gillette.png', 0),
+(90, 8, 1, 'Huggies', '', 'catalog/demo/manufacturer/huggies.png', 0),
+(80, 7, 1, 'Nivea', '', 'catalog/demo/banners/Nivea.jpg', 0),
+(97, 8, 1, 'Saforelle', '', 'catalog/demo/manufacturer/saforelle.png', 0),
+(98, 8, 1, 'Johnson & Johnson', '', 'catalog/demo/manufacturer/jj.png', 0);
 -----------------------------------------------------------
 
 --
