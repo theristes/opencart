@@ -81,17 +81,17 @@ class ContentTop extends \Opencart\System\Engine\Controller {
 				}
 			}
 
-			if (isset($part[2])) {
-				$setting_info = $this->model_setting_module->getModule((int)$part[2]);
+			// if (isset($part[2])) {
+			// 	$setting_info = $this->model_setting_module->getModule((int)$part[2]);
 
-				if ($setting_info && $setting_info['status']) {
-					$output = $this->load->controller('extension/' . $part[0] . '/module/' . $part[1], $setting_info);
+			// 	if ($setting_info && $setting_info['status']) {
+			// 		$output = $this->load->controller('extension/' . $part[0] . '/module/' . $part[1], $setting_info);
 
-					if ($output) {
-						$data['modules'][] = $output;
-					}
-				}
-			}
+			// 		if ($output) {
+			// 			$data['modules'][] = $output;
+			// 		}
+			// 	}
+			// }
 		}
 
 		return $this->load->view('common/content_top', $data);
