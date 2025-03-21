@@ -5972,6 +5972,8 @@ INSERT INTO oc_category_description (category_id,language_id,name,description,me
 	 (4,1,'Medicamentos','Categoria de Medicamentos','Medicamentos','',''),
 	 (5,1,'Energias e Acessórios','Categoria de Energias e Acessórios','Energias e Acessórios','',''),
 	 (6,1,'Materno-Infantil','Categoria de Materno-Infantil','Materno-Infantil','','');
+         
+INSERT INTO novino.oc_category_to_store (category_id, store_id) VALUES(1, 0), (2,0), (3,0), (4,0), (5,0), (6,0);
 
 INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
 	 (1,0,'11509031310','11509031310','','11509031310','','','','',NULL,NULL,100,7,'catalog/11509031310.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
