@@ -93,7 +93,7 @@ VALUES (6, 'Produtos HP', 1),
 --
 
 INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `language_id`, `title`, `link`, `image`, `sort_order`)
-VALUES (79, 7, 1, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/iPhone6.jpg', 0),
+VALUES (79, 7, 1, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/Gillette.jpg', 0),
        (87, 6, 1, 'HP Banner', 'index.php?route=product/manufacturer.info&amp;manufacturer_id=7', 'catalog/demo/compaq_presario.jpg', 0),
        (94, 8, 1, 'NFL', '', 'catalog/demo/manufacturer/nfl.png', 0),
        (95, 8, 1, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0),
@@ -104,7 +104,7 @@ VALUES (79, 7, 1, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;p
        (88, 8, 1, 'Harley Davidson', '', 'catalog/demo/manufacturer/harley.png', 0),
        (89, 8, 1, 'Dell', '', 'catalog/demo/manufacturer/dell.png', 0),
        (90, 8, 1, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0),
-       (80, 7, 1, 'MacBookAir', '', 'catalog/demo/banners/MacBookAir.jpg', 0),
+       (80, 7, 1, 'MacBookAir', '', 'catalog/demo/banners/Nivea.jpg', 0),
        (97, 8, 1, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0),
        (98, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0);
 -----------------------------------------------------------
@@ -5972,7 +5972,7 @@ INSERT INTO oc_category_description (category_id,language_id,name,description,me
 	 (4,1,'Medicamentos','Categoria de Medicamentos','Medicamentos','',''),
 	 (5,1,'Energias e Acessórios','Categoria de Energias e Acessórios','Energias e Acessórios','',''),
 	 (6,1,'Materno-Infantil','Categoria de Materno-Infantil','Materno-Infantil','','');
-         
+
 INSERT INTO novino.oc_category_to_store (category_id, store_id) VALUES(1, 0), (2,0), (3,0), (4,0), (5,0), (6,0);
 
 INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
