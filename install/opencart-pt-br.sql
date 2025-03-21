@@ -95,7 +95,6 @@ VALUES (6, 'Produtos HP', 1),
 INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `language_id`, `title`, `link`, `image`, `sort_order`)
 VALUES 
 (79, 7, 1, 'Gillette', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/Gillette.jpg', 0),
-(87, 6, 1, 'Compaq Presario', 'index.php?route=product/manufacturer.info&amp;manufacturer_id=7', 'catalog/demo/compaq_presario.jpg', 0),
 (94, 8, 1, 'Procter & Gamble', '', 'catalog/demo/manufacturer/pg.png', 0),
 (95, 8, 1, 'Loreal', '', 'catalog/demo/manufacturer/loreal.png', 0),
 (96, 8, 1, 'Baushlomb', '', 'catalog/demo/manufacturer/baushlomb.png', 0),
