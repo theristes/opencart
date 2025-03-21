@@ -5957,447 +5957,566 @@ VALUES (1, 30, 0, 1);
 -----------------------------------------------------------
 
 --- APPEND: Theristes Gomes Marques de Oliveira
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (1, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (1, 1, 'Cuidados com a Barba', 'Cuidados com a Barba category description', 'Cuidados com a Barba', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (1, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (1, '11509031310', '11509031310', '', '11509031310', '', '', '', '', 100, 7, 'catalog/11509031310.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (1, 1, 'Gel para Barba e Bigode Castanho', 'Gel para barba e bigode Grecin 5, 28g, tonalidade castanha.', '', 'Gel para Barba e Bigode Castanho', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (1, 1);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (1, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (2, '11509031334', '11509031334', '', '11509031334', '', '', '', '', 100, 7, 'catalog/11509031334.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (2, 1, 'Gel para Barba e Bigode Preto', 'Gel para barba e bigode Grecin 5, 28g, tonalidade preta.', '', 'Gel para Barba e Bigode Preto', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (2, 1);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (2, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (2, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (2, 1, 'Beleza e Estética', 'Beleza e Estética category description', 'Beleza e Estética', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (2, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (3, '12742012784', '12742012784', '', '12742012784', '', '', '', '', 100, 7, 'catalog/12742012784.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (3, 1, 'Unhas Mini Length', 'Kit de unhas postiças mini length, 20 unidades.', '', 'Unhas Mini Length', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (3, 2);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (3, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (3, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (3, 1, 'Higiene Feminina', 'Higiene Feminina category description', 'Higiene Feminina', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (3, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (4, '20800600323', '20800600323', '', '20800600323', '', '', '', '', 100, 7, 'catalog/20800600323.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (4, 1, 'Absorvente Interno Tampax Regular', 'Absorvente interno Tampax, 10 unidades, tamanho regular.', '', 'Absorvente Interno Tampax Regular', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (4, 3);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (4, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (5, '20800600330', '20800600330', '', '20800600330', '', '', '', '', 100, 7, 'catalog/20800600330.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (5, 1, 'Absorvente Interno Tampax Super com Aplicador', 'Absorvente interno Tampax Super, com aplicador, 10 unidades.', '', 'Absorvente Interno Tampax Super com Aplicador', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (5, 3);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (5, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (6, '20800600347', '20800600347', '', '20800600347', '', '', '', '', 100, 7, 'catalog/20800600347.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (6, 1, 'Absorvente Interno Tampax Super Plus', 'Absorvente interno Tampax Super Plus, 10 unidades.', '', 'Absorvente Interno Tampax Super Plus', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (6, 3);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (6, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (4, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (4, 1, 'Saúde e Bem-Estar', 'Saúde e Bem-Estar category description', 'Saúde e Bem-Estar', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (4, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (7, '20800750158', '20800750158', '', '20800750158', '', '', '', '', 100, 7, 'catalog/20800750158.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (7, 1, 'Metamucil Laranja', 'Suplemento alimentar Metamucil, sabor laranja, para auxiliar na digestão.', '', 'Metamucil Laranja', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (7, 4);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (7, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (8, '20800750165', '20800750165', '', '20800750165', '', '', '', '', 100, 7, 'catalog/20800750165.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (8, 1, 'Metamucil Laranja 10 Sachês', 'Suplemento alimentar Metamucil, sabor laranja, em sachês, 10 unidades.', '', 'Metamucil Laranja 10 Sachês', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (8,4);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (8,0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (5, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (5, 1, 'Higiene Bucal', 'Higiene Bucal category description', 'Higiene Bucal', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (5, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (9, '3014260010669', '3014260010669', '', '3014260010669', '', '', '', '', 100, 7, 'catalog/3014260010669.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (9, 1, 'Escova Dental Oral-B 3D White Luxe Pro Flex', 'Escova dental Oral-B 3D White Luxe Pro Flex, com tecnologia avançada para clareamento e limpeza profunda.', '', 'Escova Dental Oral-B 3D White Luxe Pro Flex', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (9, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (9, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (10, '3014260010980', '3014260010980', '', '3014260010980', '', '', '', '', 100, 7, 'catalog/3014260010980.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (10, 1, 'Escova Dental Oral-B 3D White Luxe Pro Flex 2x1', 'Kit com 2 escovas dentais Oral-B 3D White Luxe Pro Flex, macias, para clareamento e limpeza profunda.', '', 'Escova Dental Oral-B 3D White Luxe Pro Flex 2x1', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (10, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (10, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (11, '3014260014445', '3014260014445', '', '3014260014445', '', '', '', '', 100, 7, 'catalog/3014260014445.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (11, 1, 'Escova Dental Oral-B Complete Macia', 'Escova dental Oral-B Complete, macia, com design ergonômico para uma limpeza eficiente.', '', 'Escova Dental Oral-B Complete Macia', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (11, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (11, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (12, '3014260019723', '3014260019723', '', '3014260019723', '', '', '', '', 100, 7, 'catalog/3014260019723.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (12, 1, 'Escova Dental Oral-B Kids Mickey', 'Escova dental Oral-B Kids, temática Mickey Mouse, macia e suave, ideal para crianças.', '', 'Escova Dental Oral-B Kids Mickey', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (12, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (12, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (13, '3014260275143', '3014260275143', '', '3014260275143', '', '', '', '', 100, 7, 'catalog/3014260275143.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (13, 1, 'Carga Gillette Mach3 Turbo', 'Carga de lâminas Gillette Mach3 Turbo, 2 unidades, para um barbear suave e preciso.', '', 'Carga Gillette Mach3 Turbo', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (13, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (13, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (14, '3014260278922', '3014260278922', '', '3014260278922', '', '', '', '', 100, 7, 'catalog/3014260278922.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (14, 1, 'Escova Dental Oral-B Infantil Stages 8', 'Escova dental Oral-B Infantil Stages 8, macia, projetada para crianças a partir de 8 anos.', '', 'Escova Dental Oral-B Infantil Stages 8', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (14, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (14, 5);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (15, '3014260278939', '3014260278939', '', '3014260278939', '', '', '', '', 100, 7, 'catalog/3014260278939.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (15, 1, 'Escova Dental Oral-B Infantil Stages 1', 'Escova dental Oral-B Infantil Stages 1, macia, projetada para crianças a partir de 1 ano.', '', 'Escova Dental Oral-B Infantil Stages 1', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (15, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (15, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (16, '3014260279288', '3014260279288', '', '3014260279288', '', '', '', '', 100, 7, 'catalog/3014260279288.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (16, 1, 'Escova Dental Oral-B Infantil Stages 2', 'Escova dental Oral-B Infantil Stages 2, macia, projetada para crianças a partir de 2 anos.', '', 'Escova Dental Oral-B Infantil Stages 2', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (16, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (16, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (17, '3014260329822', '3014260329822', '', '3014260329822', '', '', '', '', 100, 7, 'catalog/3014260329822.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (17, 1, 'Carga Gillette Sensor 3', 'Carga de lâminas Gillette Sensor 3, 2 unidades, para um barbear confortável e preciso.', '', 'Carga Gillette Sensor 3', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (17, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (17, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (18, '3014260329839', '3014260329839', '', '3014260329839', '', '', '', '', 100, 7, 'catalog/3014260329839.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (18, 1, 'Carga Gillette Sensor 3 com 4 Lâminas', 'Carga de lâminas Gillette Sensor 3, com 4 unidades, para um barbear suave e eficiente.', '', 'Carga Gillette Sensor 3 com 4 Lâminas', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (18, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (18, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (19, '3014260807078', '3014260807078', '', '3014260807078', '', '', '', '', 100, 7, 'catalog/3014260807078.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (19, 1, 'Escova Dental Oral-B Classic Limpeza Brilhante', 'Escova dental Oral-B Classic, com cerdas macias e design clássico para uma limpeza brilhante.', '', 'Escova Dental Oral-B Classic Limpeza Brilhante', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (19, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (19, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (20, '3014260833176', '3014260833176', '', '3014260833176', '', '', '', '', 100, 7, 'catalog/3014260833176.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (20, 1, 'Escova Dental Oral-B Classic Limpeza 40 Média', 'Escova dental Oral-B Classic Limpeza 40 com cerdas médias.', '', 'Escova Dental Oral-B Classic Limpeza 40 Média', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (20, 5);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (20, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (6, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (6, 1, 'Higiene Pessoal', 'Higiene Pessoal category description', 'Higiene Pessoal', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (6, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (21, '3086123493131', '3086123493131', '', '3086123493131', '', '', '', '', 100, 7, 'catalog/3086123493131.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (21, 1, 'Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos', 'Aparelho de barbear Bic Comfort 3 Hybrid com 6 cartuchos de reposição.', '', 'Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (21, 6);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (21, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (7, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (7, 1, 'Produtos para Lentes de Contato', 'Produtos para Lentes de Contato category description', 'Produtos para Lentes de Contato', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (7, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (22, '310119052440', '310119052440', '', '310119052440', '', '', '', '', 100, 7, 'catalog/310119052440.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (22, 1, 'Solução Multiação Boston Simplus', 'Solução multiação Boston Simplus para lentes de contato.', '', 'Solução Multiação Boston Simplus', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (22, 7);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (22, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (8, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (8, 1, 'Cuidados com a Pele', 'Cuidados com a Pele category description', 'Cuidados com a Pele', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (8, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (23, '3337872418587', '3337872418587', '', '3337872418587', '', '', '', '', 100, 7, 'catalog/3337872418587.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (23, 1, 'Hidratante Corporal Lipikar Baume AP+ La Roche-Posay', 'Hidratante corporal Lipikar Baume AP+ da La Roche-Posay.', '', 'Hidratante Corporal Lipikar Baume AP+ La Roche-Posay', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (23, 8);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (23, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (9, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (9, 1, 'Higiene Íntima', 'Higiene Íntima category description', 'Higiene Íntima', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (9, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (24, '3401365334248', '3401365334248', '', '3401365334248', '', '', '', '', 100, 7, 'catalog/3401365334248.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (24, 1, 'Sabo Líquido Saforelle Soin Lavant Doux 250ml', 'Sabo líquido Saforelle Soin Lavant Doux, frasco de 250ml.', '', 'Sabo Líquido Saforelle Soin Lavant Doux 250ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (24, 9);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (24, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (25, '3401597168758', '3401597168758', '', '3401597168758', '', '', '', '', 100, 7, 'catalog/3401597168758.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (25, 1, 'Sabo Líquido Saforelle Ultra Hydratant 250ml', 'Sabo líquido Saforelle Ultra Hydratant, frasco de 250ml.', '', 'Sabo Líquido Saforelle Ultra Hydratant 250ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (25, 9);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (25, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (10, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (10, 1, 'Perfumes', 'Perfumes category description', 'Perfumes', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (10, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (26, '3454090001213', '3454090001213', '', '3454090001213', '', '', '', '', 100, 7, 'catalog/3454090001213.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (26, 1, 'Perfume de France Vodka Extreme Masculino', 'Perfume de France Vodka Extreme masculino.', '', 'Perfume de France Vodka Extreme Masculino', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (26, 10);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (26, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (27, '3454090002685', '3454090002685', '', '3454090002685', '', '', '', '', 100, 7, 'catalog/3454090002685.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (27, 1, 'Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT', 'Perfume I Love P.E. for Women, 3.3oz EDT, da Paris Elysees.', '', 'Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (27, 10);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (27, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (28, '3454090002838', '3454090002838', '', '3454090002838', '', '', '', '', 100, 7, 'catalog/3454090002838.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (28, 1, 'Perfume Billion Woman Paris Elysees 3.3oz EDT', 'Perfume Billion Woman, 3.3oz EDT, da Paris Elysees.', '', 'Perfume Billion Woman Paris Elysees 3.3oz EDT', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (28, 10);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (28, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (29, '3454090002913', '3454090002913', '', '3454090002913', '', '', '', '', 100, 7, 'catalog/3454090002913.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (29, 1, 'Perfume Vodka Night Paris Elysees 3.3oz EDT', 'Perfume Vodka Night, 3.3oz EDT, da Paris Elysees.', '', 'Perfume Vodka Night Paris Elysees 3.3oz EDT', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (29, 10);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (29, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (30, '3454090002920', '3454090002920', '', '3454090002920', '', '', '', '', 100, 7, 'catalog/3454090002920.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (30, 1, 'Perfume Vodka Man Paris Elysees EDT Masculino', 'Perfume Vodka Man Eau de Toilette da Paris Elysees, perfume masculino.', '', 'Perfume Vodka Man Paris Elysees EDT Masculino', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (30, 10);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (30, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (31, '3454090003019', '3454090003019', '', '3454090003019', '', '', '', '', 100, 7, 'catalog/3454090003019.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (31, 1, 'Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino', 'Perfume La Petite Fleur Blanche da Paris Elysees, Eau de Toilette feminino, 100ml.', '', 'Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (31, 10);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (31, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (32, '3454090003248', '3454090003248', '', '3454090003248', '', '', '', '', 100, 7, 'catalog/3454090003248.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (32, 1, 'Perfume La Petit Paris Elysees Fleur Secrete 100ml', 'Perfume La Petit Paris Elysees Fleur Secrete, 100ml.', '', 'Perfume La Petit Paris Elysees Fleur Secrete 100ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (32, 10);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (32, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (11, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (11, 1, 'Produtos para Diabetes', 'Produtos para Diabetes category description', 'Produtos para Diabetes', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (11, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (33, '353885771504', '353885771504', '', '353885771504', '', '', '', '', 100, 7, 'catalog/353885771504.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (33, 1, 'Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras', 'Tiras para medidor de glicemia OneTouch Ultra, pacote com 50 tiras.', '', 'Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (33, 11);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (33, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (12, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (12, 1, 'Produtos para Bebês', 'Produtos para Bebês category description', 'Produtos para Bebês', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (12, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (34, '36000393521', '36000393521', '', '36000393521', '', '', '', '', 100, 7, 'catalog/36000393521.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (34, 1, 'Fralda Huggies Little Swimmers Tamanho M 11 Unidades', 'Fralda Huggies Little Swimmers tamanho M, pacote com 11 unidades.', '', 'Fralda Huggies Little Swimmers Tamanho M 11 Unidades', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (34, 12);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (34, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (35, '36000393538', '36000393538', '', '36000393538', '', '', '', '', 100, 7, 'catalog/36000393538.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (35, 1, 'Fralda Huggies Little Swimmers Tamanho G 10 Unidades', 'Fralda Huggies Little Swimmers tamanho G, pacote com 10 unidades.', '', 'Fralda Huggies Little Swimmers Tamanho G 10 Unidades', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (35, 12);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (35, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (13, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (13, 1, 'Medicamentos', 'Medicamentos category description', 'Medicamentos', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (13, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (36, '3662042000058', '3662042000058', '', '3662042000058', '', '', '', '', 100, 7, 'catalog/3662042000058.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (36, 1, 'Colírio Hyabak 3,2mg/ml União Química Similar', 'Colírio Hyabak 3,2mg/ml, similar da União Química.', '', 'Colírio Hyabak 3,2mg/ml União Química Similar', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (36, 13);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (36, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (14, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (14, 1, 'Produtos Oftalmológicos', 'Produtos Oftalmológicos category description', 'Produtos Oftalmológicos', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (14, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (37, '3662042000249', '3662042000249', '', '3662042000249', '', '', '', '', 100, 7, 'catalog/3662042000249.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (37, 1, 'Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas', 'Gel ocular Blephagel, 40g, com 100 compressas esterilizadas.', '', 'Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (37, 14);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (37, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (15, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (15, 1, 'Cuidados com o Cabelo', 'Cuidados com o Cabelo category description', 'Cuidados com o Cabelo', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (15, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (38, '381519004711', '381519004711', '', '381519004711', '', '', '', '', 100, 7, 'catalog/381519004711.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (38, 1, 'Máscara de Tratamento Aussie Moist 236ml', 'Máscara de tratamento Aussie Moist, frasco de 236ml.', '', 'Máscara de Tratamento Aussie Moist 236ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (38, 15);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (38, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (39, '382903204786', '382903204786', '', '382903204786', '', '', '', '', 100, 7, 'catalog/382903204786.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (39, 1, 'Agulha Descartável 4mm Penta Point para Caneta 100 Unidades', 'Agulha descartável 4mm Penta Point para caneta de insulina, caixa com 100 unidades.', '', 'Agulha Descartável 4mm Penta Point para Caneta 100 Unidades', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (39, 15);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (39, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (40, '382903204892', '382903204892', '', '382903204892', '', '', '', '', 100, 7, 'catalog/382903204892.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (40, 1, 'Agulha BD Ultra-Fine Penta Point Easy 4mm BD', 'Agulha BD Ultra-Fine Penta Point Easy 4mm da BD.', '', 'Agulha BD Ultra-Fine Penta Point Easy 4mm BD', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (40, 15);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (40, 0);
-INSERT INTO oc_category (category_id, image, parent_id, `column`, sort_order, status) VALUES (16, '', 0, 1, 0, 1);
-INSERT INTO oc_category_description (category_id, language_id, name, description, meta_title, meta_description, meta_keyword) VALUES (16, 1, 'Pilhas e Baterias', 'Pilhas e Baterias category description', 'Pilhas e Baterias', '', '');
-INSERT INTO oc_category_to_store (category_id, store_id) VALUES (16, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (41, '39800013613', '39800013613', '', '39800013613', '', '', '', '', 100, 7, 'catalog/39800013613.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (41, 1, 'Bateria Energizer Max 9V', 'Bateria Energizer Max 9V.', '', 'Bateria Energizer Max 9V', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (41, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (41, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (42, '39800028907', '39800028907', '', '39800028907', '', '', '', '', 100, 7, 'catalog/39800028907.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (42, 1, 'Bateria Eveready Alcalina 9V', 'Bateria Eveready alcalina 9V.', '', 'Bateria Eveready Alcalina 9V', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (42, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (42, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (43, '4005500073727', '4005500073727', '', '4005500073727', '', '', '', '', 100, 7, 'catalog/4005500073727.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (43, 1, 'Leite em Pó Nan H.A. 400g', 'Leite em pó Nan H.A., lata de 400g.', '', 'Leite em Pó Nan H.A. 400g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (43, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (43, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (44, '4005808185719', '4005808185719', '', '4005808185719', '', '', '', '', 100, 7, 'catalog/4005808185719.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (44, 1, 'Desodorante Roll-On Nivea Clear Skin 50ml', 'Desodorante roll-on Nivea Clear Skin, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Clear Skin 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (44, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (44, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (45, '4005808231065', '4005808231065', '', '4005808231065', '', '', '', '', 100, 7, 'catalog/4005808231065.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (45, 1, 'Desodorante Aerossol Nivea D''Effect Senses 150ml', 'Desodorante aerossol Nivea D''Effect Senses, frasco de 150ml.', '', 'Desodorante Aerossol Nivea D''Effect Senses 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (45, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (45, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (46, '4005808257553', '4005808257553', '', '4005808257553', '', '', '', '', 100, 7, 'catalog/4005808257553.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (46, 1, 'Desodorante Roll-On Nivea Men Dry Impact 50ml', 'Desodorante roll-on Nivea Men Dry Impact, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Dry Impact 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (46, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (46, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (47, '4005808257577', '4005808257577', '', '4005808257577', '', '', '', '', 100, 7, 'catalog/4005808257577.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (47, 1, 'Desodorante Roll-On Nivea Men Fresh Active 50ml', 'Desodorante roll-on Nivea Men Fresh Active, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Fresh Active 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (47, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (47, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (48, '4005808257584', '4005808257584', '', '4005808257584', '', '', '', '', 100, 7, 'catalog/4005808257584.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (48, 1, 'Desodorante Roll-On Nivea Dry Comfort 50ml', 'Desodorante roll-on Nivea Dry Comfort, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Dry Comfort 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (48, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (48, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (49, '4005808257591', '4005808257591', '', '4005808257591', '', '', '', '', 100, 7, 'catalog/4005808257591.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (49, 1, 'Desodorante Roll-On Nivea Fresh Natural 50ml', 'Desodorante roll-on Nivea Fresh Natural, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Fresh Natural 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (49, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (49, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (50, '4005808257607', '4005808257607', '', '4005808257607', '', '', '', '', 100, 7, 'catalog/4005808257607.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (50, 1, 'Desodorante Roll-On Nivea Men Cool Kick 50ml', 'Desodorante roll-on Nivea Men Cool Kick, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Cool Kick 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (50, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (50, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (51, '4005808257621', '4005808257621', '', '4005808257621', '', '', '', '', 100, 7, 'catalog/4005808257621.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (51, 1, 'Desodorante Roll-On Nivea Sensitive Protect 50ml', 'Desodorante roll-on Nivea Sensitive Protect, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Sensitive Protect 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (51, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (51, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (52, '4005808257669', '4005808257669', '', '4005808257669', '', '', '', '', 100, 7, 'catalog/4005808257669.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (52, 1, 'Desodorante Roll-On Nivea Pearl & Beauty 50ml', 'Desodorante roll-on Nivea Pearl & Beauty, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Pearl & Beauty 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (52, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (52, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (53, '4005808257720', '4005808257720', '', '4005808257720', '', '', '', '', 100, 7, 'catalog/4005808257720.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (53, 1, 'Desodorante Roll-On Nivea Double Effect 50ml', 'Desodorante roll-on Nivea Double Effect, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Double Effect 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (53, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (53, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (54, '4005808263202', '4005808263202', '', '4005808263202', '', '', '', '', 100, 7, 'catalog/4005808263202.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (54, 1, 'Protetor Solar Facial Nivea Light Feeling FPS 30', 'Protetor solar facial Nivea Light Feeling FPS 30.', '', 'Protetor Solar Facial Nivea Light Feeling FPS 30', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (54, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (54, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (55, '4005808305964', '4005808305964', '', '4005808305964', '', '', '', '', 100, 7, 'catalog/4005808305964.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (55, 1, 'Desodorante Aerossol Nivea Men Silver Protect 150ml', 'Desodorante aerossol Nivea Men Silver Protect, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Men Silver Protect 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (55, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (55, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (56, '4005808307326', '4005808307326', '', '4005808307326', '', '', '', '', 100, 7, 'catalog/4005808307326.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (56, 1, 'Desodorante Roll-On Nivea Men Silver Protect 50ml', 'Desodorante roll-on Nivea Men Silver Protect, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Silver Protect 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (56, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (56, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (57, '4005808309436', '4005808309436', '', '4005808309436', '', '', '', '', 100, 7, 'catalog/4005808309436.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (57, 1, 'Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca', 'Loção hidratante Nivea In-Shower Milk, 200ml, para pele extra seca.', '', 'Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (57, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (57, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (58, '4005808310999', '4005808310999', '', '4005808310999', '', '', '', '', 100, 7, 'catalog/4005808310999.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (58, 1, 'Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele', 'Loção hidratante Nivea Express, 200ml, para todos os tipos de pele.', '', 'Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (58, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (58, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (59, '4005808311286', '4005808311286', '', '4005808311286', '', '', '', '', 100, 7, 'catalog/4005808311286.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (59, 1, 'Loção Firmadora Nivea Q10 + Vitamina C 200ml', 'Loção firmadora Nivea Q10 + Vitamina C, frasco de 200ml.', '', 'Loção Firmadora Nivea Q10 + Vitamina C 200ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (59, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (59, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (60, '4005808315697', '4005808315697', '', '4005808315697', '', '', '', '', 100, 7, 'catalog/4005808315697.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (60, 1, 'Loção Deo-Hidratante Corporal Nivea Milk 400ml', 'Loção deo-hidratante corporal Nivea Milk, frasco de 400ml.', '', 'Loção Deo-Hidratante Corporal Nivea Milk 400ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (60, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (60, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (61, '4005808335435', '4005808335435', '', '4005808335435', '', '', '', '', 100, 7, 'catalog/4005808335435.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (61, 1, 'Loção Hidratante Nivea Soft Milk 200ml para Pele Seca', 'Loção hidratante Nivea Soft Milk, 200ml, para pele seca.', '', 'Loção Hidratante Nivea Soft Milk 200ml para Pele Seca', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (61, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (61, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (62, '4005808369621', '4005808369621', '', '4005808369621', '', '', '', '', 100, 7, 'catalog/4005808369621.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (62, 1, 'Protetor Labial Nivea Med Repair FPS 15 4,8g', 'Protetor labial Nivea Med Repair FPS 15, blister de 4,8g.', '', 'Protetor Labial Nivea Med Repair FPS 15 4,8g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (62, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (62, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (63, '4005808513550', '4005808513550', '', '4005808513550', '', '', '', '', 100, 7, 'catalog/4005808513550.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (63, 1, 'Sabonete Líquido Nivea Creme Soft 250ml', 'Sabonete líquido Nivea Creme Soft, frasco de 250ml.', '', 'Sabonete Líquido Nivea Creme Soft 250ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (63, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (63, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (64, '4005808530878', '4005808530878', '', '4005808530878', '', '', '', '', 100, 7, 'catalog/4005808530878.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (64, 1, 'Sabonete Nivea Erva Limão e Óleos 90g', 'Sabonete Nivea Erva Limão e Óleos, barra de 90g.', '', 'Sabonete Nivea Erva Limão e Óleos 90g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (64, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (64, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (65, '4005808540143', '4005808540143', '', '4005808540143', '', '', '', '', 100, 7, 'catalog/4005808540143.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (65, 1, 'Espuma de Barbear Nivea Men Silver Protect 200ml', 'Espuma de barbear Nivea Men Silver Protect, frasco de 200ml.', '', 'Espuma de Barbear Nivea Men Silver Protect 200ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (65, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (65, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (66, '310119052136', '310119052136', '', '310119052136', '', '', '', '', 100, 7, 'catalog/310119052136.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (66, 1, 'Solução Similar Renu Plus 8ml', 'Solução similar Renu Plus para lentes de contato, frasco de 8ml.', '', 'Solução Similar Renu Plus 8ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (66, 7);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (66, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (67, '4005808552481', '4005808552481', '', '4005808552481', '', '', '', '', 100, 7, 'catalog/4005808552481.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (67, 1, 'Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml', 'Pack de antitranspirante aerossol Nivea Invisible Black & White Clear, 2 unidades de 150ml cada, leve mais pague menos.', '', 'Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (67, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (67, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (68, '4005808555307', '4005808555307', '', '4005808555307', '', '', '', '', 100, 7, 'catalog/4005808555307.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (68, 1, 'Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml', 'Protetor solar Nivea Sun Protect & Hidrata FPS 30, frasco de 200ml.', '', 'Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (68, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (68, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (69, '4005808555321', '4005808555321', '', '4005808555321', '', '', '', '', 100, 7, 'catalog/4005808555321.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (69, 1, 'Protetor Solar Nivea Sun FPS 30 125ml', 'Protetor solar Nivea Sun FPS 30, frasco de 125ml.', '', 'Protetor Solar Nivea Sun FPS 30 125ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (69, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (69, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (70, '4005808555345', '4005808555345', '', '4005808555345', '', '', '', '', 100, 7, 'catalog/4005808555345.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (70, 1, 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml', 'Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 200ml.', '', 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (70, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (70, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (71, '4005808555352', '4005808555352', '', '4005808555352', '', '', '', '', 100, 7, 'catalog/4005808555352.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (71, 1, 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml', 'Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 125ml.', '', 'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (71, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (71, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (72, '4005808555383', '4005808555383', '', '4005808555383', '', '', '', '', 100, 7, 'catalog/4005808555383.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (72, 1, 'Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml', 'Protetor solar Nivea Sun Protect & Bronze FPS 30, frasco de 125ml.', '', 'Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (72, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (72, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (73, '4005808631322', '4005808631322', '', '4005808631322', '', '', '', '', 100, 7, 'catalog/4005808631322.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (73, 1, 'Desodorante Aerossol Nivea Clear Skin 150ml', 'Desodorante aerossol Nivea Clear Skin, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Clear Skin 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (73, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (73, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (74, '4005808662388', '4005808662388', '', '4005808662388', '', '', '', '', 100, 7, 'catalog/4005808662388.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (74, 1, 'Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml', 'Desodorante aerossol Nivea Sensitive, sem perfume, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (74, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (74, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (75, '4005808663927', '4005808663927', '', '4005808663927', '', '', '', '', 100, 7, 'catalog/4005808663927.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (75, 1, 'Desodorante Roll-On Nivea Sensitive Pure 50ml', 'Desodorante roll-on Nivea Sensitive Pure, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Sensitive Pure 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (75, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (75, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (76, '4005808715688', '4005808715688', '', '4005808715688', '', '', '', '', 100, 7, 'catalog/4005808715688.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (76, 1, 'Desodorante Aerossol Nivea Feminino Stress Protect 150ml', 'Desodorante aerossol Nivea Feminino Stress Protect, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Feminino Stress Protect 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (76, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (76, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (77, '4005808715695', '4005808715695', '', '4005808715695', '', '', '', '', 100, 7, 'catalog/4005808715695.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (77, 1, 'Desodorante Aerossol Nivea Men Stress Protect 150ml', 'Desodorante aerossol Nivea Men Stress Protect, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Men Stress Protect 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (77, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (77, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (78, '4005808719273', '4005808719273', '', '4005808719273', '', '', '', '', 100, 7, 'catalog/4005808719273.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (78, 1, 'Desodorante Roll-On Nivea Feminino Stress Protect 50ml', 'Desodorante roll-on Nivea Feminino Stress Protect, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Feminino Stress Protect 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (78, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (78, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (79, '4005808802616', '4005808802616', '', '4005808802616', '', '', '', '', 100, 7, 'catalog/4005808802616.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (79, 1, 'Loção Hidratante Nivea Milk para Pele Extra Seca 200ml', 'Loção hidratante Nivea Milk para pele extra seca, frasco de 200ml.', '', 'Loção Hidratante Nivea Milk para Pele Extra Seca 200ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (79, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (79, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (80, '4005808806423', '4005808806423', '', '4005808806423', '', '', '', '', 100, 7, 'catalog/4005808806423.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (80, 1, 'Sabonete Nivea Aveia 90g', 'Sabonete Nivea Aveia, barra de 90g.', '', 'Sabonete Nivea Aveia 90g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (80, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (80, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (82, '4005808806430', '4005808806430', '', '4005808806430', '', '', '', '', 100, 7, 'catalog/4005808806430.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (82, 1, 'Sabonete Nivea Leite 90g', 'Sabonete Nivea Leite, barra de 90g.', '', 'Sabonete Nivea Leite 90g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (82, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (82, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (83, '4005808812875', '4005808812875', '', '4005808812875', '', '', '', '', 100, 7, 'catalog/4005808812875.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (83, 1, 'Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g', 'Creme facial antissinais dia Nivea Q10 Plus FPS 30, caixa de 52g.', '', 'Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (83, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (83, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (84, '4005808829835', '4005808829835', '', '4005808829835', '', '', '', '', 100, 7, 'catalog/4005808829835.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (84, 1, 'Desodorante Roll-On Sensitive Balm', 'Desodorante roll-on Sensitive Balm.', '', 'Desodorante Roll-On Sensitive Balm', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (84, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (84, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (85, '4005808834815', '4005808834815', '', '4005808834815', '', '', '', '', 100, 7, 'catalog/4005808834815.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (85, 1, 'Sabonete Antibacteriano Nivea Suave 85g', 'Sabonete antibacteriano Nivea Suave, barra de 85g.', '', 'Sabonete Antibacteriano Nivea Suave 85g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (85, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (85, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (86, '4005808837311', '4005808837311', '', '4005808837311', '', '', '', '', 100, 7, 'catalog/4005808837311.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (86, 1, 'Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml', 'Desodorante aerossol Nivea Feminino Pearl & Beauty, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (86, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (86, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (87, '4005808850617', '4005808850617', '', '4005808850617', '', '', '', '', 100, 7, 'catalog/4005808850617.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (87, 1, 'Protetor Labial Nivea Original Care 4,8g', 'Protetor labial Nivea Original Care, blister de 4,8g.', '', 'Protetor Labial Nivea Original Care 4,8g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (87, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (87, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (88, '4005808850839', '4005808850839', '', '4005808850839', '', '', '', '', 100, 7, 'catalog/4005808850839.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (88, 1, 'Protetor Labial Nivea Morango 4,8g', 'Protetor labial Nivea Morango, blister de 4,8g.', '', 'Protetor Labial Nivea Morango 4,8g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (88, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (88, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (89, '4005808890590', '4005808890590', '', '4005808890590', '', '', '', '', 100, 7, 'catalog/4005808890590.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (89, 1, 'Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g', 'Hidratante suave para rosto, corpo e mãos Nivea Soft, pote de 98g.', '', 'Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (89, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (89, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (90, '4005808910328', '4005808910328', '', '4005808910328', '', '', '', '', 100, 7, 'catalog/4005808910328.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (90, 1, 'Desodorante Aerossol Nivea Feminino Powder Comfort 150ml', 'Desodorante aerossol Nivea Feminino Powder Comfort, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Feminino Powder Comfort 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (90, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (90, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (91, '4005808919833', '4005808919833', '', '4005808919833', '', '', '', '', 100, 7, 'catalog/4005808919833.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (91, 1, 'Desodorante Roll-On Nivea Feminino Powder Comfort 50ml', 'Desodorante roll-on Nivea Feminino Powder Comfort, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Feminino Powder Comfort 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (91, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (91, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (92, '4005808949007', '4005808949007', '', '4005808949007', '', '', '', '', 100, 7, 'catalog/4005808949007.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (92, 1, 'Loção Hidratante Firmadora Nivea Q10 Plus 200ml', 'Loção hidratante firmadora Nivea Q10 Plus, frasco de 200ml.', '', 'Loção Hidratante Firmadora Nivea Q10 Plus 200ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (92, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (92, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (93, '4005900004956', '4005900004956', '', '4005900004956', '', '', '', '', 100, 7, 'catalog/4005900004956.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (93, 1, 'Loção Deo-Hidratante Nivea Soft Milk 400ml', 'Loção deo-hidratante Nivea Soft Milk, frasco de 400ml.', '', 'Loção Deo-Hidratante Nivea Soft Milk 400ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (93, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (93, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (94, '4005900020536', '4005900020536', '', '4005900020536', '', '', '', '', 100, 7, 'catalog/4005900020536.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (94, 1, 'Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml', 'Antitranspirante aerossol Nivea Dry Comfort Plus, leve 200ml pague 150ml.', '', 'Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (94, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (94, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (95, '4005900036667', '4005900036667', '', '4005900036667', '', '', '', '', 100, 7, 'catalog/4005900036667.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (95, 1, 'Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml', 'Desodorante aerossol Nivea Feminino Invisible Black & White Clear, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (95, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (95, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (96, '4005900036704', '4005900036704', '', '4005900036704', '', '', '', '', 100, 7, 'catalog/4005900036704.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (96, 1, 'Desodorante Roll-On Nivea Invisible Black & White Clear 50ml', 'Desodorante roll-on Nivea Invisible Black & White Clear, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Invisible Black & White Clear 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (96, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (96, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (97, '4005900036728', '4005900036728', '', '4005900036728', '', '', '', '', 100, 7, 'catalog/4005900036728.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (97, 1, 'Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml', 'Desodorante aerossol Nivea Men Invisible Black & White Power, frasco de 150ml.', '', 'Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (97, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (97, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (98, '4005900036759', '4005900036759', '', '4005900036759', '', '', '', '', 100, 7, 'catalog/4005900036759.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (98, 1, 'Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml', 'Desodorante roll-on Nivea Men Invisible Black & White Power, frasco de 50ml.', '', 'Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (98, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (98, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (99, '4005900087256', '4005900087256', '', '4005900087256', '', '', '', '', 100, 7, 'catalog/4005900087256.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (99, 1, 'Sabonete Nivea Hidratante Lavanda 90g', 'Sabonete Nivea Hidratante Lavanda, barra de 90g.', '', 'Sabonete Nivea Hidratante Lavanda 90g', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (99, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (99, 0);
-INSERT INTO oc_product (product_id, model, sku, upc, ean, jan, isbn, mpn, location, quantity, stock_status_id, image, manufacturer_id, shipping, price, points, tax_class_id, weight, weight_class_id, length, width, height, length_class_id, subtract, minimum, sort_order, status) VALUES (100, '4005900095268', '4005900095268', '', '4005900095268', '', '', '', '', 100, 7, 'catalog/4005900095268.png', 0, 1, 0.00, 0, 0, 0.00, 0, 0.00, 0.00, 0.00, 0, 1, 1, 0, 1);
-INSERT INTO oc_product_description (product_id, language_id, name, description, tag, meta_title, meta_description, meta_keyword) VALUES (100, 1, 'Sabonete Líquido Nivea Creme Care 250ml', 'Sabonete líquido Nivea Creme Care, frasco de 250ml.', '', 'Sabonete Líquido Nivea Creme Care 250ml', '', '');
-INSERT INTO oc_product_to_category (product_id, category_id) VALUES (100, 16);
-INSERT INTO oc_product_to_store (product_id, store_id) VALUES (100, 0);
+INSERT INTO oc_category (category_id,image,parent_id,`column`,sort_order,status,date_added,date_modified) VALUES
+	 (1,'',0,1,0,1,NULL,NULL),
+	 (2,'',0,1,0,1,NULL,NULL),
+	 (3,'',0,1,0,1,NULL,NULL),
+	 (4,'',0,1,0,1,NULL,NULL),
+	 (5,'',0,1,0,1,NULL,NULL),
+	 (6,'',0,1,0,1,NULL,NULL);
+
+INSERT INTO oc_category_description (category_id,language_id,name,description,meta_title,meta_description,meta_keyword) VALUES
+	 (1,1,'Beleza e Estética','Categoria de Beleza e Estética','Beleza e Estética','',''),
+	 (2,1,'Higiene e Cuidados Pessoais','Categoria de Higiene e Cuidados Pessoais','Higiene e Cuidados Pessoais','',''),
+	 (3,1,'Saúde e Bem-Estar','Categoria de Saúde e Bem-Estar','Saúde e Bem-Estar','',''),
+	 (4,1,'Medicamentos','Categoria de Medicamentos','Medicamentos','',''),
+	 (5,1,'Energias e Acessórios','Categoria de Energias e Acessórios','Energias e Acessórios','',''),
+	 (6,1,'Materno-Infantil','Categoria de Materno-Infantil','Materno-Infantil','','');
+
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (1,0,'11509031310','11509031310','','11509031310','','','','',NULL,NULL,100,7,'catalog/11509031310.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (2,0,'11509031334','11509031334','','11509031334','','','','',NULL,NULL,100,7,'catalog/11509031334.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (3,0,'12742012784','12742012784','','12742012784','','','','',NULL,NULL,100,7,'catalog/12742012784.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (4,0,'20800600323','20800600323','','20800600323','','','','',NULL,NULL,100,7,'catalog/20800600323.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (5,0,'20800600330','20800600330','','20800600330','','','','',NULL,NULL,100,7,'catalog/20800600330.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (6,0,'20800600347','20800600347','','20800600347','','','','',NULL,NULL,100,7,'catalog/20800600347.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (7,0,'20800750158','20800750158','','20800750158','','','','',NULL,NULL,100,7,'catalog/20800750158.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (8,0,'20800750165','20800750165','','20800750165','','','','',NULL,NULL,100,7,'catalog/20800750165.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (9,0,'3014260010669','3014260010669','','3014260010669','','','','',NULL,NULL,100,7,'catalog/3014260010669.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (10,0,'3014260010980','3014260010980','','3014260010980','','','','',NULL,NULL,100,7,'catalog/3014260010980.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (11,0,'3014260014445','3014260014445','','3014260014445','','','','',NULL,NULL,100,7,'catalog/3014260014445.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (12,0,'3014260019723','3014260019723','','3014260019723','','','','',NULL,NULL,100,7,'catalog/3014260019723.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (13,0,'3014260275143','3014260275143','','3014260275143','','','','',NULL,NULL,100,7,'catalog/3014260275143.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (14,0,'3014260278922','3014260278922','','3014260278922','','','','',NULL,NULL,100,7,'catalog/3014260278922.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (15,0,'3014260278939','3014260278939','','3014260278939','','','','',NULL,NULL,100,7,'catalog/3014260278939.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (16,0,'3014260279288','3014260279288','','3014260279288','','','','',NULL,NULL,100,7,'catalog/3014260279288.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (17,0,'3014260329822','3014260329822','','3014260329822','','','','',NULL,NULL,100,7,'catalog/3014260329822.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (18,0,'3014260329839','3014260329839','','3014260329839','','','','',NULL,NULL,100,7,'catalog/3014260329839.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (19,0,'3014260807078','3014260807078','','3014260807078','','','','',NULL,NULL,100,7,'catalog/3014260807078.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (20,0,'3014260833176','3014260833176','','3014260833176','','','','',NULL,NULL,100,7,'catalog/3014260833176.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (21,0,'3086123493131','3086123493131','','3086123493131','','','','',NULL,NULL,100,7,'catalog/3086123493131.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (22,0,'310119052440','310119052440','','310119052440','','','','',NULL,NULL,100,7,'catalog/310119052440.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (23,0,'3337872418587','3337872418587','','3337872418587','','','','',NULL,NULL,100,7,'catalog/3337872418587.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (24,0,'3401365334248','3401365334248','','3401365334248','','','','',NULL,NULL,100,7,'catalog/3401365334248.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (25,0,'3401597168758','3401597168758','','3401597168758','','','','',NULL,NULL,100,7,'catalog/3401597168758.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (26,0,'3454090001213','3454090001213','','3454090001213','','','','',NULL,NULL,100,7,'catalog/3454090001213.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (27,0,'3454090002685','3454090002685','','3454090002685','','','','',NULL,NULL,100,7,'catalog/3454090002685.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (28,0,'3454090002838','3454090002838','','3454090002838','','','','',NULL,NULL,100,7,'catalog/3454090002838.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (29,0,'3454090002913','3454090002913','','3454090002913','','','','',NULL,NULL,100,7,'catalog/3454090002913.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (30,0,'3454090002920','3454090002920','','3454090002920','','','','',NULL,NULL,100,7,'catalog/3454090002920.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (31,0,'3454090003019','3454090003019','','3454090003019','','','','',NULL,NULL,100,7,'catalog/3454090003019.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (32,0,'3454090003248','3454090003248','','3454090003248','','','','',NULL,NULL,100,7,'catalog/3454090003248.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (33,0,'353885771504','353885771504','','353885771504','','','','',NULL,NULL,100,7,'catalog/353885771504.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (34,0,'36000393521','36000393521','','36000393521','','','','',NULL,NULL,100,7,'catalog/36000393521.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (35,0,'36000393538','36000393538','','36000393538','','','','',NULL,NULL,100,7,'catalog/36000393538.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (36,0,'3662042000058','3662042000058','','3662042000058','','','','',NULL,NULL,100,7,'catalog/3662042000058.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (37,0,'3662042000249','3662042000249','','3662042000249','','','','',NULL,NULL,100,7,'catalog/3662042000249.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (38,0,'381519004711','381519004711','','381519004711','','','','',NULL,NULL,100,7,'catalog/381519004711.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (39,0,'382903204786','382903204786','','382903204786','','','','',NULL,NULL,100,7,'catalog/382903204786.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (40,0,'382903204892','382903204892','','382903204892','','','','',NULL,NULL,100,7,'catalog/382903204892.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (41,0,'39800013613','39800013613','','39800013613','','','','',NULL,NULL,100,7,'catalog/39800013613.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (42,0,'39800028907','39800028907','','39800028907','','','','',NULL,NULL,100,7,'catalog/39800028907.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (43,0,'4005500073727','4005500073727','','4005500073727','','','','',NULL,NULL,100,7,'catalog/4005500073727.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (44,0,'4005808185719','4005808185719','','4005808185719','','','','',NULL,NULL,100,7,'catalog/4005808185719.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (45,0,'4005808231065','4005808231065','','4005808231065','','','','',NULL,NULL,100,7,'catalog/4005808231065.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (46,0,'4005808257553','4005808257553','','4005808257553','','','','',NULL,NULL,100,7,'catalog/4005808257553.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (47,0,'4005808257577','4005808257577','','4005808257577','','','','',NULL,NULL,100,7,'catalog/4005808257577.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (48,0,'4005808257584','4005808257584','','4005808257584','','','','',NULL,NULL,100,7,'catalog/4005808257584.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (49,0,'4005808257591','4005808257591','','4005808257591','','','','',NULL,NULL,100,7,'catalog/4005808257591.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (50,0,'4005808257607','4005808257607','','4005808257607','','','','',NULL,NULL,100,7,'catalog/4005808257607.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (51,0,'4005808257621','4005808257621','','4005808257621','','','','',NULL,NULL,100,7,'catalog/4005808257621.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (52,0,'4005808257669','4005808257669','','4005808257669','','','','',NULL,NULL,100,7,'catalog/4005808257669.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (53,0,'4005808257720','4005808257720','','4005808257720','','','','',NULL,NULL,100,7,'catalog/4005808257720.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (54,0,'4005808263202','4005808263202','','4005808263202','','','','',NULL,NULL,100,7,'catalog/4005808263202.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (55,0,'4005808305964','4005808305964','','4005808305964','','','','',NULL,NULL,100,7,'catalog/4005808305964.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (56,0,'4005808307326','4005808307326','','4005808307326','','','','',NULL,NULL,100,7,'catalog/4005808307326.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (57,0,'4005808309436','4005808309436','','4005808309436','','','','',NULL,NULL,100,7,'catalog/4005808309436.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (58,0,'4005808310999','4005808310999','','4005808310999','','','','',NULL,NULL,100,7,'catalog/4005808310999.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (59,0,'4005808311286','4005808311286','','4005808311286','','','','',NULL,NULL,100,7,'catalog/4005808311286.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (60,0,'4005808315697','4005808315697','','4005808315697','','','','',NULL,NULL,100,7,'catalog/4005808315697.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (61,0,'4005808335435','4005808335435','','4005808335435','','','','',NULL,NULL,100,7,'catalog/4005808335435.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (62,0,'4005808369621','4005808369621','','4005808369621','','','','',NULL,NULL,100,7,'catalog/4005808369621.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (63,0,'4005808513550','4005808513550','','4005808513550','','','','',NULL,NULL,100,7,'catalog/4005808513550.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (64,0,'4005808530878','4005808530878','','4005808530878','','','','',NULL,NULL,100,7,'catalog/4005808530878.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (65,0,'4005808540143','4005808540143','','4005808540143','','','','',NULL,NULL,100,7,'catalog/4005808540143.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (66,0,'310119052136','310119052136','','310119052136','','','','',NULL,NULL,100,7,'catalog/310119052136.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (67,0,'4005808552481','4005808552481','','4005808552481','','','','',NULL,NULL,100,7,'catalog/4005808552481.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (68,0,'4005808555307','4005808555307','','4005808555307','','','','',NULL,NULL,100,7,'catalog/4005808555307.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (69,0,'4005808555321','4005808555321','','4005808555321','','','','',NULL,NULL,100,7,'catalog/4005808555321.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (70,0,'4005808555345','4005808555345','','4005808555345','','','','',NULL,NULL,100,7,'catalog/4005808555345.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (71,0,'4005808555352','4005808555352','','4005808555352','','','','',NULL,NULL,100,7,'catalog/4005808555352.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (72,0,'4005808555383','4005808555383','','4005808555383','','','','',NULL,NULL,100,7,'catalog/4005808555383.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (73,0,'4005808631322','4005808631322','','4005808631322','','','','',NULL,NULL,100,7,'catalog/4005808631322.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (74,0,'4005808662388','4005808662388','','4005808662388','','','','',NULL,NULL,100,7,'catalog/4005808662388.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (75,0,'4005808663927','4005808663927','','4005808663927','','','','',NULL,NULL,100,7,'catalog/4005808663927.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (76,0,'4005808715688','4005808715688','','4005808715688','','','','',NULL,NULL,100,7,'catalog/4005808715688.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (77,0,'4005808715695','4005808715695','','4005808715695','','','','',NULL,NULL,100,7,'catalog/4005808715695.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (78,0,'4005808719273','4005808719273','','4005808719273','','','','',NULL,NULL,100,7,'catalog/4005808719273.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (79,0,'4005808802616','4005808802616','','4005808802616','','','','',NULL,NULL,100,7,'catalog/4005808802616.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (80,0,'4005808806423','4005808806423','','4005808806423','','','','',NULL,NULL,100,7,'catalog/4005808806423.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (82,0,'4005808806430','4005808806430','','4005808806430','','','','',NULL,NULL,100,7,'catalog/4005808806430.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (83,0,'4005808812875','4005808812875','','4005808812875','','','','',NULL,NULL,100,7,'catalog/4005808812875.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (84,0,'4005808829835','4005808829835','','4005808829835','','','','',NULL,NULL,100,7,'catalog/4005808829835.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (85,0,'4005808834815','4005808834815','','4005808834815','','','','',NULL,NULL,100,7,'catalog/4005808834815.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (86,0,'4005808837311','4005808837311','','4005808837311','','','','',NULL,NULL,100,7,'catalog/4005808837311.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (87,0,'4005808850617','4005808850617','','4005808850617','','','','',NULL,NULL,100,7,'catalog/4005808850617.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (88,0,'4005808850839','4005808850839','','4005808850839','','','','',NULL,NULL,100,7,'catalog/4005808850839.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (89,0,'4005808890590','4005808890590','','4005808890590','','','','',NULL,NULL,100,7,'catalog/4005808890590.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (90,0,'4005808910328','4005808910328','','4005808910328','','','','',NULL,NULL,100,7,'catalog/4005808910328.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (91,0,'4005808919833','4005808919833','','4005808919833','','','','',NULL,NULL,100,7,'catalog/4005808919833.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+INSERT INTO oc_product (product_id,master_id,model,sku,upc,ean,jan,isbn,mpn,location,variant,override,quantity,stock_status_id,image,manufacturer_id,shipping,price,points,tax_class_id,date_available,weight,weight_class_id,`length`,width,height,length_class_id,subtract,minimum,rating,sort_order,status,date_added,date_modified) VALUES
+	 (92,0,'4005808949007','4005808949007','','4005808949007','','','','',NULL,NULL,100,7,'catalog/4005808949007.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (93,0,'4005900004956','4005900004956','','4005900004956','','','','',NULL,NULL,100,7,'catalog/4005900004956.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (94,0,'4005900020536','4005900020536','','4005900020536','','','','',NULL,NULL,100,7,'catalog/4005900020536.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (95,0,'4005900036667','4005900036667','','4005900036667','','','','',NULL,NULL,100,7,'catalog/4005900036667.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (96,0,'4005900036704','4005900036704','','4005900036704','','','','',NULL,NULL,100,7,'catalog/4005900036704.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (97,0,'4005900036728','4005900036728','','4005900036728','','','','',NULL,NULL,100,7,'catalog/4005900036728.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (98,0,'4005900036759','4005900036759','','4005900036759','','','','',NULL,NULL,100,7,'catalog/4005900036759.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (99,0,'4005900087256','4005900087256','','4005900087256','','','','',NULL,NULL,100,7,'catalog/4005900087256.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL),
+	 (100,0,'4005900095268','4005900095268','','4005900095268','','','','',NULL,NULL,100,7,'catalog/4005900095268.png',0,1,0.0000,0,0,'0000-00-00',0.00000000,0,0.00000000,0.00000000,0.00000000,0,1,1,0,0,1,NULL,NULL);
+
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (1,1,'Gel para Barba e Bigode Castanho','Gel para barba e bigode Grecin 5, 28g, tonalidade castanha.','','Gel para Barba e Bigode Castanho','',''),
+	 (2,1,'Gel para Barba e Bigode Preto','Gel para barba e bigode Grecin 5, 28g, tonalidade preta.','','Gel para Barba e Bigode Preto','',''),
+	 (3,1,'Unhas Mini Length','Kit de unhas postiças mini length, 20 unidades.','','Unhas Mini Length','',''),
+	 (4,1,'Absorvente Interno Tampax Regular','Absorvente interno Tampax, 10 unidades, tamanho regular.','','Absorvente Interno Tampax Regular','',''),
+	 (5,1,'Absorvente Interno Tampax Super com Aplicador','Absorvente interno Tampax Super, com aplicador, 10 unidades.','','Absorvente Interno Tampax Super com Aplicador','',''),
+	 (6,1,'Absorvente Interno Tampax Super Plus','Absorvente interno Tampax Super Plus, 10 unidades.','','Absorvente Interno Tampax Super Plus','',''),
+	 (7,1,'Metamucil Laranja','Suplemento alimentar Metamucil, sabor laranja, para auxiliar na digestão.','','Metamucil Laranja','',''),
+	 (8,1,'Metamucil Laranja 10 Sachês','Suplemento alimentar Metamucil, sabor laranja, em sachês, 10 unidades.','','Metamucil Laranja 10 Sachês','',''),
+	 (9,1,'Escova Dental Oral-B 3D White Luxe Pro Flex','Escova dental Oral-B 3D White Luxe Pro Flex, com tecnologia avançada para clareamento e limpeza profunda.','','Escova Dental Oral-B 3D White Luxe Pro Flex','',''),
+	 (10,1,'Escova Dental Oral-B 3D White Luxe Pro Flex 2x1','Kit com 2 escovas dentais Oral-B 3D White Luxe Pro Flex, macias, para clareamento e limpeza profunda.','','Escova Dental Oral-B 3D White Luxe Pro Flex 2x1','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (11,1,'Escova Dental Oral-B Complete Macia','Escova dental Oral-B Complete, macia, com design ergonômico para uma limpeza eficiente.','','Escova Dental Oral-B Complete Macia','',''),
+	 (12,1,'Escova Dental Oral-B Kids Mickey','Escova dental Oral-B Kids, temática Mickey Mouse, macia e suave, ideal para crianças.','','Escova Dental Oral-B Kids Mickey','',''),
+	 (13,1,'Carga Gillette Mach3 Turbo','Carga de lâminas Gillette Mach3 Turbo, 2 unidades, para um barbear suave e preciso.','','Carga Gillette Mach3 Turbo','',''),
+	 (14,1,'Escova Dental Oral-B Infantil Stages 8','Escova dental Oral-B Infantil Stages 8, macia, projetada para crianças a partir de 8 anos.','','Escova Dental Oral-B Infantil Stages 8','',''),
+	 (15,1,'Escova Dental Oral-B Infantil Stages 1','Escova dental Oral-B Infantil Stages 1, macia, projetada para crianças a partir de 1 ano.','','Escova Dental Oral-B Infantil Stages 1','',''),
+	 (16,1,'Escova Dental Oral-B Infantil Stages 2','Escova dental Oral-B Infantil Stages 2, macia, projetada para crianças a partir de 2 anos.','','Escova Dental Oral-B Infantil Stages 2','',''),
+	 (17,1,'Carga Gillette Sensor 3','Carga de lâminas Gillette Sensor 3, 2 unidades, para um barbear confortável e preciso.','','Carga Gillette Sensor 3','',''),
+	 (18,1,'Carga Gillette Sensor 3 com 4 Lâminas','Carga de lâminas Gillette Sensor 3, com 4 unidades, para um barbear suave e eficiente.','','Carga Gillette Sensor 3 com 4 Lâminas','',''),
+	 (19,1,'Escova Dental Oral-B Classic Limpeza Brilhante','Escova dental Oral-B Classic, com cerdas macias e design clássico para uma limpeza brilhante.','','Escova Dental Oral-B Classic Limpeza Brilhante','',''),
+	 (20,1,'Escova Dental Oral-B Classic Limpeza 40 Média','Escova dental Oral-B Classic Limpeza 40 com cerdas médias.','','Escova Dental Oral-B Classic Limpeza 40 Média','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (21,1,'Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos','Aparelho de barbear Bic Comfort 3 Hybrid com 6 cartuchos de reposição.','','Aparelho de Barbear Bic Comfort 3 Hybrid + 6 Cartuchos','',''),
+	 (22,1,'Solução Multiação Boston Simplus','Solução multiação Boston Simplus para lentes de contato.','','Solução Multiação Boston Simplus','',''),
+	 (23,1,'Hidratante Corporal Lipikar Baume AP+ La Roche-Posay','Hidratante corporal Lipikar Baume AP+ da La Roche-Posay.','','Hidratante Corporal Lipikar Baume AP+ La Roche-Posay','',''),
+	 (24,1,'Sabo Líquido Saforelle Soin Lavant Doux 250ml','Sabo líquido Saforelle Soin Lavant Doux, frasco de 250ml.','','Sabo Líquido Saforelle Soin Lavant Doux 250ml','',''),
+	 (25,1,'Sabo Líquido Saforelle Ultra Hydratant 250ml','Sabo líquido Saforelle Ultra Hydratant, frasco de 250ml.','','Sabo Líquido Saforelle Ultra Hydratant 250ml','',''),
+	 (26,1,'Perfume de France Vodka Extreme Masculino','Perfume de France Vodka Extreme masculino.','','Perfume de France Vodka Extreme Masculino','',''),
+	 (27,1,'Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT','Perfume I Love P.E. for Women, 3.3oz EDT, da Paris Elysees.','','Perfume I Love P.E. for Women Paris Elysees 3.3oz EDT','',''),
+	 (28,1,'Perfume Billion Woman Paris Elysees 3.3oz EDT','Perfume Billion Woman, 3.3oz EDT, da Paris Elysees.','','Perfume Billion Woman Paris Elysees 3.3oz EDT','',''),
+	 (29,1,'Perfume Vodka Night Paris Elysees 3.3oz EDT','Perfume Vodka Night, 3.3oz EDT, da Paris Elysees.','','Perfume Vodka Night Paris Elysees 3.3oz EDT','',''),
+	 (30,1,'Perfume Vodka Man Paris Elysees EDT Masculino','Perfume Vodka Man Eau de Toilette da Paris Elysees, perfume masculino.','','Perfume Vodka Man Paris Elysees EDT Masculino','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (31,1,'Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino','Perfume La Petite Fleur Blanche da Paris Elysees, Eau de Toilette feminino, 100ml.','','Perfume La Petite Fleur Blanche Paris Elysees 100ml EDT Feminino','',''),
+	 (32,1,'Perfume La Petit Paris Elysees Fleur Secrete 100ml','Perfume La Petit Paris Elysees Fleur Secrete, 100ml.','','Perfume La Petit Paris Elysees Fleur Secrete 100ml','',''),
+	 (33,1,'Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras','Tiras para medidor de glicemia OneTouch Ultra, pacote com 50 tiras.','','Tiras para Medidor de Glicemia OneTouch Ultra 50 Tiras','',''),
+	 (34,1,'Fralda Huggies Little Swimmers Tamanho M 11 Unidades','Fralda Huggies Little Swimmers tamanho M, pacote com 11 unidades.','','Fralda Huggies Little Swimmers Tamanho M 11 Unidades','',''),
+	 (35,1,'Fralda Huggies Little Swimmers Tamanho G 10 Unidades','Fralda Huggies Little Swimmers tamanho G, pacote com 10 unidades.','','Fralda Huggies Little Swimmers Tamanho G 10 Unidades','',''),
+	 (36,1,'Colírio Hyabak 3,2mg/ml União Química Similar','Colírio Hyabak 3,2mg/ml, similar da União Química.','','Colírio Hyabak 3,2mg/ml União Química Similar','',''),
+	 (37,1,'Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas','Gel ocular Blephagel, 40g, com 100 compressas esterilizadas.','','Gel Ocular Blephagel 40g + 100 Compressas Esterilizadas','',''),
+	 (38,1,'Máscara de Tratamento Aussie Moist 236ml','Máscara de tratamento Aussie Moist, frasco de 236ml.','','Máscara de Tratamento Aussie Moist 236ml','',''),
+	 (39,1,'Agulha Descartável 4mm Penta Point para Caneta 100 Unidades','Agulha descartável 4mm Penta Point para caneta de insulina, caixa com 100 unidades.','','Agulha Descartável 4mm Penta Point para Caneta 100 Unidades','',''),
+	 (40,1,'Agulha BD Ultra-Fine Penta Point Easy 4mm BD','Agulha BD Ultra-Fine Penta Point Easy 4mm da BD.','','Agulha BD Ultra-Fine Penta Point Easy 4mm BD','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (41,1,'Bateria Energizer Max 9V','Bateria Energizer Max 9V.','','Bateria Energizer Max 9V','',''),
+	 (42,1,'Bateria Eveready Alcalina 9V','Bateria Eveready alcalina 9V.','','Bateria Eveready Alcalina 9V','',''),
+	 (43,1,'Leite em Pó Nan H.A. 400g','Leite em pó Nan H.A., lata de 400g.','','Leite em Pó Nan H.A. 400g','',''),
+	 (44,1,'Desodorante Roll-On Nivea Clear Skin 50ml','Desodorante roll-on Nivea Clear Skin, frasco de 50ml.','','Desodorante Roll-On Nivea Clear Skin 50ml','',''),
+	 (45,1,'Desodorante Aerossol Nivea D''Effect Senses 150ml','Desodorante aerossol Nivea D''Effect Senses, frasco de 150ml.','','Desodorante Aerossol Nivea D''Effect Senses 150ml','',''),
+	 (46,1,'Desodorante Roll-On Nivea Men Dry Impact 50ml','Desodorante roll-on Nivea Men Dry Impact, frasco de 50ml.','','Desodorante Roll-On Nivea Men Dry Impact 50ml','',''),
+	 (47,1,'Desodorante Roll-On Nivea Men Fresh Active 50ml','Desodorante roll-on Nivea Men Fresh Active, frasco de 50ml.','','Desodorante Roll-On Nivea Men Fresh Active 50ml','',''),
+	 (48,1,'Desodorante Roll-On Nivea Dry Comfort 50ml','Desodorante roll-on Nivea Dry Comfort, frasco de 50ml.','','Desodorante Roll-On Nivea Dry Comfort 50ml','',''),
+	 (49,1,'Desodorante Roll-On Nivea Fresh Natural 50ml','Desodorante roll-on Nivea Fresh Natural, frasco de 50ml.','','Desodorante Roll-On Nivea Fresh Natural 50ml','',''),
+	 (50,1,'Desodorante Roll-On Nivea Men Cool Kick 50ml','Desodorante roll-on Nivea Men Cool Kick, frasco de 50ml.','','Desodorante Roll-On Nivea Men Cool Kick 50ml','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (51,1,'Desodorante Roll-On Nivea Sensitive Protect 50ml','Desodorante roll-on Nivea Sensitive Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Sensitive Protect 50ml','',''),
+	 (52,1,'Desodorante Roll-On Nivea Pearl & Beauty 50ml','Desodorante roll-on Nivea Pearl & Beauty, frasco de 50ml.','','Desodorante Roll-On Nivea Pearl & Beauty 50ml','',''),
+	 (53,1,'Desodorante Roll-On Nivea Double Effect 50ml','Desodorante roll-on Nivea Double Effect, frasco de 50ml.','','Desodorante Roll-On Nivea Double Effect 50ml','',''),
+	 (54,1,'Protetor Solar Facial Nivea Light Feeling FPS 30','Protetor solar facial Nivea Light Feeling FPS 30.','','Protetor Solar Facial Nivea Light Feeling FPS 30','',''),
+	 (55,1,'Desodorante Aerossol Nivea Men Silver Protect 150ml','Desodorante aerossol Nivea Men Silver Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Men Silver Protect 150ml','',''),
+	 (56,1,'Desodorante Roll-On Nivea Men Silver Protect 50ml','Desodorante roll-on Nivea Men Silver Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Men Silver Protect 50ml','',''),
+	 (57,1,'Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca','Loção hidratante Nivea In-Shower Milk, 200ml, para pele extra seca.','','Loção Hidratante Nivea In-Shower Milk 200ml para Pele Extra Seca','',''),
+	 (58,1,'Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele','Loção hidratante Nivea Express, 200ml, para todos os tipos de pele.','','Loção Hidratante Nivea Express 200ml para Todos os Tipos de Pele','',''),
+	 (59,1,'Loção Firmadora Nivea Q10 + Vitamina C 200ml','Loção firmadora Nivea Q10 + Vitamina C, frasco de 200ml.','','Loção Firmadora Nivea Q10 + Vitamina C 200ml','',''),
+	 (60,1,'Loção Deo-Hidratante Corporal Nivea Milk 400ml','Loção deo-hidratante corporal Nivea Milk, frasco de 400ml.','','Loção Deo-Hidratante Corporal Nivea Milk 400ml','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (61,1,'Loção Hidratante Nivea Soft Milk 200ml para Pele Seca','Loção hidratante Nivea Soft Milk, 200ml, para pele seca.','','Loção Hidratante Nivea Soft Milk 200ml para Pele Seca','',''),
+	 (62,1,'Protetor Labial Nivea Med Repair FPS 15 4,8g','Protetor labial Nivea Med Repair FPS 15, blister de 4,8g.','','Protetor Labial Nivea Med Repair FPS 15 4,8g','',''),
+	 (63,1,'Sabonete Líquido Nivea Creme Soft 250ml','Sabonete líquido Nivea Creme Soft, frasco de 250ml.','','Sabonete Líquido Nivea Creme Soft 250ml','',''),
+	 (64,1,'Sabonete Nivea Erva Limão e Óleos 90g','Sabonete Nivea Erva Limão e Óleos, barra de 90g.','','Sabonete Nivea Erva Limão e Óleos 90g','',''),
+	 (65,1,'Espuma de Barbear Nivea Men Silver Protect 200ml','Espuma de barbear Nivea Men Silver Protect, frasco de 200ml.','','Espuma de Barbear Nivea Men Silver Protect 200ml','',''),
+	 (66,1,'Solução Similar Renu Plus 8ml','Solução similar Renu Plus para lentes de contato, frasco de 8ml.','','Solução Similar Renu Plus 8ml','',''),
+	 (67,1,'Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml','Pack de antitranspirante aerossol Nivea Invisible Black & White Clear, 2 unidades de 150ml cada, leve mais pague menos.','','Pack Antitranspirante Aerossol Nivea Invisible Black & White Clear 2x150ml','',''),
+	 (68,1,'Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml','Protetor solar Nivea Sun Protect & Hidrata FPS 30, frasco de 200ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 30 200ml','',''),
+	 (69,1,'Protetor Solar Nivea Sun FPS 30 125ml','Protetor solar Nivea Sun FPS 30, frasco de 125ml.','','Protetor Solar Nivea Sun FPS 30 125ml','',''),
+	 (70,1,'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml','Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 200ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 50 200ml','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (71,1,'Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml','Protetor solar Nivea Sun Protect & Hidrata FPS 50, frasco de 125ml.','','Protetor Solar Nivea Sun Protect & Hidrata FPS 50 125ml','',''),
+	 (72,1,'Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml','Protetor solar Nivea Sun Protect & Bronze FPS 30, frasco de 125ml.','','Protetor Solar Nivea Sun Protect & Bronze FPS 30 125ml','',''),
+	 (73,1,'Desodorante Aerossol Nivea Clear Skin 150ml','Desodorante aerossol Nivea Clear Skin, frasco de 150ml.','','Desodorante Aerossol Nivea Clear Skin 150ml','',''),
+	 (74,1,'Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml','Desodorante aerossol Nivea Sensitive, sem perfume, frasco de 150ml.','','Desodorante Aerossol Nivea Sensitive Sem Perfume 150ml','',''),
+	 (75,1,'Desodorante Roll-On Nivea Sensitive Pure 50ml','Desodorante roll-on Nivea Sensitive Pure, frasco de 50ml.','','Desodorante Roll-On Nivea Sensitive Pure 50ml','',''),
+	 (76,1,'Desodorante Aerossol Nivea Feminino Stress Protect 150ml','Desodorante aerossol Nivea Feminino Stress Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Stress Protect 150ml','',''),
+	 (77,1,'Desodorante Aerossol Nivea Men Stress Protect 150ml','Desodorante aerossol Nivea Men Stress Protect, frasco de 150ml.','','Desodorante Aerossol Nivea Men Stress Protect 150ml','',''),
+	 (78,1,'Desodorante Roll-On Nivea Feminino Stress Protect 50ml','Desodorante roll-on Nivea Feminino Stress Protect, frasco de 50ml.','','Desodorante Roll-On Nivea Feminino Stress Protect 50ml','',''),
+	 (79,1,'Loção Hidratante Nivea Milk para Pele Extra Seca 200ml','Loção hidratante Nivea Milk para pele extra seca, frasco de 200ml.','','Loção Hidratante Nivea Milk para Pele Extra Seca 200ml','',''),
+	 (80,1,'Sabonete Nivea Aveia 90g','Sabonete Nivea Aveia, barra de 90g.','','Sabonete Nivea Aveia 90g','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (82,1,'Sabonete Nivea Leite 90g','Sabonete Nivea Leite, barra de 90g.','','Sabonete Nivea Leite 90g','',''),
+	 (83,1,'Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g','Creme facial antissinais dia Nivea Q10 Plus FPS 30, caixa de 52g.','','Creme Facial Antissinais Dia Nivea Q10 Plus FPS 30 52g','',''),
+	 (84,1,'Desodorante Roll-On Sensitive Balm','Desodorante roll-on Sensitive Balm.','','Desodorante Roll-On Sensitive Balm','',''),
+	 (85,1,'Sabonete Antibacteriano Nivea Suave 85g','Sabonete antibacteriano Nivea Suave, barra de 85g.','','Sabonete Antibacteriano Nivea Suave 85g','',''),
+	 (86,1,'Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml','Desodorante aerossol Nivea Feminino Pearl & Beauty, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Pearl & Beauty 150ml','',''),
+	 (87,1,'Protetor Labial Nivea Original Care 4,8g','Protetor labial Nivea Original Care, blister de 4,8g.','','Protetor Labial Nivea Original Care 4,8g','',''),
+	 (88,1,'Protetor Labial Nivea Morango 4,8g','Protetor labial Nivea Morango, blister de 4,8g.','','Protetor Labial Nivea Morango 4,8g','',''),
+	 (89,1,'Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g','Hidratante suave para rosto, corpo e mãos Nivea Soft, pote de 98g.','','Hidratante Suave Rosto, Corpo e Mãos Nivea Soft 98g','',''),
+	 (90,1,'Desodorante Aerossol Nivea Feminino Powder Comfort 150ml','Desodorante aerossol Nivea Feminino Powder Comfort, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Powder Comfort 150ml','',''),
+	 (91,1,'Desodorante Roll-On Nivea Feminino Powder Comfort 50ml','Desodorante roll-on Nivea Feminino Powder Comfort, frasco de 50ml.','','Desodorante Roll-On Nivea Feminino Powder Comfort 50ml','','');
+INSERT INTO oc_product_description (product_id,language_id,name,description,tag,meta_title,meta_description,meta_keyword) VALUES
+	 (92,1,'Loção Hidratante Firmadora Nivea Q10 Plus 200ml','Loção hidratante firmadora Nivea Q10 Plus, frasco de 200ml.','','Loção Hidratante Firmadora Nivea Q10 Plus 200ml','',''),
+	 (93,1,'Loção Deo-Hidratante Nivea Soft Milk 400ml','Loção deo-hidratante Nivea Soft Milk, frasco de 400ml.','','Loção Deo-Hidratante Nivea Soft Milk 400ml','',''),
+	 (94,1,'Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml','Antitranspirante aerossol Nivea Dry Comfort Plus, leve 200ml pague 150ml.','','Antitranspirante Aerossol Nivea Dry Comfort Plus 200ml','',''),
+	 (95,1,'Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml','Desodorante aerossol Nivea Feminino Invisible Black & White Clear, frasco de 150ml.','','Desodorante Aerossol Nivea Feminino Invisible Black & White Clear 150ml','',''),
+	 (96,1,'Desodorante Roll-On Nivea Invisible Black & White Clear 50ml','Desodorante roll-on Nivea Invisible Black & White Clear, frasco de 50ml.','','Desodorante Roll-On Nivea Invisible Black & White Clear 50ml','',''),
+	 (97,1,'Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml','Desodorante aerossol Nivea Men Invisible Black & White Power, frasco de 150ml.','','Desodorante Aerossol Nivea Men Invisible Black & White Power 150ml','',''),
+	 (98,1,'Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml','Desodorante roll-on Nivea Men Invisible Black & White Power, frasco de 50ml.','','Desodorante Roll-On Nivea Men Invisible Black & White Power 50ml','',''),
+	 (99,1,'Sabonete Nivea Hidratante Lavanda 90g','Sabonete Nivea Hidratante Lavanda, barra de 90g.','','Sabonete Nivea Hidratante Lavanda 90g','',''),
+	 (100,1,'Sabonete Líquido Nivea Creme Care 250ml','Sabonete líquido Nivea Creme Care, frasco de 250ml.','','Sabonete Líquido Nivea Creme Care 250ml','','');
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (1,0),
+	 (2,0),
+	 (3,0),
+	 (4,0),
+	 (5,0),
+	 (6,0),
+	 (7,0),
+	 (8,0),
+	 (9,0),
+	 (10,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (11,0),
+	 (12,0),
+	 (13,0),
+	 (14,5),
+	 (15,0),
+	 (16,0),
+	 (17,0),
+	 (18,0),
+	 (19,0),
+	 (20,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (21,0),
+	 (22,0),
+	 (23,0),
+	 (24,0),
+	 (25,0),
+	 (26,0),
+	 (27,0),
+	 (28,0),
+	 (29,0),
+	 (30,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (31,0),
+	 (32,0),
+	 (33,0),
+	 (34,0),
+	 (35,0),
+	 (36,0),
+	 (37,0),
+	 (38,0),
+	 (39,0),
+	 (40,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (41,0),
+	 (42,0),
+	 (43,0),
+	 (44,0),
+	 (45,0),
+	 (46,0),
+	 (47,0),
+	 (48,0),
+	 (49,0),
+	 (50,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (51,0),
+	 (52,0),
+	 (53,0),
+	 (54,0),
+	 (55,0),
+	 (56,0),
+	 (57,0),
+	 (58,0),
+	 (59,0),
+	 (60,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (61,0),
+	 (62,0),
+	 (63,0),
+	 (64,0),
+	 (65,0),
+	 (66,0),
+	 (67,0),
+	 (68,0),
+	 (69,0),
+	 (70,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (71,0),
+	 (72,0),
+	 (73,0),
+	 (74,0),
+	 (75,0),
+	 (76,0),
+	 (77,0),
+	 (78,0),
+	 (79,0),
+	 (80,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (82,0),
+	 (83,0),
+	 (84,0),
+	 (85,0),
+	 (86,0),
+	 (87,0),
+	 (88,0),
+	 (89,0),
+	 (90,0),
+	 (91,0);
+INSERT INTO oc_product_to_store (product_id,store_id) VALUES
+	 (92,0),
+	 (93,0),
+	 (94,0),
+	 (95,0),
+	 (96,0),
+	 (97,0),
+	 (98,0),
+	 (99,0),
+	 (100,0);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (3,1),
+	 (23,1),
+	 (26,1),
+	 (27,1),
+	 (28,1),
+	 (29,1),
+	 (30,1),
+	 (31,1),
+	 (32,1),
+	 (38,1);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (39,1),
+	 (40,1),
+	 (1,2),
+	 (2,2),
+	 (4,2),
+	 (5,2),
+	 (6,2),
+	 (9,2),
+	 (10,2),
+	 (11,2);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (12,2),
+	 (13,2),
+	 (14,2),
+	 (15,2),
+	 (16,2),
+	 (17,2),
+	 (18,2),
+	 (19,2),
+	 (20,2),
+	 (21,2);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (24,2),
+	 (25,2),
+	 (7,3),
+	 (8,3),
+	 (22,3),
+	 (33,3),
+	 (37,3),
+	 (66,3),
+	 (36,4),
+	 (41,5);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (42,5),
+	 (43,5),
+	 (44,5),
+	 (45,5),
+	 (46,5),
+	 (47,5),
+	 (48,5),
+	 (49,5),
+	 (50,5),
+	 (51,5);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (52,5),
+	 (53,5),
+	 (54,5),
+	 (55,5),
+	 (56,5),
+	 (57,5),
+	 (58,5),
+	 (59,5),
+	 (60,5),
+	 (61,5);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (62,5),
+	 (63,5),
+	 (64,5),
+	 (65,5),
+	 (67,5),
+	 (68,5),
+	 (69,5),
+	 (70,5),
+	 (71,5),
+	 (72,5);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (73,5),
+	 (74,5),
+	 (75,5),
+	 (76,5),
+	 (77,5),
+	 (78,5),
+	 (79,5),
+	 (80,5),
+	 (82,5),
+	 (83,5);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (84,5),
+	 (85,5),
+	 (86,5),
+	 (87,5),
+	 (88,5),
+	 (89,5),
+	 (90,5),
+	 (91,5),
+	 (92,5),
+	 (93,5);
+INSERT INTO oc_product_to_category (product_id,category_id) VALUES
+	 (94,5),
+	 (95,5),
+	 (96,5),
+	 (97,5),
+	 (98,5),
+	 (99,5),
+	 (100,5),
+	 (34,6),
+	 (35,6);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (1,0,1,'product_id','4','absorvente-interno-tampax-regular',0),
+	 (2,0,1,'product_id','5','absorvente-interno-tampax-super-com-aplicador',0),
+	 (3,0,1,'product_id','6','absorvente-interno-tampax-super-plus',0),
+	 (4,0,1,'product_id','40','agulha-bd-ultra-fine-penta-point-easy-4mm-bd',0),
+	 (5,0,1,'product_id','39','agulha-descartável-4mm-penta-point-para-caneta-100-unidades',0),
+	 (6,0,1,'product_id','94','antitranspirante-aerossol-nivea-dry-comfort-plus-200ml',0),
+	 (7,0,1,'product_id','21','aparelho-de-barbear-bic-comfort-3-hybrid-+-6-cartuchos',0),
+	 (8,0,1,'product_id','41','bateria-energizer-max-9v',0),
+	 (9,0,1,'product_id','42','bateria-eveready-alcalina-9v',0),
+	 (10,0,1,'product_id','13','carga-gillette-mach3-turbo',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (11,0,1,'product_id','17','carga-gillette-sensor-3',0),
+	 (12,0,1,'product_id','18','carga-gillette-sensor-3-com-4-lâminas',0),
+	 (13,0,1,'product_id','36','colírio-hyabak-3,2mg-ml-união-química-similar',0),
+	 (14,0,1,'product_id','83','creme-facial-antissinais-dia-nivea-q10-plus-fps-30-52g',0),
+	 (15,0,1,'product_id','73','desodorante-aerossol-nivea-clear-skin-150ml',0),
+	 (16,0,1,'product_id','45','desodorante-aerossol-nivea-d''effect-senses-150ml',0),
+	 (17,0,1,'product_id','95','desodorante-aerossol-nivea-feminino-invisible-black-&-white-clear-150ml',0),
+	 (18,0,1,'product_id','86','desodorante-aerossol-nivea-feminino-pearl-&-beauty-150ml',0),
+	 (19,0,1,'product_id','90','desodorante-aerossol-nivea-feminino-powder-comfort-150ml',0),
+	 (20,0,1,'product_id','76','desodorante-aerossol-nivea-feminino-stress-protect-150ml',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (21,0,1,'product_id','97','desodorante-aerossol-nivea-men-invisible-black-&-white-power-150ml',0),
+	 (22,0,1,'product_id','55','desodorante-aerossol-nivea-men-silver-protect-150ml',0),
+	 (23,0,1,'product_id','77','desodorante-aerossol-nivea-men-stress-protect-150ml',0),
+	 (24,0,1,'product_id','74','desodorante-aerossol-nivea-sensitive-sem-perfume-150ml',0),
+	 (25,0,1,'product_id','44','desodorante-roll-on-nivea-clear-skin-50ml',0),
+	 (26,0,1,'product_id','53','desodorante-roll-on-nivea-double-effect-50ml',0),
+	 (27,0,1,'product_id','48','desodorante-roll-on-nivea-dry-comfort-50ml',0),
+	 (28,0,1,'product_id','91','desodorante-roll-on-nivea-feminino-powder-comfort-50ml',0),
+	 (29,0,1,'product_id','78','desodorante-roll-on-nivea-feminino-stress-protect-50ml',0),
+	 (30,0,1,'product_id','49','desodorante-roll-on-nivea-fresh-natural-50ml',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (31,0,1,'product_id','96','desodorante-roll-on-nivea-invisible-black-&-white-clear-50ml',0),
+	 (32,0,1,'product_id','50','desodorante-roll-on-nivea-men-cool-kick-50ml',0),
+	 (33,0,1,'product_id','46','desodorante-roll-on-nivea-men-dry-impact-50ml',0),
+	 (34,0,1,'product_id','47','desodorante-roll-on-nivea-men-fresh-active-50ml',0),
+	 (35,0,1,'product_id','98','desodorante-roll-on-nivea-men-invisible-black-&-white-power-50ml',0),
+	 (36,0,1,'product_id','56','desodorante-roll-on-nivea-men-silver-protect-50ml',0),
+	 (37,0,1,'product_id','52','desodorante-roll-on-nivea-pearl-&-beauty-50ml',0),
+	 (38,0,1,'product_id','51','desodorante-roll-on-nivea-sensitive-protect-50ml',0),
+	 (39,0,1,'product_id','75','desodorante-roll-on-nivea-sensitive-pure-50ml',0),
+	 (40,0,1,'product_id','84','desodorante-roll-on-sensitive-balm',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (41,0,1,'product_id','9','escova-dental-oral-b-3d-white-luxe-pro-flex',0),
+	 (42,0,1,'product_id','10','escova-dental-oral-b-3d-white-luxe-pro-flex-2x1',0),
+	 (43,0,1,'product_id','20','escova-dental-oral-b-classic-limpeza-40-média',0),
+	 (44,0,1,'product_id','19','escova-dental-oral-b-classic-limpeza-brilhante',0),
+	 (45,0,1,'product_id','11','escova-dental-oral-b-complete-macia',0),
+	 (46,0,1,'product_id','15','escova-dental-oral-b-infantil-stages-1',0),
+	 (47,0,1,'product_id','16','escova-dental-oral-b-infantil-stages-2',0),
+	 (48,0,1,'product_id','14','escova-dental-oral-b-infantil-stages-8',0),
+	 (49,0,1,'product_id','12','escova-dental-oral-b-kids-mickey',0),
+	 (50,0,1,'product_id','65','espuma-de-barbear-nivea-men-silver-protect-200ml',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (51,0,1,'product_id','35','fralda-huggies-little-swimmers-tamanho-g-10-unidades',0),
+	 (52,0,1,'product_id','34','fralda-huggies-little-swimmers-tamanho-m-11-unidades',0),
+	 (53,0,1,'product_id','37','gel-ocular-blephagel-40g-+-100-compressas-esterilizadas',0),
+	 (54,0,1,'product_id','1','gel-para-barba-e-bigode-castanho',0),
+	 (55,0,1,'product_id','2','gel-para-barba-e-bigode-preto',0),
+	 (56,0,1,'product_id','23','hidratante-corporal-lipikar-baume-ap+-la-roche-posay',0),
+	 (57,0,1,'product_id','89','hidratante-suave-rosto,-corpo-e-mãos-nivea-soft-98g',0),
+	 (58,0,1,'product_id','43','leite-em-pó-nan-h.a.-400g',0),
+	 (59,0,1,'product_id','60','loção-deo-hidratante-corporal-nivea-milk-400ml',0),
+	 (60,0,1,'product_id','93','loção-deo-hidratante-nivea-soft-milk-400ml',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (61,0,1,'product_id','59','loção-firmadora-nivea-q10-+-vitamina-c-200ml',0),
+	 (62,0,1,'product_id','92','loção-hidratante-firmadora-nivea-q10-plus-200ml',0),
+	 (63,0,1,'product_id','58','loção-hidratante-nivea-express-200ml-para-todos-os-tipos-de-pele',0),
+	 (64,0,1,'product_id','57','loção-hidratante-nivea-in-shower-milk-200ml-para-pele-extra-seca',0),
+	 (65,0,1,'product_id','79','loção-hidratante-nivea-milk-para-pele-extra-seca-200ml',0),
+	 (66,0,1,'product_id','61','loção-hidratante-nivea-soft-milk-200ml-para-pele-seca',0),
+	 (67,0,1,'product_id','38','máscara-de-tratamento-aussie-moist-236ml',0),
+	 (68,0,1,'product_id','7','metamucil-laranja',0),
+	 (69,0,1,'product_id','8','metamucil-laranja-10-sachês',0),
+	 (70,0,1,'product_id','67','pack-antitranspirante-aerossol-nivea-invisible-black-&-white-clear-2x150ml',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (71,0,1,'product_id','28','perfume-billion-woman-paris-elysees-3.3oz-edt',0),
+	 (72,0,1,'product_id','26','perfume-de-france-vodka-extreme-masculino',0),
+	 (73,0,1,'product_id','27','perfume-i-love-p.e.-for-women-paris-elysees-3.3oz-edt',0),
+	 (74,0,1,'product_id','32','perfume-la-petit-paris-elysees-fleur-secrete-100ml',0),
+	 (75,0,1,'product_id','31','perfume-la-petite-fleur-blanche-paris-elysees-100ml-edt-feminino',0),
+	 (76,0,1,'product_id','30','perfume-vodka-man-paris-elysees-edt-masculino',0),
+	 (77,0,1,'product_id','29','perfume-vodka-night-paris-elysees-3.3oz-edt',0),
+	 (78,0,1,'product_id','62','protetor-labial-nivea-med-repair-fps-15-4,8g',0),
+	 (79,0,1,'product_id','88','protetor-labial-nivea-morango-4,8g',0),
+	 (80,0,1,'product_id','87','protetor-labial-nivea-original-care-4,8g',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (81,0,1,'product_id','54','protetor-solar-facial-nivea-light-feeling-fps-30',0),
+	 (82,0,1,'product_id','69','protetor-solar-nivea-sun-fps-30-125ml',0),
+	 (83,0,1,'product_id','72','protetor-solar-nivea-sun-protect-&-bronze-fps-30-125ml',0),
+	 (84,0,1,'product_id','68','protetor-solar-nivea-sun-protect-&-hidrata-fps-30-200ml',0),
+	 (85,0,1,'product_id','71','protetor-solar-nivea-sun-protect-&-hidrata-fps-50-125ml',0),
+	 (86,0,1,'product_id','70','protetor-solar-nivea-sun-protect-&-hidrata-fps-50-200ml',0),
+	 (87,0,1,'product_id','24','sabo-líquido-saforelle-soin-lavant-doux-250ml',0),
+	 (88,0,1,'product_id','25','sabo-líquido-saforelle-ultra-hydratant-250ml',0),
+	 (89,0,1,'product_id','85','sabonete-antibacteriano-nivea-suave-85g',0),
+	 (90,0,1,'product_id','100','sabonete-líquido-nivea-creme-care-250ml',0);
+INSERT INTO oc_seo_url (seo_url_id,store_id,language_id,`key`,value,keyword,sort_order) VALUES
+	 (91,0,1,'product_id','63','sabonete-líquido-nivea-creme-soft-250ml',0),
+	 (92,0,1,'product_id','80','sabonete-nivea-aveia-90g',0),
+	 (93,0,1,'product_id','64','sabonete-nivea-erva-limão-e-óleos-90g',0),
+	 (94,0,1,'product_id','99','sabonete-nivea-hidratante-lavanda-90g',0),
+	 (95,0,1,'product_id','82','sabonete-nivea-leite-90g',0),
+	 (96,0,1,'product_id','22','solução-multiação-boston-simplus',0),
+	 (97,0,1,'product_id','66','solução-similar-renu-plus-8ml',0),
+	 (98,0,1,'product_id','33','tiras-para-medidor-de-glicemia-onetouch-ultra-50-tiras',0),
+	 (99,0,1,'product_id','3','unhas-mini-length',0);
+
