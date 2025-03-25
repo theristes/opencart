@@ -1,49 +1,38 @@
 <?php
-namespace Opencart\Admin\Controller\Common;
-/**
- * Class File Manager
- *
- * Can be loaded using $this->load->controller('common/filemanager');
- *
- * @package Opencart\Admin\Controller\Common
- */
-class FileManager extends \Opencart\System\Engine\Controller {
-	/**
-	 * Index
-	 *
-	 * @return void
-	 */
-	public function index(): void {
-		$this->load->language('common/filemanager');
+use Aws\S3\S3Client;
 
-		$data['error_upload_size'] = sprintf($this->language->get('error_upload_size'), $this->config->get('config_file_max_size'));
+// require 'vendor/autoload.php';
 
-		$data['config_file_max_size'] = ((int)$this->config->get('config_file_max_size') * 1024 * 1024);
+class ControllerCommonFileManager extends Controller {
+    private $s3;
+    private $bucket;
 
-		// Return the target ID for the file manager to set the value
-		if (isset($this->request->get['target'])) {
-			$data['target'] = $this->request->get['target'];
-		} else {
-			$data['target'] = '';
-		}
+    public function __construct($registry) {
+        parent::__construct($registry);
+		
+		$dotenv->load();
 
-		// Return the thumbnail for the file manager to show a thumbnail
-		if (isset($this->request->get['thumb'])) {
-			$data['thumb'] = $this->request->get['thumb'];
-		} else {
-			$data['thumb'] = '';
-		}
+		$s3Bucket = $_ENV['AWS_BUCKET_NAME'];   // Get the updated bucket name
+		$s3Region = $_ENV['AWS_REGION'];         // Get the updated region
+		$s3Key = $_ENV['AWS_ACCESS_KEY_ID'];    // Get the updated access key
+		$s3Secret = $_ENV['AWS_SECRET_ACCESS_KEY']; // Get the updated secret key
 
-		if (isset($this->request->get['ckeditor'])) {
-			$data['ckeditor'] = $this->request->get['ckeditor'];
-		} else {
-			$data['ckeditor'] = '';
-		}
+        $this->bucket = $s3Bucket; 
+        
+        $this->s3 = new S3Client([
+            'version' => 'latest',
+            'region'  => $s3Region, 
+            'credentials' => [
+                'key'    => $s3Key, 
+                'secret' => $s3Secret 
+            ]
+        ]);
+    }
 
-		$data['user_token'] = $this->session->data['user_token'];
-
-		$this->response->setOutput($this->load->view('common/filemanager', $data));
-	}
+    public function index() {
+        $data['files'] = $this->listFiles();
+        $this->response->setOutput($this->load->view('common/filemanager', $data));
+    }
 
 	/**
 	 * List
