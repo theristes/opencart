@@ -1,7 +1,7 @@
 <?php
 use Aws\S3\S3Client;
 
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 
 class ControllerCommonFileManager extends Controller {
     private $s3;
