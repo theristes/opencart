@@ -1,38 +1,49 @@
 <?php
-use Aws\S3\S3Client;
+namespace Opencart\Admin\Controller\Common;
+/**
+ * Class File Manager
+ *
+ * Can be loaded using $this->load->controller('common/filemanager');
+ *
+ * @package Opencart\Admin\Controller\Common
+ */
+class FileManager extends \Opencart\System\Engine\Controller {
+	/**
+	 * Index
+	 *
+	 * @return void
+	 */
+	public function index(): void {
+		$this->load->language('common/filemanager');
 
-// require 'vendor/autoload.php';
+		$data['error_upload_size'] = sprintf($this->language->get('error_upload_size'), $this->config->get('config_file_max_size'));
 
-class ControllerCommonFileManager extends Controller {
-    private $s3;
-    private $bucket;
+		$data['config_file_max_size'] = ((int)$this->config->get('config_file_max_size') * 1024 * 1024);
 
-    public function __construct($registry) {
-        parent::__construct($registry);
-		
-		$dotenv->load();
+		// Return the target ID for the file manager to set the value
+		if (isset($this->request->get['target'])) {
+			$data['target'] = $this->request->get['target'];
+		} else {
+			$data['target'] = '';
+		}
 
-		$s3Bucket = $_ENV['AWS_BUCKET_NAME'];   // Get the updated bucket name
-		$s3Region = $_ENV['AWS_REGION'];         // Get the updated region
-		$s3Key = $_ENV['AWS_ACCESS_KEY_ID'];    // Get the updated access key
-		$s3Secret = $_ENV['AWS_SECRET_ACCESS_KEY']; // Get the updated secret key
+		// Return the thumbnail for the file manager to show a thumbnail
+		if (isset($this->request->get['thumb'])) {
+			$data['thumb'] = $this->request->get['thumb'];
+		} else {
+			$data['thumb'] = '';
+		}
 
-        $this->bucket = $s3Bucket; 
-        
-        $this->s3 = new S3Client([
-            'version' => 'latest',
-            'region'  => $s3Region, 
-            'credentials' => [
-                'key'    => $s3Key, 
-                'secret' => $s3Secret 
-            ]
-        ]);
-    }
+		if (isset($this->request->get['ckeditor'])) {
+			$data['ckeditor'] = $this->request->get['ckeditor'];
+		} else {
+			$data['ckeditor'] = '';
+		}
 
-    public function index() {
-        $data['files'] = $this->listFiles();
-        $this->response->setOutput($this->load->view('common/filemanager', $data));
-    }
+		$data['user_token'] = $this->session->data['user_token'];
+
+		$this->response->setOutput($this->load->view('common/filemanager', $data));
+	}
 
 	/**
 	 * List
@@ -63,27 +74,45 @@ class ControllerCommonFileManager extends Controller {
 			$page = 1;
 		}
 
-	    $allowed = [];
-		
-        foreach (explode("\r\n", $this->config->get('config_file_ext_allowed')) as $key => $extension) {
-            $allowed[] = '.' . \strtolower($extension);
-            $allowed[] = '.' . \strtoupper($extension);
-        }
+		$allowed = [];
 
-		$data['directories'] = [];
-		$data['images'] = [];
+		foreach (explode("\r\n", $this->config->get('config_file_ext_allowed')) as $key => $extension) {
+			$allowed[] = '.' . \strtolower($extension);
+			$allowed[] = '.' . \strtoupper($extension);
+		}
 
-		$this->load->model('tool/image');
+		$directories = [];
+		$files = [];
 
 		// Get directories and files
-		$paths = array_merge(
-			glob($directory . $filter_name . '*', GLOB_ONLYDIR),
-			glob($directory . $filter_name . '*{' . implode(',', $allowed) . '}', GLOB_BRACE)
-		);
+		$paths = array_diff(scandir($directory), ['..', '.']);
+
+		foreach ($paths as $value) {
+			if ($filter_name && !str_starts_with($value, $filter_name)) {
+				continue;
+			}
+
+			$path = str_replace('\\', '/', realpath($directory . $value));
+
+			if (is_dir($path)) {
+				$directories[] = $path;
+			}
+
+			if (is_file($path) && in_array(substr($value, strrpos($value, '.')), $allowed)) {
+				$files[] = $path;
+			}
+		}
 
 		$total = count($paths);
 		$limit = 16;
 		$start = ($page - 1) * $limit;
+
+		$data['directories'] = [];
+
+		// Image
+		$data['images'] = [];
+
+		$this->load->model('tool/image');
 
 		if ($paths) {
 			$url = '';
@@ -101,9 +130,7 @@ class ControllerCommonFileManager extends Controller {
 			}
 
 			// Split the array based on current page number and max number of items per page of 10
-			foreach (array_slice($paths, $start, $limit) as $path) {
-				$path = str_replace('\\', '/', realpath($path));
-
+			foreach (array_slice($directories + $files, $start, $limit) as $path) {
 				if (substr($path, 0, strlen($base)) == $base) {
 					$name = basename($path);
 
@@ -115,7 +142,7 @@ class ControllerCommonFileManager extends Controller {
 						];
 					}
 
-					if (is_file($path) && in_array(substr($path, strrpos($path, '.')), $allowed)) {
+					if (is_file($path)) {
 						$data['images'][] = [
 							'name'  => $name,
 							'path'  => oc_substr($path, oc_strlen($base)),
@@ -281,9 +308,8 @@ class ControllerCommonFileManager extends Controller {
 						$json['error'] = $this->language->get('error_filename');
 					}
 
-					
 					// Allowed file extension types
-                    $allowed = explode("\r\n", \strtolower($this->config->get('config_file_ext_allowed')));
+					$allowed = explode("\r\n", \strtolower($this->config->get('config_file_ext_allowed')));
 
 					if (!in_array(\strtolower(substr($filename, strrpos($filename, '.') + 1)), $allowed)) {
 						$json['error'] = $this->language->get('error_file_type');
@@ -342,21 +368,23 @@ class ControllerCommonFileManager extends Controller {
 			$directory = $base;
 		}
 
-		// Check its a directory
+		if (isset($this->request->post['folder'])) {
+			// Sanitize the folder name
+			$folder = preg_replace('/[\/\\\?%*&:|"<>]/', '', basename(html_entity_decode($this->request->post['folder'], ENT_QUOTES, 'UTF-8')));
+		} else {
+			$folder = '';
+		}
+
+		// Check it's a directory
 		if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)) . '/', 0, strlen($base)) != $base) {
 			$json['error'] = $this->language->get('error_directory');
 		}
 
-		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
-			// Sanitize the folder name
-			$folder = preg_replace('/[\/\\\?%*&:|"<>]/', '', basename(html_entity_decode($this->request->post['folder'], ENT_QUOTES, 'UTF-8')));
-
-			// Validate the filename length
-			if (!oc_validate_length($folder, 3, 128)) {
-				$json['error'] = $this->language->get('error_folder');
-			} elseif (is_dir($directory . $folder)) {
-				$json['error'] = $this->language->get('error_exists');
-			}
+		// Validate the filename length
+		if (!oc_validate_length($folder, 3, 128)) {
+			$json['error'] = $this->language->get('error_folder');
+		} elseif (is_dir($directory . $folder)) {
+			$json['error'] = $this->language->get('error_exists');
 		}
 
 		if (!$json) {
@@ -414,8 +442,6 @@ class ControllerCommonFileManager extends Controller {
 			foreach ($paths as $path) {
 				$path = rtrim($base . html_entity_decode($path, ENT_QUOTES, 'UTF-8'), '/');
 
-				$files = [];
-
 				// Make path into an array
 				$directory = [$path];
 
@@ -424,9 +450,9 @@ class ControllerCommonFileManager extends Controller {
 					$next = array_shift($directory);
 
 					if (is_dir($next)) {
-						foreach (glob(trim($next, '/') . '/{*,.[!.]*,..?*}', GLOB_BRACE) as $file) {
+						foreach (array_diff(scandir($next), ['..', '.']) as $file) {
 							// If directory add to path array
-							$directory[] = $file;
+							$directory[] = $next . '/' . $file;
 						}
 					}
 
