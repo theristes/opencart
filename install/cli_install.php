@@ -99,6 +99,7 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 	public function install(array $argv): string {
 		// Options
 		$option = [
+			'store_name'  => 'My Store',
 			'username'    => 'admin',
 			'language'    => 'en-gb',
 			'db_driver'   => 'mysqli',
@@ -108,7 +109,13 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			'db_prefix'   => 'oc_',
 			'db_ssl_key'  => '',
 			'db_ssl_cert' => '',
-			'db_ssl_ca'   => ''
+			'db_ssl_ca'   => '',
+			'dir_image'   => '',
+			'dir_storage' => '',
+			'aws_s3_bucket' => '',
+			'aws_s3_region' => '',
+			'aws_s3_key' => '',
+			'aws_s3_secret' => ''
 		];
 
 		// Turn args into an array
@@ -128,10 +135,80 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			}
 		}
 
+			// Required
+		$required = [
+			'store_name',
+			'username',
+			'email',
+			'password',
+			'http_server',
+			'db_driver',
+			'db_hostname',
+			'db_username',
+			'db_password',
+			'db_database',
+			'db_port',
+			'db_prefix',
+			'dir_image',
+			'dir_storage',
+			'aws_s3_bucket',
+			'aws_s3_region',
+			'aws_s3_key',
+			'aws_s3_secret'
+		];
+
+		// Validation
+		$missing = [];
+
+		foreach ($required as $value) {
+			if (!array_key_exists($value, $option) || empty($option[$value])) {
+				$missing[] = $value;
+			}
+		}
+
+		if (count($missing)) {
+			return 'ERROR: Following inputs were missing or invalid: ' . implode(', ', $missing) . "\n";
+		}
+
+			// Configure AWS S3
+		$s3Client = new \Aws\S3\S3Client([
+			'region' => $option['aws_s3_region'],
+			'version' => 'latest',
+			'credentials' => [
+				'key' => $option['aws_s3_key'],
+				'secret' => $option['aws_s3_secret'],
+			],
+		]);
+
+		// Validate S3 paths
+		$imagePath = $option['dir_image'];
+		$storagePath = $option['dir_storage'];
+
+		if (!str_starts_with($imagePath, 's3://') || !str_starts_with($storagePath, 's3://')) {
+			return 'ERROR: Both dir-image and dir-storage must be valid S3 paths (e.g., s3://bucket-name/path/).' . "\n";
+		}
+
+		// Test S3 bucket access
+		try {
+			$s3Client->headBucket(['Bucket' => $option['aws_s3_bucket']]);
+		} catch (\Exception $e) {
+			return 'ERROR: Unable to access S3 bucket: ' . $e->getMessage() . "\n";
+		}
+
+		// Set S3 paths in configuration
+		if (!defined('DIR_IMAGE')) {
+			define('DIR_IMAGE', $imagePath);
+		}
+
+		if (!defined('DIR_STORAGE')) {
+			define('DIR_STORAGE', $storagePath);
+		}
+
 		// Command line is sending true and false as strings so used 1 or 0 instead.
 
 		// Required
 		$required = [
+			'store_name',  // Already set
 			'username',    // Already set
 			'email',
 			'password',
@@ -239,6 +316,7 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 		if (!is_file($file)) {
 			return 'ERROR: Could not load SQL file: ' . $file;
 		}
+
 
 		$db_driver = html_entity_decode($option['db_driver'], ENT_QUOTES, 'UTF-8');
 		$db_hostname = html_entity_decode($option['db_hostname'], ENT_QUOTES, 'UTF-8');
