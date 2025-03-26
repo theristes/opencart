@@ -63,4 +63,5 @@ require_once(DIR_SYSTEM . 'helper/validation.php');
 
 // S3 Wrapper
 require_once DIR_SYSTEM . 'startup/s3_wrapper.php';
+require_once DIR_SYSTEM . 'library/s3_wrapper.php';
 initializeS3Wrapper();
