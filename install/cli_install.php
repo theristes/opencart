@@ -187,24 +187,56 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 		$imagePath = $option['dir_image'];
 		$storagePath = $option['dir_storage'];
 
-		if (!str_starts_with($imagePath, 's3://') || !str_starts_with($storagePath, 's3://')) {
-			return 'ERROR: Both dir-image and dir-storage must be valid S3 paths (e.g., s3://bucket-name/path/).' . "\n";
+		if (!str_starts_with($imagePath, 's3://' . $option['aws_s3_bucket']) || 
+		    !str_starts_with($storagePath, 's3://' . $option['aws_s3_bucket'])) {
+		    return 'ERROR: Both dir-image and dir-storage must be valid S3 paths within the specified bucket (e.g., s3://bucket-name/path/).' . "\n";
+		}
+
+		// Ensure S3 paths end with a slash
+		if (!str_ends_with($imagePath, '/')) {
+		    $imagePath .= '/';
+		}
+		if (!str_ends_with($storagePath, '/')) {
+		    $storagePath .= '/';
 		}
 
 		// Test S3 bucket access
 		try {
-			$s3Client->headBucket(['Bucket' => $option['aws_s3_bucket']]);
+		    $s3Client->headBucket(['Bucket' => $option['aws_s3_bucket']]);
 		} catch (\Exception $e) {
-			return 'ERROR: Unable to access S3 bucket: ' . $e->getMessage() . "\n";
+		    return 'ERROR: Unable to access S3 bucket: ' . $e->getMessage() . "\n";
+		}
+
+		// Upload a test file to validate write access
+		try {
+		    $s3Client->putObject([
+		        'Bucket' => $option['aws_s3_bucket'],
+		        'Key'    => 'test-file.txt',
+		        'Body'   => 'This is a test file.',
+		    ]);
+		    $s3Client->deleteObject([
+		        'Bucket' => $option['aws_s3_bucket'],
+		        'Key'    => 'test-file.txt',
+		    ]);
+		} catch (\Exception $e) {
+		    return 'ERROR: Unable to write to S3 bucket: ' . $e->getMessage() . "\n";
 		}
 
 		// Set S3 paths in configuration
-		if (!defined('DIR_IMAGE')) {
-			define('DIR_IMAGE', $imagePath);
-		}
+		define('DIR_IMAGE', $imagePath);
+		define('DIR_STORAGE', $storagePath);
 
-		if (!defined('DIR_STORAGE')) {
-			define('DIR_STORAGE', $storagePath);
+		// Ensure files are uploaded to S3 bucket
+		function uploadToS3($s3Client, $bucket, $key, $filePath) {
+		    try {
+		        $s3Client->putObject([
+		            'Bucket' => $bucket,
+		            'Key'    => $key,
+		            'SourceFile' => $filePath,
+		        ]);
+		    } catch (\Exception $e) {
+		        throw new \Exception('ERROR: Unable to upload file to S3 bucket: ' . $e->getMessage());
+		    }
 		}
 
 		// Command line is sending true and false as strings so used 1 or 0 instead.
@@ -448,8 +480,8 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 		$output .= 'define(\'DIR_APPLICATION\', DIR_OPENCART . \'catalog/\');' . "\n";
 		$output .= 'define(\'DIR_SYSTEM\', DIR_OPENCART . \'system/\');' . "\n";
 		$output .= 'define(\'DIR_EXTENSION\', DIR_OPENCART . \'extension/\');' . "\n";
-		$output .= 'define(\'DIR_IMAGE\', DIR_OPENCART . \'image/\');' . "\n";
-		$output .= 'define(\'DIR_STORAGE\', DIR_SYSTEM . \'storage/\');' . "\n";
+		$output .= 'define(\'DIR_IMAGE\', \'' . $imagePath . '\');' . "\n"; // Use S3 path
+		$output .= 'define(\'DIR_STORAGE\', \'' . $storagePath . '\');' . "\n"; // Use S3 path
 		$output .= 'define(\'DIR_LANGUAGE\', DIR_APPLICATION . \'language/\');' . "\n";
 		$output .= 'define(\'DIR_TEMPLATE\', DIR_APPLICATION . \'view/template/\');' . "\n";
 		$output .= 'define(\'DIR_CONFIG\', DIR_SYSTEM . \'config/\');' . "\n";
@@ -500,8 +532,8 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 		$output .= 'define(\'DIR_APPLICATION\', DIR_OPENCART . \'admin/\');' . "\n";
 		$output .= 'define(\'DIR_SYSTEM\', DIR_OPENCART . \'system/\');' . "\n";
 		$output .= 'define(\'DIR_EXTENSION\', DIR_OPENCART . \'extension/\');' . "\n";
-		$output .= 'define(\'DIR_IMAGE\', DIR_OPENCART . \'image/\');' . "\n";
-		$output .= 'define(\'DIR_STORAGE\', DIR_SYSTEM . \'storage/\');' . "\n";
+		$output .= 'define(\'DIR_IMAGE\', \'' . $imagePath . '\');' . "\n"; // Use S3 path
+		$output .= 'define(\'DIR_STORAGE\', \'' . $storagePath . '\');' . "\n"; // Use S3 path
 		$output .= 'define(\'DIR_CATALOG\', DIR_OPENCART . \'catalog/\');' . "\n";
 		$output .= 'define(\'DIR_LANGUAGE\', DIR_APPLICATION . \'language/\');' . "\n";
 		$output .= 'define(\'DIR_TEMPLATE\', DIR_APPLICATION . \'view/template/\');' . "\n";
