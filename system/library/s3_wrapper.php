@@ -1,5 +1,5 @@
 function initializeS3Wrapper() {
-    // Initialize the S3 wrapper logic here
-    // For example, loading AWS SDK or setting up S3 configurations
+    // Initialize the S3 wrapper logic here.
+    // For example, you can include AWS SDK setup or other configurations.
     echo "S3 Wrapper initialized.";
 }
