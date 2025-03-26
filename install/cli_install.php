@@ -223,8 +223,12 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 		}
 
 		// Set S3 paths in configuration
-		define('DIR_IMAGE', $imagePath);
-		define('DIR_STORAGE', $storagePath);
+		if (!defined('DIR_IMAGE')) {
+		    define('DIR_IMAGE', $imagePath);
+		}
+		if (!defined('DIR_STORAGE')) {
+		    define('DIR_STORAGE', $storagePath);
+		}
 
 		// Ensure files are uploaded to S3 bucket
 		function uploadToS3($s3Client, $bucket, $key, $filePath) {
