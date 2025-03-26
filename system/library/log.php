@@ -26,7 +26,7 @@ class Log {
 	public function __construct(string $filename) {
 		$this->file = DIR_LOGS . $filename;
 
-		if (!is_file($this->file)) {
+		if (stream_is_local($this->file) && !is_file($this->file)) { // Ensure the file path is local
 			$handle = fopen($this->file, 'w');
 
 			if ($handle) { // Ensure the file handle is valid
@@ -43,6 +43,11 @@ class Log {
 	 * @return void
 	 */
 	public function write($message): void {
-		file_put_contents($this->file, date('Y-m-d H:i:s') . ' - ' . print_r($message, true) . "\n", FILE_APPEND);
+		if (stream_is_local($this->file)) { // Ensure the file path is local
+			file_put_contents($this->file, date('Y-m-d H:i:s') . ' - ' . print_r($message, true) . "\n", FILE_APPEND);
+		} else {
+			// Handle unsupported stream wrapper error
+			error_log('Unsupported stream wrapper for log file: ' . $this->file);
+		}
 	}
 }

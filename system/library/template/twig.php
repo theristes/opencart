@@ -1,5 +1,9 @@
 <?php
 namespace Opencart\System\Library\Template;
+
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
+
 /**
  * Class Twig
  *
@@ -27,6 +31,10 @@ class Twig {
 	 * Constructor
 	 */
 	public function __construct() {
+		if (!class_exists('Twig\Loader\FilesystemLoader')) {
+			throw new \Exception('Twig library is not installed. Please run "composer require twig/twig".');
+		}
+
 		// Unfortunately, we have to set the web root directory as the base since Twig confuses which template cache to use.
 		$this->root = substr(DIR_OPENCART, 0, -1);
 

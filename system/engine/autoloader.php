@@ -24,6 +24,9 @@ class Autoloader {
 	public function __construct() {
 		spl_autoload_register(function(string $class): void {
 			$this->load($class);
+			if (!class_exists($class, false)) {
+				error_log('Autoloader: Class "' . $class . '" not found.');
+			}
 		});
 
 		spl_autoload_extensions('.php');
