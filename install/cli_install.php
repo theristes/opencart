@@ -2,9 +2,6 @@
 
 namespace Install;
 
-// Autoloader
-require_once(DIR_OPENCART . 'vendor/autoload.php');
-
 ini_set('display_errors', 1);
 
 error_reporting(E_ALL);
@@ -27,6 +24,9 @@ define('DIR_DOWNLOAD', DIR_SYSTEM . 'storage/download/');
 define('DIR_LOGS', DIR_SYSTEM . 'storage/logs/');
 define('DIR_SESSION', DIR_SYSTEM . 'storage/session/');
 define('DIR_UPLOAD', DIR_SYSTEM . 'storage/upload/');
+
+// Autoloader
+require_once(DIR_OPENCART . 'vendor/autoload.php');
 
 // Startup
 require_once(DIR_SYSTEM . 'startup.php');
