@@ -29,7 +29,9 @@ class Log {
 		if (!is_file($this->file)) {
 			$handle = fopen($this->file, 'w');
 
-			fclose($handle);
+			if ($handle) { // Ensure the file handle is valid
+				fclose($handle);
+			}
 		}
 	}
 
