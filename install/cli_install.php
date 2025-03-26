@@ -183,6 +183,9 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			],
 		]);
 
+		 // Register the S3 stream wrapper
+		\Aws\S3\StreamWrapper::register($s3Client);
+
 		// Validate S3 paths
 		$imagePath = $option['dir_image'];
 		$storagePath = $option['dir_storage'];
