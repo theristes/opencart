@@ -25,6 +25,9 @@ define('DIR_LOGS', DIR_SYSTEM . 'storage/logs/');
 define('DIR_SESSION', DIR_SYSTEM . 'storage/session/');
 define('DIR_UPLOAD', DIR_SYSTEM . 'storage/upload/');
 
+// Autoloader
+require_once(DIR_OPENCART . 'vendor/autoload.php');
+
 // Startup
 require_once(DIR_SYSTEM . 'startup.php');
 
@@ -53,19 +56,13 @@ $response->addHeader('Content-Type: text/plain; charset=utf-8');
 $registry->set('response', $response);
 
 set_error_handler(function(int $code, string $message, string $file, int $line) {
-	// error was suppressed with the @-operator
 	if (error_reporting() === 0) {
 		return false;
 	}
-
 	throw new \ErrorException($message, 0, $code, $file, $line);
 });
 
-/**
- * Class CliInstall
- *
- * @package Opencart\Install
- */
+
 class CliInstall extends \Opencart\System\Engine\Controller {
 	/**
 	 * Index
@@ -79,10 +76,7 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			$argv = [];
 		}
 
-		// Just displays the path to the file
 		$script = array_shift($argv);
-
-		// Get the arguments passed with the command
 		$command = array_shift($argv);
 
 		switch ($command) {
@@ -108,6 +102,7 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 	public function install(array $argv): string {
 		// Options
 		$option = [
+			'store_name'  => 'My Store',
 			'username'    => 'admin',
 			'language'    => 'en-gb',
 			'db_driver'   => 'mysqli',
@@ -117,7 +112,13 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			'db_prefix'   => 'oc_',
 			'db_ssl_key'  => '',
 			'db_ssl_cert' => '',
-			'db_ssl_ca'   => ''
+			'db_ssl_ca'   => '',
+			'dir_image'   => '',
+			'dir_storage' => '',
+			'aws_s3_bucket' => '',
+			'aws_s3_region' => '',
+			'aws_s3_key' => '',
+			'aws_s3_secret' => ''
 		];
 
 		// Turn args into an array
@@ -137,10 +138,119 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			}
 		}
 
+			// Required
+		$required = [
+			'store_name',
+			'username',
+			'email',
+			'password',
+			'http_server',
+			'db_driver',
+			'db_hostname',
+			'db_username',
+			'db_password',
+			'db_database',
+			'db_port',
+			'db_prefix',
+			'dir_image',
+			'dir_storage',
+			'aws_s3_bucket',
+			'aws_s3_region',
+			'aws_s3_key',
+			'aws_s3_secret'
+		];
+
+		// Validation
+		$missing = [];
+
+		foreach ($required as $value) {
+			if (!array_key_exists($value, $option) || empty($option[$value])) {
+				$missing[] = $value;
+			}
+		}
+
+		if (count($missing)) {
+			return 'ERROR: Following inputs were missing or invalid: ' . implode(', ', $missing) . "\n";
+		}
+
+			// Configure AWS S3
+		$s3Client = new \Aws\S3\S3Client([
+			'region' => $option['aws_s3_region'],
+			'version' => 'latest',
+			'credentials' => [
+				'key' => $option['aws_s3_key'],
+				'secret' => $option['aws_s3_secret'],
+			],
+		]);
+
+		 // Register the S3 stream wrapper
+		\Aws\S3\StreamWrapper::register($s3Client);
+
+		// Validate S3 paths
+		$imagePath = $option['dir_image'];
+		$storagePath = $option['dir_storage'];
+
+		if (!str_starts_with($imagePath, 's3://' . $option['aws_s3_bucket']) || 
+		    !str_starts_with($storagePath, 's3://' . $option['aws_s3_bucket'])) {
+		    return 'ERROR: Both dir-image and dir-storage must be valid S3 paths within the specified bucket (e.g., s3://bucket-name/path/).' . "\n";
+		}
+
+		// Ensure S3 paths end with a slash
+		if (!str_ends_with($imagePath, '/')) {
+		    $imagePath .= '/';
+		}
+		if (!str_ends_with($storagePath, '/')) {
+		    $storagePath .= '/';
+		}
+
+		// Test S3 bucket access
+		try {
+		    $s3Client->headBucket(['Bucket' => $option['aws_s3_bucket']]);
+		} catch (\Exception $e) {
+		    return 'ERROR: Unable to access S3 bucket: ' . $e->getMessage() . "\n";
+		}
+
+		// Upload a test file to validate write access
+		try {
+		    $s3Client->putObject([
+		        'Bucket' => $option['aws_s3_bucket'],
+		        'Key'    => 'test-file.txt',
+		        'Body'   => 'This is a test file.',
+		    ]);
+		    $s3Client->deleteObject([
+		        'Bucket' => $option['aws_s3_bucket'],
+		        'Key'    => 'test-file.txt',
+		    ]);
+		} catch (\Exception $e) {
+		    return 'ERROR: Unable to write to S3 bucket: ' . $e->getMessage() . "\n";
+		}
+
+		// Set S3 paths in configuration
+		if (!defined('DIR_IMAGE')) {
+		    define('DIR_IMAGE', $imagePath);
+		}
+		if (!defined('DIR_STORAGE')) {
+		    define('DIR_STORAGE', $storagePath);
+		}
+
+		// Ensure files are uploaded to S3 bucket
+		function uploadToS3($s3Client, $bucket, $key, $filePath) {
+		    try {
+		        $s3Client->putObject([
+		            'Bucket' => $bucket,
+		            'Key'    => $key,
+		            'SourceFile' => $filePath,
+		        ]);
+		    } catch (\Exception $e) {
+		        throw new \Exception('ERROR: Unable to upload file to S3 bucket: ' . $e->getMessage());
+		    }
+		}
+
 		// Command line is sending true and false as strings so used 1 or 0 instead.
 
 		// Required
 		$required = [
+			'store_name',  // Already set
 			'username',    // Already set
 			'email',
 			'password',
@@ -202,6 +312,16 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			$error .= 'ERROR: ZLIB extension needs to be loaded for OpenCart to work!' . "\n";
 		}
 
+		if (!is_file(DIR_OPENCART . 'config.php')) {
+			$error .= 'ERROR: config.php does not exist. You need to rename config-dist.php to config.php!' . "\n";
+		} elseif (!is_writable(DIR_OPENCART . 'config.php')) {
+			$error .= 'ERROR: config.php needs to be writable for OpenCart to be installed!' . "\n";
+		} elseif (!is_file(DIR_OPENCART . 'admin/config.php')) {
+			$error .= 'ERROR: admin/config.php does not exist. You need to rename admin/config-dist.php to admin/config.php!' . "\n";
+		} elseif (!is_writable(DIR_OPENCART . 'admin/config.php')) {
+			$error .= 'ERROR: admin/config.php needs to be writable for OpenCart to be installed!' . "\n";
+		}
+
 		if ($error) {
 			return $error;
 		}
@@ -238,6 +358,7 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 		if (!is_file($file)) {
 			return 'ERROR: Could not load SQL file: ' . $file;
 		}
+
 
 		$db_driver = html_entity_decode($option['db_driver'], ENT_QUOTES, 'UTF-8');
 		$db_hostname = html_entity_decode($option['db_hostname'], ENT_QUOTES, 'UTF-8');
@@ -348,17 +469,126 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			$db->query("DELETE FROM `" . $db_prefix . "setting` WHERE `key` = 'config_api_id'");
 			$db->query("INSERT INTO `" . $db_prefix . "setting` SET `code` = 'config', `key` = 'config_api_id', `value` = '" . (int)$last_id . "'");
 
-			// Set the current years prefix
+			// set the current years prefix
 			$db->query("UPDATE `" . $db_prefix . "setting` SET `value` = 'INV-" . date('Y') . "-00' WHERE `key` = 'config_invoice_prefix'");
 		}
 
+		// Write config files
+		$output = '<?php' . "\n";
 
-		// Return success message
-		$output  = 'SUCCESS! OpenCart successfully installed on your server' . "\n";
-		$output .= 'Store link: ' . $option['http_server'] . "\n";
-		$output .= 'Admin link: ' . $option['http_server'] . 'admin/' . "\n\n";
+		$output .= '// APPLICATION' . "\n";
+		$output .= 'define(\'APPLICATION\', \'Catalog\');' . "\n\n";
 
-		return $output;
+		$output .= '// HTTP' . "\n";
+		$output .= 'define(\'HTTP_SERVER\', \'' . $option['http_server'] . '\');' . "\n\n";
+
+		$output .= '// DIR' . "\n";
+		$output .= 'define(\'DIR_OPENCART\', \'' . DIR_OPENCART . '\');' . "\n";
+		$output .= 'define(\'DIR_APPLICATION\', DIR_OPENCART . \'catalog/\');' . "\n";
+		$output .= 'define(\'DIR_SYSTEM\', DIR_OPENCART . \'system/\');' . "\n";
+		$output .= 'define(\'DIR_EXTENSION\', DIR_OPENCART . \'extension/\');' . "\n";
+		$output .= 'define(\'DIR_IMAGE\', \'' . $imagePath . '\');' . "\n"; // Use S3 path
+		$output .= 'define(\'DIR_STORAGE\', \'' . $storagePath . '\');' . "\n"; // Use S3 path
+		$output .= 'define(\'DIR_LANGUAGE\', DIR_APPLICATION . \'language/\');' . "\n";
+		$output .= 'define(\'DIR_TEMPLATE\', DIR_APPLICATION . \'view/template/\');' . "\n";
+		$output .= 'define(\'DIR_CONFIG\', DIR_SYSTEM . \'config/\');' . "\n";
+		$output .= 'define(\'DIR_CACHE\', DIR_STORAGE . \'cache/\');' . "\n";
+		$output .= 'define(\'DIR_DOWNLOAD\', DIR_STORAGE . \'download/\');' . "\n";
+		$output .= 'define(\'DIR_LOGS\', DIR_STORAGE . \'logs/\');' . "\n";
+		$output .= 'define(\'DIR_SESSION\', DIR_STORAGE . \'session/\');' . "\n";
+		$output .= 'define(\'DIR_UPLOAD\', DIR_STORAGE . \'upload/\');' . "\n\n";
+
+		$output .= '// DB' . "\n";
+		$output .= 'define(\'DB_DRIVER\', \'' . addslashes($option['db_driver']) . '\');' . "\n";
+		$output .= 'define(\'DB_HOSTNAME\', \'' . addslashes($option['db_hostname']) . '\');' . "\n";
+		$output .= 'define(\'DB_USERNAME\', \'' . addslashes($option['db_username']) . '\');' . "\n";
+		$output .= 'define(\'DB_PASSWORD\', \'' . addslashes($option['db_password']) . '\');' . "\n";
+		$output .= 'define(\'DB_DATABASE\', \'' . addslashes($option['db_database']) . '\');' . "\n";
+		$output .= 'define(\'DB_PREFIX\', \'' . addslashes($option['db_prefix']) . '\');' . "\n";
+		$output .= 'define(\'DB_PORT\', \'' . addslashes($option['db_port']) . '\');' . "\n";
+
+		if ($option['db_ssl_key']) {
+			$output .= 'define(\'DB_SSL_KEY\', \'' . addslashes($option['db_ssl_key']) . '\');' . "\n";
+		}
+
+		if ($option['db_ssl_cert']) {
+			$output .= 'define(\'DB_SSL_CERT\', \'' . addslashes($option['db_ssl_cert']) . '\');' . "\n";
+		}
+
+		if ($option['db_ssl_ca']) {
+			$output .= 'define(\'DB_SSL_CA\', \'' . addslashes($option['db_ssl_ca']) . '\');' . "\n";
+		}
+
+		$file = fopen(DIR_OPENCART . 'config.php', 'w');
+
+		fwrite($file, $output);
+
+		fclose($file);
+
+		$output = '<?php' . "\n";
+
+		$output .= '// APPLICATION' . "\n";
+		$output .= 'define(\'APPLICATION\', \'Admin\');' . "\n\n";
+
+		$output .= '// HTTP' . "\n";
+		$output .= 'define(\'HTTP_SERVER\', \'' . $option['http_server'] . 'admin/\');' . "\n";
+		$output .= 'define(\'HTTP_CATALOG\', \'' . $option['http_server'] . '\');' . "\n";
+
+		$output .= '// DIR' . "\n";
+		$output .= 'define(\'DIR_OPENCART\', \'' . DIR_OPENCART . '\');' . "\n";
+		$output .= 'define(\'DIR_APPLICATION\', DIR_OPENCART . \'admin/\');' . "\n";
+		$output .= 'define(\'DIR_SYSTEM\', DIR_OPENCART . \'system/\');' . "\n";
+		$output .= 'define(\'DIR_EXTENSION\', DIR_OPENCART . \'extension/\');' . "\n";
+		$output .= 'define(\'DIR_IMAGE\', \'' . $imagePath . '\');' . "\n"; // Use S3 path
+		$output .= 'define(\'DIR_STORAGE\', \'' . $storagePath . '\');' . "\n"; // Use S3 path
+		$output .= 'define(\'DIR_CATALOG\', DIR_OPENCART . \'catalog/\');' . "\n";
+		$output .= 'define(\'DIR_LANGUAGE\', DIR_APPLICATION . \'language/\');' . "\n";
+		$output .= 'define(\'DIR_TEMPLATE\', DIR_APPLICATION . \'view/template/\');' . "\n";
+		$output .= 'define(\'DIR_CONFIG\', DIR_SYSTEM . \'config/\');' . "\n";
+		$output .= 'define(\'DIR_CACHE\', DIR_STORAGE . \'cache/\');' . "\n";
+		$output .= 'define(\'DIR_DOWNLOAD\', DIR_STORAGE . \'download/\');' . "\n";
+		$output .= 'define(\'DIR_LOGS\', DIR_STORAGE . \'logs/\');' . "\n";
+		$output .= 'define(\'DIR_SESSION\', DIR_STORAGE . \'session/\');' . "\n";
+		$output .= 'define(\'DIR_UPLOAD\', DIR_STORAGE . \'upload/\');' . "\n\n";
+
+		$output .= '// DB' . "\n";
+		$output .= 'define(\'DB_DRIVER\', \'' . addslashes($option['db_driver']) . '\');' . "\n";
+		$output .= 'define(\'DB_HOSTNAME\', \'' . addslashes($option['db_hostname']) . '\');' . "\n";
+		$output .= 'define(\'DB_USERNAME\', \'' . addslashes($option['db_username']) . '\');' . "\n";
+		$output .= 'define(\'DB_PASSWORD\', \'' . addslashes($option['db_password']) . '\');' . "\n";
+		$output .= 'define(\'DB_DATABASE\', \'' . addslashes($option['db_database']) . '\');' . "\n";
+		$output .= 'define(\'DB_PREFIX\', \'' . addslashes($option['db_prefix']) . '\');' . "\n";
+		$output .= 'define(\'DB_PORT\', \'' . addslashes($option['db_port']) . '\');' . "\n\n";
+
+		if ($option['db_ssl_key']) {
+			$output .= 'define(\'DB_SSL_KEY\', \'' . addslashes($option['db_ssl_key']) . '\');' . "\n";
+		}
+
+		if ($option['db_ssl_cert']) {
+			$output .= 'define(\'DB_SSL_CERT\', \'' . addslashes($option['db_ssl_cert']) . '\');' . "\n";
+		}
+
+		if ($option['db_ssl_ca']) {
+			$output .= 'define(\'DB_SSL_CA\', \'' . addslashes($option['db_ssl_ca']) . '\');' . "\n";
+		}
+
+		$output .= '// OpenCart API' . "\n";
+		$output .= 'define(\'OPENCART_SERVER\', \'https://www.opencart.com/\');';
+
+		$file = fopen(DIR_OPENCART . 'admin/config.php', 'w');
+
+		fwrite($file, $output);
+
+		fclose($file);
+		
+		$output = [
+			    "status" => "success",
+			    "adminURL" => $option['http_server'] . 'admin/',
+			    "storeURL" => $option['http_server']
+			];
+
+
+		return json_encode($output);
 	}
 
 	/**
