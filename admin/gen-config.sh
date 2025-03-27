@@ -17,7 +17,7 @@ if [ -z "$STORE_NAME" ] || [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCE
 fi
 
 # Generate config.php
-cat <<EOF > ./admin/config.php
+cat <<EOF > ./config.php
 <?php
 // Load Composer Dependencies
 require_once '/var/www/html/$STORE_NAME/vendor/autoload.php';
@@ -74,7 +74,7 @@ define('DB_PORT', '3306');
 define('OPENCART_SERVER', 'https://www.opencart.com/');
 EOF
 
-chmod 600 ./admin/config.php  # Secure the file
+chmod 600 ./config.php  # Secure the file
 
 echo "admin config.php has been generated successfully."
 
