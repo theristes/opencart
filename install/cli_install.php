@@ -1,4 +1,32 @@
 <?php
+// Command line tool for installing opencart
+// Original Author: Vineet Naik <vineet.naik@kodeplay.com> <naikvin@gmail.com>
+// Updated and maintained by OpenCart
+// (Currently tested on linux only)
+//
+// Usage:
+//
+//   php cli_install.php install --username    admin
+//                               --email       email@example.com
+//                               --password    password
+//                               --http_server http://localhost/opencart/
+//                               --language    en-gb
+//                               --db_driver   mysqli
+//                               --db_hostname localhost
+//                               --db_username root
+//                               --db_password pass
+//                               --db_database opencart
+//								 --db_port     3306
+//                               --db_prefix   oc_
+//
+//                               --db_ssl_key
+//                               --db_ssl_cert
+//                               --db_ssl_ca
+//
+// Example:
+//
+// php c://xampp/htdocs/opencart-master/upload/install/cli_install.php install --username admin --password --email email@example.com --http_server http://localhost/opencart-master/upload/ --language en-gb --db_driver mysqli --db_hostname localhost --db_username root --db_database opencart-master --db_port 3306 --db_prefix oc_
+//
 
 namespace Install;
 
@@ -202,6 +230,16 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			$error .= 'ERROR: ZLIB extension needs to be loaded for OpenCart to work!' . "\n";
 		}
 
+		if (!is_file(DIR_OPENCART . 'config.php')) {
+			$error .= 'ERROR: config.php does not exist. You need to rename config-dist.php to config.php!' . "\n";
+		} elseif (!is_writable(DIR_OPENCART . 'config.php')) {
+			$error .= 'ERROR: config.php needs to be writable for OpenCart to be installed!' . "\n";
+		} elseif (!is_file(DIR_OPENCART . 'admin/config.php')) {
+			$error .= 'ERROR: admin/config.php does not exist. You need to rename admin/config-dist.php to admin/config.php!' . "\n";
+		} elseif (!is_writable(DIR_OPENCART . 'admin/config.php')) {
+			$error .= 'ERROR: admin/config.php needs to be writable for OpenCart to be installed!' . "\n";
+		}
+
 		if ($error) {
 			return $error;
 		}
@@ -352,6 +390,113 @@ class CliInstall extends \Opencart\System\Engine\Controller {
 			$db->query("UPDATE `" . $db_prefix . "setting` SET `value` = 'INV-" . date('Y') . "-00' WHERE `key` = 'config_invoice_prefix'");
 		}
 
+		// Write config files
+		$output = '<?php' . "\n";
+
+		$output .= '// APPLICATION' . "\n";
+		$output .= 'define(\'APPLICATION\', \'Catalog\');' . "\n\n";
+
+		$output .= '// HTTP' . "\n";
+		$output .= 'define(\'HTTP_SERVER\', \'' . $option['http_server'] . '\');' . "\n\n";
+
+		$output .= '// DIR' . "\n";
+		$output .= 'define(\'DIR_OPENCART\', \'' . DIR_OPENCART . '\');' . "\n";
+		$output .= 'define(\'DIR_APPLICATION\', DIR_OPENCART . \'catalog/\');' . "\n";
+		$output .= 'define(\'DIR_SYSTEM\', DIR_OPENCART . \'system/\');' . "\n";
+		$output .= 'define(\'DIR_EXTENSION\', DIR_OPENCART . \'extension/\');' . "\n";
+		$output .= 'define(\'DIR_IMAGE\', DIR_OPENCART . \'image/\');' . "\n";
+		$output .= 'define(\'DIR_STORAGE\', DIR_SYSTEM . \'storage/\');' . "\n";
+		$output .= 'define(\'DIR_LANGUAGE\', DIR_APPLICATION . \'language/\');' . "\n";
+		$output .= 'define(\'DIR_TEMPLATE\', DIR_APPLICATION . \'view/template/\');' . "\n";
+		$output .= 'define(\'DIR_CONFIG\', DIR_SYSTEM . \'config/\');' . "\n";
+		$output .= 'define(\'DIR_CACHE\', DIR_STORAGE . \'cache/\');' . "\n";
+		$output .= 'define(\'DIR_DOWNLOAD\', DIR_STORAGE . \'download/\');' . "\n";
+		$output .= 'define(\'DIR_LOGS\', DIR_STORAGE . \'logs/\');' . "\n";
+		$output .= 'define(\'DIR_SESSION\', DIR_STORAGE . \'session/\');' . "\n";
+		$output .= 'define(\'DIR_UPLOAD\', DIR_STORAGE . \'upload/\');' . "\n\n";
+
+		$output .= '// DB' . "\n";
+		$output .= 'define(\'DB_DRIVER\', \'' . addslashes($option['db_driver']) . '\');' . "\n";
+		$output .= 'define(\'DB_HOSTNAME\', \'' . addslashes($option['db_hostname']) . '\');' . "\n";
+		$output .= 'define(\'DB_USERNAME\', \'' . addslashes($option['db_username']) . '\');' . "\n";
+		$output .= 'define(\'DB_PASSWORD\', \'' . addslashes($option['db_password']) . '\');' . "\n";
+		$output .= 'define(\'DB_DATABASE\', \'' . addslashes($option['db_database']) . '\');' . "\n";
+		$output .= 'define(\'DB_PREFIX\', \'' . addslashes($option['db_prefix']) . '\');' . "\n";
+		$output .= 'define(\'DB_PORT\', \'' . addslashes($option['db_port']) . '\');' . "\n";
+
+		if ($option['db_ssl_key']) {
+			$output .= 'define(\'DB_SSL_KEY\', \'' . addslashes($option['db_ssl_key']) . '\');' . "\n";
+		}
+
+		if ($option['db_ssl_cert']) {
+			$output .= 'define(\'DB_SSL_CERT\', \'' . addslashes($option['db_ssl_cert']) . '\');' . "\n";
+		}
+
+		if ($option['db_ssl_ca']) {
+			$output .= 'define(\'DB_SSL_CA\', \'' . addslashes($option['db_ssl_ca']) . '\');' . "\n";
+		}
+
+		$file = fopen(DIR_OPENCART . 'config.php', 'w');
+
+		fwrite($file, $output);
+
+		fclose($file);
+
+		$output = '<?php' . "\n";
+
+		$output .= '// APPLICATION' . "\n";
+		$output .= 'define(\'APPLICATION\', \'Admin\');' . "\n\n";
+
+		$output .= '// HTTP' . "\n";
+		$output .= 'define(\'HTTP_SERVER\', \'' . $option['http_server'] . 'admin/\');' . "\n";
+		$output .= 'define(\'HTTP_CATALOG\', \'' . $option['http_server'] . '\');' . "\n";
+
+		$output .= '// DIR' . "\n";
+		$output .= 'define(\'DIR_OPENCART\', \'' . DIR_OPENCART . '\');' . "\n";
+		$output .= 'define(\'DIR_APPLICATION\', DIR_OPENCART . \'admin/\');' . "\n";
+		$output .= 'define(\'DIR_SYSTEM\', DIR_OPENCART . \'system/\');' . "\n";
+		$output .= 'define(\'DIR_EXTENSION\', DIR_OPENCART . \'extension/\');' . "\n";
+		$output .= 'define(\'DIR_IMAGE\', DIR_OPENCART . \'image/\');' . "\n";
+		$output .= 'define(\'DIR_STORAGE\', DIR_SYSTEM . \'storage/\');' . "\n";
+		$output .= 'define(\'DIR_CATALOG\', DIR_OPENCART . \'catalog/\');' . "\n";
+		$output .= 'define(\'DIR_LANGUAGE\', DIR_APPLICATION . \'language/\');' . "\n";
+		$output .= 'define(\'DIR_TEMPLATE\', DIR_APPLICATION . \'view/template/\');' . "\n";
+		$output .= 'define(\'DIR_CONFIG\', DIR_SYSTEM . \'config/\');' . "\n";
+		$output .= 'define(\'DIR_CACHE\', DIR_STORAGE . \'cache/\');' . "\n";
+		$output .= 'define(\'DIR_DOWNLOAD\', DIR_STORAGE . \'download/\');' . "\n";
+		$output .= 'define(\'DIR_LOGS\', DIR_STORAGE . \'logs/\');' . "\n";
+		$output .= 'define(\'DIR_SESSION\', DIR_STORAGE . \'session/\');' . "\n";
+		$output .= 'define(\'DIR_UPLOAD\', DIR_STORAGE . \'upload/\');' . "\n\n";
+
+		$output .= '// DB' . "\n";
+		$output .= 'define(\'DB_DRIVER\', \'' . addslashes($option['db_driver']) . '\');' . "\n";
+		$output .= 'define(\'DB_HOSTNAME\', \'' . addslashes($option['db_hostname']) . '\');' . "\n";
+		$output .= 'define(\'DB_USERNAME\', \'' . addslashes($option['db_username']) . '\');' . "\n";
+		$output .= 'define(\'DB_PASSWORD\', \'' . addslashes($option['db_password']) . '\');' . "\n";
+		$output .= 'define(\'DB_DATABASE\', \'' . addslashes($option['db_database']) . '\');' . "\n";
+		$output .= 'define(\'DB_PREFIX\', \'' . addslashes($option['db_prefix']) . '\');' . "\n";
+		$output .= 'define(\'DB_PORT\', \'' . addslashes($option['db_port']) . '\');' . "\n\n";
+
+		if ($option['db_ssl_key']) {
+			$output .= 'define(\'DB_SSL_KEY\', \'' . addslashes($option['db_ssl_key']) . '\');' . "\n";
+		}
+
+		if ($option['db_ssl_cert']) {
+			$output .= 'define(\'DB_SSL_CERT\', \'' . addslashes($option['db_ssl_cert']) . '\');' . "\n";
+		}
+
+		if ($option['db_ssl_ca']) {
+			$output .= 'define(\'DB_SSL_CA\', \'' . addslashes($option['db_ssl_ca']) . '\');' . "\n";
+		}
+
+		$output .= '// OpenCart API' . "\n";
+		$output .= 'define(\'OPENCART_SERVER\', \'https://www.opencart.com/\');';
+
+		$file = fopen(DIR_OPENCART . 'admin/config.php', 'w');
+
+		fwrite($file, $output);
+
+		fclose($file);
 
 		// Return success message
 		$output  = 'SUCCESS! OpenCart successfully installed on your server' . "\n";
