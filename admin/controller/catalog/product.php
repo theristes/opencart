@@ -345,11 +345,11 @@ class Product extends \Opencart\System\Engine\Controller {
 		$results = $this->model_catalog_product->getProducts($filter_data);
 
 		foreach ($results as $result) {
-			// if ($result['image'] && is_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
+			if ($result['image'] && is_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 				$image = $result['image'];
-			// } else {
-				// $image = 'no_image.png';
-			// }
+			} else {
+				$image = 'no_image.png';
+			}
 
 			$special = '';
 
