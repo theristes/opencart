@@ -345,11 +345,11 @@ class Product extends \Opencart\System\Engine\Controller {
 		$results = $this->model_catalog_product->getProducts($filter_data);
 
 		foreach ($results as $result) {
-			if ($result['image'] && is_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
+			// if ($result['image'] && is_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 				$image = $result['image'];
-			} else {
-				$image = 'no_image.png';
-			}
+			// } else {
+				// $image = 'no_image.png';
+			// }
 
 			$special = '';
 
@@ -1098,11 +1098,11 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', (int)$this->config->get('config_image_default_width'), (int)$this->config->get('config_image_default_height'));
 
-		if ($data['image'] && is_file(DIR_IMAGE . html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8'))) {
+		// if ($data['image'] && is_file(DIR_IMAGE . html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8'))) {
 			$data['thumb'] = $this->model_tool_image->resize($data['image'], (int)$this->config->get('config_image_default_width'), (int)$this->config->get('config_image_default_height'));
-		} else {
-			$data['thumb'] = $data['placeholder'];
-		}
+		// } else {
+			// $data['thumb'] = $data['placeholder'];
+		// }
 
 		// Images
 		if ($product_id) {
@@ -1114,13 +1114,13 @@ class Product extends \Opencart\System\Engine\Controller {
 		$data['product_images'] = [];
 
 		foreach ($product_images as $product_image) {
-			if ($product_image['image'] && is_file(DIR_IMAGE . html_entity_decode($product_image['image'], ENT_QUOTES, 'UTF-8'))) {
+			// if ($product_image['image'] && is_file(DIR_IMAGE . html_entity_decode($product_image['image'], ENT_QUOTES, 'UTF-8'))) {
 				$image = $product_image['image'];
 				$thumb = $product_image['image'];
-			} else {
-				$image = '';
-				$thumb = 'no_image.png';
-			}
+			// } else {
+				// $image = '';
+				// $thumb = 'no_image.png';
+			// }
 
 			$data['product_images'][] = [
 				'image' => $image,
