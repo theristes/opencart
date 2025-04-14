@@ -26,8 +26,9 @@ class Module extends \Opencart\System\Engine\Model {
 
 		if ($query->row) {
 			return $query->row['setting'] ? json_decode($query->row['setting'], true) : [];
-		} else {
-			return [];
-		}
+		} 
+		
+		return [];
+
 	}
 }
