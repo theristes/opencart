@@ -34,23 +34,21 @@ class Image extends \Opencart\System\Engine\Model {
 	
 	private function uploadToS3(string $localPath, string $s3Path): void {
 		$s3 = $GLOBALS['s3'];
-
-		// Open the local file as a non-seekable stream
-		$fileStream = fopen($localPath, 'r');
-		
-		// Wrap the file stream in a CachingStream to make it seekable
-		$seekableStream = new CachingStream($fileStream);
-		
-		// Upload the file to S3
+	
+		$resource = fopen($localPath, 'r');
+		$stream = \GuzzleHttp\Psr7\Utils::streamFor($resource);
+		$seekableStream = new CachingStream($stream);
+	
 		$s3->putObject([
-			'Bucket'       => S3_BUCKET,
-			'Key'          => $s3Path,
-			'Body'         => $seekableStream,
-			'ACL'          => 'public-read',
-			'ContentType'  => mime_content_type($localPath),
-			'ContentSHA256' => 'UNSIGNED-PAYLOAD' // Skips the SHA256 calculation
+			'Bucket'        => S3_BUCKET,
+			'Key'           => $s3Path,
+			'Body'          => $seekableStream,
+			'ACL'           => 'public-read',
+			'ContentType'   => mime_content_type($localPath),
+			'ContentSHA256' => 'UNSIGNED-PAYLOAD'
 		]);
 	}
+	
 	
 
 	 public function resize(string $filename, int $width, int $height, string $default = ''): string {
