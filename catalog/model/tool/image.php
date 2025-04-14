@@ -39,7 +39,7 @@ class Image extends \Opencart\System\Engine\Model {
 		$fileStream = fopen($localPath, 'r');
 		
 		// Wrap the file stream in a CachingStream to make it seekable
-		$seekableStream = new CachingStream((StreamInterface)$fileStream);
+		$seekableStream = new CachingStream($fileStream);
 		
 		// Upload the file to S3
 		$s3->putObject([
