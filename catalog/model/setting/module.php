@@ -34,8 +34,7 @@ class Module extends \Opencart\System\Engine\Model {
 				return $settings;
 			}
 		}
-	
-		// 🔒 Garantimos retorno de array SEMPRE
+
 		return [];
 	}
 	
