@@ -23,14 +23,20 @@ class Module extends \Opencart\System\Engine\Model {
 	 */
 
 	 
-	public function getModule(int $module_id): array {
-		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "module` WHERE `module_id` = '" . (int)$module_id . "'");
-
-		if ($query->row) {
-			return $query->row['setting'] ? json_decode($query->row['setting'], true) : [];
-		} 
-		
+	 public function getModule($module_id): array {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "module WHERE module_id = '" . (int)$module_id . "'");
+	
+		if ($query->num_rows && isset($query->row['setting'])) {
+			$settings = json_decode($query->row['setting'], true);
+	
+			// Se json_decode falhar, ainda garantimos retorno de array
+			if (is_array($settings)) {
+				return $settings;
+			}
+		}
+	
+		// 🔒 Garantimos retorno de array SEMPRE
 		return [];
-
 	}
+	
 }
