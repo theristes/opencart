@@ -34,7 +34,7 @@ class Image extends \Opencart\System\Engine\Model {
 			'Body'   => fopen($localPath, 'r'),
 			'ACL'    => 'public-read',
 			'ContentType' => mime_content_type($localPath),
-			// 'ContentSHA256' => 'UNSIGNED-PAYLOAD' // Skips SHA256 calculation
+			'ContentSHA256' => 'UNSIGNED-PAYLOAD' 
 		]);
 	}
 	
