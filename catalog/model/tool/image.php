@@ -5,8 +5,13 @@ namespace Opencart\Catalog\Model\Tool;
  *
  * Can be called using $this->load->model('tool/image');
  *
- * @package Opencart\Catalog\Model\Tool
+ * @package Opencart\Catalog\Model\Tool	
  */
+
+use GuzzleHttp\Psr7\CachingStream;
+use GuzzleHttp\Psr7\Stream;
+
+
 class Image extends \Opencart\System\Engine\Model {
 	/**
 	 * Resize
@@ -26,15 +31,24 @@ class Image extends \Opencart\System\Engine\Model {
 		return $s3->doesObjectExist(S3_BUCKET, $key);
 	}
 	
+	
 	private function uploadToS3(string $localPath, string $s3Path): void {
 		$s3 = $GLOBALS['s3'];
+
+		// Open the local file as a non-seekable stream
+		$fileStream = fopen($localPath, 'r');
+		
+		// Wrap the file stream in a CachingStream to make it seekable
+		$seekableStream = new CachingStream($fileStream);
+		
+		// Upload the file to S3
 		$s3->putObject([
-			'Bucket' => S3_BUCKET,
-			'Key'    => $s3Path,
-			'Body'   => fopen($localPath, 'r'),
-			'ACL'    => 'public-read',
-			'ContentType' => mime_content_type($localPath),
-			'ContentSHA256' => 'UNSIGNED-PAYLOAD' 
+			'Bucket'       => S3_BUCKET,
+			'Key'          => $s3Path,
+			'Body'         => $seekableStream,
+			'ACL'          => 'public-read',
+			'ContentType'  => mime_content_type($localPath),
+			'ContentSHA256' => 'UNSIGNED-PAYLOAD' // Skips the SHA256 calculation
 		]);
 	}
 	
