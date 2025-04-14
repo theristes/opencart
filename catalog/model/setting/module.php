@@ -29,7 +29,6 @@ class Module extends \Opencart\System\Engine\Model {
 		if ($query->num_rows && isset($query->row['setting'])) {
 			$settings = json_decode($query->row['setting'], true);
 	
-			// Se json_decode falhar, ainda garantimos retorno de array
 			if (is_array($settings)) {
 				return $settings;
 			}
