@@ -60,43 +60,51 @@ class Image extends \Opencart\System\Engine\Model {
 		]);
 	}
 	
-	
-
-	 public function resize(string $filename, int $width, int $height, string $default = ''): string {
+	public function resize(string $filename, int $width, int $height, string $default = ''): string {
 		$filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
 	
 		$s3_bucket = S3_BUCKET;
 		$s3_base_url = S3_BASE_URL;
 		$s3_cache_path = 'cache/';
-
 	
-		// Construct S3 image paths
 		$image_old = $filename;
 		$image_new = $s3_cache_path . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . pathinfo($filename, PATHINFO_EXTENSION);
-
+	
 		// Check if the resized image already exists in S3
 		if ($this->s3ImageExists($image_new)) {
 			return $s3_base_url . $image_new;
 		}
 	
-		// Resize the image
-		[$width_orig, $height_orig, $image_type] = $this->getImageFromS3(DIR_IMAGE . $image_old);
-		
+		// Check if source image exists locally
+		$source_path = DIR_IMAGE . $image_old;
+		if (!file_exists($source_path)) {
+			$source_path = DIR_IMAGE . 'images/placeholder.png'; // fallback image
+		}
+	
+		$image_info = @getimagesize($source_path);
+	
+		if (!$image_info) {
+			// Still couldn't get info, return original image as last resort
+			return $s3_base_url . $image_old;
+		}
+	
+		[$width_orig, $height_orig, $image_type] = $image_info;
+	
 		if (!in_array($image_type, [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_WEBP])) {
 			return $s3_base_url . $image_old;
 		}
 	
 		if ($width_orig != $width || $height_orig != $height) {
-			$image = new \Opencart\System\Library\Image(DIR_IMAGE . $image_old);
+			$image = new \Opencart\System\Library\Image($source_path);
 			$image->resize($width, $height, $default);
 			$image->save(DIR_IMAGE . $image_new);
 		} else {
-			copy(DIR_IMAGE . $image_old, DIR_IMAGE . $image_new);
+			copy($source_path, DIR_IMAGE . $image_new);
 		}
 	
-		// Upload the resized image to S3
+		// Upload resized image to S3
 		$this->uploadToS3(DIR_IMAGE . $image_new, $image_new);
 	
 		return $s3_base_url . $image_new;
 	}
-}
+	
