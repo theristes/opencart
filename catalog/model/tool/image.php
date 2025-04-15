@@ -27,10 +27,13 @@ class Image extends \Opencart\System\Engine\Model {
 	 */
 
 	 private function getImageFromS3($path) {
+
+		$s3_base_url = S3_BASE_URL;
+		$file = s3_base_url . 'images/placeholder.png';
 		if (@getimagesize($path)) {
 			return $path;
 		} else {
-			return 'https://your-bucket.s3.amazonaws.com/fallback.jpg';
+			return $file;
 		}
 	}
 	
@@ -71,15 +74,13 @@ class Image extends \Opencart\System\Engine\Model {
 		$image_old = $filename;
 		$image_new = $s3_cache_path . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . pathinfo($filename, PATHINFO_EXTENSION);
 
-		echo($s3_base_url);
-
 		// Check if the resized image already exists in S3
 		if ($this->s3ImageExists($image_new)) {
 			return $s3_base_url . $image_new;
 		}
 	
 		// Resize the image
-		[$width_orig, $height_orig, $image_type] = getimagesize(DIR_IMAGE . $image_old);
+		[$width_orig, $height_orig, $image_type] = getImageFromS3(DIR_IMAGE . $image_old);
 		
 		if (!in_array($image_type, [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_WEBP])) {
 			return $s3_base_url . $image_old;
