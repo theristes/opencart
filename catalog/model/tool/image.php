@@ -60,6 +60,7 @@ class Image extends \Opencart\System\Engine\Model {
 		]);
 	}
 	
+	
 	public function resize(string $filename, int $width, int $height, string $default = ''): string {
 		$filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
 	
@@ -108,3 +109,4 @@ class Image extends \Opencart\System\Engine\Model {
 		return $s3_base_url . $image_new;
 	}
 	
+}
