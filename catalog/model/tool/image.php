@@ -29,7 +29,7 @@ class Image extends \Opencart\System\Engine\Model {
 	 private function getImageFromS3($path) {
 
 		$s3_base_url = S3_BASE_URL;
-		$file = s3_base_url . 'images/placeholder.png';
+		$file = $s3_base_url . 'images/placeholder.png';
 		if (@getimagesize($path)) {
 			return $path;
 		} else {
