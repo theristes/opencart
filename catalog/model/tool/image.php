@@ -26,6 +26,14 @@ class Image extends \Opencart\System\Engine\Model {
 	 * @return string
 	 */
 
+	 private function getImageFromS3($path) {
+		if (@getimagesize($path)) {
+			return $path;
+		} else {
+			return 'https://your-bucket.s3.amazonaws.com/fallback.jpg';
+		}
+	}
+	
 	 private function s3ImageExists(string $key): bool {
 		$s3 = $GLOBALS['s3'];
 		return $s3->doesObjectExist(S3_BUCKET, $key);
@@ -60,6 +68,7 @@ class Image extends \Opencart\System\Engine\Model {
 	
 		// Construct S3 image paths
 		$image_old = $filename;
+		echo($filename);
 		$image_new = $s3_cache_path . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . pathinfo($filename, PATHINFO_EXTENSION);
 		
 		// Check if the resized image already exists in S3
