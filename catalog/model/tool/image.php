@@ -80,7 +80,7 @@ class Image extends \Opencart\System\Engine\Model {
 		}
 	
 		// Resize the image
-		[$width_orig, $height_orig, $image_type] = getImageFromS3(DIR_IMAGE . $image_old);
+		[$width_orig, $height_orig, $image_type] = $this->getImageFromS3(DIR_IMAGE . $image_old);
 		
 		if (!in_array($image_type, [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_WEBP])) {
 			return $s3_base_url . $image_old;
