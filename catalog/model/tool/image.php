@@ -71,7 +71,7 @@ class Image extends \Opencart\System\Engine\Model {
 		$image_old = $filename;
 		$image_new = $s3_cache_path . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . pathinfo($filename, PATHINFO_EXTENSION);
 
-		// echo($s3_base_url)
+		echo($s3_base_url);
 
 		// Check if the resized image already exists in S3
 		if ($this->s3ImageExists($image_new)) {
