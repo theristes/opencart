@@ -66,7 +66,7 @@ class Image extends \Opencart\System\Engine\Model {
 	
 		$s3_bucket = S3_BUCKET;
 		$s3_base_url = S3_BASE_URL;
-		$s3_cache_path = 'cache/';
+		$s3_cache_path = 'images/';
 	
 		$image_old = $filename;
 		$image_new = $s3_cache_path . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . pathinfo($filename, PATHINFO_EXTENSION);

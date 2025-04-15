@@ -35,13 +35,13 @@ class Image extends \Opencart\System\Engine\Model {
 		$extension = pathinfo($filename, PATHINFO_EXTENSION);
 
 		$image_old = $filename;
-		$image_new = 'cache/' . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . $width . 'x' . $height . '.' . $extension;
+		$image_new = 'images/' . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . $width . 'x' . $height . '.' . $extension;
 
 		if (!is_file(DIR_IMAGE . $image_new) || (filemtime(DIR_IMAGE . $image_old) > filemtime(DIR_IMAGE . $image_new))) {
 			[$width_orig, $height_orig, $image_type] = getimagesize(DIR_IMAGE . $image_old);
 
 			if (!in_array($image_type, [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_WEBP])) {
-				return HTTP_CATALOG . 'image/' . $image_old;
+				return HTTP_CATALOG . 'images/' . $image_old;
 			}
 
 			$path = '';
@@ -69,6 +69,6 @@ class Image extends \Opencart\System\Engine\Model {
 			}
 		}
 
-		return HTTP_CATALOG . 'image/' . $image_new;
+		return HTTP_CATALOG . 'images/' . $image_new;
 	}
 }
