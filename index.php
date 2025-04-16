@@ -6,7 +6,7 @@ require_once('config.php');
 require_once(DIR_SYSTEM . 'startup.php');
 
 
-echo 'DB_DATABASE: ' . DB_DATABASE . '<br>';
+echo 'DB_DATABA_SE: ' . DB_DATABASE . '<br>';
 echo 'DB_HOSTNAME: ' . DB_HOSTNAME . '<br>';
 exit;
 
