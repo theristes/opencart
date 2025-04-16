@@ -9,13 +9,13 @@ $_['language_code']        = 'en-gb';
 $_['date_timezone']        = 'UTC';
 
 // Database
-$_['db_autostart']      = true;
-$_['db_engine']         = DB_DRIVER; // mysqli, pdo or pgsql
-$_['db_hostname']       = DB_HOSTNAME;
-$_['db_username']       = DB_USERNAME;
-$_['db_password']       = DB_PASSWORD;
-$_['db_database']       = DB_DATABASE;
-$_['db_port']           = DB_PORT;
+$_['db_autostart']         = false;
+$_['db_engine']            = 'mysqli'; // mysqli, pdo or pgsql
+$_['db_hostname']          = 'localhost';
+$_['db_username']          = 'root';
+$_['db_password']          = '';
+$_['db_database']          = '';
+$_['db_port']              = 3306;
 //$_['db_ssl_key']         = '';
 //$_['db_ssl_cert']        = '';
 //$_['db_ssl_ca']          = '';
