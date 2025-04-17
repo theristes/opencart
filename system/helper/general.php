@@ -170,26 +170,3 @@ if (!function_exists('is_bucket_file')) {
     }
 }
 
-
-if (!function_exists('bucket_file_url')) {
-    function bucket_file_url($path) {
-        // If S3 path
-        if (strpos($path, 's3://') === 0) {
-            $parts = parse_url($path);
-            $bucket = $parts['host'];
-            $key = ltrim($parts['path'], '/');
-
-            // Build full URL using S3_BASE_URL constant
-            if (defined('S3_BASE_URL')) {
-                return rtrim(S3_BASE_URL, '/') . '/' . $key;
-            } else {
-                trigger_error('S3_BASE_URL is not defined.', E_USER_WARNING);
-                return '';
-            }
-        }
-
-        return $path;
-    }
-}
-
-
