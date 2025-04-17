@@ -280,7 +280,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		// Check it's a directory
 		if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)) . '/', 0, strlen($base)) != $base) {
 			 //$json['error'] = $this->language->get('error_directory');
-			$json['error'] = $directory
+			$json['error'] = $directory;
 		}
 
 		if (!$json) {
