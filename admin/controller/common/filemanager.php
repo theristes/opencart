@@ -318,7 +318,8 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	
 				try {
 					$directory = isset($this->request->get['directory']) ? trim($this->request->get['directory'], '/') : '';
-					$s3Path = DIR_IMAGE . STORE_NAME . '/';
+					$s3Path = $directory . '/' . $filename;
+					echo($s3Path);					
 					upload_to_bucket($file['tmp_name'], $s3Path);
 					
 				} catch (\Exception $e) {
