@@ -141,12 +141,41 @@ if (!function_exists('str_contains')) {
 	}
 }
 
+if (!function_exists('upload_to_bucket')) {
+    function upload_to_bucket(string $localPath, string $s3Path): string {
+        $s3 = $GLOBALS['s3'];
+
+        if (!file_exists($localPath)) {
+            throw new \Exception("Local file does not exist: $localPath");
+        }
+
+        $resource = fopen($localPath, 'r');
+        $stream = \GuzzleHttp\Psr7\Utils::streamFor($resource);
+        $seekableStream = new \GuzzleHttp\Psr7\CachingStream($stream);
+
+        try {
+            $s3->putObject([
+                'Bucket'        => S3_BUCKET,
+                'Key'           => ltrim($s3Path, '/'),
+                'Body'          => $seekableStream,
+                'ACL'           => 'public-read',
+                'ContentType'   => mime_content_type($localPath),
+                'ContentSHA256' => 'UNSIGNED-PAYLOAD'
+            ]);
+        } catch (\Exception $e) {
+            error_log("S3 Upload failed: " . $e->getMessage());
+            throw $e;
+        }
+
+        return bucket_file_url('s3://' . S3_BUCKET . '/' . ltrim($s3Path, '/'));
+    }
+}
 
 if (!function_exists('is_bucket_file')) {
     function is_bucket_file($path) {
         // Check if path uses S3 stream wrapper
         if (strpos($path, 's3://') === 0) {
-            // Parse the path to get the bucket and key
+            
             $parts = parse_url($path);
             $bucket = $parts['host'];
             $key = ltrim($parts['path'], '/');
@@ -170,9 +199,8 @@ if (!function_exists('is_bucket_file')) {
     }
 }
 
-
 if (!function_exists('bucket_file_url')) {
-    function bucket_file_url($path) {
+    function bucket_file_url($path): string {
         // If S3 path
         if (strpos($path, 's3://') === 0) {
             $parts = parse_url($path);
@@ -192,4 +220,18 @@ if (!function_exists('bucket_file_url')) {
     }
 }
 
+if (!function_exists('bucket_file_url_not_found')) {
+    function bucket_file_url_not_found(string $default = 'images/placeholder.png'): string {
+        return bucket_file_url("s3://" . S3_BUCKET . '/' . ltrim($default, '/'));
+    }
+}
 
+if (!function_exists('delete_from_bucket')) {
+    function delete_from_bucket(string $s3Path): bool {
+        $s3 = $GLOBALS['s3'];
+        return $s3->deleteObject([
+            'Bucket' => S3_BUCKET,
+            'Key'    => ltrim($s3Path, '/')
+        ]);
+    }
+}

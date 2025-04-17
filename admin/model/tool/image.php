@@ -24,51 +24,44 @@ class Image extends \Opencart\System\Engine\Model {
 	 * $this->load->model('tool/image');
 	 *
 	 * $placeholder = $this->model_tool_image->resize($filename, $width, $height);
-	 */
-	public function resize(string $filename, int $width, int $height): string {
-		$filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
+	 */public function resize(string $filename, int $width, int $height, string $default = ''): string {
+        $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
 
-		if (!is_bucket_file(DIR_IMAGE . $filename) || substr(str_replace('\\', '/', realpath(DIR_IMAGE . $filename)), 0, strlen(DIR_IMAGE)) != DIR_IMAGE) {
-			return '';
-		}
+        $s3_base_url = S3_BASE_URL;
+        $s3_cache_path = 'images/';
 
-		$extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $image_old = $filename;
+        $image_new = $s3_cache_path . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . pathinfo($filename, PATHINFO_EXTENSION);
 
-		$image_old = $filename;
-		$image_new = 'images/' . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . $width . 'x' . $height . '.' . $extension;
 
-		if (!is_bucket_file(DIR_IMAGE . $image_new) || (filemtime(DIR_IMAGE . $image_old) > filemtime(DIR_IMAGE . $image_new))) {
-			[$width_orig, $height_orig, $image_type] = getimagesize(DIR_IMAGE . $image_old);
+		if ($this->is_bucket_file($image_new)) {
+            return $s3_base_url . $image_new;
+        }
 
-			if (!in_array($image_type, [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_WEBP])) {
-				return HTTP_CATALOG . 'images/' . $image_old;
-			}
+        $image_info = @getimagesize(DIR_IMAGE . $image_old);
 
-			$path = '';
+        if (!$image_info) {
+            return $s3_base_url . $image_old;
+        }
 
-			$directories = explode('/', dirname($image_new));
+        [$width_orig, $height_orig, $image_type] = $image_info;
 
-			foreach ($directories as $directory) {
-				if (!$path) {
-					$path = $directory;
-				} else {
-					$path = $path . '/' . $directory;
-				}
+        // Validate image type
+        if (!in_array($image_type, [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_WEBP])) {
+            return $s3_base_url . $image_old;
+        }
 
-				if (!is_dir(DIR_IMAGE . $path)) {
-					@mkdir(DIR_IMAGE . $path, 0777);
-				}
-			}
+        // Resize image if needed
+        if ($width_orig != $width || $height_orig != $height) {
+            $image = new \Opencart\System\Library\Image(DIR_IMAGE . $image_old);
+            $image->resize($width, $height, $default);
+            $image->save(DIR_IMAGE . $image_new);
+        } else {
+            copy(DIR_IMAGE . $image_old, DIR_IMAGE . $image_new);
+        }
 
-			if ($width_orig != $width || $height_orig != $height) {
-				$image = new \Opencart\System\Library\Image(DIR_IMAGE . $image_old);
-				$image->resize($width, $height);
-				$image->save(DIR_IMAGE . $image_new);
-			} else {
-				copy(DIR_IMAGE . $image_old, DIR_IMAGE . $image_new);
-			}
-		}
+        $this->upload_to_bucket(DIR_IMAGE . $image_new, $image_new);
 
-		return HTTP_CATALOG . 'images/' . $image_new;
-	}
+        return $s3_base_url . $image_new;
+    }
 }
