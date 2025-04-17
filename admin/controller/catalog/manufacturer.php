@@ -123,7 +123,7 @@ class Manufacturer extends \Opencart\System\Engine\Controller {
 		$results = $this->model_catalog_manufacturer->getManufacturers($filter_data);
 
         foreach ($results as $result) {
-            $image = $result['image'] && is_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))
+            $image = $result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))
                 ? $result['image']
                 : 'no_image.png';
 
@@ -261,7 +261,7 @@ class Manufacturer extends \Opencart\System\Engine\Controller {
 
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 
-		if ($data['image'] && is_file(DIR_IMAGE . html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8'))) {
+		if ($data['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8'))) {
 			$data['thumb'] = $this->model_tool_image->resize($data['image'], $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 		} else {
 			$data['thumb'] = $data['placeholder'];

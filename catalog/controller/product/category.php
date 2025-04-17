@@ -141,7 +141,7 @@ class Category extends \Opencart\System\Engine\Controller {
 
 			$this->load->model('tool/image');
 
-			if (!empty($category_info['image']) && is_file(DIR_IMAGE . html_entity_decode($category_info['image'], ENT_QUOTES, 'UTF-8'))) {
+			if (!empty($category_info['image']) && is_bucket_file(DIR_IMAGE . html_entity_decode($category_info['image'], ENT_QUOTES, 'UTF-8'))) {
 				$data['image'] = $this->model_tool_image->resize($category_info['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 			} else {
 				$data['image'] = '';
@@ -233,7 +233,7 @@ class Category extends \Opencart\System\Engine\Controller {
 					$description = oc_substr($description, 0, $this->config->get('config_product_description_length')) . '..';
 				}
 
-				if ($result['image'] && is_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
+				if ($result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 					$image = $result['image'];
 				} else {
 					$image = 'placeholder.png';

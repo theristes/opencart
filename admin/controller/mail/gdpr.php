@@ -96,7 +96,7 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 
 		$subject = sprintf($this->language->get('mail_text_subject'), $store_name);
 
-		if (is_file(DIR_IMAGE . $store_logo)) {
+		if (is_bucket_file(DIR_IMAGE . $store_logo)) {
 			$data['logo'] = $store_url . 'image/' . $store_logo;
 		} else {
 			$data['logo'] = '';
@@ -277,7 +277,7 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('tool/image');
 
-		if (is_file(DIR_IMAGE . $store_logo)) {
+		if (is_bucket_file(DIR_IMAGE . $store_logo)) {
 			$data['logo'] = $store_url . 'image/' . $store_logo;
 		} else {
 			$data['logo'] = '';
@@ -371,7 +371,7 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('tool/image');
 
-		if (is_file(DIR_IMAGE . $store_logo)) {
+		if (is_bucket_file(DIR_IMAGE . $store_logo)) {
 			$data['logo'] = $store_url . 'image/' . $store_logo;
 		} else {
 			$data['logo'] = '';
@@ -465,7 +465,7 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('tool/image');
 
-		if (is_file(DIR_IMAGE . $store_logo)) {
+		if (is_bucket_file(DIR_IMAGE . $store_logo)) {
 			$data['logo'] = $store_url . 'image/' . $store_logo;
 		} else {
 			$data['logo'] = '';

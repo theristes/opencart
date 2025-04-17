@@ -68,7 +68,7 @@ class Customer extends \Opencart\System\Engine\Controller {
 
 			$this->load->model('tool/image');
 
-			if (is_file(DIR_IMAGE . $store_logo)) {
+			if (is_bucket_file(DIR_IMAGE . $store_logo)) {
 				$data['logo'] = $store_url . 'image/' . $store_logo;
 			} else {
 				$data['logo'] = '';
@@ -166,7 +166,7 @@ class Customer extends \Opencart\System\Engine\Controller {
 
 			$this->load->model('tool/image');
 
-			if (is_file(DIR_IMAGE . $store_logo)) {
+			if (is_bucket_file(DIR_IMAGE . $store_logo)) {
 				$data['logo'] = $store_url . 'image/' . $store_logo;
 			} else {
 				$data['logo'] = '';

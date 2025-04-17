@@ -242,7 +242,7 @@ class Banner extends \Opencart\System\Engine\Controller {
 
 		foreach ($banner_images as $language_id => $banner_image) {
 			foreach ($banner_image as $value) {
-				if ($value['image'] && is_file(DIR_IMAGE . html_entity_decode($value['image'], ENT_QUOTES, 'UTF-8'))) {
+				if ($value['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($value['image'], ENT_QUOTES, 'UTF-8'))) {
 					$image = $value['image'];
 					$thumb = $value['image'];
 				} else {

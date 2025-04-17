@@ -254,7 +254,7 @@ class Option extends \Opencart\System\Engine\Controller {
 		$data['option_values'] = [];
 
 		foreach ($option_values as $option_value) {
-			if ($option_value['image'] && is_file(DIR_IMAGE . html_entity_decode($option_value['image'], ENT_QUOTES, 'UTF-8'))) {
+			if ($option_value['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($option_value['image'], ENT_QUOTES, 'UTF-8'))) {
 				$image = $option_value['image'];
 				$thumb = $option_value['image'];
 			} else {
@@ -444,7 +444,7 @@ class Option extends \Opencart\System\Engine\Controller {
 					$option_values = $this->model_catalog_option->getValues($option['option_id']);
 
 					foreach ($option_values as $option_value) {
-						if ($option_value['image'] && is_file(DIR_IMAGE . html_entity_decode($option_value['image'], ENT_QUOTES, 'UTF-8'))) {
+						if ($option_value['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($option_value['image'], ENT_QUOTES, 'UTF-8'))) {
 							$image = $option_value['image'];
 						} else {
 							$image = 'no_image.png';
