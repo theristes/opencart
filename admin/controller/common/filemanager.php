@@ -269,18 +269,18 @@ class FileManager extends \Opencart\System\Engine\Controller {
 			$json['error'] = $this->language->get('error_permission');
 		}
 	
-		// Set directory
-		if (isset($this->request->get['directory'])) {
-			$directory = $base . html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8') . '/';
-		} else {
-			$directory = $base;
-		}
+		// // Set directory
+		// if (isset($this->request->get['directory'])) {
+		// 	$directory = $base . html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8') . '/';
+		// } else {
+		// 	$directory = $base;
+		// }
 	
-		// Validate directory
-		$realDirectory = str_replace('\\', '/', realpath($directory)) . '/';
-		if (!is_dir($directory) || strpos($realDirectory, $base) !== 0) {
-			$json['error'] = $this->language->get('error_directory');
-		}
+		// // Validate directory
+		// $realDirectory = str_replace('\\', '/', realpath($directory)) . '/';
+		// if (!is_dir($directory) || strpos($realDirectory, $base) !== 0) {
+		// 	$json['error'] = $this->language->get('error_directory');
+		// }
 	
 		if (!$json) {
 			$files = [];
