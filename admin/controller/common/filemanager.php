@@ -52,203 +52,213 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	 */
 	public function list(): void {
 		$this->load->language('common/filemanager');
-
-		$base = DIR_IMAGE . STORE_NAME . '/';
-
-		// Make sure we have the correct directory
+	
+		// Set base path to your store directory in S3
+		$base = "s3://" . S3_BUCKET . '/' . STORE_NAME . '/';
+		
+		// Get directory from request (relative to store)
 		if (isset($this->request->get['directory'])) {
-			$directory = $base . html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8') . '/';
+			$directory = $base . rtrim(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'), '/') . '/';
 		} else {
 			$directory = $base;
 		}
-
+	
 		if (isset($this->request->get['filter_name'])) {
 			$filter_name = basename(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		} else {
 			$filter_name = '';
 		}
-
+	
 		if (isset($this->request->get['page'])) {
 			$page = (int)$this->request->get['page'];
 		} else {
 			$page = 1;
 		}
-
+	
 		$allowed = [];
-
 		foreach (explode("\r\n", $this->config->get('config_file_ext_allowed')) as $key => $extension) {
 			$allowed[] = '.' . \strtolower($extension);
 			$allowed[] = '.' . \strtoupper($extension);
 		}
-
+	
 		$directories = [];
 		$files = [];
-
-		// Get directories and files
-		$paths = array_diff(scandir($directory), ['..', '.']);
-
-		foreach ($paths as $value) {
-			if ($filter_name && !str_starts_with($value, $filter_name)) {
-				continue;
-			}
-
-			$path = str_replace('\\', '/', realpath($directory . $value));
-
-			if (is_dir($path)) {
-				$directories[] = $path;
-			}
-
-			if (is_file($path) && in_array(substr($value, strrpos($value, '.')), $allowed)) {
-				$files[] = $path;
-			}
-		}
-
-		$total = count($paths);
-		$limit = 16;
-		$start = ($page - 1) * $limit;
-
-		$data['directories'] = [];
-		$data['images'] = [];
-
-		$this->load->model('tool/image');
-
-		if ($paths) {
-			$url = '';
-
-			if (isset($this->request->get['target'])) {
-				$url .= '&target=' . $this->request->get['target'];
-			}
-
-			if (isset($this->request->get['thumb'])) {
-				$url .= '&thumb=' . $this->request->get['thumb'];
-			}
-
-			if (isset($this->request->get['ckeditor'])) {
-				$url .= '&ckeditor=' . $this->request->get['ckeditor'];
-			}
-
-			foreach (array_slice($directories + $files, $start, $limit) as $path) {
-				if (substr($path, 0, strlen($base)) == $base) {
-					$name = basename($path);
-
-					if (is_dir($path)) {
-						$data['directories'][] = [
-							'name' => $name,
-							'path' => oc_substr($path, oc_strlen($base)) . '/',
-							'href' => $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . '&directory=' . urlencode(oc_substr($path, oc_strlen($base))) . $url)
-						];
+	
+		try {
+			// Get S3 client from globals
+			$s3 = $GLOBALS['s3'];
+			
+			// List objects in S3 under the store directory
+			$objects = $s3->listObjectsV2([
+				'Bucket' => S3_BUCKET,
+				'Prefix' => ltrim(str_replace($base, '', $directory), '/'),
+				'Delimiter' => '/'
+			]);
+	
+			// Process directories (CommonPrefixes)
+			if (!empty($objects['CommonPrefixes'])) {
+				foreach ($objects['CommonPrefixes'] as $prefix) {
+					$dirName = rtrim($prefix['Prefix'], '/');
+					$dirName = substr($dirName, strrpos($dirName, '/') + 1);
+					
+					if ($filter_name && !str_starts_with($dirName, $filter_name)) {
+						continue;
 					}
-
-					if (is_file($path)) {
-						$filePath = oc_substr($path, oc_strlen($base));
-						$s3Path = "s3://" . S3_BUCKET . '/' . $filePath;
-						
-						$data['images'][] = [
-							'name'  => $name,
-							'path'  => $filePath,
-							'href'  => bucket_file_url($s3Path),
-							'thumb' => $this->model_tool_image->resize(oc_substr($path, oc_strlen(DIR_IMAGE)), $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'))
+					
+					$directories[] = [
+						'name' => $dirName,
+						'path' => $prefix['Prefix']
+					];
+				}
+			}
+	
+			// Process files
+			if (!empty($objects['Contents'])) {
+				foreach ($objects['Contents'] as $object) {
+					// Skip the directory itself (empty key when listing root)
+					if ($object['Key'] === ltrim(str_replace($base, '', $directory), '/')) continue;
+					
+					// Skip subdirectories (they're handled by CommonPrefixes)
+					if (substr($object['Key'], -1) === '/') continue;
+					
+					$fileName = basename($object['Key']);
+					
+					if ($filter_name && !str_starts_with($fileName, $filter_name)) {
+						continue;
+					}
+					
+					$ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+					if (in_array('.' . $ext, $allowed)) {
+						$files[] = [
+							'name' => $fileName,
+							'path' => STORE_NAME . '/' . $object['Key'],
+							'size' => $object['Size'],
+							'last_modified' => $object['LastModified']
 						];
 					}
 				}
 			}
+	
+			$total = count($directories) + count($files);
+			$limit = 16;
+			$start = ($page - 1) * $limit;
+	
+			$data['directories'] = [];
+			$data['images'] = [];
+	
+			$this->load->model('tool/image');
+	
+			$url = '';
+			if (isset($this->request->get['target'])) {
+				$url .= '&target=' . $this->request->get['target'];
+			}
+			if (isset($this->request->get['thumb'])) {
+				$url .= '&thumb=' . $this->request->get['thumb'];
+			}
+			if (isset($this->request->get['ckeditor'])) {
+				$url .= '&ckeditor=' . $this->request->get['ckeditor'];
+			}
+	
+			// Prepare directories data
+			foreach (array_slice($directories, $start, $limit) as $dir) {
+				$relativePath = STORE_NAME . '/' . $dir['path'];
+				$data['directories'][] = [
+					'name' => $dir['name'],
+					'path' => $relativePath,
+					'href' => $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . '&directory=' . urlencode($relativePath) . $url)
+				];
+			}
+	
+			// Prepare files data
+			$filesLimit = $limit - count($data['directories']);
+			foreach (array_slice($files, $start, $filesLimit) as $file) {
+				$s3Path = "s3://" . S3_BUCKET . '/' . $file['path'];
+				
+				$data['images'][] = [
+					'name'  => $file['name'],
+					'path'  => $file['path'],
+					'href'  => bucket_file_url($s3Path),
+					'thumb' => $this->model_tool_image->resize(str_replace(STORE_NAME . '/', '', $file['path']), $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'))
+				];
+			}
+	
+		} catch (\Exception $e) {
+			error_log("S3 List Error: " . $e->getMessage());
+			$data['directories'] = [];
+			$data['images'] = [];
+			$total = 0;
 		}
-
-		if (isset($this->request->get['directory'])) {
-			$data['directory'] = urldecode($this->request->get['directory']);
-		} else {
-			$data['directory'] = '';
-		}
-
-		if (isset($this->request->get['filter_name'])) {
-			$data['filter_name'] = $this->request->get['filter_name'];
-		} else {
-			$data['filter_name'] = '';
-		}
-
-		// Parent
+	
+		// Set current directory for display
+		$data['directory'] = isset($this->request->get['directory']) ? urldecode($this->request->get['directory']) : '';
+		$data['filter_name'] = $filter_name;
+	
+		// Parent directory logic
 		$url = '';
-
 		if (isset($this->request->get['directory'])) {
-			$pos = strrpos($this->request->get['directory'], '/');
-
-			if ($pos) {
-				$url .= '&directory=' . urlencode(substr($this->request->get['directory'], 0, $pos));
+			$parts = explode('/', rtrim($this->request->get['directory'], '/'));
+			array_pop($parts);
+			if (!empty($parts)) {
+				$url .= '&directory=' . urlencode(implode('/', $parts) . '/');
 			}
 		}
-
 		if (isset($this->request->get['target'])) {
 			$url .= '&target=' . $this->request->get['target'];
 		}
-
 		if (isset($this->request->get['thumb'])) {
 			$url .= '&thumb=' . $this->request->get['thumb'];
 		}
-
 		if (isset($this->request->get['ckeditor'])) {
 			$url .= '&ckeditor=' . $this->request->get['ckeditor'];
 		}
-
+	
 		$data['parent'] = $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . $url);
-
-		// Refresh
-		$url = '';
-
+	
+		// Refresh URL
+		$refreshUrl = '';
 		if (isset($this->request->get['directory'])) {
-			$url .= '&directory=' . urlencode(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'));
+			$refreshUrl .= '&directory=' . urlencode(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'));
 		}
-
 		if (isset($this->request->get['filter_name'])) {
-			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+			$refreshUrl .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		}
-
 		if (isset($this->request->get['target'])) {
-			$url .= '&target=' . $this->request->get['target'];
+			$refreshUrl .= '&target=' . $this->request->get['target'];
 		}
-
 		if (isset($this->request->get['thumb'])) {
-			$url .= '&thumb=' . $this->request->get['thumb'];
+			$refreshUrl .= '&thumb=' . $this->request->get['thumb'];
 		}
-
 		if (isset($this->request->get['ckeditor'])) {
-			$url .= '&ckeditor=' . $this->request->get['ckeditor'];
+			$refreshUrl .= '&ckeditor=' . $this->request->get['ckeditor'];
 		}
-
-		if (isset($this->request->get['page'])) {
-			$url .= '&page=' . $this->request->get['page'];
-		}
-
-		$data['refresh'] = $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . $url);
-
-		$url = '';
-
+	
+		$data['refresh'] = $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . $refreshUrl);
+	
+		// Pagination
+		$paginationUrl = '';
 		if (isset($this->request->get['directory'])) {
-			$url .= '&directory=' . urlencode(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'));
+			$paginationUrl .= '&directory=' . urlencode(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'));
 		}
-
 		if (isset($this->request->get['filter_name'])) {
-			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+			$paginationUrl .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		}
-
 		if (isset($this->request->get['target'])) {
-			$url .= '&target=' . $this->request->get['target'];
+			$paginationUrl .= '&target=' . $this->request->get['target'];
 		}
-
 		if (isset($this->request->get['thumb'])) {
-			$url .= '&thumb=' . $this->request->get['thumb'];
+			$paginationUrl .= '&thumb=' . $this->request->get['thumb'];
 		}
-
 		if (isset($this->request->get['ckeditor'])) {
-			$url .= '&ckeditor=' . $this->request->get['ckeditor'];
+			$paginationUrl .= '&ckeditor=' . $this->request->get['ckeditor'];
 		}
-
+	
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $total,
 			'page'  => $page,
 			'limit' => $limit,
-			'url'   => $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . $url . '&page={page}')
+			'url'   => $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . $paginationUrl . '&page={page}')
 		]);
-
+	
 		$this->response->setOutput($this->load->view('common/filemanager_list', $data));
 	}
 
