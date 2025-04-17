@@ -252,23 +252,18 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		$this->response->setOutput($this->load->view('common/filemanager_list', $data));
 	}
 
-	/**
-	 * Upload
-	 *
-	 * @return void
-	 */
 	public function upload(): void {
 		$this->load->language('common/filemanager');
 		$json = [];
-
+	
 		// Check user has permission
 		if (!$this->user->hasPermission('modify', 'common/filemanager')) {
 			$json['error'] = $this->language->get('error_permission');
 		}
-
+	
 		if (!$json) {
 			$files = [];
-
+	
 			if (!empty($this->request->files['file']['name'])) {
 				if (is_array($this->request->files['file']['name'])) {
 					foreach (array_keys($this->request->files['file']['name']) as $key) {
@@ -284,63 +279,90 @@ class FileManager extends \Opencart\System\Engine\Controller {
 					$files[] = $this->request->files['file'];
 				}
 			}
-
+	
 			foreach ($files as $file) {
+				// Check for upload errors first
+				if ($file['error'] != UPLOAD_ERR_OK) {
+					$error_message = $this->getUploadErrorMessage($file['error']);
+					$json['error'] = $error_message;
+					break;
+				}
+	
 				if (!is_file($file['tmp_name'])) {
 					$json['error'] = $this->language->get('error_upload');
 					break;
 				}
-
+	
 				$filename = preg_replace('/[\/\\\?%*:|"<>]/', '', basename(html_entity_decode($file['name'], ENT_QUOTES, 'UTF-8')));
-
+	
 				if (!oc_validate_length($filename, 4, 255)) {
 					$json['error'] = $this->language->get('error_filename');
 					break;
 				}
-
+	
 				// Check extension
 				$ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 				$allowedExts = explode("\r\n", strtolower($this->config->get('config_file_ext_allowed')));
-
+	
 				if (!in_array($ext, $allowedExts)) {
 					$json['error'] = $this->language->get('error_file_type');
 					break;
 				}
-
+	
 				// Check MIME type
 				$allowedMimes = explode("\r\n", $this->config->get('config_file_mime_allowed'));
 				if (!in_array($file['type'], $allowedMimes)) {
 					$json['error'] = $this->language->get('error_file_type');
 					break;
 				}
-
-				if ($file['error'] !== UPLOAD_ERR_OK) {
-					$json['error'] = $this->language->get('error_upload_' . $file['error']);
-					break;
-				}
-
+	
 				try {
 					$directory = isset($this->request->get['directory']) ? trim($this->request->get['directory'], '/') : '';
 					$s3Path = (!empty($directory) ? $directory . '/' : '') . $filename;
 					
 					upload_to_bucket($file['tmp_name'], $s3Path);
 					
-					// Optionally store the URL if needed
-					// $json['url'] = bucket_file_url("s3://" . S3_BUCKET . '/' . $s3Path);
 				} catch (\Exception $e) {
-					$json['error'] = $e->getMessage();
+					$json['error'] = $this->language->get('error_upload') . ': ' . $e->getMessage();
 					break;
 				}
 			}
 		}
-
+	
 		if (!$json) {
 			$json['success'] = $this->language->get('text_uploaded');
 		}
-
+	
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+	
+	/**
+	 * Get human-readable upload error message
+	 */
+	protected function getUploadErrorMessage(int $error_code): string {
+		$this->load->language('common/filemanager');
+		
+		$php_errors = [
+			UPLOAD_ERR_INI_SIZE   => $this->language->get('error_upload_1'),
+			UPLOAD_ERR_FORM_SIZE  => $this->language->get('error_upload_2'),
+			UPLOAD_ERR_PARTIAL    => $this->language->get('error_upload_3'),
+			UPLOAD_ERR_NO_FILE    => $this->language->get('error_upload_4'),
+			UPLOAD_ERR_NO_TMP_DIR => $this->language->get('error_upload_6'),
+			UPLOAD_ERR_CANT_WRITE => $this->language->get('error_upload_7'),
+			UPLOAD_ERR_EXTENSION  => $this->language->get('error_upload_8'),
+		];
+	
+		return $php_errors[$error_code] ?? $this->language->get('error_upload');
+	}
+
+
+
+
+
+
+
+
 
 	/**
 	 * Folder
