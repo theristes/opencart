@@ -198,7 +198,7 @@ class Subscription extends \Opencart\System\Engine\Controller {
 									// Image
 									$this->load->model('tool/image');
 
-									if (is_file(DIR_IMAGE . $store_logo)) {
+									if (is_bucket_file(DIR_IMAGE . $store_logo)) {
 										$data['logo'] = $store_url . 'image/' . $store_logo;
 									} else {
 										$data['logo'] = '';

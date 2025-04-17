@@ -30,7 +30,7 @@ class Cart extends \Opencart\System\Engine\Model {
 		$products = $this->cart->getProducts();
 
 		foreach ($products as $product) {
-			if ($product['image'] && is_file(DIR_IMAGE . html_entity_decode($product['image'], ENT_QUOTES, 'UTF-8'))) {
+			if ($product['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($product['image'], ENT_QUOTES, 'UTF-8'))) {
 				$image = $product['image'];
 			} else {
 				$image = 'placeholder.png';

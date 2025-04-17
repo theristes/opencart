@@ -295,7 +295,7 @@ class Product extends \Opencart\System\Engine\Controller {
 
 			$this->load->model('tool/image');
 
-			if ($product_info['image'] && is_file(DIR_IMAGE . html_entity_decode($product_info['image'], ENT_QUOTES, 'UTF-8'))) {
+			if ($product_info['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($product_info['image'], ENT_QUOTES, 'UTF-8'))) {
 				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
 				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
 			} else {
@@ -308,7 +308,7 @@ class Product extends \Opencart\System\Engine\Controller {
 			$results = $this->model_catalog_product->getImages($product_id);
 
 			foreach ($results as $result) {
-				if ($result['image'] && is_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
+				if ($result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 					$data['images'][] = [
 						'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
 						'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
@@ -367,7 +367,7 @@ class Product extends \Opencart\System\Engine\Controller {
 								$price = false;
 							}
 
-							if ($option_value['image'] && is_file(DIR_IMAGE . html_entity_decode($option_value['image'], ENT_QUOTES, 'UTF-8'))) {
+							if ($option_value['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($option_value['image'], ENT_QUOTES, 'UTF-8'))) {
 								$image = $option_value['image'];
 							} else {
 								$image = '';
