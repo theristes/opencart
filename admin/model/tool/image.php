@@ -34,7 +34,7 @@ class Image extends \Opencart\System\Engine\Model {
         $image_new = $s3_cache_path . oc_substr($filename, 0, oc_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . pathinfo($filename, PATHINFO_EXTENSION);
 
 
-		if ($this->is_bucket_file($image_new)) {
+		if (is_bucket_file($image_new)) {
             return $s3_base_url . $image_new;
         }
 
@@ -60,7 +60,7 @@ class Image extends \Opencart\System\Engine\Model {
             copy(DIR_IMAGE . $image_old, DIR_IMAGE . $image_new);
         }
 
-        $this->upload_to_bucket(DIR_IMAGE . $image_new, $image_new);
+        upload_to_bucket(DIR_IMAGE . $image_new, $image_new);
 
         return $s3_base_url . $image_new;
     }
