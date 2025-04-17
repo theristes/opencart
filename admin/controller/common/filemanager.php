@@ -108,8 +108,6 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		$start = ($page - 1) * $limit;
 
 		$data['directories'] = [];
-
-		// Image
 		$data['images'] = [];
 
 		$this->load->model('tool/image');
@@ -129,7 +127,6 @@ class FileManager extends \Opencart\System\Engine\Controller {
 				$url .= '&ckeditor=' . $this->request->get['ckeditor'];
 			}
 
-			// Split the array based on current page number and max number of items per page of 10
 			foreach (array_slice($directories + $files, $start, $limit) as $path) {
 				if (substr($path, 0, strlen($base)) == $base) {
 					$name = basename($path);
@@ -143,10 +140,13 @@ class FileManager extends \Opencart\System\Engine\Controller {
 					}
 
 					if (is_file($path)) {
+						$filePath = oc_substr($path, oc_strlen($base));
+						$s3Path = "s3://" . S3_BUCKET . '/' . $filePath;
+						
 						$data['images'][] = [
 							'name'  => $name,
-							'path'  => oc_substr($path, oc_strlen($base)),
-							'href'  => bucket_file_url($path),
+							'path'  => $filePath,
+							'href'  => bucket_file_url($s3Path),
 							'thumb' => $this->model_tool_image->resize(oc_substr($path, oc_strlen(DIR_IMAGE)), $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'))
 						];
 					}
@@ -242,7 +242,6 @@ class FileManager extends \Opencart\System\Engine\Controller {
 			$url .= '&ckeditor=' . $this->request->get['ckeditor'];
 		}
 
-		// Get total number of files and directories
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $total,
 			'page'  => $page,
@@ -261,32 +260,16 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	public function upload(): void {
 		$this->load->language('common/filemanager');
 		$json = [];
-	
-		$base = DIR_IMAGE . STORE_NAME . '/';
-	
+
 		// Check user has permission
 		if (!$this->user->hasPermission('modify', 'common/filemanager')) {
 			$json['error'] = $this->language->get('error_permission');
 		}
-	
-		// // Set directory
-		// if (isset($this->request->get['directory'])) {
-		// 	$directory = $base . html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8') . '/';
-		// } else {
-		// 	$directory = $base;
-		// }
-	
-		// // Validate directory
-		// $realDirectory = str_replace('\\', '/', realpath($directory)) . '/';
-		// if (!is_dir($directory) || strpos($realDirectory, $base) !== 0) {
-		// 	$json['error'] = $this->language->get('error_directory');
-		// }
-	
+
 		if (!$json) {
 			$files = [];
-	
+
 			if (!empty($this->request->files['file']['name'])) {
-				// Handle multiple files
 				if (is_array($this->request->files['file']['name'])) {
 					foreach (array_keys($this->request->files['file']['name']) as $key) {
 						$files[] = [
@@ -301,62 +284,64 @@ class FileManager extends \Opencart\System\Engine\Controller {
 					$files[] = $this->request->files['file'];
 				}
 			}
-	
+
 			foreach ($files as $file) {
 				if (!is_file($file['tmp_name'])) {
 					$json['error'] = $this->language->get('error_upload');
 					break;
 				}
-	
+
 				$filename = preg_replace('/[\/\\\?%*:|"<>]/', '', basename(html_entity_decode($file['name'], ENT_QUOTES, 'UTF-8')));
-	
+
 				if (!oc_validate_length($filename, 4, 255)) {
 					$json['error'] = $this->language->get('error_filename');
 					break;
 				}
-	
+
 				// Check extension
 				$ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 				$allowedExts = explode("\r\n", strtolower($this->config->get('config_file_ext_allowed')));
-	
+
 				if (!in_array($ext, $allowedExts)) {
 					$json['error'] = $this->language->get('error_file_type');
 					break;
 				}
-	
+
 				// Check MIME type
 				$allowedMimes = explode("\r\n", $this->config->get('config_file_mime_allowed'));
 				if (!in_array($file['type'], $allowedMimes)) {
 					$json['error'] = $this->language->get('error_file_type');
 					break;
 				}
-	
-				// PHP file upload error
+
 				if ($file['error'] !== UPLOAD_ERR_OK) {
 					$json['error'] = $this->language->get('error_upload_' . $file['error']);
 					break;
 				}
-	
+
 				try {
-					$s3Path = $this->request->get['directory'] . '/' . $filename;
-					$url = upload_to_bucket($file['tmp_name'], $s3Path);
-					// Optionally, you can store $url or return it in $json if needed
+					$directory = isset($this->request->get['directory']) ? trim($this->request->get['directory'], '/') : '';
+					$s3Path = (!empty($directory) ? $directory . '/' : '') . $filename;
+					
+					upload_to_bucket($file['tmp_name'], $s3Path);
+					
+					// Optionally store the URL if needed
+					// $json['url'] = bucket_file_url("s3://" . S3_BUCKET . '/' . $s3Path);
 				} catch (\Exception $e) {
-					$json['error'] = $this->language->get('error_upload');
+					$json['error'] = $e->getMessage();
 					break;
 				}
-				
 			}
 		}
-	
+
 		if (!$json) {
 			$json['success'] = $this->language->get('text_uploaded');
 		}
-	
+
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
-	
+
 	/**
 	 * Folder
 	 *
@@ -382,18 +367,15 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		}
 
 		if (isset($this->request->post['folder'])) {
-			// Sanitize the folder name
 			$folder = preg_replace('/[\/\\\?%*&:|"<>]/', '', basename(html_entity_decode($this->request->post['folder'], ENT_QUOTES, 'UTF-8')));
 		} else {
 			$folder = '';
 		}
 
-		// Check it's a directory
 		if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)) . '/', 0, strlen($base)) != $base) {
 			$json['error'] = $this->language->get('error_directory');
 		}
 
-		// Validate the filename length
 		if (!oc_validate_length($folder, 3, 128)) {
 			$json['error'] = $this->language->get('error_folder');
 		} elseif (is_dir($directory . $folder)) {
@@ -402,9 +384,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 
 		if (!$json) {
 			mkdir($directory . $folder, 0777);
-
 			chmod($directory . $folder, 0777);
-
 			@touch($directory . $folder . '/' . 'index.html');
 
 			$json['success'] = $this->language->get('text_directory');
@@ -424,8 +404,6 @@ class FileManager extends \Opencart\System\Engine\Controller {
 
 		$json = [];
 
-		$base = DIR_IMAGE . STORE_NAME . '/';
-
 		// Check user has permission
 		if (!$this->user->hasPermission('modify', 'common/filemanager')) {
 			$json['error'] = $this->language->get('error_permission');
@@ -437,58 +415,53 @@ class FileManager extends \Opencart\System\Engine\Controller {
 			$paths = [];
 		}
 
-		// Loop through each path to run validations
-		foreach ($paths as $path) {
-			// Convert any html encoded characters.
-			$path = html_entity_decode($path, ENT_QUOTES, 'UTF-8');
-
-			// Check path exists
-			if (($path == $base) || (substr(str_replace('\\', '/', realpath($base . $path)) . '/', 0, strlen($base)) != $base)) {
-				$json['error'] = $this->language->get('error_delete');
-
-				break;
+		if (!$json) {
+			foreach ($paths as $path) {
+				$path = html_entity_decode($path, ENT_QUOTES, 'UTF-8');
+				
+				try {
+					if (strpos($path, 's3://') === 0) {
+						// Handle S3 deletion
+						if (!delete_from_bucket($path)) {
+							throw new \Exception($this->language->get('error_delete'));
+						}
+					} else {
+						// Handle local file deletion (original logic)
+						$base = DIR_IMAGE . STORE_NAME . '/';
+						$fullPath = rtrim($base . $path, '/');
+						
+						if (($path == $base) || (substr(str_replace('\\', '/', realpath($fullPath)) . '/', 0, strlen($base)) != $base)) {
+							throw new \Exception($this->language->get('error_delete'));
+						}
+						
+						if (is_file($fullPath)) {
+							unlink($fullPath);
+						} elseif (is_dir($fullPath)) {
+							// Handle directory deletion recursively
+							$files = new \RecursiveIteratorIterator(
+								new \RecursiveDirectoryIterator($fullPath, \RecursiveDirectoryIterator::SKIP_DOTS),
+								\RecursiveIteratorIterator::CHILD_FIRST
+							);
+							
+							foreach ($files as $file) {
+								if ($file->isDir()) {
+									rmdir($file->getRealPath());
+								} else {
+									unlink($file->getRealPath());
+								}
+							}
+							
+							rmdir($fullPath);
+						}
+					}
+				} catch (\Exception $e) {
+					$json['error'] = $e->getMessage();
+					break;
+				}
 			}
 		}
 
 		if (!$json) {
-			// Loop through each path
-			foreach ($paths as $path) {
-				$path = rtrim($base . html_entity_decode($path, ENT_QUOTES, 'UTF-8'), '/');
-
-				// Make path into an array
-				$directory = [$path];
-
-				// While the path array is still populated keep looping through
-				while (count($directory) != 0) {
-					$next = array_shift($directory);
-
-					if (is_dir($next)) {
-						foreach (array_diff(scandir($next), ['..', '.']) as $file) {
-							// If directory add to path array
-							$directory[] = $next . '/' . $file;
-						}
-					}
-
-					// Add the file to the files to be deleted array
-					$files[] = $next;
-				}
-
-				// Reverse sort the file array
-				rsort($files);
-
-				foreach ($files as $file) {
-					// If file just delete
-					if (is_file($file)) {
-						unlink($file);
-					}
-
-					// If directory use the remove directory function
-					if (is_dir($file)) {
-						rmdir($file);
-					}
-				}
-			}
-
 			$json['success'] = $this->language->get('text_delete');
 		}
 
