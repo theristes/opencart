@@ -53,15 +53,13 @@ class Header extends \Opencart\System\Engine\Controller {
 
 		// Fav icon
 		if (is_bucket_file(DIR_IMAGE . $this->config->get('config_icon'))) {
-			bucket_file_url(DIR_IMAGE . $this->config->get('config_icon'));
-			// $data['icon'] = $this->config->get('config_url') . 'image/' . $this->config->get('config_icon');
+			$data['icon'] = bucket_file_url(DIR_IMAGE . $this->config->get('config_icon'));
 		} else {
 			$data['icon'] = '';
 		}
 
 		if (is_bucket_file(DIR_IMAGE . $this->config->get('config_logo'))) {
-			bucket_file_url(DIR_IMAGE . $this->config->get('config_logo'));
-			// $data['logo'] = $this->config->get('config_url') . 'image/' . $this->config->get('config_logo');
+			$data['logo'] = bucket_file_url(DIR_IMAGE . $this->config->get('config_logo'));
 		} else {
 			$data['logo'] = '';
 		}
