@@ -1,4 +1,7 @@
 <?php
+
+
+
 // @return string
 function oc_get_ip(): string {
 	$headers = [
@@ -137,3 +140,33 @@ if (!function_exists('str_contains')) {
 		return $find === '' || strpos($string, $find) !== false;
 	}
 }
+
+
+if (!function_exists('is_bucket_file')) {
+    function is_bucket_file($path) {
+        // Check if path uses S3 stream wrapper
+        if (strpos($path, 's3://') === 0) {
+            // Parse the path to get the bucket and key
+            $parts = parse_url($path);
+            $bucket = $parts['host'];
+            $key = ltrim($parts['path'], '/');
+
+            // Use global S3 client
+            if (!isset($GLOBALS['s3'])) {
+                trigger_error('S3 client is not initialized.', E_USER_WARNING);
+                return false;
+            }
+
+            try {
+                return $GLOBALS['s3']->doesObjectExist($bucket, $key);
+            } catch (Exception $e) {
+                error_log("S3 check error: " . $e->getMessage());
+                return false;
+            }
+        }
+
+        // Default local file check
+        return is_file($path);
+    }
+}
+
