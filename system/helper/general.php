@@ -142,7 +142,6 @@ if (!function_exists('str_contains')) {
 }
 
 
-
 if (!function_exists('is_bucket_file')) {
     function is_bucket_file($path) {
         // Check if path uses S3 stream wrapper
@@ -170,4 +169,27 @@ if (!function_exists('is_bucket_file')) {
         return is_file($path);
     }
 }
+
+
+if (!function_exists('bucket_file_url')) {
+    function bucket_file_url($path) {
+        // If S3 path
+        if (strpos($path, 's3://') === 0) {
+            $parts = parse_url($path);
+            $bucket = $parts['host'];
+            $key = ltrim($parts['path'], '/');
+
+            // Build full URL using S3_BASE_URL constant
+            if (defined('S3_BASE_URL')) {
+                return rtrim(S3_BASE_URL, '/') . '/' . $key;
+            } else {
+                trigger_error('S3_BASE_URL is not defined.', E_USER_WARNING);
+                return '';
+            }
+        }
+        // Return raw path if nothing else
+        return $path;
+    }
+}
+
 
