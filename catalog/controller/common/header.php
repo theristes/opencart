@@ -51,21 +51,8 @@ class Header extends \Opencart\System\Engine\Controller {
 
 		$data['name'] = $this->config->get('config_name');
 
-		// Fav icon
-		if (is_file(DIR_IMAGE . $this->config->get('config_icon'))) {
-			$data['icon'] = $this->config->get('config_url') . 'images/' . $this->config->get('config_icon');
-		} else {
-			$data['icon'] = '';
-		}
-
-		// echo every thing bellow
-		// Logo
-		echo(DIR_IMAGE . $this->config->get('config_logo'));
-		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
-			$data['logo'] = $this->config->get('config_url') . 'images/' . $this->config->get('config_logo');
-		} else {
-			$data['logo'] = '';
-		}
+		$data['icon'] = $this->config->get('config_url') . 'images/' . $this->config->get('config_icon');
+		$data['logo'] = $this->config->get('config_url') . 'images/' . $this->config->get('config_logo');
 
 		$this->load->language('common/header');
 
