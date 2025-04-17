@@ -260,91 +260,103 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	 */
 	public function upload(): void {
 		$this->load->language('common/filemanager');
-
 		$json = [];
-
+	
 		$base = DIR_IMAGE . STORE_NAME . '/';
-
+	
 		// Check user has permission
 		if (!$this->user->hasPermission('modify', 'common/filemanager')) {
 			$json['error'] = $this->language->get('error_permission');
 		}
-
-		// Make sure we have the correct directory
+	
+		// Set directory
 		if (isset($this->request->get['directory'])) {
 			$directory = $base . html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8') . '/';
 		} else {
 			$directory = $base;
 		}
-
-		// Check it's a directory
-		if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)) . '/', 0, strlen($base)) != $base) {
-			 //$json['error'] = $this->language->get('error_directory');
-			$json['error'] = $directory;
+	
+		// Validate directory
+		$realDirectory = str_replace('\\', '/', realpath($directory)) . '/';
+		if (!is_dir($directory) || strpos($realDirectory, $base) !== 0) {
+			$json['error'] = $this->language->get('error_directory');
 		}
-
+	
 		if (!$json) {
-			// Check if multiple files are uploaded or just one
 			$files = [];
-
-			if (!empty($this->request->files['file']['name']) && is_array($this->request->files['file']['name'])) {
-				foreach (array_keys($this->request->files['file']['name']) as $key) {
-					$files[] = [
-						'name'     => $this->request->files['file']['name'][$key],
-						'type'     => $this->request->files['file']['type'][$key],
-						'tmp_name' => $this->request->files['file']['tmp_name'][$key],
-						'error'    => $this->request->files['file']['error'][$key],
-						'size'     => $this->request->files['file']['size'][$key]
-					];
-				}
-			}
-
-			foreach ($files as $file) {
-				if (is_file($file['tmp_name'])) {
-					// Sanitize the filename
-					$filename = preg_replace('/[\/\\\?%*:|"<>]/', '', basename(html_entity_decode($file['name'], ENT_QUOTES, 'UTF-8')));
-
-					// Validate the filename length
-					if (!oc_validate_length($filename, 4, 255)) {
-						$json['error'] = $this->language->get('error_filename');
-					}
-
-					// Allowed file extension types
-					$allowed = explode("\r\n", \strtolower($this->config->get('config_file_ext_allowed')));
-
-					if (!in_array(\strtolower(substr($filename, strrpos($filename, '.') + 1)), $allowed)) {
-						$json['error'] = $this->language->get('error_file_type');
-					}
-
-					// Allowed file mime types
-					$allowed = explode("\r\n", $this->config->get('config_file_mime_allowed'));
-
-					if (!in_array($file['type'], $allowed)) {
-						$json['error'] = $this->language->get('error_file_type');
-					}
-
-					// Return any upload error
-					if ($file['error'] != UPLOAD_ERR_OK) {
-						$json['error'] = $this->language->get('error_upload_' . $file['error']);
+	
+			if (!empty($this->request->files['file']['name'])) {
+				// Handle multiple files
+				if (is_array($this->request->files['file']['name'])) {
+					foreach (array_keys($this->request->files['file']['name']) as $key) {
+						$files[] = [
+							'name'     => $this->request->files['file']['name'][$key],
+							'type'     => $this->request->files['file']['type'][$key],
+							'tmp_name' => $this->request->files['file']['tmp_name'][$key],
+							'error'    => $this->request->files['file']['error'][$key],
+							'size'     => $this->request->files['file']['size'][$key]
+						];
 					}
 				} else {
-					$json['error'] = $this->language->get('error_upload');
-				}
-
-				if (!$json) {
-					move_uploaded_file($file['tmp_name'], $directory . $filename);
+					$files[] = $this->request->files['file'];
 				}
 			}
+	
+			foreach ($files as $file) {
+				if (!is_file($file['tmp_name'])) {
+					$json['error'] = $this->language->get('error_upload');
+					break;
+				}
+	
+				$filename = preg_replace('/[\/\\\?%*:|"<>]/', '', basename(html_entity_decode($file['name'], ENT_QUOTES, 'UTF-8')));
+	
+				if (!oc_validate_length($filename, 4, 255)) {
+					$json['error'] = $this->language->get('error_filename');
+					break;
+				}
+	
+				// Check extension
+				$ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+				$allowedExts = explode("\r\n", strtolower($this->config->get('config_file_ext_allowed')));
+	
+				if (!in_array($ext, $allowedExts)) {
+					$json['error'] = $this->language->get('error_file_type');
+					break;
+				}
+	
+				// Check MIME type
+				$allowedMimes = explode("\r\n", $this->config->get('config_file_mime_allowed'));
+				if (!in_array($file['type'], $allowedMimes)) {
+					$json['error'] = $this->language->get('error_file_type');
+					break;
+				}
+	
+				// PHP file upload error
+				if ($file['error'] !== UPLOAD_ERR_OK) {
+					$json['error'] = $this->language->get('error_upload_' . $file['error']);
+					break;
+				}
+	
+				try {
+					$s3Path = $this->request->get['directory'] . '/' . $filename;
+					$url = upload_to_bucket($file['tmp_name'], $s3Path);
+					// Optionally, you can store $url or return it in $json if needed
+				} catch (\Exception $e) {
+					$json['error'] = $this->language->get('error_upload');
+					break;
+				}
+				
+			}
 		}
-
+	
 		if (!$json) {
 			$json['success'] = $this->language->get('text_uploaded');
 		}
-
+	
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
-
+	
 	/**
 	 * Folder
 	 *
