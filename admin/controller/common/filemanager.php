@@ -54,21 +54,20 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	 public function list(): void {
 		$this->load->language('common/filemanager');
 	
-		// Set base path to your specific subfolder in S3
-		$base = STORE_NAME . '/';  // e.g. "mystore/"
-		$s3Prefix = $base;  // The prefix to use for S3 listing
+		// Base directory in S3 (e.g. 'mystore/')
+		$s3BasePath = STORE_NAME . '/';
 		
-		// Get directory from request (relative to our base)
+		// Current directory (relative to base)
 		if (isset($this->request->get['directory'])) {
-			$directory = rtrim(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'), '/') . '/';
+			$currentDir = rtrim(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'), '/') . '/';
 		} else {
-			$directory = '';
+			$currentDir = '';
 		}
 	
 		// Full S3 path for listing
-		$fullS3Path = $s3Prefix . $directory;
-		
-		// Rest of your parameters (filter, page, etc.)
+		$fullS3Path = $s3BasePath . $currentDir;
+	
+		// Filter and pagination
 		if (isset($this->request->get['filter_name'])) {
 			$filter_name = basename(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		} else {
@@ -93,17 +92,16 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		try {
 			$s3 = $GLOBALS['s3'];
 			
-			// List objects with our specific prefix
+			// List objects in the current directory
 			$objects = $s3->listObjectsV2([
 				'Bucket' => S3_BUCKET,
 				'Prefix' => $fullS3Path,
 				'Delimiter' => '/'
 			]);
 	
-			// Process directories (CommonPrefixes)
+			// Process directories
 			if (!empty($objects['CommonPrefixes'])) {
 				foreach ($objects['CommonPrefixes'] as $prefix) {
-					// Get just the directory name (last part of path)
 					$dirPath = rtrim($prefix['Prefix'], '/');
 					$dirName = substr($dirPath, strrpos($dirPath, '/') + 1);
 					
@@ -111,9 +109,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 						continue;
 					}
 					
-					// Store relative path (without base)
-					$relativePath = substr($dirPath, strlen($s3Prefix));
-					
+					$relativePath = substr($dirPath, strlen($s3BasePath));
 					$directories[] = [
 						'name' => $dirName,
 						'path' => $relativePath . '/'
@@ -124,13 +120,13 @@ class FileManager extends \Opencart\System\Engine\Controller {
 			// Process files
 			if (!empty($objects['Contents'])) {
 				foreach ($objects['Contents'] as $object) {
-					// Skip the directory itself
-					if ($object['Key'] === $fullS3Path) continue;
-					
-					// Skip subdirectories (they're handled by CommonPrefixes)
-					if (substr($object['Key'], -1) === '/') continue;
+					// Skip the directory itself and subdirectories
+					if ($object['Key'] === $fullS3Path || substr($object['Key'], -1) === '/') {
+						continue;
+					}
 					
 					$fileName = basename($object['Key']);
+					$relativePath = substr($object['Key'], strlen($s3BasePath));
 					
 					if ($filter_name && !str_starts_with($fileName, $filter_name)) {
 						continue;
@@ -138,10 +134,10 @@ class FileManager extends \Opencart\System\Engine\Controller {
 					
 					$ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 					if (in_array('.' . $ext, $allowed)) {
-						$relativePath = substr($object['Key'], strlen($s3Prefix));
 						$files[] = [
 							'name' => $fileName,
 							'path' => $relativePath,
+							's3_path' => $object['Key'], // Full S3 path for URL generation
 							'size' => $object['Size'],
 							'last_modified' => $object['LastModified']
 						];
@@ -181,13 +177,14 @@ class FileManager extends \Opencart\System\Engine\Controller {
 			// Prepare files data
 			$filesLimit = $limit - count($data['directories']);
 			foreach (array_slice($files, $start, $filesLimit) as $file) {
-				$s3Path = "s3://" . S3_BUCKET . '/' . $s3Prefix . $file['path'];
+				$s3FullPath = "s3://" . S3_BUCKET . '/' . $file['s3_path'];
+				$imagePathForThumbnail = $file['path']; // Relative path for thumbnails
 				
 				$data['images'][] = [
 					'name'  => $file['name'],
 					'path'  => $file['path'],
-					'href'  => bucket_file_url($s3Path),
-					'thumb' => $this->model_tool_image->resize($file['path'], $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'))
+					'href'  => bucket_file_url($s3FullPath),
+					'thumb' => $this->model_tool_image->resize($imagePathForThumbnail, $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'))
 				];
 			}
 	
@@ -199,30 +196,60 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		}
 	
 		// Set current directory for display
-		$data['directory'] = isset($this->request->get['directory']) ? urldecode($this->request->get['directory']) : '';
+		$data['directory'] = $currentDir;
 		$data['filter_name'] = $filter_name;
 	
-		// Parent directory logic - only show if we're in a subdirectory
+		// Parent directory logic
 		$url = '';
-		if (isset($this->request->get['directory'])) {
-			$parts = explode('/', rtrim($this->request->get['directory'], '/'));
+		if (!empty($currentDir)) {
+			$parts = explode('/', rtrim($currentDir, '/'));
 			array_pop($parts);
 			if (!empty($parts)) {
 				$url .= '&directory=' . urlencode(implode('/', $parts) . '/');
 			}
 		}
 		// Add other URL parameters...
-		
+		if (isset($this->request->get['target'])) {
+			$url .= '&target=' . $this->request->get['target'];
+		}
+		if (isset($this->request->get['thumb'])) {
+			$url .= '&thumb=' . $this->request->get['thumb'];
+		}
+		if (isset($this->request->get['ckeditor'])) {
+			$url .= '&ckeditor=' . $this->request->get['ckeditor'];
+		}
+	
 		$data['parent'] = !empty($url) ? $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . $url) : '';
 	
-		// Rest of your code (refresh, pagination) remains the same...
-		// ...
-		
+		// Refresh URL
+		$refreshUrl = '';
+		if (!empty($currentDir)) {
+			$refreshUrl .= '&directory=' . urlencode($currentDir);
+		}
+		if (isset($this->request->get['filter_name'])) {
+			$refreshUrl .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
+		// Add other parameters...
+	
+		$data['refresh'] = $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . $refreshUrl);
+	
+		// Pagination
+		$paginationUrl = $refreshUrl; // Reuse refresh URL
+		if (isset($this->request->get['page'])) {
+			$paginationUrl .= '&page=' . $this->request->get['page'];
+		}
+	
+		$data['pagination'] = $this->load->controller('common/pagination', [
+			'total' => $total,
+			'page'  => $page,
+			'limit' => $limit,
+			'url'   => $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . $paginationUrl . '&page={page}')
+		]);
+	
 		$this->response->setOutput($this->load->view('common/filemanager_list', $data));
 	}
 
 
-	
 	public function upload(): void {
 		$this->load->language('common/filemanager');
 		$json = [];
