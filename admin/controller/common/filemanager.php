@@ -355,7 +355,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 
 		$json = [];
 
-		$base = DIR_IMAGE . 'catalog/';
+		$base = DIR_IMAGE . STORE_NAME;
 
 		// Check user has permission
 		if (!$this->user->hasPermission('modify', 'common/filemanager')) {
