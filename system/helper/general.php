@@ -235,54 +235,56 @@ if (!function_exists('delete_from_bucket')) {
         ]);
     }
 }
-
 if (!function_exists('resize_image')) {
     function resize_image(string $filename, int $width, int $height, string $default = ''): string {
-
-        if (empty($filename))  return '';
+        if (empty($filename)) return '';
 
         $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
-
-        $store_name =  STORE_NAME;
-
+        $store_name = STORE_NAME;
         $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
 
         $path = dirname($filename);
-
         $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
-
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
         $folder = 'cache';
-
-        $resized_file =  STORE_NAME . '/' . $folder . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
-
+        $resized_file = $store_name . '/' . $folder . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
         $original_file = $filename;
-        
-        if (is_bucket_file($s3_path = 's3://' . S3_BUCKET . '/' . $original_file)) {
-            if (!is_bucket_file($s3_path = 's3://' . S3_BUCKET . '/' . $resized_file)) {
-                resize_and_upload_image($original_file, $resized_file, $width, $height);
+
+        // Check original image in bucket
+        if (is_bucket_file('s3://' . S3_BUCKET . '/' . $original_file)) {
+            // Resize and upload if resized version doesn't exist yet
+            if (!is_bucket_file('s3://' . S3_BUCKET . '/' . $resized_file)) {
+                resize_and_upload_image($original_file, $resized_file, $width, $height, $default);
             }
         }
 
+        // Handle fallback no_image.png resized version
         $no_image_base = 'no_image.png';
-
         $no_image_name = basename($no_image_base, '.' . pathinfo($no_image_base, PATHINFO_EXTENSION));
-        
         $no_image_ext = pathinfo($no_image_base, PATHINFO_EXTENSION);
-        
-        $no_image_resized = $no_image_name . '-' . (int)$width . 'x' . (int)$height . '.' . $no_image_ext;
+        $no_image_resized = 'cache/' . $no_image_name . '-' . (int)$width . 'x' . (int)$height . '.' . $no_image_ext;
 
-        $try_paths = [ $resized_file, $filename, $no_image_resized, ];
+        $local_no_image = DIR_IMAGE . $no_image_base;
+        $local_no_image_resized = DIR_IMAGE . $no_image_resized;
+
+        if (!is_bucket_file('s3://' . S3_BUCKET . '/' . $no_image_resized) && file_exists($local_no_image)) {
+            try {
+                $image = new \Opencart\System\Library\Image($local_no_image);
+                $image->resize($width, $height, $default);
+                $image->save($local_no_image_resized);
+                upload_to_bucket($local_no_image_resized, $no_image_resized);
+            } catch (\Exception $e) {
+                error_log('Failed to resize no_image fallback: ' . $e->getMessage());
+            }
+        }
+
+        // Priority paths to return: resized image, original, resized no_image, fallback
+        $try_paths = [$resized_file, $filename, $no_image_resized];
 
         foreach ($try_paths as $try) {
-
-            $s3_path = 's3://' . S3_BUCKET . '/' . $try;
-            
-            if (is_bucket_file($s3_path)) {
-            
+            if (is_bucket_file('s3://' . S3_BUCKET . '/' . $try)) {
                 return $s3_base_url . $try;
-            
             }
         }
 
@@ -292,8 +294,6 @@ if (!function_exists('resize_image')) {
 
 
 function resize_and_upload_image(string $source, string $destPath, int $width, int $height, string $default = '') {
-    $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
-
     $source_path = DIR_IMAGE . ltrim($source, '/');
     $dest_path = DIR_IMAGE . ltrim($destPath, '/');
     $s3_path = ltrim($destPath, '/');
@@ -307,11 +307,8 @@ function resize_and_upload_image(string $source, string $destPath, int $width, i
         $image = new \Opencart\System\Library\Image($source_path);
         $image->resize($width, $height, $default);
         $image->save($dest_path);
-
         upload_to_bucket($dest_path, $s3_path);
     } catch (\Exception $e) {
         error_log('Failed to resize and upload image: ' . $e->getMessage());
-        return ;
     }
 }
-
