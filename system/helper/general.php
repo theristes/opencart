@@ -253,7 +253,7 @@ if (!function_exists('resize_image')) {
 
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-        $folder = 'cache'
+        $folder = 'cache';
 
         $resized_file =  STORE_NAME . '/' . $folder . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
 
