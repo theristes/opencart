@@ -52,175 +52,175 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	 */
 
 
-
 	 public function list(): void {
 		$this->load->language('common/filemanager');
 	
-		// Base directory in S3 (e.g. 'mystore/')
 		$s3BasePath = STORE_NAME . '/';
-		
-		// Current directory (relative to base)
-		if (isset($this->request->get['directory'])) {
-			$currentDir = rtrim(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'), '/') . '/';
-		} else {
-			$currentDir = '';
-		}
-	
-		// Full S3 path for listing
+		$currentDir = $this->getCurrentDirectory();
 		$fullS3Path = $s3BasePath . $currentDir;
 	
-		// Filter and pagination
-		if (isset($this->request->get['filter_name'])) {
-			$filter_name = basename(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
-		} else {
-			$filter_name = '';
-		}
-	
-		if (isset($this->request->get['page'])) {
-			$page = (int)$this->request->get['page'];
-		} else {
-			$page = 1;
-		}
-	
-		$allowed = [];
-		foreach (explode("\r\n", $this->config->get('config_file_ext_allowed')) as $key => $extension) {
-			$allowed[] = '.' . \strtolower($extension);
-			$allowed[] = '.' . \strtoupper($extension);
-		}
+		$filterName = $this->getFilterName();
+		$page = $this->getPage();
+		$allowedExtensions = $this->getAllowedExtensions();
 	
 		$directories = [];
 		$files = [];
 	
 		try {
-			$s3 = $GLOBALS['s3'];
-			
-			// List objects in the current directory
-			$objects = $s3->listObjectsV2([
+			$objects = $GLOBALS['s3']->listObjectsV2([
 				'Bucket' => S3_BUCKET,
 				'Prefix' => $fullS3Path,
 				'Delimiter' => '/'
 			]);
 	
-			// Process directories
-			if (!empty($objects['CommonPrefixes'])) {
-				foreach ($objects['CommonPrefixes'] as $prefix) {
-					$dirPath = rtrim($prefix['Prefix'], '/');
-					$dirName = substr($dirPath, strrpos($dirPath, '/') + 1);
-					
-					if ($filter_name && !str_starts_with($dirName, $filter_name)) {
-						continue;
-					}
-					
-					$relativePath = substr($dirPath, strlen($s3BasePath));
-					$directories[] = [
-						'name' => $dirName,
-						'path' => $relativePath . '/'
-					];
-				}
-			}
-	
-			// Process files
-			if (!empty($objects['Contents'])) {
-				foreach ($objects['Contents'] as $object) {
-					// Skip the directory itself and subdirectories
-					if ($object['Key'] === $fullS3Path || substr($object['Key'], -1) === '/') {
-						continue;
-					}
-					
-					$fileName = basename($object['Key']);
-					$relativePath = substr($object['Key'], strlen($s3BasePath));
-					
-					if ($filter_name && !str_starts_with($fileName, $filter_name)) {
-						continue;
-					}
-					
-					$ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-					if (in_array('.' . $ext, $allowed)) {
-						$files[] = [
-							'name' => $fileName,
-							'path' => $relativePath,
-							's3_path' => $object['Key'], // Full S3 path including STORE_NAME
-							'size' => $object['Size'],
-							'last_modified' => $object['LastModified']
-						];
-					}
-				}
-			}
-	
-			$total = count($directories) + count($files);
-			$limit = 16;
-			$start = ($page - 1) * $limit;
-	
-			$data['directories'] = [];
-			$data['images'] = [];
-	
-			$this->load->model('tool/image');
-	
-			$url = '';
-			if (isset($this->request->get['target'])) {
-				$url .= '&target=' . $this->request->get['target'];
-			}
-			if (isset($this->request->get['thumb'])) {
-				$url .= '&thumb=' . $this->request->get['thumb'];
-			}
-			if (isset($this->request->get['ckeditor'])) {
-				$url .= '&ckeditor=' . $this->request->get['ckeditor'];
-			}
-	
-			// Prepare directories data
-			foreach (array_slice($directories, $start, $limit) as $dir) {
-				$data['directories'][] = [
-					'name' => $dir['name'],
-					'path' => $dir['path'],
-					'href' => $this->url->link('common/filemanager.list', 'user_token=' . $this->session->data['user_token'] . '&directory=' . urlencode($dir['path']) . $url)
-				];
-			}
-	
-			// Prepare files data
-			$filesLimit = $limit - count($data['directories']);
-			foreach (array_slice($files, $start, $filesLimit) as $file) {
-				$s3FullPath = "s3://" . S3_BUCKET . '/' . $file['s3_path'];
-				
-				// For thumbnails, we need to handle two cases:
-				// 1. If image model supports S3 paths directly
-				// 2. If image model only works with local paths
-				$thumbnail = '';
-				
-				try {
-					// Try with full S3 path first
-					$thumbnail = $this->model_tool_image->resize($file['s3_path'], $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
-				} catch (\Exception $e) {
-					// Fallback to relative path if S3 path fails
-					try {
-						$thumbnail = $this->model_tool_image->resize($file['path'], $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
-					} catch (\Exception $e) {
-						// Final fallback - use placeholder or empty
-						$thumbnail = bucket_file_url_not_found();
-					}
-				}
-				
-				$data['images'][] = [
-					'name'  => $file['name'],
-					'path'  => $file['path'],
-					'href'  => bucket_file_url($s3FullPath),
-					'thumb' => $thumbnail
-				];
-			}
-	
+			$directories = $this->processDirectories($objects['CommonPrefixes'] ?? [], $filterName, $s3BasePath);
+			$files = $this->processFiles($objects['Contents'] ?? [], $filterName, $s3BasePath, $allowedExtensions, $fullS3Path);
+			
 		} catch (\Exception $e) {
 			error_log("S3 List Error: " . $e->getMessage());
-			$data['directories'] = [];
-			$data['images'] = [];
-			$total = 0;
 		}
 	
-		// Rest of your method remains the same...
-		// ...
-		
+		$data = $this->paginateAndPrepareData($directories, $files, $page, $s3BasePath);
 		$this->response->setOutput($this->load->view('common/filemanager_list', $data));
 	}
 
-
+	private function getCurrentDirectory(): string {
+		if (isset($this->request->get['directory'])) {
+			return rtrim(html_entity_decode($this->request->get['directory'], ENT_QUOTES, 'UTF-8'), '/') . '/';
+		}
+		return '';
+	}
+	
+	private function getFilterName(): string {
+		return isset($this->request->get['filter_name'])
+			? basename(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'))
+			: '';
+	}
+	
+	private function getPage(): int {
+		return isset($this->request->get['page']) ? (int)$this->request->get['page'] : 1;
+	}
+	
+	private function getAllowedExtensions(): array {
+		$extensions = explode("\r\n", $this->config->get('config_file_ext_allowed'));
+		$allowed = [];
+		foreach ($extensions as $ext) {
+			$allowed[] = '.' . strtolower($ext);
+			$allowed[] = '.' . strtoupper($ext);
+		}
+		return $allowed;
+	}
+	
+	private function processDirectories(array $prefixes, string $filter, string $base): array {
+		$dirs = [];
+		foreach ($prefixes as $prefix) {
+			$dirPath = rtrim($prefix['Prefix'], '/');
+			$dirName = substr($dirPath, strrpos($dirPath, '/') + 1);
+	
+			if ($filter && !str_starts_with($dirName, $filter)) continue;
+	
+			$relativePath = substr($dirPath, strlen($base));
+			$dirs[] = [
+				'name' => $dirName,
+				'path' => $relativePath . '/'
+			];
+		}
+		return $dirs;
+	}
+	
+	private function processFiles(array $contents, string $filter, string $base, array $allowed, string $fullPath): array {
+		$files = [];
+		foreach ($contents as $object) {
+			if ($object['Key'] === $fullPath || substr($object['Key'], -1) === '/') continue;
+	
+			$fileName = basename($object['Key']);
+			if ($filter && !str_starts_with($fileName, $filter)) continue;
+	
+			$ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+			if (in_array('.' . $ext, $allowed)) {
+				$files[] = [
+					'name' => $fileName,
+					'path' => substr($object['Key'], strlen($base)),
+					's3_path' => $object['Key'],
+					'size' => $object['Size'],
+					'last_modified' => $object['LastModified']
+				];
+			}
+		}
+		return $files;
+	}
+	
+	private function paginateAndPrepareData(array $directories, array $files, int $page, string $basePath): array {
+		$limit = 16;
+		$start = ($page - 1) * $limit;
+	
+		$this->load->model('tool/image');
+	
+		$url = $this->getUrlQuery();
+		$data = [
+			'directories' => [],
+			'images' => []
+		];
+	
+		// Diretórios
+		foreach (array_slice($directories, $start, $limit) as $dir) {
+			$data['directories'][] = [
+				'name' => $dir['name'],
+				'path' => $dir['path'],
+				'href' => $this->url->link(
+					'common/filemanager.list',
+					'user_token=' . $this->session->data['user_token'] . '&directory=' . urlencode($dir['path']) . $url
+				)
+			];
+		}
+	
+		// Arquivos
+		$filesLimit = $limit - count($data['directories']);
+		foreach (array_slice($files, $start, $filesLimit) as $file) {
+			$s3FullPath = "s3://" . S3_BUCKET . '/' . $file['s3_path'];
+			$thumbnail = $this->getThumbnail($file);
+	
+			$data['images'][] = [
+				'name'  => $file['name'],
+				'path'  => $file['path'],
+				'href'  => bucket_file_url($s3FullPath),
+				'thumb' => $thumbnail
+			];
+		}
+	
+		return $data;
+	}
+	
+	private function getThumbnail(array $file): string {
+		try {
+			return $this->model_tool_image->resize(
+				$file['s3_path'],
+				$this->config->get('config_image_default_width'),
+				$this->config->get('config_image_default_height')
+			);
+		} catch (\Exception $e) {
+			try {
+				return $this->model_tool_image->resize(
+					$file['path'],
+					$this->config->get('config_image_default_width'),
+					$this->config->get('config_image_default_height')
+				);
+			} catch (\Exception $e) {
+				return bucket_file_url_not_found();
+			}
+		}
+	}
+	
+	private function getUrlQuery(): string {
+		$parts = [];
+		foreach (['target', 'thumb', 'ckeditor'] as $key) {
+			if (isset($this->request->get[$key])) {
+				$parts[] = $key . '=' . $this->request->get[$key];
+			}
+		}
+		return $parts ? '&' . implode('&', $parts) : '';
+	}
+	
 
 
 	public function upload(): void {
