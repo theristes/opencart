@@ -346,6 +346,10 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		foreach ($results as $result) {
 			echo(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'));
+			echo("</br>");
+			echo($result['image']);
+			echo("</br>");
+			
 			if ($result['image'] && is_bucket_file(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 				$image = $result['image'];
 			} else {
