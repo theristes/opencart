@@ -249,9 +249,12 @@ function resize_image(string $filename, int $width, int $height, string $default
     // s3_base_url =  https://s3bucket.aws.region.com/
 
     $path = dirname($filename);
-    echo("path=" . $path);
+    // path = images
     $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
+    // name = <file.png>
+    echo('name=' . $name);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
+    // extension = .png
 
     $resized_file = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
     $original_file = $filename;
