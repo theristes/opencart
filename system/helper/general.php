@@ -260,14 +260,14 @@ function resize_image(string $filename, int $width, int $height, string $default
         'images/' . ltrim($original_file, '/')
     ];
 
-    teststore/images/7795320008791-800x800.png
-    images/images/7795320008791-800x800.png
-    teststore/images/7795320008791.png
-    images/images/7795320008791.png
-    teststore/images/7795320008791-500x500.png
-    images/images/7795320008791-500x500.png
-    teststore/images/7795320008791.png
-    images/images/7795320008791.png
+    // teststore/images/7795320008791-800x800.png
+    // images/images/7795320008791-800x800.png
+    // teststore/images/7795320008791.png
+    // images/images/7795320008791.png
+    // teststore/images/7795320008791-500x500.png
+    // images/images/7795320008791-500x500.png
+    // teststore/images/7795320008791.png
+    // images/images/7795320008791.png
 
 
 
