@@ -236,7 +236,9 @@ if (!function_exists('delete_from_bucket')) {
     }
 }
 function resize_image(string $filename, int $width, int $height, string $default = ''): string {
-    if (empty($filename)) return '';
+
+    if (empty($filename)) 
+        return '';
 
     $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
 
@@ -251,12 +253,23 @@ function resize_image(string $filename, int $width, int $height, string $default
     $original_file = $filename;
 
     $try_paths = [
+        $filename,
         $store_name . '/' . ltrim($resized_file, '/'),
         'images/' . ltrim($resized_file, '/'),
         $store_name . '/' . ltrim($original_file, '/'),
         'images/' . ltrim($original_file, '/')
     ];
-    
+
+    teststore/images/7795320008791-800x800.png
+    images/images/7795320008791-800x800.png
+    teststore/images/7795320008791.png
+    images/images/7795320008791.png
+    teststore/images/7795320008791-500x500.png
+    images/images/7795320008791-500x500.png
+    teststore/images/7795320008791.png
+    images/images/7795320008791.png
+
+
 
     foreach ($try_paths as $try) {
         echo($try);
