@@ -241,11 +241,15 @@ function resize_image(string $filename, int $width, int $height, string $default
         return '';
 
     $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
+    // $filename = images/<file.png>
 
-    $store_name = defined('STORE_NAME') ? STORE_NAME : '';
+    $store_name =  STORE_NAME;
+    // store_name  = teststore
     $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
+    // s3_base_url =  https://s3bucket.aws.region.com/
 
     $path = dirname($filename);
+    echo("path=" . $path)
     $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
@@ -259,15 +263,6 @@ function resize_image(string $filename, int $width, int $height, string $default
         $store_name . '/' . ltrim($original_file, '/'),
         'images/' . ltrim($original_file, '/')
     ];
-
-    // teststore/images/7795320008791-800x800.png
-    // images/images/7795320008791-800x800.png
-    // teststore/images/7795320008791.png
-    // images/images/7795320008791.png
-    // teststore/images/7795320008791-500x500.png
-    // images/images/7795320008791-500x500.png
-    // teststore/images/7795320008791.png
-    // images/images/7795320008791.png
 
 
 
