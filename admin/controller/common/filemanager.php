@@ -193,14 +193,14 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	
 	private function getThumbnail(array $file): string {
 		try {
-			return $this->model_tool_image->resize(
+			return $resize_image(
 				$file['s3_path'],
 				$this->config->get('config_image_default_width'),
 				$this->config->get('config_image_default_height')
 			);
 		} catch (\Exception $e) {
 			try {
-				return $this->model_tool_image->resize(
+				return $resize_image(
 					$file['path'],
 					$this->config->get('config_image_default_width'),
 					$this->config->get('config_image_default_height')

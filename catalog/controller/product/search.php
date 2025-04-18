@@ -218,7 +218,7 @@ class Search extends \Opencart\System\Engine\Controller {
 				}
 
 				$product_data = [
-					'thumb'       => $this->model_tool_image->resize($image, $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height')),
+					'thumb'       => $resize_image($image, $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height')),
 					'description' => $description,
 					'price'       => $price,
 					'special'     => $special,
