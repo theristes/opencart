@@ -34,7 +34,7 @@ class Image extends \Opencart\System\Engine\Model {
         $image_old = $filename;
     
         // Generate new filename in the SAME path as the original
-        $path = dirname($filename);
+        $path =  STORE_NAME;  //dirname($filename);
         $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
