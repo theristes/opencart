@@ -235,7 +235,6 @@ if (!function_exists('delete_from_bucket')) {
         ]);
     }
 }
-
 function resize_image(string $filename, int $width, int $height, string $default = ''): string {
     if (empty($filename)) return '';
 
@@ -265,6 +264,16 @@ function resize_image(string $filename, int $width, int $height, string $default
         }
     }
 
-    return bucket_file_url_not_found();
+    // Fallback: resized no_image.png
+    $no_image_base = 'no_image.png';
+    $no_image_name = basename($no_image_base, '.' . pathinfo($no_image_base, PATHINFO_EXTENSION));
+    $no_image_ext = pathinfo($no_image_base, PATHINFO_EXTENSION);
+    $no_image_resized = 'images/' . $no_image_name . '-' . (int)$width . 'x' . (int)$height . '.' . $no_image_ext;
+
+    if (is_bucket_file('s3://' . S3_BUCKET . '/' . $no_image_resized)) {
+        return $s3_base_url . $no_image_resized;
+    }
+
+    return bucket_file_url('s3://' . S3_BUCKET . '/' . $no_image_base);
 }
 
