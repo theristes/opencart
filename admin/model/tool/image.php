@@ -39,6 +39,8 @@ class Image extends \Opencart\System\Engine\Model {
         
         $image_relative = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
         
+        $image_old = $filename;
+        
         $image_new = $store_name . '/' . ltrim($image_relative, '/');
                 
         if (is_bucket_file($image_new)) {
