@@ -235,57 +235,52 @@ if (!function_exists('delete_from_bucket')) {
         ]);
     }
 }
-function resize_image(string $filename, int $width, int $height, string $default = ''): string {
 
-    if (empty($filename)) 
-        return '';
+if (!function_exists('resize_image')) {
+    function resize_image(string $filename, int $width, int $height, string $default = ''): string {
 
-    $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
-    // $filename = images/<file.png>
+        if (empty($filename))  return '';
 
-    $store_name =  STORE_NAME;
-    // store_name  = teststore
-    $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
-    // s3_base_url =  https://s3bucket.aws.region.com/
+        $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
 
-    $path = dirname($filename);
-    // path = images
-    $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
-    // name = <file.png>
-    echo('name=' . $name);
-    $extension = pathinfo($filename, PATHINFO_EXTENSION);
-    // extension = .png
+        $store_name =  STORE_NAME;
 
-    $resized_file = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
-    $original_file = $filename;
+        $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
 
-    $try_paths = [
-        $filename,
-        $store_name . '/' . ltrim($resized_file, '/'),
-        'images/' . ltrim($resized_file, '/'),
-        $store_name . '/' . ltrim($original_file, '/'),
-        'images/' . ltrim($original_file, '/')
-    ];
+        $path = dirname($filename);
 
+        $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
 
+        echo('name=' . $name);
 
-    foreach ($try_paths as $try) {
-        echo($try);
-        $s3_path = 's3://' . S3_BUCKET . '/' . $try;
-        if (is_bucket_file($s3_path)) {
-            return $s3_base_url . $try;
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+        $resized_file = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
+
+        $original_file = $filename;
+
+        $no_image_base = 'no_image.png';
+
+        $no_image_name = basename($no_image_base, '.' . pathinfo($no_image_base, PATHINFO_EXTENSION));
+        
+        $no_image_ext = pathinfo($no_image_base, PATHINFO_EXTENSION);
+        
+        $no_image_resized = $no_image_name . '-' . (int)$width . 'x' . (int)$height . '.' . $no_image_ext;
+
+        $try_paths = [ $resized_file, $filename, $no_image_resized, ];
+
+        foreach ($try_paths as $try) {
+
+            $s3_path = 's3://' . S3_BUCKET . '/' . $try;
+            
+            if (is_bucket_file($s3_path)) {
+            
+                return $s3_base_url . $try;
+            
+            }
         }
+
+        return $s3_base_url . $no_image_base;
     }
-
-    $no_image_base = 'no_image.png';
-    $no_image_name = basename($no_image_base, '.' . pathinfo($no_image_base, PATHINFO_EXTENSION));
-    $no_image_ext = pathinfo($no_image_base, PATHINFO_EXTENSION);
-    $no_image_resized = 'images/' . $no_image_name . '-' . (int)$width . 'x' . (int)$height . '.' . $no_image_ext;
-
-    if (is_bucket_file('s3://' . S3_BUCKET . '/' . $no_image_resized)) {
-        return $s3_base_url . $no_image_resized;
-    }
-
-    return bucket_file_url('s3://' . S3_BUCKET . '/' . $no_image_base);
 }
 
