@@ -38,9 +38,9 @@ class Special extends \Opencart\System\Engine\Controller {
 		if ($results) {
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'), $setting['width'], $setting['height']);
+					$image = $resize_image(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'), $setting['width'], $setting['height']);
 				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
+					$image = $resize_image('placeholder.png', $setting['width'], $setting['height']);
 				}
 
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {

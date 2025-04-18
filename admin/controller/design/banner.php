@@ -254,13 +254,13 @@ class Banner extends \Opencart\System\Engine\Controller {
 					'title'      => $value['title'],
 					'link'       => $value['link'],
 					'image'      => $image,
-					'thumb'      => $this->model_tool_image->resize($thumb, $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height')),
+					'thumb'      => $resize_image($thumb, $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height')),
 					'sort_order' => $value['sort_order']
 				];
 			}
 		}
 
-		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
+		$data['placeholder'] = $resize_image('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 
 		$data['user_token'] = $this->session->data['user_token'];
 

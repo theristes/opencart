@@ -346,8 +346,7 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		foreach ($results as $result) {
 			if ($result['image'] && is_bucket_file(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
-				$image =  html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8');
-				//$result['image'];
+				$image = $result['image'];
 			} else {
 				$image = 'no_image.png';
 			}
@@ -365,7 +364,7 @@ class Product extends \Opencart\System\Engine\Controller {
 			}
 
 			$data['products'][] = [
-				'image'   => $this->model_tool_image->resize($image, 40, 40),
+				'image'   => $resize_image($image, 40, 40),
 				'price'   => $this->currency->format($result['price'], $this->config->get('config_currency')),
 				'special' => $special,
 				'edit'    => $this->url->link('catalog/product.form', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $result['product_id'] . ($result['master_id'] ? '&master_id=' . $result['master_id'] : '') . $url),
@@ -1097,11 +1096,11 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('tool/image');
 
-		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', (int)$this->config->get('config_image_default_width'), (int)$this->config->get('config_image_default_height'));
+		$data['placeholder'] = $resize_image('no_image.png', (int)$this->config->get('config_image_default_width'), (int)$this->config->get('config_image_default_height'));
 
 		
 		if ($data['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8'))) {
-			$data['thumb'] = $this->model_tool_image->resize($data['image'], (int)$this->config->get('config_image_default_width'), (int)$this->config->get('config_image_default_height'));
+			$data['thumb'] = $resize_image($data['image'], (int)$this->config->get('config_image_default_width'), (int)$this->config->get('config_image_default_height'));
 		} else {
 			$data['thumb'] = $data['placeholder'];
 		}
@@ -1126,7 +1125,7 @@ class Product extends \Opencart\System\Engine\Controller {
 
 			$data['product_images'][] = [
 				'image' => $image,
-				'thumb' => $this->model_tool_image->resize(
+				'thumb' => $resize_image(
 					$thumb
 					, (int)$this->config->get('config_image_default_width')
 					, (int)$this->config->get('config_image_default_height')
