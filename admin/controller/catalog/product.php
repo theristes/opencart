@@ -345,11 +345,6 @@ class Product extends \Opencart\System\Engine\Controller {
 		$results = $this->model_catalog_product->getProducts($filter_data);
 
 		foreach ($results as $result) {
-			echo(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'));
-			echo("</br>");
-			echo($result['image']);
-			echo("</br>");
-			
 			if ($result['image'] && is_bucket_file(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 				$image = $result['image'];
 			} else {
