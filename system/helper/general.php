@@ -253,9 +253,16 @@ if (!function_exists('resize_image')) {
 
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-        $resized_file = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
+        $folder = 'cache'
+
+        $resized_file =  STORE_NAME . '/' . $folder . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
 
         $original_file = $filename;
+        
+        if (is_bucket_file($s3_path = 's3://' . S3_BUCKET . '/' . $original_file)) {
+            resize_and_upload_image($original_file, $resized_file, $width, $height)   
+        }
+
 
         $no_image_base = 'no_image.png';
 
@@ -279,6 +286,31 @@ if (!function_exists('resize_image')) {
         }
 
         return $s3_base_url . $no_image_base;
+    }
+}
+
+
+function resize_and_upload_image(string $source, string $destPath, int $width, int $height, string $default = '') {
+    $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
+
+    $source_path = DIR_IMAGE . ltrim($source, '/');
+    $dest_path = DIR_IMAGE . ltrim($destPath, '/');
+    $s3_path = ltrim($destPath, '/');
+
+    if (!file_exists($source_path)) {
+        error_log("Source image not found: $source_path");
+        return;
+    }
+
+    try {
+        $image = new \Opencart\System\Library\Image($source_path);
+        $image->resize($width, $height, $default);
+        $image->save($dest_path);
+
+        upload_to_bucket($dest_path, $s3_path);
+    } catch (\Exception $e) {
+        error_log('Failed to resize and upload image: ' . $e->getMessage());
+        return ;
     }
 }
 
