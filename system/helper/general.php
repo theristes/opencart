@@ -236,86 +236,35 @@ if (!function_exists('delete_from_bucket')) {
     }
 }
 
-if (!function_exists('resize_image')) {
-    function resize_image(string $filename, int $width, int $height, string $default = ''): string {
-        if (empty($filename)) return '';
-    
-        $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
-    
-        $store_name = defined('STORE_NAME') ? STORE_NAME : '';
-        $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
-    
-        $path = dirname($filename);
-        $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-    
-        $image_relative = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
-        $image_new = $store_name . '/' . ltrim($image_relative, '/');
-        $image_old = $store_name . '/' . ltrim($filename, '/');
-    
-        // If resized version exists in bucket, return it
-        if (is_bucket_file('s3://' . S3_BUCKET . '/' . $image_new)) {
-            return $s3_base_url . $image_new;
+function resize_image(string $filename, int $width, int $height, string $default = ''): string {
+    if (empty($filename)) return '';
+
+    $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
+
+    $store_name = defined('STORE_NAME') ? STORE_NAME : '';
+    $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
+
+    $path = dirname($filename);
+    $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+    $resized_file = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
+    $original_file = $filename;
+
+    $try_paths = [
+        $store_name . '/' . ltrim($resized_file, '/'),
+        'images/' . ltrim($resized_file, '/'),
+        $store_name . '/' . ltrim($original_file, '/'),
+        'images/' . ltrim($original_file, '/')
+    ];
+
+    foreach ($try_paths as $try) {
+        $s3_path = 's3://' . S3_BUCKET . '/' . $try;
+        if (is_bucket_file($s3_path)) {
+            return $s3_base_url . $try;
         }
-    
-        // Otherwise, return original version if it exists
-        if (is_bucket_file('s3://' . S3_BUCKET . '/' . $image_old)) {
-            return $s3_base_url . $image_old;
-        }
-    
-        // Or fallback placeholder
-        return bucket_file_url_not_found();
     }
 
+    return bucket_file_url_not_found();
 }
 
-/// OLDE ONE
-// function resize_image(string $filename, int $width, int $height, string $default = ''): string {
-//     if (empty($filename)) return '';
-
-//     $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
-
-//     $store_name = defined('STORE_NAME') ? STORE_NAME : '';
-//     $s3_base_url = defined('S3_BASE_URL') ? rtrim(S3_BASE_URL, '/') . '/' : '';
-
-//     $path = dirname($filename);
-//     $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
-//     $extension = pathinfo($filename, PATHINFO_EXTENSION);
-
-//     $image_relative = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
-//     $image_old = $filename;
-//     $image_new = $store_name . '/' . ltrim($image_relative, '/');
-
-//     if (is_bucket_file($image_new)) {
-//         return $s3_base_url . $image_new;
-//     }
-
-//     $source_path = DIR_IMAGE . $image_old;
-//     if (!file_exists($source_path)) {
-//         return bucket_file_url_not_found();
-//     }
-
-//     $image_info = @getimagesize($source_path);
-//     if (!$image_info) {
-//         return $s3_base_url . $image_old;
-//     }
-
-//     [$width_orig, $height_orig, $image_type] = $image_info;
-
-//     if (!in_array($image_type, [IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_WEBP])) {
-//         return $s3_base_url . $image_old;
-//     }
-
-    
-//     if ($width_orig != $width || $height_orig != $height) {
-//         $image = new \Opencart\System\Library\Image(DIR_IMAGE . $image_old);
-//         $image->resize($width, $height, $default);
-//         $image->save(DIR_IMAGE . $image_new);
-//     } else {
-//         copy(DIR_IMAGE . $image_old, DIR_IMAGE . $image_new);
-//     }
-
-//     upload_to_bucket(DIR_IMAGE . $image_relative, $image_new);
-
-//     return $s3_base_url . $image_new;
-// }
