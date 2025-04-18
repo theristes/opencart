@@ -221,7 +221,7 @@ if (!function_exists('bucket_file_url')) {
 }
 
 if (!function_exists('bucket_file_url_not_found')) {
-    function bucket_file_url_not_found(string $default = 'images/placeholder.png'): string {
+    function bucket_file_url_not_found(string $default = 'no_image.png'): string {
         return bucket_file_url("s3://" . S3_BUCKET . '/' . ltrim($default, '/'));
     }
 }
