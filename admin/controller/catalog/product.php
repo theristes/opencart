@@ -1088,8 +1088,6 @@ class Product extends \Opencart\System\Engine\Controller {
 			] + $product_discount;
 		}
 
-		echo($product_info['image']);
-		return;
 		// Image
 		if (!empty($product_info)) {
 			$data['image'] = $product_info['image'];

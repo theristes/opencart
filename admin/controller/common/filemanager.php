@@ -221,8 +221,6 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		return $parts ? '&' . implode('&', $parts) : '';
 	}
 	
-
-
 	public function upload(): void {
 		$this->load->language('common/filemanager');
 		$json = [];
