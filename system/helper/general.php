@@ -256,8 +256,7 @@ function resize_image(string $filename, int $width, int $height, string $default
         $store_name . '/' . ltrim($original_file, '/'),
         'images/' . ltrim($original_file, '/')
     ];
-
-    return "";
+    
 
     foreach ($try_paths as $try) {
         echo($try);
