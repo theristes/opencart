@@ -30,6 +30,8 @@ class Image extends \Opencart\System\Engine\Model {
         $filename = html_entity_decode($filename, ENT_QUOTES, 'UTF-8');
         
         $store_name = STORE_NAME;
+
+        $s3_base_url = S3_BASE_URL;
         
         $path = dirname($filename);
         
