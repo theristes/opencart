@@ -144,7 +144,7 @@ class Blog extends \Opencart\System\Engine\Controller {
 		$this->load->model('tool/image');
 
 		if (!empty($topic_info['image']) && is_bucket_file(DIR_IMAGE . html_entity_decode($topic_info['image'], ENT_QUOTES, 'UTF-8'))) {
-			$data['image'] = $resize_image($topic_info['image'], $this->config->get('config_image_topic_width'), $this->config->get('config_image_topic_height'));
+			$data['image'] = resize_image(($topic_info['image'], $this->config->get('config_image_topic_width'), $this->config->get('config_image_topic_height'));
 		} else {
 			$data['image'] = '';
 		}
@@ -176,7 +176,7 @@ class Blog extends \Opencart\System\Engine\Controller {
 			}
 
 			if ($result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
-				$image = $resize_image($result['image'], $this->config->get('config_image_article_width'), $this->config->get('config_image_article_height'));
+				$image = resize_image(($result['image'], $this->config->get('config_image_article_width'), $this->config->get('config_image_article_height'));
 			} else {
 				$image = '';
 			}
@@ -391,7 +391,7 @@ class Blog extends \Opencart\System\Engine\Controller {
 			$this->load->model('tool/image');
 
 			if (!empty($article_info['image']) && is_bucket_file(DIR_IMAGE . html_entity_decode($article_info['image'], ENT_QUOTES, 'UTF-8'))) {
-				$data['image'] = $resize_image($article_info['image'], $this->config->get('config_image_article_width'), $this->config->get('config_image_article_height'));
+				$data['image'] = resize_image(($article_info['image'], $this->config->get('config_image_article_width'), $this->config->get('config_image_article_height'));
 			} else {
 				$data['image'] = '';
 			}

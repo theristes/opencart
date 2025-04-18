@@ -266,12 +266,12 @@ class Option extends \Opencart\System\Engine\Controller {
 				'option_value_id'          => $option_value['option_value_id'],
 				'option_value_description' => $option_value['option_value_description'],
 				'image'                    => $image,
-				'thumb'                    => $resize_image($thumb, $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height')),
+				'thumb'                    => resize_image(($thumb, $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height')),
 				'sort_order'               => $option_value['sort_order']
 			];
 		}
 
-		$data['placeholder'] = $resize_image('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
+		$data['placeholder'] = resize_image(('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 
 		$data['user_token'] = $this->session->data['user_token'];
 
@@ -453,7 +453,7 @@ class Option extends \Opencart\System\Engine\Controller {
 						$option_value_data[] = [
 							'option_value_id' => $option_value['option_value_id'],
 							'name'            => strip_tags(html_entity_decode($option_value['name'], ENT_QUOTES, 'UTF-8')),
-							'image'           => $resize_image($image, 50, 50)
+							'image'           => resize_image(($image, 50, 50)
 						];
 					}
 
