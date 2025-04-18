@@ -296,8 +296,8 @@ class Product extends \Opencart\System\Engine\Controller {
 			$this->load->model('tool/image');
 
 			if ($product_info['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($product_info['image'], ENT_QUOTES, 'UTF-8'))) {
-				$data['popup'] = resize_image(($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
-				$data['thumb'] = resize_image(($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+				$data['popup'] = resize_image($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
+				$data['thumb'] = resize_image($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
 			} else {
 				$data['popup'] = '';
 				$data['thumb'] = '';
@@ -310,8 +310,8 @@ class Product extends \Opencart\System\Engine\Controller {
 			foreach ($results as $result) {
 				if ($result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 					$data['images'][] = [
-						'popup' => resize_image(($result['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
-						'thumb' => resize_image(($result['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
+						'popup' => resize_image($result['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
+						'thumb' => resize_image($result['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
 					];
 				}
 			}
@@ -374,7 +374,7 @@ class Product extends \Opencart\System\Engine\Controller {
 							}
 
 							$product_option_value_data[] = [
-								'image' => resize_image(($image, 50, 50),
+								'image' => resize_image($image, 50, 50),
 								'price' => $price
 							] + $option_value;
 						}
