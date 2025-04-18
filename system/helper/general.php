@@ -251,8 +251,6 @@ if (!function_exists('resize_image')) {
 
         $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
 
-        echo('name=' . $name);
-
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
         $resized_file = $path . '/' . $name . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
