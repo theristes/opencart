@@ -86,9 +86,9 @@ class Header extends \Opencart\System\Engine\Controller {
 			$this->load->model('tool/image');
 
 			if ($user_info['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($user_info['image'], ENT_QUOTES, 'UTF-8'))) {
-				$data['image'] = resize_image(($user_info['image'], 45, 45);
+				$data['image'] = resize_image($user_info['image'], 45, 45);
 			} else {
-				$data['image'] = resize_image(('profile.png', 45, 45);
+				$data['image'] = resize_image('profile.png', 45, 45);
 			}
 
 			// Stores
