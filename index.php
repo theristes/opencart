@@ -10,3 +10,5 @@ require_once(DIR_SYSTEM . 'startup.php');
 
 
 require_once(DIR_SYSTEM . 'framework.php');
+
+define('DEBUG_PROFILER', true);
