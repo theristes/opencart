@@ -249,7 +249,7 @@ function resize_image(string $filename, int $width, int $height, string $default
     // s3_base_url =  https://s3bucket.aws.region.com/
 
     $path = dirname($filename);
-    echo("path=" . $path)
+    echo("path=" . $path);
     $name = basename($filename, '.' . pathinfo($filename, PATHINFO_EXTENSION));
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
