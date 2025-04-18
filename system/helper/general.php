@@ -259,8 +259,10 @@ if (!function_exists('resize_image')) {
 
         $original_file = $filename;
         
-        if (is_bucket_file($s3_path = 's3://' . S3_BUCKET . '/' . $resized_file)) {
-            resize_and_upload_image($original_file, $resized_file, $width, $height);
+        if (is_bucket_file($s3_path = 's3://' . S3_BUCKET . '/' . $original_file)) {
+            if !is_bucket_file($s3_path = 's3://' . S3_BUCKET . '/' . $resized_file) {
+                resize_and_upload_image($original_file, $resized_file, $width, $height);
+            }
         }
 
         $no_image_base = 'no_image.png';
