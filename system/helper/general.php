@@ -257,7 +257,8 @@ function resize_image(string $filename, int $width, int $height, string $default
         'images/' . ltrim($original_file, '/')
     ];
 
-
+    return;
+    
     foreach ($try_paths as $try) {
         echo($try);
         $s3_path = 's3://' . S3_BUCKET . '/' . $try;
