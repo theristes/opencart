@@ -16,9 +16,9 @@
           {% for banner in carousel %}
             <div class="col-{{ (12 / items)|round }} text-center">
               {% if banner.link %}
-                <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-fluid" width="100%" heigth="100%"  /></a>
+                <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-fluid" width="{{ banner.width|default('100%') }}" heigth="{{ banner.heigth|default('100%') }}"  /></a>
               {% else %}
-                <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-fluid" width="100%" heigth="100%"/>
+                <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-fluid" width="{{ banner.width|default('100%') }}" heigth="{{ banner.heigth|default('100%') }}" />
               {% endif %}
             </div>
           {% endfor %}
