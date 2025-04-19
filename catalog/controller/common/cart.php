@@ -72,7 +72,9 @@ class Cart extends \Opencart\System\Engine\Controller {
 			}
 
 			$data['products'][] = [
-				'thumb'        => resize_image($product['image'], $this->config->get('config_image_cart_width'), $this->config->get('config_image_cart_height')),
+				'thumb'       	=> fetcb_image($product['image']),
+				'thumb_width'	=> $this->config->get('config_image_product_width'),
+				'thumb_height' 	=> $this->config->get('config_image_product_height'),
 				'subscription' => $subscription,
 				'price'        => $price_status ? $product['price_text'] : '',
 				'total'        => $price_status ? $product['total_text'] : '',

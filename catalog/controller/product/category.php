@@ -259,7 +259,9 @@ class Category extends \Opencart\System\Engine\Controller {
 
 				$product_data = [
 					'description' => $description,
-					'thumb'       => resize_image($image, $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height')),
+					'thumb'       => fetcb_image($image),
+					'thumb_width'	 => $this->config->get('config_image_product_width'),
+					'thumb_height' 	=> $this->config->get('config_image_product_height'),
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
