@@ -315,7 +315,7 @@ class Product extends \Opencart\System\Engine\Controller {
 			foreach ($results as $result) {
 				if ($result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 					$data['images'][] = [
-						'popup' => fetch_image($result['image'])
+						'popup' => fetch_image($result['image']),
 						// , $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
 						'thumb' => fetch_image($result['image'])
 						// , $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
