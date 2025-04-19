@@ -174,7 +174,9 @@ class Category extends \Opencart\System\Engine\Controller {
                 : 'no_image.png';
 
 			$data['categories'][] = [
-                'image' => resize_image($image, 40, 40),
+                'image' => fetch_image($image),
+				'width' => 40,
+				'height' => 40,
                 'edit' => $this->url->link('catalog/category.form', 'user_token=' . $this->session->data['user_token'] . '&category_id=' . $result['category_id'] . $url)
                 ] + $result;
 		}
@@ -361,7 +363,7 @@ class Category extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('tool/image');
 
-		$data['placeholder'] = resize_image('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
+		$data['placeholder'] = fetch_image('no_image.png');
 
 		if ($data['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8'))) {
 			$data['thumb'] = fetch_image($data['image']);

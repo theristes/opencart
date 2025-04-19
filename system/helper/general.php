@@ -294,9 +294,6 @@ if (!function_exists('resize_image')) {
     }
 }
 
-// resize_image('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'))
-// fetch_image('no_image.png')
-
 if (!function_exists('fetch_image')) {
     function fetch_image(string $filename): string {
         if (empty($filename)) return '';
