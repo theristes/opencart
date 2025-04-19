@@ -197,7 +197,7 @@ class Manufacturer extends \Opencart\System\Engine\Controller {
 				}
 
 				$product_data = [
-					'thumb'       	=> fetcb_image($image),
+					'thumb'       	=> fetch_image($image),
 					'thumb_width'	=> $this->config->get('config_image_product_width'),
 					'thumb_height' 	=> $this->config->get('config_image_product_height'),
 					'description' => $description,
