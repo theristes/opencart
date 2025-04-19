@@ -224,7 +224,8 @@ class Topic extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('tool/image');
 
-		$data['placeholder'] = resize_image('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
+		$data['placeholder'] = fetch_image('no_image.png');
+		// , $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 
 		$data['topic_description'] = [];
 
@@ -235,7 +236,8 @@ class Topic extends \Opencart\System\Engine\Controller {
 				$data['topic_description'][$key] = $result;
 
 				if ($result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
-					$data['topic_description'][$key]['thumb'] = resize_image($result['image'], $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
+					$data['topic_description'][$key]['thumb'] = fetch_image($result['image']);
+					// , $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 				} else {
 					$data['topic_description'][$key]['thumb'] = $data['placeholder'];
 				}
