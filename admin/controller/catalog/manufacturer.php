@@ -128,10 +128,13 @@ class Manufacturer extends \Opencart\System\Engine\Controller {
                 : 'no_image.png';
 
             $data['manufacturers'][] = [
-                    'image' => resize_image($image, 40, 40),
+                    'image' => fetch_image($image),
+					'width' => 40,
+					'height' => 40,
                     'edit'  => $this->url->link('catalog/manufacturer.form', 'user_token=' . $this->session->data['user_token'] . '&manufacturer_id=' . $result['manufacturer_id'] . $url),
                 ] + $result;
         }
+
 
 		$url = '';
 
@@ -259,14 +262,12 @@ class Manufacturer extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('tool/image');
 
-		$data['placeholder'] = resize_image('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
-
 		if ($data['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8'))) {
 			$data['thumb'] = fetch_image($data['image']);
 			$data['thumb_height'] = $this->config->get('config_image_default_height');
 			$data['thumb_width'] = $this->config->get('config_image_default_width');
 		} else {
-			$data['thumb'] = $data['placeholder'];
+			$data['thumb'] = fetch_image('no_image.png');
 			$data['thumb_height'] = $this->config->get('config_image_default_height');
 			$data['thumb_width'] = $this->config->get('config_image_default_width');
 		}

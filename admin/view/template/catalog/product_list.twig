@@ -16,8 +16,8 @@
         {% if products %}
           {% for product in products %}
             <tr{% if not product.variant %} class="table-warning"{% endif %}>
-              <td class="text-center"><input type="checkbox" name="selected[]" value="{{ product.product_id }}" class="form-check-input"/></td>
-              <td class="text-center"><img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail"/></td>
+              <td class="text-center"><input type="checkbox" name="selected[]" value="{{ product.product_id }}" class="for'm-check-input"/></td>
+              <td class="text-center"><img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" width="{{ product.width }}" height="{{ product.height }}" /></td>
               <td>{{ product.name }}
                 {% if product.status %}
                   <span class="badge text-bg-success">{{ text_enabled }}</span>

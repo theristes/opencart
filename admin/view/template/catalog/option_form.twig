@@ -95,7 +95,7 @@
                       {% endfor %}</td>
                     <td class="text-center">
                       <div class="border rounded d-block" style="max-width: 300px;">
-                        <img src="{{ option_value.thumb }}" alt="" title="" id="thumb-image-{{ option_value_row }}" data-oc-placeholder="{{ placeholder }}" class="img-fluid"/>
+                        <img src="{{ option_value.thumb }}" alt="" title="" id="thumb-image-{{ option_value_row }}" data-oc-placeholder="{{ placeholder }}" width="{{ option_value.width }}" height="{{ option_value.height }}"  class="img-fluid"/>
                         <input type="hidden" name="option_value[{{ option_value_row }}][image]" value="{{ option_value.image }}" id="input-image-{{ option_value_row }}"/>
                         <div class="d-grid">
                           <button type="button" data-oc-toggle="image" data-oc-target="#input-image-{{ option_value_row }}" data-oc-thumb="#thumb-image-{{ option_value_row }}" class="btn btn-primary rounded-0"><i class="fa-solid fa-pencil"></i> {{ button_edit }}</button>
