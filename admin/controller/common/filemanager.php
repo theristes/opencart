@@ -30,8 +30,12 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		// Return the thumbnail for the file manager to show a thumbnail
 		if (isset($this->request->get['thumb'])) {
 			$data['thumb'] = $this->request->get['thumb'];
+			$data['thumb_height'] = $this->config->get('config_image_default_height');
+			$data['thumb_width'] = $this->config->get('config_image_default_width');
 		} else {
 			$data['thumb'] = '';
+			$data['thumb_height'] = $this->config->get('config_image_default_height');
+			$data['thumb_width'] = $this->config->get('config_image_default_width');
 		}
 
 		if (isset($this->request->get['ckeditor'])) {

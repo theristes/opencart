@@ -297,10 +297,14 @@ class Product extends \Opencart\System\Engine\Controller {
 
 			if ($product_info['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($product_info['image'], ENT_QUOTES, 'UTF-8'))) {
 				$data['popup'] = resize_image($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
-				$data['thumb'] = resize_image($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+				$data['thumb'] = fetch_image($product_info['image']);
+				$data['thumb_height'] = $this->config->get('config_image_default_height');
+				$data['thumb_width'] = $this->config->get('config_image_default_width');
 			} else {
 				$data['popup'] = '';
 				$data['thumb'] = '';
+				$data['thumb_height'] = $this->config->get('config_image_default_height');
+				$data['thumb_width'] = $this->config->get('config_image_default_width');
 			}
 
 			$data['images'] = [];

@@ -476,9 +476,13 @@ class User extends \Opencart\System\Engine\Controller {
 		$data['placeholder'] = resize_image('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 
 		if ($data['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8'))) {
-			$data['thumb'] = resize_image($data['image'], $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
+			$data['thumb'] = fetch_image($data['image']);
+			$data['thumb_height'] = $this->config->get('config_image_default_height');
+			$data['thumb_width'] = $this->config->get('config_image_default_width');
 		} else {
 			$data['thumb'] = $data['placeholder'];
+			$data['thumb_height'] = $this->config->get('config_image_default_height');
+			$data['thumb_width'] = $this->config->get('config_image_default_width');
 		}
 
 		if (!empty($user_info)) {

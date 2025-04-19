@@ -13,7 +13,7 @@
           <div class="col-sm">
             <div class="image magnific-popup">
               {% if thumb %}
-                <a href="{{ popup }}" title="{{ heading_title }}"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" class="img-thumbnail mb-3"/></a>
+                <a href="{{ popup }}" title="{{ heading_title }}"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" class="img-thumbnail mb-3" width="{{ thumb_width}}"  height="{{ thumb_height }}"/></a>
               {% endif %}
               {% if images %}
                 <div>
