@@ -39,9 +39,10 @@ class Featured extends \Opencart\System\Engine\Controller {
 
 			foreach ($products as $product) {
 				if ($product['image']) {
-					$image = resize_image(html_entity_decode($product['image'], ENT_QUOTES, 'UTF-8'), $setting['width'], $setting['height']);
+					$image = fetch_image(html_entity_decode($product['image'], ENT_QUOTES, 'UTF-8'));
+					
 				} else {
-					$image = resize_image('placeholder.png', $setting['width'], $setting['height']);
+					$image = fetch_image('placeholder.png');
 				}
 
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
@@ -65,6 +66,8 @@ class Featured extends \Opencart\System\Engine\Controller {
 				$product_data = [
 					'product_id'  => $product['product_id'],
 					'thumb'       => $image,
+					'thumb_width' => $setting['width'],
+					'thumb_height'=> $setting['height'],
 					'name'        => $product['name'],
 					'description' => oc_substr(trim(strip_tags(html_entity_decode($product['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('config_product_description_length')) . '..',
 					'price'       => $price,
