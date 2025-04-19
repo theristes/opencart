@@ -31,7 +31,9 @@ class Banner extends \Opencart\System\Engine\Controller {
 				$data['banners'][] = [
 					'title' => $result['title'],
 					'link'  => $result['link'],
-					'image' => resize_image(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'), $setting['width'], $setting['height'])
+					'image' => fetch_image(html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8')), 
+					'width' => $setting['width'],
+					'height'=> $setting['height']
 				];
 			}
 		}
