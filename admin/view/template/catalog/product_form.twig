@@ -1164,7 +1164,7 @@
               <fieldset>
                 <legend>{{ text_image }}</legend>
                 <div id="image" class="border rounded d-block" style="max-width: 300px;">
-                  <img src="{{ thumb }}" alt="" title="" id="thumb-image" data-oc-placeholder="{{ placeholder }}" class="img-fluid"/> <input type="hidden" name="image" value="{{ image }}" id="input-image"/>
+                  <img src="{{ thumb }}" alt="" title="" id="thumb-image" data-oc-placeholder="{{ placeholder }}" class="img-fluid" width="{{ thumb_width}}"  height="{{ thumb_height }}"/> <input type="hidden" name="image" value="{{ image }}" id="input-image"/>
                   <div class="d-grid">
                     <button type="button" data-oc-toggle="image" data-oc-target="#input-image" data-oc-thumb="#thumb-image" class="btn btn-primary rounded-0"><i class="fa-solid fa-pencil"></i> {{ button_edit }}</button>
                     <button type="button" data-oc-toggle="clear" data-oc-target="#input-image" data-oc-thumb="#thumb-image" class="btn btn-warning rounded-0"><i class="fa-regular fa-trash-can"></i> {{ button_clear }}</button>

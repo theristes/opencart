@@ -79,9 +79,13 @@ class Setting extends \Opencart\System\Engine\Controller {
 		$data['placeholder'] = resize_image('no_image.png', $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 
 		if ($data['config_image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($data['config_image'], ENT_QUOTES, 'UTF-8'))) {
-			$data['thumb'] = resize_image($data['config_image'], $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
+			$data['thumb'] = fetch_image($data['config_image']);
+			$data['thumb_height'] = $this->config->get('config_image_default_height');
+			$data['thumb_width'] = $this->config->get('config_image_default_width');
 		} else {
 			$data['thumb'] = $data['placeholder'];
+			$data['thumb_height'] = $this->config->get('config_image_default_height');
+			$data['thumb_width'] = $this->config->get('config_image_default_width');
 		}
 
 		$data['config_open'] = $this->config->get('config_open');
