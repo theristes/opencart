@@ -56,15 +56,15 @@ class Related extends \Opencart\System\Engine\Controller {
 			}
 
 			$product_data = [
-				'thumb'       => fetch_image($image), 
-				'width'		  => $this->config->get('config_image_related_width'),
-				'height'	  => $this->config->get('config_image_related_height'),
-				'description' => $description,
-				'price'       => $price,
-				'special'     => $special,
-				'tax'         => $tax,
-				'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-				'href'        => $this->url->link('product/product', 'language=' . $this->config->get('config_language') . '&product_id=' . $result['product_id'])
+				'thumb'        => fetch_image($image), 
+				'thumb_width'  => $this->config->get('config_image_related_width'),
+				'thumb_height' => $this->config->get('config_image_related_height'),
+				'description'  => $description,
+				'price'        => $price,
+				'special'      => $special,
+				'tax'          => $tax,
+				'minimum'      => $result['minimum'] > 0 ? $result['minimum'] : 1,
+				'href'         => $this->url->link('product/product', 'language=' . $this->config->get('config_language') . '&product_id=' . $result['product_id'])
 			] + $result;
 
 			$data['products'][] = $this->load->controller('product/thumb', $product_data);
