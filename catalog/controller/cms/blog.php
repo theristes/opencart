@@ -145,10 +145,11 @@ class Blog extends \Opencart\System\Engine\Controller {
 
 		if (!empty($topic_info['image']) && is_bucket_file(DIR_IMAGE . html_entity_decode($topic_info['image'], ENT_QUOTES, 'UTF-8'))) {
 			$data['image'] = fetch_image($topic_info['image']);
-			// , $this->config->get('config_image_topic_width'), $this->config->get('config_image_topic_height'));
 		} else {
 			$data['image'] = '';
 		}
+		$data['image_width'] = $this->config->get('config_image_topic_width');
+		$data['image_height'] = $this->config->get('config_image_topic_height');
 
 		$limit = $this->config->get('config_pagination');
 
@@ -178,7 +179,6 @@ class Blog extends \Opencart\System\Engine\Controller {
 
 			if ($result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 				$image = fetch_image($result['image']);
-				// , $this->config->get('config_image_article_width'), $this->config->get('config_image_article_height'));
 			} else {
 				$image = '';
 			}
@@ -186,6 +186,8 @@ class Blog extends \Opencart\System\Engine\Controller {
 			$data['articles'][] = [
 				'description'   => $description,
 				'image'         => $image,
+				'image_width'   => $this->config->get('config_image_article_width'),
+				'image_height'  => $this->config->get('config_image_article_height'),
 				'filter_author' => $this->url->link('cms/blog', 'language=' . $this->config->get('config_language') . '&author=' . $result['author'] . $url),
 				'comment_total' => $this->model_cms_article->getTotalComments($result['article_id'], ['parent_id' => 0]),
 				'date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),

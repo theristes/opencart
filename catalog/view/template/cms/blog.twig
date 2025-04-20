@@ -11,7 +11,7 @@
       {{ content_top }}
       <h1>{{ heading_title }}</h1>
       {% if image %}
-        <img src="{{ image }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail mb-3"/>
+        <img src="{{ image }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail mb-3" width="{{ image_width }}" height="{{ image_height }}" />
       {% endif %}
       {% if description %}
         <div class="mb-3">{{ description }}</div>
@@ -46,7 +46,7 @@
           <div class="mb-3">
             <h2><a href="{{ article.href }}">{{ article.name }}</a></h2>
             {% if article.image %}
-              <div><a href="{{ article.href }}"><img src="{{ article.image }}" title="{{ article.name }}" alt="{{ article.name }}" class="img-thumbnail mb-1"/></a></div>
+              <div><a href="{{ article.href }}"><img src="{{ article.image }}" title="{{ article.name }}" alt="{{ article.name }}" class="img-thumbnail mb-1" width="{{ article.image_width }}" height="{{ article.image_height }}"/></a></div>
             {% endif %}
             <ul class="list-inline">
               <li class="list-inline-item">{{ text_by }} <a href="{{ article.filter_author }}">{{ article.author }}</a></li>

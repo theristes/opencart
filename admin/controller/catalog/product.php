@@ -1134,7 +1134,9 @@ class Product extends \Opencart\System\Engine\Controller {
 				'image' => $image,
 				'thumb' => fetch_image($thumb),
 				'width' => (int)$this->config->get('config_image_default_width'), 
-				'height' =>(int)$this->config->get('config_image_default_height')
+				'height' =>(int)$this->config->get('config_image_default_height'),
+				'thumb_width' => (int)$this->config->get('config_image_default_width'), 
+				'thumb_height' =>(int)$this->config->get('config_image_default_height')
 			] + $product_image;
 		}
 

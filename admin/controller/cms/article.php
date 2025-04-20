@@ -231,7 +231,8 @@ class Article extends \Opencart\System\Engine\Controller {
 		$this->load->model('tool/image');
 
 		$data['placeholder'] = fetch_image('no_image.png');
-		// , $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
+		$data['image_width'] = $this->config->get('config_image_default_width');
+		$data['image_height'] = $this->config->get('config_image_default_height');
 
 		$data['article_description'] = [];
 
@@ -243,7 +244,6 @@ class Article extends \Opencart\System\Engine\Controller {
 
 				if ($result['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($result['image'], ENT_QUOTES, 'UTF-8'))) {
 					$data['article_description'][$key]['thumb'] = fetch_image($result['image']);
-					// , $this->config->get('config_image_default_width'), $this->config->get('config_image_default_height'));
 				} else {
 					$data['article_description'][$key]['thumb'] = $data['placeholder'];
 				}

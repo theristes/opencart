@@ -34,11 +34,11 @@ class Contact extends \Opencart\System\Engine\Controller {
 
 		if ($this->config->get('config_image') && is_bucket_file(DIR_IMAGE . html_entity_decode($this->config->get('config_image'), ENT_QUOTES, 'UTF-8'))) {
 			$data['image'] = fetch_image($this->config->get('config_image'));
-			// , $this->config->get('config_image_location_width'), $this->config->get('config_image_location_height'));
 		} else {
 			$data['image'] = '';
 		}
-
+		$data['image_width'] = $this->config->get('config_image_width');
+		$data['image_height'] = $this->config->get('config_image_height');
 		$data['store'] = $this->config->get('config_name');
 		$data['address'] = nl2br($this->config->get('config_address'));
 		$data['geocode'] = $this->config->get('config_geocode');
@@ -57,7 +57,6 @@ class Contact extends \Opencart\System\Engine\Controller {
 			if ($location_info) {
 				if ($location_info['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($location_info['image'], ENT_QUOTES, 'UTF-8'))) {
 					$image = fetch_image($location_info['image']);
-					// , $this->config->get('config_image_location_width'), $this->config->get('config_image_location_height'));
 				} else {
 					$image = '';
 				}
