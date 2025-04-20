@@ -113,8 +113,7 @@
 
                       if (json['success']) {
                           alert(json['success']);
-
-                          $('#button-refresh').trigger('click');
+                          $('#modal-image .modal-body').load($(this).attr('href'));
                       }
                   },
                   error: function(xhr, ajaxOptions, thrownError) {

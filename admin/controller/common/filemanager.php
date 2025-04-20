@@ -45,6 +45,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		}
 
 		$data['user_token'] = $this->session->data['user_token'];
+		
 
 		$this->response->setOutput($this->load->view('common/filemanager', $data));
 	}
