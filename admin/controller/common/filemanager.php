@@ -61,6 +61,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	
 		$s3BasePath = STORE_NAME . '/';
 		$currentDir = $this->getCurrentDirectory();
+		echo($currentDir);
 		$fullS3Path = $s3BasePath . $currentDir;
 	
 		$filterName = $this->getFilterName();
