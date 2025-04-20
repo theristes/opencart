@@ -364,7 +364,7 @@ class Setting extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('tool/image');
 
-		$data['placeholder'] = fetch_image('no_image.png'),
+		$data['placeholder'] = fetch_image('no_image.png');
 		$data['image_width'] = $this->config->get('config_image_default_width');
 		$data['image_height'] = $this->config->get('config_image_default_height');
 		if ($data['config_logo'] && is_bucket_file(DIR_IMAGE . html_entity_decode($data['config_logo'], ENT_QUOTES, 'UTF-8'))) {
