@@ -109,7 +109,6 @@ class WishList extends \Opencart\System\Engine\Controller {
 			if ($product_info) {
 				if ($product_info['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($product_info['image'], ENT_QUOTES, 'UTF-8'))) {
 					$image = fetch_image($product_info['image']);
-					// , $this->config->get('config_image_wishlist_width'), $this->config->get('config_image_wishlist_height'));
 				} else {
 					$image = '';
 				}
@@ -144,6 +143,8 @@ class WishList extends \Opencart\System\Engine\Controller {
 
 				$data['products'][] = [
 					'thumb'   => $image,
+					'thumb_width'	 => $this->config->get('config_image_wishlist_width'),
+					'thumb_height' => $this->config->get('config_image_wishlist_height'),
 					'stock'   => $stock,
 					'price'   => $price,
 					'special' => $special,

@@ -143,10 +143,13 @@ class Category extends \Opencart\System\Engine\Controller {
 
 			if (!empty($category_info['image']) && is_bucket_file(DIR_IMAGE . html_entity_decode($category_info['image'], ENT_QUOTES, 'UTF-8'))) {
 				$data['image'] = fetch_image($category_info['image']);
-				// , $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 			} else {
 				$data['image'] = '';
 			}
+			$data['image_width'] = $this->config->get('config_image_category_width');
+			$data['image_height'] = $this->config->get('config_image_category_height');
+
+
 
 			$data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
 			$data['compare'] = $this->url->link('product/compare', 'language=' . $this->config->get('config_language'));
