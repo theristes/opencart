@@ -372,7 +372,6 @@ class Setting extends \Opencart\System\Engine\Controller {
 		} else {
 			$data['logo'] = $data['placeholder'];
 		}
-		$data[''];
 		// Fav Icon
 		$data['config_icon'] = $this->config->get('config_icon');
 		$data['placeholder'] = fetch_image('no_image.png');
