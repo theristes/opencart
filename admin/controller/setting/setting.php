@@ -372,10 +372,12 @@ class Setting extends \Opencart\System\Engine\Controller {
 		} else {
 			$data['logo'] = $data['placeholder'];
 		}
-		$data['']
+		$data[''];
 		// Fav Icon
 		$data['config_icon'] = $this->config->get('config_icon');
 		$data['placeholder'] = fetch_image('no_image.png');
+		$data['image_width'] = $this->config->get('config_image_default_width');
+		$data['image_height'] = $this->config->get('config_image_default_height');
 
 		if ($data['config_icon'] && is_bucket_file(DIR_IMAGE . html_entity_decode($data['config_icon'], ENT_QUOTES, 'UTF-8'))) {
 			$data['icon'] = fetch_image($data['config_icon']);
