@@ -60,7 +60,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 	 public function list(): void {
 		$this->load->language('common/filemanager');
 	
-		$s3BasePath = STORE_NAME . '/';
+		$s3BasePath = STORE_NAME . '/' . 'images' . '/';
 		$currentDir = $this->getCurrentDirectory();
 		$fullS3Path = $s3BasePath . $currentDir;
 	
