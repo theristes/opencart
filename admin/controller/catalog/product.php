@@ -1250,7 +1250,7 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		$post_info = oc_filter_data($filter_data, $this->request->post);
 
-		error_log(print_r($this->request->post['product_image'], true));
+		echo(print_r($this->request->post['product_image'], true));
 
 
 		foreach ($post_info['product_description'] as $language_id => $value) {
