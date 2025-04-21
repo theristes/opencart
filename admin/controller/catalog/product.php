@@ -1122,13 +1122,13 @@ class Product extends \Opencart\System\Engine\Controller {
 		$data['product_images'] = [];
 
 		foreach ($product_images as $product_image) {
-			if ($product_image['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($product_image['image'], ENT_QUOTES, 'UTF-8'))) {
-				$image = $product_image['image'];
-				$thumb = $product_image['image'];
-			} else {
-				$image = '';
-				$thumb = 'no_image.png';
-			}
+			// if ($product_image['image'] && is_bucket_file(DIR_IMAGE . html_entity_decode($product_image['image'], ENT_QUOTES, 'UTF-8'))) {
+			// 	$image = $product_image['image'];
+			// 	$thumb = $product_image['image'];
+			// } else {
+			// 	$image = '';
+			// 	$thumb = 'no_image.png';
+			// }
 
 			$data['product_images'][] = [
 				'image' => $image,
