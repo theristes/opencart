@@ -112,7 +112,9 @@
                       }
 
                       if (json['success']) {
-                          $('#modal-image .modal-body').load('index.php?route=common/filemanager.list&user_token={{ user_token }}');
+                          alert(json['success']);
+
+                          $('#button-refresh').trigger('click');
                       }
                   },
                   error: function(xhr, ajaxOptions, thrownError) {
@@ -197,6 +199,7 @@
 
   $('#modal-image').on('click', 'a.directory', function(e) {
       e.preventDefault();
+
       $('#modal-image .modal-body').load($(this).attr('href'));
   });
 

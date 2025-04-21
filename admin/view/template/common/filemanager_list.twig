@@ -25,15 +25,15 @@
   {% set path_row = 0 %}
   {% for directory in directories %}
       {% if directory.name != 'cache' %}
-          <div class="mb-3">
-            <div class="mb-1" style="min-height: 140px;">
-              <a href="{{ directory.href }}" class="directory mb-1"><i class="fa-solid fa-folder fa-5x"></i></a>
-            </div>
-            <div class="form-check">
-              <label for="input-path-{{ path_row }}" class="form-check-label">{{ directory.name }}</label>
-              <input type="checkbox" name="path[]" value="{{ directory.path }}" id="input-path-{{ path_row }}" class="form-check-input"/>
-            </div>
+        <div class="mb-3">
+          <div class="mb-1" style="min-height: 140px;">
+            <a href="{{ directory.href }}" class="directory mb-1"><i class="fa-solid fa-folder fa-5x"></i></a>
           </div>
+          <div class="form-check">
+            <label for="input-path-{{ path_row }}" class="form-check-label">{{ directory.name }}</label>
+            <input type="checkbox" name="path[]" value="{{ directory.path }}" id="input-path-{{ path_row }}" class="form-check-input"/>
+          </div>
+        </div>
         {% endif %}
     {% set path_row = path_row + 1 %}
   {% endfor %}
