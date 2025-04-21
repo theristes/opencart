@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']         = 'Endereço de Entrega';
+$_['heading_title']         = 'Endereço';
 
 // Text
 $_['text_address_new']      = 'Quero usar um novo endereço';
