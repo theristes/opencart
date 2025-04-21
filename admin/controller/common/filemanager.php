@@ -45,7 +45,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		}
 
 		$data['user_token'] = $this->session->data['user_token'];
-
+		$data['store_name'] = STORE_NAME;
 		$this->response->setOutput($this->load->view('common/filemanager', $data));
 	}
 
@@ -85,6 +85,7 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		}
 	
 		$data = $this->paginateAndPrepareData($directories, $files, $page, $s3BasePath);
+		$data['store_name'] = STORE_NAME;
 		$this->response->setOutput($this->load->view('common/filemanager_list', $data));
 	}
 
