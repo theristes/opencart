@@ -1936,7 +1936,9 @@ class Product extends \Opencart\System\Engine\Model {
 	 * $this->model_catalog_product->addImage($product_id, $product_data);
 	 */
 	public function addImage(int $product_id, string $data): void {
-		echo($data);
+		echo "<pre>";
+		print_r($data);
+		echo "</pre>";
 		// echo "INSERT INTO `" . DB_PREFIX . "product_image` SET `product_id` = '" . (int)$product_id . "', `image` = '" . $this->db->escape($data['image']) . "', `sort_order` = '" . (int)$data['sort_order'] . "'";
 		// $this->db->query("INSERT INTO `" . DB_PREFIX . "product_image` SET `product_id` = '" . (int)$product_id . "', `image` = '" . $this->db->escape($data['image']) . "', `sort_order` = '" . (int)$data['sort_order'] . "'");
 	}
