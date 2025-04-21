@@ -7,7 +7,7 @@ $_['text_login']               = 'Se você já tem uma conta conosco, por favor,
 $_['text_register']            = 'Criar Conta';
 $_['text_guest']               = 'Finalizar como Visitante';
 $_['text_payment_address']     = 'Endereço de Pagamento';
-$_['text_shipping_address']    = 'Endereço de Entrega';
+$_['text_shipping_address']    = 'Endereço';
 $_['text_your_password']       = 'Sua Senha';
 $_['text_agree']               = 'Eu li e concordo com os <a href="%s" class="modal-link"><b>%s</b></a>';
 $_['text_success_add']         = 'Sucesso: Sua conta foi criada!';
