@@ -1252,6 +1252,9 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		$post_info = oc_filter_data($filter_data, $this->request->post);
 
+		echo($post_info['image'])
+		return
+
 		foreach ($post_info['product_description'] as $language_id => $value) {
 			if (!oc_validate_length($value['name'], 1, 255)) {
 				$json['error']['name_' . $language_id] = $this->language->get('error_name');
