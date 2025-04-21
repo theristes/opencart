@@ -169,7 +169,6 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		// Diretórios
 		foreach (array_slice($directories, $start, $limit) as $dir) {
 
-			echo($dir['path']);
 			$data['directories'][] = [
 				'name' => $dir['name'],
 				'path' => $dir['path'],
