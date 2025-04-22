@@ -1,5 +1,5 @@
 <?php
-namespace Opencart\Admin\Controller\Payment;
+namespace Opencart\Admin\Controller\Extension\Opencart\Payment;
 
 class OnSpot extends \Opencart\System\Engine\Controller {
     public function index(): void {
