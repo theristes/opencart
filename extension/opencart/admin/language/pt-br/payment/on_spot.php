@@ -1,5 +1,4 @@
 <?php
-$_['heading_title'] = 'Pagamento no local';
-$_['text_success'] = 'Configuração atualizada com sucesso!';
-$_['entry_status'] = 'Status';
-$_['entry_sort_order'] = 'Ordem';
+$_['heading_title'] = 'No Local';
+$_['text_success'] = 'Successo: Você atualizou seu pagamento!';
+$_['error_permission'] = 'Atenção: Você não tem permissão para fazer essa alteração!';
