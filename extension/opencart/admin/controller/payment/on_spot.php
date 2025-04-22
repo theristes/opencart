@@ -1,68 +1,33 @@
 <?php
-namespace Opencart\Admin\Controller\Extension\Opencart\Payment;
+namespace Opencart\Admin\Controller\Payment;
 
 class OnSpot extends \Opencart\System\Engine\Controller {
-	public function index(): void {
-		$this->load->language('extension/opencart/payment/on_spot');
+    public function index(): void {
+        $this->load->language('payment/on_spot');
+        $this->document->setTitle($this->language->get('heading_title'));
 
-		$this->document->setTitle($this->language->get('heading_title'));
+        $this->load->model('setting/setting');
 
-		$data['breadcrumbs'] = [];
+        if ($this->request->server['REQUEST_METHOD'] === 'POST') {
+            $this->model_setting_setting->editSetting('payment_on_spot', $this->request->post);
+            $this->session->data['success'] = $this->language->get('text_success');
+            $this->response->redirect($this->url->link('marketplace/extension', 'type=payment&user_token=' . $this->session->data['user_token']));
+        }
 
-		$data['breadcrumbs'][] = [
-			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'])
-		];
+        $data['heading_title'] = $this->language->get('heading_title');
+        $data['entry_status'] = $this->language->get('entry_status');
+        $data['entry_sort_order'] = $this->language->get('entry_sort_order');
 
-		$data['breadcrumbs'][] = [
-			'text' => $this->language->get('text_extension'),
-			'href' => $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=payment')
-		];
+        $data['payment_on_spot_status'] = $this->config->get('payment_on_spot_status') ?? '';
+        $data['payment_on_spot_sort_order'] = $this->config->get('payment_on_spot_sort_order') ?? 0;
 
-		$data['breadcrumbs'][] = [
-			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('extension/opencart/payment/on_spot', 'user_token=' . $this->session->data['user_token'])
-		];
+        $data['action'] = $this->url->link('payment/on_spot', 'user_token=' . $this->session->data['user_token']);
+        $data['cancel'] = $this->url->link('marketplace/extension', 'type=payment&user_token=' . $this->session->data['user_token']);
 
-		$data['save'] = $this->url->link('extension/opencart/payment/on_spot.save', 'user_token=' . $this->session->data['user_token']);
-		$data['back'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=payment');
+        $data['header'] = $this->load->controller('common/header');
+        $data['column_left'] = $this->load->controller('common/column_left');
+        $data['footer'] = $this->load->controller('common/footer');
 
-		$data['payment_on_spot_order_status_id'] = $this->config->get('payment_on_spot_order_status_id');
-
-		$this->load->model('localisation/order_status');
-		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
-
-		$data['payment_on_spot_geo_zone_id'] = $this->config->get('payment_on_spot_geo_zone_id');
-
-		$this->load->model('localisation/geo_zone');
-		$data['geo_zones'] = $this->model_localisation_geo_zone->getGeoZones();
-
-		$data['payment_on_spot_status'] = $this->config->get('payment_on_spot_status');
-		$data['payment_on_spot_sort_order'] = $this->config->get('payment_on_spot_sort_order');
-
-		$data['header'] = $this->load->controller('common/header');
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['footer'] = $this->load->controller('common/footer');
-
-		$this->response->setOutput($this->load->view('extension/opencart/payment/on_spot', $data));
-	}
-
-	public function save(): void {
-		$this->load->language('extension/opencart/payment/on_spot');
-
-		$json = [];
-
-		if (!$this->user->hasPermission('modify', 'extension/opencart/payment/on_spot')) {
-			$json['error']['warning'] = $this->language->get('error_permission');
-		}
-
-		if (!$json) {
-			$this->load->model('setting/setting');
-			$this->model_setting_setting->editSetting('payment_on_spot', $this->request->post);
-			$json['success'] = $this->language->get('text_success');
-		}
-
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
-	}
+        $this->response->setOutput($this->load->view('payment/on_spot', $data));
+    }
 }
