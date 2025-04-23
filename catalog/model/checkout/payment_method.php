@@ -27,6 +27,7 @@ class PaymentMethod extends \Opencart\System\Engine\Model {
 		foreach ($results as $result) {
 			if ($this->config->get('payment_' . $result['code'] . '_status')) {
 				echo($result['extension']);
+				echo("--------")
 				echo($result['code']);
 
 				// $this->load->model('extension/' . $result['extension'] . '/payment/' . $result['code']);
