@@ -36,7 +36,7 @@ class PaymentMethod extends \Opencart\System\Engine\Model {
 				// 	if ($payment_methods) {
 				// 		$method_data[$result['code']] = $payment_methods;
 				// 	}
-				}
+				// }
 			}
 		}
 
