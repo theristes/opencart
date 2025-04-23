@@ -22,23 +22,24 @@ class PaymentMethod extends \Opencart\System\Engine\Model {
 		$this->load->model('setting/extension');
 
 		$results = $this->model_setting_extension->getExtensionsByType('payment');
-		echo($results);
 
-		// foreach ($results as $result) {
-		// 	if ($this->config->get('payment_' . $result['code'] . '_status')) {
-		// 		$this->load->model('extension/' . $result['extension'] . '/payment/' . $result['code']);
 
-		// 		$key = 'model_extension_' . $result['extension'] . '_payment_' . $result['code'];
+		foreach ($results as $result) {
+			echo($result['code'])
+			// if ($this->config->get('payment_' . $result['code'] . '_status')) {
+			// 	$this->load->model('extension/' . $result['extension'] . '/payment/' . $result['code']);
 
-		// 		if ($this->{$key}->getMethods) {
-		// 			$payment_methods = $this->{$key}->getMethods($payment_address);
+			// 	$key = 'model_extension_' . $result['extension'] . '_payment_' . $result['code'];
 
-		// 			if ($payment_methods) {
-		// 				$method_data[$result['code']] = $payment_methods;
-		// 			}
-		// 		}
-		// 	}
-		// }
+			// 	if ($this->{$key}->getMethods) {
+			// 		$payment_methods = $this->{$key}->getMethods($payment_address);
+
+			// 		if ($payment_methods) {
+			// 			$method_data[$result['code']] = $payment_methods;
+			// 		}
+			// 	}
+			// }
+		}
 
 		// $sort_order = [];
 
