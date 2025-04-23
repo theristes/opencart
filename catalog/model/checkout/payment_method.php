@@ -28,14 +28,14 @@ class PaymentMethod extends \Opencart\System\Engine\Model {
 			if ($this->config->get('payment_' . $result['code'] . '_status')) {
 				$this->load->model('extension/' . $result['extension'] . '/payment/' . $result['code']);
 
-				$key = 'model_extension_' . $result['extension'] . '_payment_' . $result['code'];
+				// $key = 'model_extension_' . $result['extension'] . '_payment_' . $result['code'];
 
-				if ($this->{$key}->getMethods) {
-					$payment_methods = $this->{$key}->getMethods($payment_address);
+				// if ($this->{$key}->getMethods) {
+				// 	$payment_methods = $this->{$key}->getMethods($payment_address);
 
-					if ($payment_methods) {
-						$method_data[$result['code']] = $payment_methods;
-					}
+				// 	if ($payment_methods) {
+				// 		$method_data[$result['code']] = $payment_methods;
+				// 	}
 				}
 			}
 		}
