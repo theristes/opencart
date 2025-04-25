@@ -59,7 +59,7 @@ $('#button-payment-methods').on('click', function() {
                     var first = true;
 
                     for (i in json['payment_methods']) {
-                        html += '<p><strong>' + json['payment_methods'][i]['name'] + '</strong></p>';
+                        //html += '<p><strong>' + json['payment_methods'][i]['name'] + '</strong></p>';
 
                         if (!json['payment_methods'][i]['error']) {
                             for (j in json['payment_methods'][i]['option']) {
