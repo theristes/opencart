@@ -1,4 +1,4 @@
-# Forked OpenCart by Theristes Oliveira 2025
+# Forked OpenCart by Theristes Oliveira
 
 ## Overview
 
