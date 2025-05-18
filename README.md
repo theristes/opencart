@@ -1,4 +1,4 @@
-# Forked OpenCart by Theristes Oliveira
+# Forked OpenCart - T Oliveira
 
 ## Overview
 
