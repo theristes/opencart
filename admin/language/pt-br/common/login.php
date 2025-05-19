@@ -4,7 +4,7 @@ $_['heading_title']  = 'Administração';
 
 // Text
 $_['text_heading']   = 'Administração';
-$_['text_login']     = 'Digite seus dados de acesso entende.';
+$_['text_login']     = 'Digite seus dados de acesso.';
 $_['text_forgotten'] = 'Esqueceu sua senha?';
 
 // Entry
