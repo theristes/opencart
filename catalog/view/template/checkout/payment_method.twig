@@ -1,33 +1,38 @@
-<fieldset>
-  <legend>{{ heading_title }}</legend>
-  <div class="input-group">
-    <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
-    <input type="text" name="payment_method" value="{{ payment_method }}" placeholder="{{ entry_payment_method }}" id="input-payment-method" class="form-control" readonly/>
-    <button type="button" id="button-payment-methods" class="btn btn-primary">{{ button_choose }}</button>
+<fieldset class="border rounded-3 p-3 mb-4">
+  <legend class="float-none w-auto px-3 fs-5 fw-bold">{{ heading_title }}</legend>
+
+  <div class="mb-3">
+    <label for="input-payment-method" class="form-label">{{ entry_payment_method }}</label>
+    <div class="input-group">
+      <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+      <input type="text" name="payment_method" value="{{ payment_method }}" id="input-payment-method" class="form-control" readonly>
+      <button type="button" id="button-payment-methods" class="btn btn-outline-primary">{{ button_choose }}</button>
+    </div>
+    <div id="error-payment-method" class="invalid-feedback mt-1"></div>
+    <input type="hidden" name="code" value="{{ code }}" id="input-payment-code" />
   </div>
-  <input type="hidden" name="code" value="{{ code }}" id="input-payment-code"/>
-  <div id="error-payment-method" class="invalid-feedback"></div>
 </fieldset>
-<br/>
-<div class="mb-2">
-  <label for="input-comment" class="form-label"><strong>{{ text_comments }}</strong></label>
+
+<div class="mb-3">
+  <label for="input-comment" class="form-label fw-bold">{{ text_comments }}</label>
   <textarea name="comment" rows="4" id="input-comment" class="form-control">{{ comment }}</textarea>
 </div>
 
 {% if text_agree %}
-  <div class="form-switch form-switch-lg form-check-reverse mt-3">
-    <label for="input-checkout-agree" class="form-check-label">{{ text_agree }}</label>
-    <input type="checkbox" name="agree" value="1" id="input-checkout-agree" class="form-check-input"{% if agree %} checked{% endif %}/>
+  <div class="form-check form-switch form-check-reverse mt-3">
+    <input class="form-check-input" type="checkbox" name="agree" value="1" id="input-checkout-agree"{% if agree %} checked{% endif %}>
+    <label class="form-check-label" for="input-checkout-agree">{{ text_agree }}</label>
   </div>
 {% endif %}
 
+
 <style>
-.payment-option {
-  margin-bottom: 15px;
+.payment-option img {
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
-.payment-option label {
-  margin-left: 10px;
-}
+
 </style>
 
 <script type="text/javascript">
