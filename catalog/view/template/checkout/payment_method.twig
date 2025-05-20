@@ -78,7 +78,7 @@ $('#button-payment-methods').on('click', function() {
             if (!json['payment_methods'][i]['error']) {
               for (j in json['payment_methods'][i]['option']) {
                 var code = i + '-' + j.replaceAll('_', '-');
-                html += '<div class="form-check m-3">';
+                html += '<div class="form-check d-inline-block me-3 mb-3">';
                 html += '<input type="radio" name="payment_method" value="' + json['payment_methods'][i]['option'][j]['code'] + '" id="input-payment-method-' + code + '"';
                 
                 var method = $('#input-payment-code').val();
