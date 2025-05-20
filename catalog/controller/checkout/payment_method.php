@@ -131,6 +131,7 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 				$json['error'] = sprintf($this->language->get('error_no_payment'), $this->url->link('information/contact', 'language=' . $this->config->get('config_language')));
 			}
 		}
+		$json['dirImages'] = DIR_IMAGE
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
