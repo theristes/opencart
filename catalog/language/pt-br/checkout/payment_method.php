@@ -4,7 +4,8 @@ $_['heading_title']          = 'Forma de Pagamento';
 
 // Text
 $_['text_payment_method']    = 'Opções de método de pagamento';
-$_['text_payment']           = 'Por favor, selecione o método de pagamento preferido para usar neste pedido.';
+$_['text_payment']           = 'Por favor, selecione a forma de pagamento para este pedido.
+';
 $_['text_comments']          = 'Adicionar Comentários Sobre Seu Pedido';
 $_['text_agree']             = 'Eu li e concordo com os <a href="%s" class="modal-link"><b>%s</b></a>';
 $_['text_success']           = 'Sucesso: Você alterou o método de pagamento!';
