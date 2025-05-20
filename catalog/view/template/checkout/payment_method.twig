@@ -72,15 +72,13 @@ $('#button-payment-methods').on('click', function() {
           html += '      </div>';
           html += '      <div class="modal-body">';
           html += '        <form id="form-payment-method">';
-          html += '          <p>{{ text_payment|escape("js") }}</p>';
-
           var first = true;
 
           for (i in json['payment_methods']) {
             if (!json['payment_methods'][i]['error']) {
               for (j in json['payment_methods'][i]['option']) {
                 var code = i + '-' + j.replaceAll('_', '-');
-                html += '<div class="form-check">';
+                html += '<div class="form-check mb-3">';
                 html += '<input type="radio" name="payment_method" value="' + json['payment_methods'][i]['option'][j]['code'] + '" id="input-payment-method-' + code + '"';
                 
                 var method = $('#input-payment-code').val();
