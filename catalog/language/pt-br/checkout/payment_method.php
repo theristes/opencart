@@ -3,7 +3,7 @@
 $_['heading_title']          = 'Forma de Pagamento';
 
 // Text
-$_['text_payment_method']    = 'Opções de método de pagamento';
+$_['text_payment_method']    = 'Selecione a Forma de Pagamento';
 $_['text_payment']           = 'Por favor, selecione a forma de pagamento para este pedido.
 ';
 $_['text_comments']          = 'Adicionar Comentários Sobre Seu Pedido';
