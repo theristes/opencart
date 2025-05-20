@@ -86,10 +86,11 @@ $('#button-payment-methods').on('click', function() {
                   first = false;
                 }
                 console.dir(json['payment_methods'][i], { depth: null });
+                console.dir(json, { depth: null })
 
                 html += ' />';
                 html += '<img src="https://farmaxshop-bucket.s3.us-east-2.amazonaws.com/payments/' + json['payment_methods'][i]['code'] + '.png" class="me-2" style="height: 24px;" />';
-                html += '<label for="input-payment-method-' + code + '">Selecione a forma de pagamento ' + json['payment_methods'][i]['option'][j]['name'] + ' para retirar seu produto</label>';
+                html += '<label for="input-payment-method-' + code + '">Leve ' + json['payment_methods'][i]['option'][j]['name'] + ' para retirar seu produto</label>';
                 html += '</div>';
               }
             } else {
