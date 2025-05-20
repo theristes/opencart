@@ -50,6 +50,9 @@ class Checkout extends \Opencart\System\Engine\Controller {
 			'href' => $this->url->link('checkout/checkout', 'language=' . $this->config->get('config_language'))
 		];
 
+
+
+		
 		if (!$this->customer->isLogged()) {
 			$data['register'] = $this->load->controller('checkout/register');
 		} else {
