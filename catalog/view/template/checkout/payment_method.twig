@@ -13,7 +13,7 @@
   <textarea name="comment" rows="4" id="input-comment" class="form-control">{{ comment }}</textarea>
 </div>
 {% if text_agree %}
-  <div class="form-check form-switch form-switch-lg form-check-reverse mt-3">
+  <div class="form-switch form-switch-lg form-check-reverse mt-3">
     <label for="input-checkout-agree" class="form-check-label">{{ text_agree }}</label> <input type="checkbox" name="agree" value="1" id="input-checkout-agree" class="form-check-input"{% if agree %} checked{% endif %}/>
   </div>
 {% endif %}
@@ -78,6 +78,7 @@ $('#button-payment-methods').on('click', function() {
                                 }
 
                                 html += '/>';
+                                html += '  <label for="input-payment-method-' + code + '">' + json['payment_methods'][i]['option'][j]['name'] + '</label>';
                                 html += '</div>';
                             }
                         } else {
