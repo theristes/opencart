@@ -126,10 +126,18 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 			$payment_methods = $this->model_checkout_payment_method->getMethods($payment_address);
 
 			if ($payment_methods) {
+				foreach ($payment_methods as &$item) {
+					$item['icon'] = fetch_image('/payments/' . $item['code'] . '.png');
+				}
+
 				$json['payment_methods'] = $this->session->data['payment_methods'] = $payment_methods;
 			} else {
-				$json['error'] = sprintf($this->language->get('error_no_payment'), $this->url->link('information/contact', 'language=' . $this->config->get('config_language')));
+				$json['error'] = sprintf(
+					$this->language->get('error_no_payment'),
+					$this->url->link('information/contact', 'language=' . $this->config->get('config_language'))
+				);
 			}
+
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
