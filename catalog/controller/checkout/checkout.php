@@ -25,13 +25,14 @@ class Checkout extends \Opencart\System\Engine\Controller {
 
 		$this->load->model('localisation/service');
 		$data['services'] = $this->model_localisation_service->getServices();
+		
 
 		// Preserve selected service from POST or session
 		if ($this->request->post['service_id'] ?? false) {
 			$this->session->data['service_id'] = (int)$this->request->post['service_id'];
 		}
 
-		$data['selected_service_id'] = $this->session->data['service_id'] ?? 0;
+		$data['service_id'] = $this->session->data['service_id'] ?? 0;
 
 
 		$data['breadcrumbs'][] = [
