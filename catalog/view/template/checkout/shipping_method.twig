@@ -57,13 +57,12 @@ $('#button-shipping-methods').on('click', function() {
 
                                 var code = i + '-' + j.replaceAll('_', '-');
 
-                                html += '<input type="radio" name="shipping_method" value="' + json['shipping_methods'][i]['quote'][j]['code'] + '" id="input-shipping-method-' + code + '" checked />';
+                                html += '<input type="radio" name="shipping_method" value="' + json['shipping_methods'][i]['quote'][j]['code'] + '" id="input-shipping-method-' + code + '"';
 
                                 var method = $('#input-shipping-code').val();
 
                                 if ((json['shipping_methods'][i]['quote'][j]['code'] == method) || (!method && first)) {
                                     html += ' checked';
-
                                     first = false;
                                 }
 
