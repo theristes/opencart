@@ -99,7 +99,9 @@ $(document).on('submit', '#form-shipping-method', function(e) {
     e.preventDefault();
 
     var element = this;
-    debugger;
+
+    alert(JSON.stringify($(element).serialize()));
+    alert(JSON.stringify($('#form-shipping-method').serialize()));
 
     chain.attach(function() {
         return $.ajax({
