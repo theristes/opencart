@@ -98,31 +98,6 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 				$payment_address = $this->session->data['shipping_address'];
 			}
 
-			// Payment method
-			$this->load->model('checkout/payment_method');
-
-
-			// /*** 🔽 Add this block to filter allowed methods ***/
-			// $allowed = [];
-
-			// $this->load->model('localisation/payment');
-
-			// // Retrieve your service_id from session or logic (adjust as needed)
-			// $service_id = $this->session->data['selected_service_id'] ?? 0;
-
-			// if ($service_id) {
-			// 	$allowed = $this->model_localisation_payment->getAllowedPaymentIdsByService((int)$service_id);
-			// }
-
-			// if (!empty($allowed)) {
-			// 	foreach ($payment_methods as $key => $method) {
-			// 		if (!in_array($method['code'], $allowed)) {
-			// 			unset($payment_methods[$key]);
-			// 		}
-			// 	}
-			// }
-			// /*** 🔼 End filtering block ***/
-
 			$payment_methods = $this->model_checkout_payment_method->getMethods($payment_address);
 
 			if ($payment_methods) {

@@ -23,45 +23,6 @@
           </div>
         {% endif %}
         <div class="col">
-
-          {% if services %}
-  <div class="form-group mt-3">
-    <label for="input-service"><strong>Local de Retirada</strong></label>
-    <select name="service_id" id="input-service" class="form-control">
-      <option value="">-- Por favor, selecione --</option>
-      {% for service in services %}
-        <option value="{{ service.id }}" {% if service_id == service.id %}selected{% endif %}>
-          {{ service.name }}
-        </option>
-      {% endfor %}
-    </select>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      $('#input-service').on('change', function () {
-        const service_id = $(this).val();
-
-        $.ajax({
-          url: 'index.php?route=checkout/service/save&language={{ language }}',
-          type: 'post',
-          data: { service_id },
-          dataType: 'json',
-          success: function(response) {
-            console.log('Selected service saved:', response);
-
-            // Optional: reload payment methods if they depend on the pickup
-            $('#checkout-payment-method').load('index.php?route=checkout/payment_method&language={{ language }}');
-          },
-          error: function(xhr, status, error) {
-            console.error('Error saving selected service:', error);
-          }
-        });
-      });
-    });
-  </script>
-{% endif %}
-
           
           {% if shipping_method %}
             <div id="checkout-shipping-method" class="mb-3">{{ shipping_method }}</div>
