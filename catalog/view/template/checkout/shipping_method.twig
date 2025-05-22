@@ -49,15 +49,13 @@ $('#button-shipping-methods').on('click', function() {
                     var first = true;
 
                     for (i in json['shipping_methods']) {
-                        html += '<p><strong>' + json['shipping_methods'][i]['name'] + '</strong></p>';
-
                         if (!json['shipping_methods'][i]['error']) {
                             for (j in json['shipping_methods'][i]['quote']) {
                                 html += '<div class="form-check">';
 
                                 var code = i + '-' + j.replaceAll('_', '-');
 
-                                html += '<input type="radio" name="shipping_method" id="input-shipping-method-' + code + '"';
+                                html += '<input type="radio" name="shipping_method" value="' + json['shipping_methods'][i]['quote'][j]['code'] + '" id="input-shipping-method-' + code + '"';
 
                                 var method = $('#input-shipping-code').val();
 
