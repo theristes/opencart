@@ -99,6 +99,7 @@ $(document).on('submit', '#form-shipping-method', function(e) {
     e.preventDefault();
 
     var element = this;
+    debugger;
 
     chain.attach(function() {
         return $.ajax({
