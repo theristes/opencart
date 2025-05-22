@@ -107,7 +107,6 @@ $(document).on('submit', '#form-shipping-method', function(e) {
             type: 'post',
             data: $('#form-shipping-method').serialize(),
             dataType: 'json',
-            contentType: 'application/x-www-form-urlencoded',
             beforeSend: function() {
                 $('#button-shipping-method').button('loading');
             },
