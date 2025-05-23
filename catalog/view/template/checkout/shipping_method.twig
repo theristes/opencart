@@ -103,6 +103,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         let $submitButton = $('#button-shipping-method');
+        console.log($submitButton);
 
         $.ajax({
             url: 'index.php?route=checkout/shipping_method.save&language={{ language }}',
