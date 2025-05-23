@@ -2,7 +2,7 @@
 namespace Opencart\Catalog\Controller\Checkout;
 
 class Service extends \Opencart\System\Engine\Controller {
-	public function save(): void {
+	public function index(): void {
 		$json = [];
 
 		if (isset($this->request->post['service_id'])) {
