@@ -20,7 +20,7 @@ var chain = chain || {
     execute: function() {
         if (this.tasks.length > 0) {
             var task = this.tasks.shift();
-            task().then(() => this.execute());
+            task().then(() => this.execute()); // Use .then instead of .done
         }
     }
 };
