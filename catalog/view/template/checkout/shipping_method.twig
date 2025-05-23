@@ -107,7 +107,7 @@ $(document).ready(function() {
         $.ajax({
             url: 'index.php?route=checkout/shipping_method.save&language={{ language }}',
             type: 'post',
-            data: $(this).serialize(),
+            data: $('form').serialize(), // <-- serialize your form
             dataType: 'json',
             beforeSend: function() {
                 $submitButton.prop('disabled', true).text('Saving...');
