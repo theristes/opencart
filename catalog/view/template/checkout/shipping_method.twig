@@ -86,6 +86,7 @@ $('#button-shipping-methods').on('click', function() {
 });
 
 $(document).on('submit', '#form-shipping-method', function(e) {
+    debugger;
     e.preventDefault();
     const selectedShippingMethod = document.querySelector('input[name="shipping_method"]:checked').value;
 
