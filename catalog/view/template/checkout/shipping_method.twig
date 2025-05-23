@@ -114,7 +114,7 @@ $(document).on('submit', '#form-shipping-method', function(e) {
         },
         credentials: 'same-origin',
         body: new URLSearchParams({
-            shipping_method: selectedShippingMethod
+            shipping_method: selectedShippingMethod.replace("opencart.", ""),
         })
     })
     .then(response => response.json())
