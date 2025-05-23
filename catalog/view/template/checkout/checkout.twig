@@ -62,9 +62,9 @@
     function updateMap(serviceId) {
       debugger;
       var service = services.find(s => s.id == serviceId);
-      if (!service || !service.address) return;
+      if (!service || !service.name) return;
 
-      geocoder.geocode({ 'address': service.address }, function(results, status) {
+      geocoder.geocode({ 'address': service.name }, function(results, status) {
         if (status === 'OK') {
           map.setCenter(results[0].geometry.location);
           if (marker) {
