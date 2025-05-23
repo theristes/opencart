@@ -14,7 +14,7 @@ class ShippingMethod extends \Opencart\System\Engine\Controller {
 	public function index(): string {
 		$this->load->language('checkout/shipping_method');
 
-		if (isset($this->session->data['shipping_method'])) {
+		if (isset($this->session->data['shipping_method']) && isset($this->session->data['shipping_method']['name']) && isset($this->session->data['shipping_method']['code'])) {
 			$data['shipping_method'] = $this->session->data['shipping_method']['name'];
 			$data['code'] = $this->session->data['shipping_method']['code'];
 		} else {
@@ -119,9 +119,12 @@ class ShippingMethod extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->session->data['shipping_method'] = $this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
-
-			$json['success'] = $this->language->get('text_success');
+			if (isset($this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]])) {
+				$this->session->data['shipping_method'] = $this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
+				$json['success'] = $this->language->get('text_success');
+			} else {
+				$json['error'] = $this->language->get('error_shipping_method');
+			}
 
 			// Clear payment methods
 			unset($this->session->data['payment_method']);
