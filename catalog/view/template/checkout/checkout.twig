@@ -33,32 +33,32 @@
         <option value="{{ service.id }}" {% if service_id == service.id %}selected{% endif %}>
           {{ service.name }}
         </option>
-        <div id="map" style="width: 100%; height: 300px; margin-top: 10px;"></div>
-<script>
-    function initMap() {
-        var geocoder = new google.maps.Geocoder();
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: {lat: -22.9068, lng: -43.1729} // Rio de Janeiro fallback
-        });
-
-        var address = "Giocondo Dias 405 - casa 20Rio de Janeiro, RJ 21735-340BR";
-
-        geocoder.geocode({'address': address}, function(results, status) {
-            if (status === 'OK') {
-                map.setCenter(results[0].geometry.location);
-                new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
+        <div id="map" style="width: 300px; height: 300px; margin-top: 10px;"></div>
+        <script>
+            function initMap() {
+                var geocoder = new google.maps.Geocoder();
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: {lat: -22.9068, lng: -43.1729} // Rio de Janeiro fallback
                 });
-            } else {
-                console.log('Geocode was not successful: ' + status);
-            }
-        });
-    }
-</script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzskbXsoNU_LaiMboEwfDf0nY3VRfiWsM&callback=initMap" async defer></script>
+                var address = "Giocondo Dias 405 - casa 20Rio de Janeiro, RJ 21735-340BR";
+
+                geocoder.geocode({'address': address}, function(results, status) {
+                    if (status === 'OK') {
+                        map.setCenter(results[0].geometry.location);
+                        new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                        });
+                    } else {
+                        console.log('Geocode was not successful: ' + status);
+                    }
+                });
+            }
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzskbXsoNU_LaiMboEwfDf0nY3VRfiWsM&callback=initMap" async defer></script>
 
       {% endfor %}
     </select>
