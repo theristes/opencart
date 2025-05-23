@@ -22,10 +22,6 @@ $('#button-shipping-methods').on('click', function() {
                 $(element).button('reset');
             },
             success: function(json) {
-
-                    console.log(json['shipping_methods']); // 👈 Add this line
-
-
                 $('#input-shipping-method').removeClass('is-invalid');
                 $('#error-shipping-method').removeClass('d-block');
 
@@ -100,7 +96,8 @@ $('#button-shipping-methods').on('click', function() {
 $(document).on('submit', '#form-shipping-method', function(e) {
     e.preventDefault();
     console.log('Form submitted!');
-    console.log( ('input[name=\'shipping_method\']:checked').val().code )
+    console.log(json['shipping_methods']);
+
 
 });
 </script>
