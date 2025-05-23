@@ -108,7 +108,7 @@ $(document).on('submit', '#form-shipping-method', function(e) {
         return $.ajax({
             url: 'index.php?route=checkout/shipping_method.save&language={{ language }}',
             type: 'post',
-            data: values,
+            data: keyValue,
             dataType: 'json',
             contentType: 'application/x-www-form-urlencoded',
             beforeSend: function() {
