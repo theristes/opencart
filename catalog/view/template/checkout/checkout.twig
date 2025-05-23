@@ -36,7 +36,7 @@
       {% endfor %}
     </select>
 
-    <div id="map" style="width: 300px; height: 300px; margin-top: 10px;"></div>
+    <div id="map" style="width: 100%; height: 300px; margin-top: 10px;"></div>
   </div>
 
   <script>
@@ -60,6 +60,7 @@
     }
 
     function updateMap(serviceId) {
+      debugger;
       var service = services.find(s => s.id == serviceId);
       if (!service || !service.address) return;
 
