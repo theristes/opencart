@@ -24,7 +24,7 @@
         {% endif %}
         <div class="col">
 
-          {% if services %}
+  {% if services %}
   <div class="form-group mt-3">
     <label for="input-service"><strong>Local de Retirada</strong></label>
     <select name="service_id" id="input-service" class="form-control">
@@ -33,51 +33,64 @@
         <option value="{{ service.id }}" {% if service_id == service.id %}selected{% endif %}>
           {{ service.name }}
         </option>
-        <div id="map" style="width: 300px; height: 300px; margin-top: 10px;"></div>
-        <script>
-            function initMap() {
-                var geocoder = new google.maps.Geocoder();
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 15,
-                    center: {lat: -22.9068, lng: -43.1729} // Rio de Janeiro fallback
-                });
-
-                var address = "Giocondo Dias 405 - casa 20Rio de Janeiro, RJ 21735-340BR";
-
-                geocoder.geocode({'address': address}, function(results, status) {
-                    if (status === 'OK') {
-                        map.setCenter(results[0].geometry.location);
-                        new google.maps.Marker({
-                            map: map,
-                            position: results[0].geometry.location
-                        });
-                    } else {
-                        console.log('Geocode was not successful: ' + status);
-                    }
-                });
-            }
-        </script>
-
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzskbXsoNU_LaiMboEwfDf0nY3VRfiWsM&callback=initMap" async defer></script>
-
       {% endfor %}
     </select>
+
+    <div id="map" style="width: 300px; height: 300px; margin-top: 10px;"></div>
   </div>
 
   <script>
+    var services = {{ services|json_encode|raw }};
+    var map;
+    var geocoder;
+    var marker;
+
+    function initMap() {
+      geocoder = new google.maps.Geocoder();
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: {lat: -22.9068, lng: -43.1729} // fallback center
+      });
+
+      // Optionally load the selected service by default
+      const selectedServiceId = "{{ service_id }}";
+      if (selectedServiceId) {
+        updateMap(selectedServiceId);
+      }
+    }
+
+    function updateMap(serviceId) {
+      var service = services.find(s => s.id == serviceId);
+      if (!service || !service.address) return;
+
+      geocoder.geocode({ 'address': service.address }, function(results, status) {
+        if (status === 'OK') {
+          map.setCenter(results[0].geometry.location);
+          if (marker) {
+            marker.setMap(null);
+          }
+          marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+        } else {
+          console.log('Geocode failed: ' + status);
+        }
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
       $('#input-service').on('change', function () {
-        const service_id = $(this).val();
+        const serviceId = $(this).val();
+        updateMap(serviceId);
 
         $.ajax({
           url: 'index.php?route=checkout/service/save&language={{ language }}',
           type: 'post',
-          data: { service_id },
+          data: { service_id: serviceId },
           dataType: 'json',
           success: function(response) {
             console.log('Selected service saved:', response);
-
-            // Optional: reload payment methods if they depend on the pickup
             $('#checkout-payment-method').load('index.php?route=checkout/payment_method&language={{ language }}');
           },
           error: function(xhr, status, error) {
@@ -87,7 +100,10 @@
       });
     });
   </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzskbXsoNU_LaiMboEwfDf0nY3VRfiWsM&callback=initMap" async defer></script>
 {% endif %}
+
 
           
           {% if shipping_method %}
