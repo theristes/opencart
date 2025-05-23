@@ -36,7 +36,7 @@
       {% endfor %}
     </select>
 
-    <div id="map" style="width: 100%; height: 300px; margin-top: 10px;"></div>
+    <div id="map" style="width: 100%; height: 300px; margin-top: 10px; display:none"></div>
   </div>
 
   <script>
@@ -49,20 +49,29 @@
       geocoder = new google.maps.Geocoder();
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
-        center: {lat: -22.9068, lng: -43.1729} // fallback center
+        center: {lat: -22.9068, lng: -43.1729}
       });
 
-      // Optionally load the selected service by default
       const selectedServiceId = "{{ service_id }}";
       if (selectedServiceId) {
         updateMap(selectedServiceId);
+      } else {
+        $('#map').hide();
       }
     }
 
+
     function updateMap(serviceId) {
-      debugger;
+      if (!serviceId) {
+        $('#map').hide();
+        return;
+      }
+
       var service = services.find(s => s.id == serviceId);
-      if (!service || !service.name) return;
+      if (!service || !service.name) {
+        $('#map').hide();
+        return;
+      }
 
       geocoder.geocode({ 'address': service.name }, function(results, status) {
         if (status === 'OK') {
@@ -74,11 +83,14 @@
             map: map,
             position: results[0].geometry.location
           });
+          $('#map').show();
         } else {
           console.log('Geocode failed: ' + status);
+          $('#map').hide();
         }
       });
     }
+
 
     document.addEventListener('DOMContentLoaded', function () {
       $('#input-service').on('change', function () {
