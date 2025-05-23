@@ -103,6 +103,7 @@
           data: { service_id: serviceId },
           dataType: 'json',
           success: function(response) {
+            debugger;
             console.log('Selected service saved:', response);
             $('#checkout-payment-method').load('index.php?route=checkout/payment_method&language={{ language }}');
           },
