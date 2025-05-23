@@ -96,9 +96,11 @@ $('#button-shipping-methods').on('click', function() {
 $(document).on('submit', '#form-shipping-method', function(e) {
     e.preventDefault();
     const selectedShippingMethod = document.querySelector('input[name="shipping_method"]:checked').value;
-    let values = new URLSearchParams({
+    var values = new URLSearchParams({
             shipping_method: (selectedShippingMethod.replace("opencart.",""))
         })
+    console.log(values)
+    return
     var element = this;
     chain.attach(function() {
         return $.ajax({
