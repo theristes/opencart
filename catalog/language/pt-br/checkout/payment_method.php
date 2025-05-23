@@ -12,7 +12,7 @@ $_['text_success']           = 'Sucesso: Você alterou o método de pagamento!';
 $_['text_comment']           = 'Sucesso: Comentário adicionado!';
 
 // Entry
-$_['entry_payment_method']   = 'Escolha o método de pagamento...';
+$_['entry_payment_method']   = 'Escolha a forma de pagamento...';
 
 // Error
 $_['error_order']            = 'Pedido não encontrado! Por favor, atualize a página.';
