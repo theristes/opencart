@@ -100,7 +100,7 @@ $('#button-shipping-methods').on('click', function() {
 $(document).on('submit', '#form-shipping-method', function(e) {
     e.preventDefault();
     console.log('Form submitted!');
-    console.log( ('input[name=\'shipping_method\']:checked').val() )
+    console.log( ('input[name=\'shipping_method\']:checked').val().code )
 
 });
 </script>
