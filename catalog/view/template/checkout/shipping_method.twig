@@ -8,11 +8,28 @@
   <div id="error-shipping-method" class="invalid-feedback"></div>
 </fieldset>
 <script type="text/javascript"><!--
+// Ensure the chain object is defined and initialized
+var chain = chain || {
+    tasks: [],
+    attach: function(task) {
+        this.tasks.push(task);
+        if (this.tasks.length === 1) {
+            this.execute();
+        }
+    },
+    execute: function() {
+        if (this.tasks.length > 0) {
+            var task = this.tasks.shift();
+            task().then(() => this.execute());
+        }
+    }
+};
+
 $('#button-shipping-methods').on('click', function() {
     var element = this;
 
     chain.attach(function() {
-        fetch('index.php?route=checkout/shipping_method.quote&language={{ language }}', {
+        return fetch('index.php?route=checkout/shipping_method.quote&language={{ language }}', {
             method: 'GET',
             credentials: 'same-origin'
         })
