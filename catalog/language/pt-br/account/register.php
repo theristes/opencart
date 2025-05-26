@@ -19,6 +19,7 @@ $_['entry_email']              = 'E-mail';
 $_['entry_telephone']          = 'Telefone';
 $_['entry_newsletter']         = 'Inscrever';
 $_['entry_password']           = 'Senha';
+$_['entry_cpf']                = 'CPF';
 
 // Error
 $_['error_token']              = 'Aviso: Token de registro inválido!';
