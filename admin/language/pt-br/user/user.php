@@ -37,6 +37,7 @@ $_['entry_email']              = 'E-mail';
 $_['entry_image']              = 'Imagem';
 $_['entry_status']             = 'Status';
 $_['entry_name']               = 'Nome';
+$_['entry_cpf']               = 'CPF';
 $_['entry_ip']                 = 'IP';
 $_['entry_date_from']          = 'Data De';
 $_['entry_date_to']            = 'Data Até';

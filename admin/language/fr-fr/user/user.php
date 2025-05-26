@@ -29,6 +29,7 @@ $_['entry_confirm']         = 'Confirmer';
 $_['entry_firstname']       = 'Prénom';
 $_['entry_lastname']        = 'Nom';
 $_['entry_email']           = 'E-Mail';
+$_['entry_cpf']               = 'CPF';
 $_['entry_image']           = 'Image';
 $_['entry_status']          = 'Statut';
 
