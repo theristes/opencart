@@ -314,7 +314,6 @@ if (!function_exists('get_geo_code_key')) {
 
 
 
-
 function resize_and_upload_image(string $source, string $destPath, int $width, int $height, string $default = '') {
     $source_path = DIR_IMAGE . ltrim($source, '/');
     $dest_path = DIR_IMAGE . ltrim($destPath, '/');
