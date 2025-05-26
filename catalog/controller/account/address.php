@@ -97,7 +97,6 @@ class Address extends \Opencart\System\Engine\Controller {
 			$find = [
 				'{firstname}',
 				'{lastname}',
-				'{company}',
 				'{address_1}',
 				'{address_2}',
 				'{city}',
@@ -110,7 +109,6 @@ class Address extends \Opencart\System\Engine\Controller {
 			$replace = [
 				'firstname' => $result['firstname'],
 				'lastname'  => $result['lastname'],
-				'company'   => $result['company'],
 				'address_1' => $result['address_1'],
 				'address_2' => $result['address_2'],
 				'city'      => $result['city'],
@@ -207,12 +205,6 @@ class Address extends \Opencart\System\Engine\Controller {
 			$data['lastname'] = $address_info['lastname'];
 		} else {
 			$data['lastname'] = '';
-		}
-
-		if (!empty($address_info)) {
-			$data['company'] = $address_info['company'];
-		} else {
-			$data['company'] = '';
 		}
 
 		if (!empty($address_info)) {
@@ -318,7 +310,6 @@ class Address extends \Opencart\System\Engine\Controller {
 			$filter_data = [
 				'firstname'  => '',
 				'lastname'   => '',
-				'company'   => '',
 				'address_1'  => '',
 				'address_2'  => '',
 				'city'       => '',

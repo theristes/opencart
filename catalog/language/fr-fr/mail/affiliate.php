@@ -12,7 +12,6 @@ $_['text_website']        = 'Site web:';
 $_['text_customer_group'] = 'Groupe de clients:';
 $_['text_firstname']      = 'Prénom:';
 $_['text_lastname']       = 'Nom:';
-$_['text_company']        = 'Société:';
 $_['text_email']          = 'E-Mail:';
 $_['text_telephone']      = 'Téléphone:';
 

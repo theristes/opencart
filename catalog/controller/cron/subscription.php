@@ -231,7 +231,6 @@ class Subscription extends \Opencart\System\Engine\Controller {
 						$order_data['payment_address_id'] = $payment_address_info['address_id'];
 						$order_data['payment_firstname'] = $payment_address_info['firstname'];
 						$order_data['payment_lastname'] = $payment_address_info['lastname'];
-						$order_data['payment_company'] = $payment_address_info['company'];
 						$order_data['payment_address_1'] = $payment_address_info['address_1'];
 						$order_data['payment_address_2'] = $payment_address_info['address_2'];
 						$order_data['payment_city'] = $payment_address_info['city'];
@@ -246,7 +245,6 @@ class Subscription extends \Opencart\System\Engine\Controller {
 						$order_data['payment_address_id'] = 0;
 						$order_data['payment_firstname'] = '';
 						$order_data['payment_lastname'] = '';
-						$order_data['payment_company'] = '';
 						$order_data['payment_address_1'] = '';
 						$order_data['payment_address_2'] = '';
 						$order_data['payment_city'] = '';
@@ -266,7 +264,6 @@ class Subscription extends \Opencart\System\Engine\Controller {
 						$order_data['shipping_address_id'] = $shipping_address_info['address_id'];
 						$order_data['shipping_firstname'] = $shipping_address_info['firstname'];
 						$order_data['shipping_lastname'] = $shipping_address_info['lastname'];
-						$order_data['shipping_company'] = $shipping_address_info['company'];
 						$order_data['shipping_address_1'] = $shipping_address_info['address_1'];
 						$order_data['shipping_address_2'] = $shipping_address_info['address_2'];
 						$order_data['shipping_city'] = $shipping_address_info['city'];
@@ -283,7 +280,6 @@ class Subscription extends \Opencart\System\Engine\Controller {
 						$order_data['shipping_address_id'] = 0;
 						$order_data['shipping_firstname'] = '';
 						$order_data['shipping_lastname'] = '';
-						$order_data['shipping_company'] = '';
 						$order_data['shipping_address_1'] = '';
 						$order_data['shipping_address_2'] = '';
 						$order_data['shipping_city'] = '';

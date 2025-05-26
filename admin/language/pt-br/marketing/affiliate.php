@@ -42,7 +42,6 @@ $_['column_action']             = 'Ação';
 
 // Entry
 $_['entry_customer']            = 'Cliente';
-$_['entry_company']             = 'Empresa';
 $_['entry_tracking']            = 'Código de Rastreamento';
 $_['entry_website']             = 'Website';
 $_['entry_commission']          = 'Comissão (%)';

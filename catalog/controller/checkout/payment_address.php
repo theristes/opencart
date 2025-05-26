@@ -88,7 +88,6 @@ class PaymentAddress extends \Opencart\System\Engine\Controller {
 			$keys = [
 				'firstname',
 				'lastname',
-				'company',
 				'address_1',
 				'address_2',
 				'city',

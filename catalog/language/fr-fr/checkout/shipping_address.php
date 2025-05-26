@@ -11,7 +11,6 @@ $_['text_success']          = 'Succès: Vous avez modifié l\'adresse de livrais
 $_['entry_address']         = 'Choisir une adresse';
 $_['entry_firstname']       = 'Prénom';
 $_['entry_lastname']        = 'Nom';
-$_['entry_company']         = 'Entreprise';
 $_['entry_address_1']       = 'Adresse 1';
 $_['entry_address_2']       = 'Adresse 2';
 $_['entry_postcode']        = 'Code postal';

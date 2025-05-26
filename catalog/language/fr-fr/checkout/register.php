@@ -22,7 +22,6 @@ $_['entry_email']             = 'E-Mail';
 $_['entry_telephone']         = 'Téléphone';
 $_['entry_password']          = 'Mot de passe';
 $_['entry_confirm']           = 'Confirmation du mot de passe';
-$_['entry_company']           = 'Entreprise';
 $_['entry_address_1']         = 'Adresse 1';
 $_['entry_address_2']         = 'Adresse 2';
 $_['entry_postcode']          = 'Code postal';

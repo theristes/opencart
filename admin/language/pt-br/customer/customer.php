@@ -66,7 +66,7 @@ $_['entry_safe']               = 'Seguro';
 $_['entry_commenter']          = 'Comentador';
 $_['entry_password']           = 'Senha';
 $_['entry_confirm']            = 'Confirmar';
-$_['entry_company']            = 'Empresa';
+
 $_['entry_address_1']          = 'Endereço 1';
 $_['entry_address_2']          = 'Endereço 2';
 $_['entry_city']               = 'Cidade';

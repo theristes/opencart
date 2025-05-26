@@ -14,7 +14,6 @@ $_['text_success']              = 'Sucesso: Sua conta de afiliado foi atualizada
 $_['text_agree']                = 'Eu li e concordo com os <a href="%s" class="modal-link"><b>%s</b></a>';
 
 // Entry
-$_['entry_company']             = 'Empresa';
 $_['entry_website']             = 'Website';
 $_['entry_tax']                 = 'ID Fiscal';
 $_['entry_payment_method']      = 'Método de Pagamento';

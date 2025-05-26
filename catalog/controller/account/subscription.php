@@ -200,13 +200,12 @@ class Subscription extends \Opencart\System\Engine\Controller {
 				if ($address_info['address_format']) {
 					$format = $address_info['address_format'];
 				} else {
-					$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+					$format = '{firstname} {lastname}' . "\n" . '{}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 				}
 
 				$find = [
 					'{firstname}',
 					'{lastname}',
-					'{company}',
 					'{address_1}',
 					'{address_2}',
 					'{city}',
@@ -219,7 +218,6 @@ class Subscription extends \Opencart\System\Engine\Controller {
 				$replace = [
 					'firstname' => $address_info['firstname'],
 					'lastname'  => $address_info['lastname'],
-					'company'   => $address_info['company'],
 					'address_1' => $address_info['address_1'],
 					'address_2' => $address_info['address_2'],
 					'city'      => $address_info['city'],
@@ -255,13 +253,12 @@ class Subscription extends \Opencart\System\Engine\Controller {
 				if ($address_info['address_format']) {
 					$format = $address_info['address_format'];
 				} else {
-					$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+					$format = '{firstname} {lastname}' .  "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 				}
 
 				$find = [
 					'{firstname}',
 					'{lastname}',
-					'{company}',
 					'{address_1}',
 					'{address_2}',
 					'{city}',
@@ -274,7 +271,6 @@ class Subscription extends \Opencart\System\Engine\Controller {
 				$replace = [
 					'firstname' => $address_info['firstname'],
 					'lastname'  => $address_info['lastname'],
-					'company'   => $address_info['company'],
 					'address_1' => $address_info['address_1'],
 					'address_2' => $address_info['address_2'],
 					'city'      => $address_info['city'],

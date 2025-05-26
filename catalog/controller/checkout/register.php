@@ -71,7 +71,6 @@ class Register extends \Opencart\System\Engine\Controller {
 		if (isset($this->session->data['payment_address'])) {
 			$data['payment_firstname'] = $this->session->data['payment_address']['firstname'];
 			$data['payment_lastname'] = $this->session->data['payment_address']['lastname'];
-			$data['payment_company'] = $this->session->data['payment_address']['company'];
 			$data['payment_address_1'] = $this->session->data['payment_address']['address_1'];
 			$data['payment_address_2'] = $this->session->data['payment_address']['address_2'];
 			$data['payment_postcode'] = $this->session->data['payment_address']['postcode'];
@@ -82,7 +81,6 @@ class Register extends \Opencart\System\Engine\Controller {
 		} else {
 			$data['payment_firstname'] = '';
 			$data['payment_lastname'] = '';
-			$data['payment_company'] = '';
 			$data['payment_address_1'] = '';
 			$data['payment_address_2'] = '';
 			$data['payment_postcode'] = '';
@@ -103,7 +101,6 @@ class Register extends \Opencart\System\Engine\Controller {
 		if (isset($this->session->data['shipping_address']['address_id'])) {
 			$data['shipping_firstname'] = $this->session->data['shipping_address']['firstname'];
 			$data['shipping_lastname'] = $this->session->data['shipping_address']['lastname'];
-			$data['shipping_company'] = $this->session->data['shipping_address']['company'];
 			$data['shipping_address_1'] = $this->session->data['shipping_address']['address_1'];
 			$data['shipping_address_2'] = $this->session->data['shipping_address']['address_2'];
 			$data['shipping_postcode'] = $this->session->data['shipping_address']['postcode'];
@@ -114,7 +111,6 @@ class Register extends \Opencart\System\Engine\Controller {
 		} else {
 			$data['shipping_firstname'] = '';
 			$data['shipping_lastname'] = '';
-			$data['shipping_company'] = '';
 			$data['shipping_address_1'] = '';
 			$data['shipping_address_2'] = '';
 
@@ -197,7 +193,6 @@ class Register extends \Opencart\System\Engine\Controller {
 			'lastname',
 			'email',
 			'telephone',
-			'payment_company',
 			'payment_address_1',
 			'payment_address_2',
 			'payment_city',
@@ -208,7 +203,6 @@ class Register extends \Opencart\System\Engine\Controller {
 			'address_match',
 			'shipping_firstname',
 			'shipping_lastname',
-			'shipping_company',
 			'shipping_address_1',
 			'shipping_address_2',
 			'shipping_city',
@@ -518,7 +512,6 @@ class Register extends \Opencart\System\Engine\Controller {
 					'address_id'     => $address_id,
 					'firstname'      => $this->request->post['firstname'],
 					'lastname'       => $this->request->post['lastname'],
-					'company'        => $this->request->post['payment_company'],
 					'address_1'      => $this->request->post['payment_address_1'],
 					'address_2'      => $this->request->post['payment_address_2'],
 					'city'           => $this->request->post['payment_city'],
@@ -607,7 +600,6 @@ class Register extends \Opencart\System\Engine\Controller {
 						'address_id'     => $address_id,
 						'firstname'      => $firstname,
 						'lastname'       => $lastname,
-						'company'        => $this->request->post['shipping_company'],
 						'address_1'      => $this->request->post['shipping_address_1'],
 						'address_2'      => $this->request->post['shipping_address_2'],
 						'city'           => $this->request->post['shipping_city'],

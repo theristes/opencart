@@ -18,7 +18,7 @@ $_['entry_name']              = 'Nome do Formato de Endereço';
 $_['entry_address_format']    = 'Formato de Endereço';
 
 // Help
-$_['help_address_format']     = 'Primeiro Nome = {firstname}<br/>Sobrenome = {lastname}<br/>Empresa = {company}<br/>Endereço 1 = {address_1}<br/>Endereço 2 = {address_2}<br/>Cidade = {city}<br/>CEP = {postcode}<br/>Zona = {zone}<br/>Código da Zona = {zone_code}<br/>País = {country}';
+$_['help_address_format']     = 'Primeiro Nome = {firstname}<br/>Sobrenome = {lastname}<br/>Endereço 1 = {address_1}<br/>Endereço 2 = {address_2}<br/>Cidade = {city}<br/>CEP = {postcode}<br/>Zona = {zone}<br/>Código da Zona = {zone_code}<br/>País = {country}';
 
 // Error
 $_['error_permission']        = 'Aviso: Você não tem permissão para modificar os formatos de endereço!';

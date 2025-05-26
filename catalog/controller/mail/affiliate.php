@@ -110,7 +110,6 @@ class Affiliate extends \Opencart\System\Engine\Controller {
 			}
 
 			$data['website'] = html_entity_decode($args[1]['website'], ENT_QUOTES, 'UTF-8');
-			$data['company'] = $args[1]['company'];
 
 			$this->load->model('account/customer_group');
 

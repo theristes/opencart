@@ -181,10 +181,6 @@
                   <div id="output-payment-address">
                     {{ payment_firstname }} {{ payment_lastname }}
                     <br/>
-                    {% if payment_company %}
-                      {{ payment_company }}
-                      <br/>
-                    {% endif %}
                     {% if payment_address_1 %}
                       {{ payment_address_1 }}
                       <br/>
@@ -222,10 +218,6 @@
                   <div id="output-shipping-address">
                     {{ shipping_firstname }} {{ shipping_lastname }}
                     <br/>
-                    {% if shipping_company %}
-                      {{ shipping_company }}
-                      <br/>
-                    {% endif %}
                     {% if shipping_address_1 %}
                       {{ shipping_address_1 }}
                       <br/>
@@ -645,7 +637,7 @@
             <label for="input-payment-address" class="form-label">{{ entry_address }}</label> <select name="payment_address_id" id="input-payment-address" class="form-select">
               <option value="0" selected>{{ text_none }}</option>
               {% for address in addresses %}
-                <option value="{{ address.address_id }}"{% if address.address_id == payment_address_id %} selected{% endif %}>{{ address.firstname }} {{ address.lastname }},{% if address.company %} {{ address.company }},{% endif %} {{ address.address_1 }}, {{ address.city }}, {{ address.postcode }}, {{ address.zone }}, {{ address.country }}</option>
+                <option value="{{ address.address_id }}"{% if address.address_id == payment_address_id %} selected{% endif %}>{{ address.firstname }} {{ address.lastname }},{% endif %} {{ address.address_1 }}, {{ address.city }}, {{ address.postcode }}, {{ address.zone }}, {{ address.country }}</option>
               {% endfor %}
             </select>
           </div>
@@ -656,9 +648,6 @@
           <div class="mb-3 required">
             <label for="input-payment-lastname" class="form-label">{{ entry_lastname }}</label> <input type="text" name="payment_lastname" value="{{ payment_lastname }}" placeholder="{{ entry_lastname }}" id="input-payment-lastname" class="form-control"/>
             <div id="error-payment-lastname" class="invalid-feedback"></div>
-          </div>
-          <div class="mb-3">
-            <label for="input-payment-company" class="form-label">{{ entry_company }}</label> <input type="text" name="payment_company" value="{{ payment_company }}" placeholder="{{ entry_company }}" id="input-payment-company" class="form-control"/>
           </div>
           <div class="mb-3 required">
             <label for="input-payment-address-1" class="form-label">{{ entry_address_1 }}</label> <input type="text" name="payment_address_1" value="{{ payment_address_1 }}" placeholder="{{ entry_address_1 }}" id="input-payment-address-1" class="form-control"/>
@@ -808,7 +797,7 @@
             <label for="input-shipping-address" class="form-label">{{ entry_address }}</label> <select name="shipping_address_id" id="input-shipping-address" class="form-select">
               <option value="0">{{ text_none }}</option>
               {% for address in addresses %}
-                <option value="{{ address.address_id }}"{% if address.address_id == shipping_address_id %} selected{% endif %}>{{ address.firstname }} {{ address.lastname }},{% if address.company %} {{ address.company }},{% endif %} {{ address.address_1 }}, {{ address.city }}, {{ address.postcode }}, {{ address.zone }}, {{ address.country }}</option>
+                <option value="{{ address.address_id }}"{% if address.address_id == shipping_address_id %} selected{% endif %}>{{ address.firstname }} {{ address.lastname }},{% endif %} {{ address.address_1 }}, {{ address.city }}, {{ address.postcode }}, {{ address.zone }}, {{ address.country }}</option>
               {% endfor %}
             </select>
           </div>
@@ -819,9 +808,6 @@
           <div class="mb-3 required">
             <label for="input-shipping-lastname" class="form-label">{{ entry_lastname }}</label> <input type="text" name="shipping_lastname" value="{{ shipping_lastname }}" placeholder="{{ entry_lastname }}" id="input-shipping-lastname" class="form-control"/>
             <div id="error-shipping-lastname" class="invalid-feedback"></div>
-          </div>
-          <div class="mb-3">
-            <label for="input-shipping-company" class="form-label">{{ entry_company }}</label> <input type="text" name="shipping_company" value="{{ shipping_company }}" placeholder="{{ entry_company }}" id="input-shipping-company" class="form-control"/>
           </div>
           <div class="mb-3 required">
             <label for="input-shipping-address-1" class="form-label">{{ entry_address_1 }}</label> <input type="text" name="shipping_address_1" value="{{ shipping_address_1 }}" placeholder="{{ entry_address_1 }}" id="input-shipping-address-1" class="form-control"/>
@@ -1156,7 +1142,7 @@ $('#input-customer').autocomplete({
         html = '<option value="0">{{ text_none|escape('js') }}</option>';
 
         for (i in item['address']) {
-            html += '<option value="' + item['address'][i]['address_id'] + '">' + decodeHTMLEntities(item['address'][i]['firstname']) + ' ' + decodeHTMLEntities(item['address'][i]['lastname']) + ', ' + (item['address'][i]['company'] ? decodeHTMLEntities(item['address'][i]['company']) + ', ' : '') + decodeHTMLEntities(item['address'][i]['address_1']) + ', ' + decodeHTMLEntities(item['address'][i]['city']) + ', ' + decodeHTMLEntities(item['address'][i]['country']) + '</option>';
+            html += '<option value="' + item['address'][i]['address_id'] + '">' + decodeHTMLEntities(item['address'][i]['firstname']) + ' ' + decodeHTMLEntities(item['address'][i]['lastname']) + ', ' + decodeHTMLEntities(item['address'][i]['address_1']) + ', ' + decodeHTMLEntities(item['address'][i]['city']) + ', ' + decodeHTMLEntities(item['address'][i]['country']) + '</option>';
         }
 
         $('#input-payment-address').html(html);
@@ -1576,7 +1562,6 @@ $('#input-payment-address').on('change', function() {
 
             $('#input-payment-firstname').val(json['firstname']);
             $('#input-payment-lastname').val(json['lastname']);
-            $('#input-payment-company').val(json['company']);
             $('#input-payment-address-1').val(json['address_1']);
             $('#input-payment-address-2').val(json['address_2']);
             $('#input-payment-city').val(json['city']);
@@ -1643,12 +1628,6 @@ $('#form-payment-address').on('submit', function(e) {
                 $('#form-payment-address').prepend('<div class="alert alert-success alert-dismissible"><i class="fa-solid fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
 
                 var address = $('#input-payment-firstname').val() + ' ' + $('#input-payment-lastname').val() + '<br/>';
-
-                var company = $('#input-payment-company').val();
-
-                if (company) {
-                    address += $('#input-payment-company').val() + '<br/>';
-                }
 
                 address += $('#input-payment-address-1').val() + '<br/>';
 
@@ -1756,7 +1735,6 @@ $('#input-shipping-address').on('change', function() {
 
             $('#input-shipping-firstname').val(json['firstname']);
             $('#input-shipping-lastname').val(json['lastname']);
-            $('#input-shipping-company').val(json['company']);
             $('#input-shipping-address-1').val(json['address_1']);
             $('#input-shipping-address-2').val(json['address_2']);
             $('#input-shipping-city').val(json['city']);
@@ -1824,12 +1802,6 @@ $('#form-shipping-address').on('submit', function(e) {
                 $('#form-shipping-address').prepend('<div class="alert alert-success alert-dismissible"><i class="fa-solid fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
 
                 var address = $('#input-shipping-firstname').val() + ' ' + $('#input-shipping-lastname').val() + '<br/>';
-
-                var company = $('#input-shipping-company').val();
-
-                if (company) {
-                    address += $('#input-shipping-company').val() + '<br/>';
-                }
 
                 address += $('#input-shipping-address-1').val() + '<br/>';
 

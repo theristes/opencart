@@ -46,6 +46,12 @@
               <div id="error-email" class="invalid-feedback"></div>
             </div>
           </div>
+          <div class="row mb-3">
+            <label for="input-cpf" class="col-sm-2 col-form-label">{{ entry_cpf }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="cpf" value="{{ cpf }}" placeholder="{{ entry_cpf }}" id="input-cpf" class="form-control"/>
+            </div>
+          </div>
 
           {% if config_telephone_display %}
             <div class="row mb-3{% if config_telephone_required %} required{% endif %}">

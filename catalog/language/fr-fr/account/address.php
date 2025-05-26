@@ -15,7 +15,6 @@ $_['text_no_results']    = 'Vous n\'avez aucune adresse dans votre compte.';
 // Entry
 $_['entry_firstname']    = 'Prénom';
 $_['entry_lastname']     = 'Nom';
-$_['entry_company']      = 'Entreprise';
 $_['entry_address_1']    = 'Adresse 1';
 $_['entry_address_2']    = 'Adresse 2';
 $_['entry_postcode']     = 'Code postal';

@@ -20,7 +20,6 @@ class PaymentAddress extends \Opencart\System\Engine\Controller {
 		$keys = [
 			'payment_firstname',
 			'payment_lastname',
-			'payment_company',
 			'payment_address_1',
 			'payment_address_2',
 			'payment_postcode',
@@ -121,7 +120,6 @@ class PaymentAddress extends \Opencart\System\Engine\Controller {
 				'address_id'     => $this->request->post['payment_address_id'],
 				'firstname'      => $this->request->post['payment_firstname'],
 				'lastname'       => $this->request->post['payment_lastname'],
-				'company'        => $this->request->post['payment_company'],
 				'address_1'      => $this->request->post['payment_address_1'],
 				'address_2'      => $this->request->post['payment_address_2'],
 				'postcode'       => $this->request->post['payment_postcode'],

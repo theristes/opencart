@@ -103,12 +103,6 @@ class Address extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!empty($address_info)) {
-			$data['company'] = $address_info['company'];
-		} else {
-			$data['company'] = '';
-		}
-
-		if (!empty($address_info)) {
 			$data['address_1'] = $address_info['address_1'];
 		} else {
 			$data['address_1'] = '';

@@ -13,7 +13,7 @@ $_['text_name']       = 'Nome do Cliente';
 $_['text_recipient']  = 'Destinatário';
 $_['text_email']      = 'E-Mail';
 $_['text_telephone']  = 'Telefone';
-$_['text_company']    = 'Empresa';
+
 $_['text_address_1']  = 'Endereço 1';
 $_['text_address_2']  = 'Endereço 2';
 $_['text_postcode']   = 'Código Postal';

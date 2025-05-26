@@ -14,7 +14,6 @@ $_['text_success']              = 'Success: Your affiliate account has been succ
 $_['text_agree']                = 'I have read and agree to the <a href="%s" class="modal-link"><b>%s</b></a>';
 
 // Entry
-$_['entry_company']             = 'Company';
 $_['entry_website']             = 'Web Site';
 $_['entry_tax']                 = 'Tax ID';
 $_['entry_payment_method']      = 'Payment Method';

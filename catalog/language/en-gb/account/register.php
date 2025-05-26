@@ -19,6 +19,7 @@ $_['entry_email']              = 'E-Mail';
 $_['entry_telephone']          = 'Telephone';
 $_['entry_newsletter']         = 'Subscribe';
 $_['entry_password']           = 'Password';
+$_['entry_cpf']                = 'CPF';
 
 // Error
 $_['error_token']              = 'Warning: Register token invalid!';

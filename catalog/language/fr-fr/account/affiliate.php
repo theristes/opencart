@@ -14,7 +14,6 @@ $_['text_success']              = 'Succès: Votre compte d\'affiliation a été 
 $_['text_agree']                = 'J\'ai lu et j\'accepte les <a href="%s" class="modal-link"><b>%s</b></a>';
 
 // Entry
-$_['entry_company']             = 'Entreprise';
 $_['entry_website']             = 'Site web';
 $_['entry_tax']                 = 'Numéro d\'identification fiscale';
 $_['entry_payment_method']      = 'Mode de paiement';

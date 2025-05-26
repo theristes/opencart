@@ -21,7 +21,6 @@ class ShippingAddress extends \Opencart\System\Engine\Controller {
 			$keys = [
 				'shipping_firstname'  => '',
 				'shipping_lastname'   => '',
-				'shipping_company'    => '',
 				'shipping_address_1'  => '',
 				'shipping_address_2'  => '',
 				'shipping_postcode'   => '',
@@ -125,7 +124,6 @@ class ShippingAddress extends \Opencart\System\Engine\Controller {
 				'address_id'     => $this->request->post['shipping_address_id'],
 				'firstname'      => $this->request->post['shipping_firstname'],
 				'lastname'       => $this->request->post['shipping_lastname'],
-				'company'        => $this->request->post['shipping_company'],
 				'address_1'      => $this->request->post['shipping_address_1'],
 				'address_2'      => $this->request->post['shipping_address_2'],
 				'postcode'       => $this->request->post['shipping_postcode'],
