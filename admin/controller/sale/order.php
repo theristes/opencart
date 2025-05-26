@@ -858,7 +858,6 @@ class Order extends \Opencart\System\Engine\Controller {
 			$data['shipping_address_id'] = $order_info['shipping_address_id'];
 			$data['shipping_firstname'] = $order_info['shipping_firstname'];
 			$data['shipping_lastname'] = $order_info['shipping_lastname'];
-			$data['shipping_company'] = $order_info['shipping_company'];
 			$data['shipping_address_1'] = $order_info['shipping_address_1'];
 			$data['shipping_address_2'] = $order_info['shipping_address_2'];
 			$data['shipping_city'] = $order_info['shipping_city'];
@@ -872,7 +871,6 @@ class Order extends \Opencart\System\Engine\Controller {
 			$data['shipping_address_id'] = 0;
 			$data['shipping_firstname'] = '';
 			$data['shipping_lastname'] = '';
-			$data['shipping_company'] = '';
 			$data['shipping_address_1'] = '';
 			$data['shipping_address_2'] = '';
 			$data['shipping_city'] = '';
@@ -1395,7 +1393,6 @@ class Order extends \Opencart\System\Engine\Controller {
 				$replace = [
 					'firstname' => $order_info['shipping_firstname'],
 					'lastname'  => $order_info['shipping_lastname'],
-					'company'   => $order_info['shipping_company'],
 					'address_1' => $order_info['shipping_address_1'],
 					'address_2' => $order_info['shipping_address_2'],
 					'city'      => $order_info['shipping_city'],
@@ -1598,7 +1595,6 @@ class Order extends \Opencart\System\Engine\Controller {
 				$replace = [
 					'firstname' => $order_info['shipping_firstname'],
 					'lastname'  => $order_info['shipping_lastname'],
-					'company'   => $order_info['shipping_company'],
 					'address_1' => $order_info['shipping_address_1'],
 					'address_2' => $order_info['shipping_address_2'],
 					'city'      => $order_info['shipping_city'],

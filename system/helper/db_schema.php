@@ -4227,10 +4227,6 @@ function oc_db_schema() {
 				'type' => 'varchar(32)'
 			],
 			[
-				'name' => 'shipping_company',
-				'type' => 'varchar(60)'
-			],
-			[
 				'name' => 'shipping_address_1',
 				'type' => 'varchar(128)'
 			],

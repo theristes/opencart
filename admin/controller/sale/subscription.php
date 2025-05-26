@@ -676,7 +676,6 @@ class Subscription extends \Opencart\System\Engine\Controller {
 			$data['shipping_address_id'] = $address_info['address_id'];
 			$data['shipping_firstname'] = $address_info['firstname'];
 			$data['shipping_lastname'] = $address_info['lastname'];
-			$data['shipping_company'] = $address_info['company'];
 			$data['shipping_address_1'] = $address_info['address_1'];
 			$data['shipping_address_2'] = $address_info['address_2'];
 			$data['shipping_city'] = $address_info['city'];
@@ -690,7 +689,6 @@ class Subscription extends \Opencart\System\Engine\Controller {
 			$data['shipping_address_id'] = 0;
 			$data['shipping_firstname'] = '';
 			$data['shipping_lastname'] = '';
-			$data['shipping_company'] = '';
 			$data['shipping_address_1'] = '';
 			$data['shipping_address_2'] = '';
 			$data['shipping_city'] = '';
