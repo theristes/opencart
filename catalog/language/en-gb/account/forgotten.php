@@ -16,6 +16,7 @@ $_['entry_email']              = 'E-Mail Address';
 $_['entry_new_password']       = 'New Password';
 $_['entry_password']           = 'Password';
 $_['entry_confirm']            = 'Confirm';
+$_['entry_cpf']                = 'CPF';
 
 // Error
 $_['error_email']              = 'E-Mail Address does not appear to be valid!';

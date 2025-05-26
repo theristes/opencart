@@ -13,6 +13,7 @@ $_['entry_firstname']    = 'Nome';
 $_['entry_lastname']     = 'Sobrenome';
 $_['entry_email']        = 'E-mail';
 $_['entry_telephone']    = 'Telefone';
+$_['entry_cpf']      = 'CPF';
 
 // Error
 $_['error_token']        = 'Aviso: Token de edição inválido!';

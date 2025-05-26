@@ -41,6 +41,7 @@ $_['entry_owner']                      = 'Proprietário da Loja';
 $_['entry_address']                    = 'Endereço';
 $_['entry_geocode']                    = 'Geolocalização';
 $_['entry_email']                      = 'E-mail';
+$_['entry_cpf']      = 'CPF';
 $_['entry_telephone']                  = 'Telefone';
 $_['entry_image']                      = 'Imagem';
 $_['entry_open']                       = 'Horário de Funcionamento';

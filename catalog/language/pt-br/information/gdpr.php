@@ -19,6 +19,7 @@ $_['text_cancel']       = 'Cancelar';
 
 // Entry
 $_['entry_email']       = 'E-mail';
+$_['entry_cpf']         = 'CPF';
 
 // Error
 $_['error_email']       = 'O endereço de e-mail não parece ser válido!';

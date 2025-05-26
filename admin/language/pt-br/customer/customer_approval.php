@@ -23,6 +23,7 @@ $_['column_action']         = 'Ação';
 // Entry
 $_['entry_customer']        = 'Cliente';
 $_['entry_email']           = 'E-Mail';
+$_['entry_cpf']      = 'CPF';
 $_['entry_customer_group']  = 'Grupo de Cliente';
 $_['entry_type']            = 'Tipo';
 $_['entry_date_from']       = 'Data de';

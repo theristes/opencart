@@ -19,6 +19,7 @@ $_['entry_customer_group']     = 'Tipo de Conta';
 $_['entry_firstname']          = 'Nome';
 $_['entry_lastname']           = 'Sobrenome';
 $_['entry_email']              = 'E-mail';
+$_['entry_cpf']                = 'CPF';
 $_['entry_telephone']          = 'Telefone';
 $_['entry_password']           = 'Senha';
 $_['entry_address_1']          = 'Endereço 1';

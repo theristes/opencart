@@ -15,6 +15,7 @@ $_['entry_confirm']            = 'Confirmar';
 $_['entry_firstname']          = 'Primeiro Nome';
 $_['entry_lastname']           = 'Sobrenome';
 $_['entry_email']              = 'E-Mail';
+$_['entry_cpf']      = 'CPF';
 $_['entry_image']              = 'Imagem';
 
 // Error

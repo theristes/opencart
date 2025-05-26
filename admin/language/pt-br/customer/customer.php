@@ -59,6 +59,7 @@ $_['entry_customer_group']     = 'Grupo de Cliente';
 $_['entry_firstname']          = 'Primeiro Nome';
 $_['entry_lastname']           = 'Sobrenome';
 $_['entry_email']              = 'E-Mail';
+$_['entry_cpf']      = 'CPF';
 $_['entry_telephone']          = 'Telefone';
 $_['entry_newsletter']         = 'Boletim';
 $_['entry_status']             = 'Status';

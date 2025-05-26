@@ -13,6 +13,7 @@ $_['text_reset']               = 'Sucesso: Sua senha foi atualizada com sucesso.
 $_['entry_password']           = 'Senha';
 $_['entry_confirm']            = 'Confirmar';
 $_['entry_email']              = 'Endereço de E-mail';
+$_['entry_cpf']      = 'CPF';
 
 // Error
 $_['error_email']              = 'Aviso: O endereço de e-mail não foi encontrado em nossos registros!';

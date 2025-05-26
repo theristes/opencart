@@ -44,6 +44,7 @@ $_['entry_date_ordered'] = 'Data do Pedido';
 $_['entry_firstname']    = 'Nome';
 $_['entry_lastname']     = 'Sobrenome';
 $_['entry_email']        = 'E-mail';
+$_['entry_cpf']          = 'CPF';
 $_['entry_telephone']    = 'Telefone';
 $_['entry_product']      = 'Nome do Produto';
 $_['entry_model']        = 'Código do Produto';

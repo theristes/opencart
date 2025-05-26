@@ -27,6 +27,7 @@ $_['column_action']     = 'Ação';
 
 // Entry
 $_['entry_email']       = 'E-Mail';
+$_['entry_cpf']      = 'CPF';
 $_['entry_action']      = 'Ação';
 $_['entry_status']      = 'Status';
 $_['entry_date_from']   = 'Data de';

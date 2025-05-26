@@ -15,6 +15,7 @@ $_['text_forgotten']               = 'Forgotten Password';
 // Entry
 $_['entry_email']                  = 'E-Mail Address';
 $_['entry_password']               = 'Password';
+$_['entry_cpf']                    = 'CPF';
 
 // Error
 $_['error_token']                  = 'Warning: Invalid token session. Please login again!';
