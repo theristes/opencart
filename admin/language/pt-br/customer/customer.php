@@ -60,6 +60,8 @@ $_['entry_firstname']          = 'Primeiro Nome';
 $_['entry_lastname']           = 'Sobrenome';
 $_['entry_email']              = 'E-Mail';
 $_['entry_cpf']      = 'CPF';
+$_['entry_birthday']           = 'Data de Nascimento';
+
 $_['entry_telephone']          = 'Telefone';
 $_['entry_status']             = 'Status';
 $_['entry_safe']               = 'Seguro';

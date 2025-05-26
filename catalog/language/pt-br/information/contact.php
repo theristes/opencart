@@ -18,6 +18,7 @@ $_['text_message']   = '<p>Sua dúvida foi enviada para nosso atendimento.</p>';
 $_['entry_name']     = 'Seu nome';
 $_['entry_email']    = 'Seu e-mail';
 $_['entry_cpf']      = 'CPF';
+$_['entry_birthday']           = 'Data de Nascimento';
 $_['entry_enquiry']  = 'Dúvida';
 
 // Email

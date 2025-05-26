@@ -46,7 +46,11 @@
         <input type="text" name="cpf" value="{{ cpf }}" placeholder="{{ entry_cpf }}" id="input-cpf" class="form-control"/>
         <div id="error-cpf" class="invalid-feedback"></div>
       </div>
-       
+      <div class="col mb-3 required">
+        <label for="input-birthday" class="form-label">{{ entry_birthday }}</label>
+        <input type="date" name="birthday" value="{{ birthday }}" placeholder="{{ entry_birthday }}" id="input-birthday" class="form-control"/>
+        <div id="error-birthday" class="invalid-feedback"></div>
+      </div> 
 
       {% if config_telephone_display %}
         <div class="col mb-3{% if config_telephone_required %} required{% endif %}">

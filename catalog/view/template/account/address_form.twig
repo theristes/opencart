@@ -31,6 +31,13 @@
             </div>
           </div>
           <div class="row mb-3 required">
+            <label for="input-birthday" class="col-sm-2 col-form-label">{{ entry_birthday }}</label>
+            <div class="col-sm-10">
+              <input type="date" name="birthday" value="{{ birthday }}" placeholder="{{ entry_birthday }}" id="input-birthday" class="form-control"/>
+              <div id="error-birthday" class="invalid-feedback"></div>
+            </div>
+          </div>
+          <div class="row mb-3 required">
             <label for="input-address-1" class="col-sm-2 col-form-label">{{ entry_address_1 }}</label>
             <div class="col-sm-10">
               <input type="text" name="address_1" value="{{ address_1 }}" placeholder="{{ entry_address_1 }}" id="input-address-1" class="form-control"/>

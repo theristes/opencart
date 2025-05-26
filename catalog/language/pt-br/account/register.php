@@ -19,6 +19,7 @@ $_['entry_email']              = 'E-mail';
 $_['entry_telephone']          = 'Telefone';
 $_['entry_password']           = 'Senha';
 $_['entry_cpf']                = 'CPF';
+$_['entry_birthday']           = 'Data de Nascimento';
 
 // Error
 $_['error_token']              = 'Aviso: Token de registro inválido!';

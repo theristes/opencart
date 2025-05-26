@@ -14,6 +14,7 @@ $_['entry_lastname']     = 'Sobrenome';
 $_['entry_email']        = 'E-mail';
 $_['entry_telephone']    = 'Telefone';
 $_['entry_cpf']      = 'CPF';
+$_['entry_birthday']           = 'Data de Nascimento';
 
 // Error
 $_['error_token']        = 'Aviso: Token de edição inválido!';

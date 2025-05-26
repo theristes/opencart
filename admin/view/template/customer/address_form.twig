@@ -22,6 +22,13 @@
             <input type="text" name="cpf" value="{{ cpf }}" placeholder="{{ entry_cpf }}" id="input-address-cpf" class="form-control"/>
             <div id="error-address-cpf" class="invalid-feedback"></div>
           </div>
+
+            <div class="mb-3 required">
+            <label for="input-address-birthday" class="form-label">{{ entry_birthday }}</label>
+            <input type="date" name="birthday" value="{{ birthday }}" placeholder="{{ entry_birthday }}" id="input-address-birthday" class="form-control"/>
+            <div id="error-address-birthday" class="invalid-feedback"></div>
+            </div>
+
           <div class="mb-3 required">
             <label for="input-address-address-1" class="form-label">{{ entry_address_1 }}</label>
             <input type="text" name="address_1" value="{{ address_1 }}" placeholder="{{ entry_address_1 }}" id="input-address-address-1" class="form-control"/>

@@ -45,6 +45,7 @@ $_['entry_firstname']    = 'Nome';
 $_['entry_lastname']     = 'Sobrenome';
 $_['entry_email']        = 'E-mail';
 $_['entry_cpf']          = 'CPF';
+$_['entry_birthday']           = 'Data de Nascimento';
 $_['entry_telephone']    = 'Telefone';
 $_['entry_product']      = 'Nome do Produto';
 $_['entry_model']        = 'Código do Produto';

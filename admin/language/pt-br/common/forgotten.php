@@ -14,6 +14,7 @@ $_['entry_password']           = 'Senha';
 $_['entry_confirm']            = 'Confirmar';
 $_['entry_email']              = 'Endereço de E-mail';
 $_['entry_cpf']      = 'CPF';
+$_['entry_birthday']           = 'Data de Nascimento';
 
 // Error
 $_['error_email']              = 'Aviso: O endereço de e-mail não foi encontrado em nossos registros!';

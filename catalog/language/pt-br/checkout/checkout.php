@@ -51,6 +51,7 @@ $_['column_total']                   = 'Total';
 $_['entry_email_address']            = 'E-mail';
 $_['entry_email']                    = 'E-mail';
 $_['entry_cpf']                      = 'CPF';
+$_['entry_birthday']           = 'Data de Nascimento';
 $_['entry_password']                 = 'Senha';
 $_['entry_confirm']                  = 'Repetir a senha';
 $_['entry_firstname']                = 'Nome';

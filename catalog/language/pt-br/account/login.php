@@ -16,6 +16,7 @@ $_['text_forgotten']               = 'Esqueceu a Senha';
 $_['entry_email']                  = 'Endereço de E-mail';
 $_['entry_password']               = 'Senha';
 $_['entry_cpf']      = 'CPF';
+$_['entry_birthday']           = 'Data de Nascimento';
 
 // Error
 $_['error_token']                  = 'Aviso: Sessão de token inválida. Por favor, faça login novamente!';

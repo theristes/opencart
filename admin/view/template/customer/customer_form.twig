@@ -101,6 +101,12 @@
                       <input type="text" name="cpf" value="{{ cpf }}" placeholder="{{ entry_cpf }}" id="input-cpf" class="form-control"/>
                     </div>
                   </div>
+                    <div class="row mb-3 required">
+                    <label for="input-birthday" class="col-sm-2 col-form-label">{{ entry_birthday }}</label>
+                    <div class="col-sm-10">
+                      <input type="date" name="birthday" value="{{ birthday }}" placeholder="{{ entry_birthday }}" id="input-birthday" class="form-control"/>
+                    </div>
+                    </div>
                 {% for custom_field in custom_fields %}
 
                   {% if custom_field.location == 'account' %}
