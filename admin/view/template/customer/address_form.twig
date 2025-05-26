@@ -18,6 +18,11 @@
             <div id="error-address-lastname" class="invalid-feedback"></div>
           </div>
           <div class="mb-3 required">
+            <label for="input-address-cpf" class="form-label">{{ entry_cpf }}</label>
+            <input type="text" name="cpf" value="{{ cpf }}" placeholder="{{ entry_cpf }}" id="input-address-cpf" class="form-control"/>
+            <div id="error-address-cpf" class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3 required">
             <label for="input-address-address-1" class="form-label">{{ entry_address_1 }}</label>
             <input type="text" name="address_1" value="{{ address_1 }}" placeholder="{{ entry_address_1 }}" id="input-address-address-1" class="form-control"/>
             <div id="error-address-address-1" class="invalid-feedback"></div>
