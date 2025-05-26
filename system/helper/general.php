@@ -306,6 +306,13 @@ if (!function_exists('fetch_image')) {
     }
 }
 
+if (!function_exists('get_geo_code_key')) {
+    function get_geo_code_key(): string {
+       return "AAALOHAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALA";
+    }
+}
+
+
 
 
 function resize_and_upload_image(string $source, string $destPath, int $width, int $height, string $default = '') {

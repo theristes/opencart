@@ -124,6 +124,12 @@ class Twig {
 				$twig->addExtension(new \Twig\Extension\DebugExtension());
 			}
 
+
+			// Register the get_geo_code_key function
+			if (function_exists('get_geo_code_key')) {
+				$twig->addFunction(new \Twig\TwigFunction('get_geo_code_key', 'get_geo_code_key'));
+			}
+
 			return $twig->render($file, $data);
 		} catch (\Twig\Error\SyntaxError $e) {
 			throw new \Exception('Error: Could not load template ' . $filename . '!');
