@@ -19,6 +19,7 @@ $_['entry_email']          = 'E-mail';
 $_['entry_telephone']      = 'Téléphone';
 $_['entry_newsletter']     = 'S\'abonner';
 $_['entry_password']       = 'Mot de Passe';
+$_['entry_cpf']            = 'CPF';
 $_['entry_confirm']        = 'Confirmer le Mot de Passe';
 
 // Error
