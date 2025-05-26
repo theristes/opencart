@@ -65,7 +65,6 @@ $_['entry_postcode']                 = 'CEP';
 $_['entry_city']                     = 'Cidade';
 $_['entry_country']                  = 'País';
 $_['entry_zone']                     = 'Estado';
-$_['entry_newsletter']               = 'Deseja receber novidades, ofertas e promoções da loja %s em seu e-mail?';
 $_['entry_shipping']                 = 'O endereço para entrega é o mesmo que estou cadastrando.';
 
 // Error

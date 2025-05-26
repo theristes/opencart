@@ -61,7 +61,6 @@ $_['entry_lastname']           = 'Sobrenome';
 $_['entry_email']              = 'E-Mail';
 $_['entry_cpf']      = 'CPF';
 $_['entry_telephone']          = 'Telefone';
-$_['entry_newsletter']         = 'Boletim';
 $_['entry_status']             = 'Status';
 $_['entry_safe']               = 'Seguro';
 $_['entry_commenter']          = 'Comentador';

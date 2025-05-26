@@ -62,7 +62,6 @@ class Customer extends \Opencart\System\Engine\Model {
 	 *     'email'             => 'demo@opencart.com',
 	 *     'telephone'         => '1234567890',
 	 *     'custom_field'      => [],
-	 *     'newsletter'        => 0,
 	 *     'password'          => '',
 	 *     'status'            => 1,
 	 *     'safe'              => 0,

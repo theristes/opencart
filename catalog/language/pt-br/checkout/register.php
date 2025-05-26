@@ -29,7 +29,6 @@ $_['entry_city']               = 'Cidade';
 $_['entry_country']            = 'País';
 $_['entry_zone']               = 'Região / Estado';
 $_['entry_match']              = 'Meus endereços de entrega e cobrança são os mesmos.';
-$_['entry_newsletter']         = 'Desejo assinar a newsletter %s.';
 
 // Error
 $_['error_guest']              = 'Aviso: Os itens no seu carrinho de compras exigem que você se registre para uma conta!';
