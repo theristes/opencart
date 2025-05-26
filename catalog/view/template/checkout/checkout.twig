@@ -1,0 +1,133 @@
+{{ header }}
+<div id="checkout-checkout" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    <div id="content" class="col">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      <div class="row">
+        {% if register or payment_address or shipping_address %}
+          <div class="col-md-7 mb-3">
+            {% if register %}
+              <div id="checkout-register">{{ register }}</div>
+            {% endif %}
+            {% if payment_address %}
+              <div id="checkout-payment-address">{{ payment_address }}</div>
+            {% endif %}
+            {% if shipping_address %}
+              <div id="checkout-shipping-address">{{ shipping_address }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="col">
+
+  {% if services %}
+  <div class="form-group mt-3">
+    <label for="input-service"><strong>Local de Retirada</strong></label>
+    <select name="service_id" id="input-service" class="form-control">
+      <option value="">-- Por favor, selecione --</option>
+      {% for service in services %}
+        <option value="{{ service.id }}" {% if service_id == service.id %}selected{% endif %}>
+          {{ service.name }}
+        </option>
+      {% endfor %}
+    </select>
+
+    <div id="map" style="width: 100%; height: 300px; margin-top: 10px; display:none"></div>
+  </div>
+
+  <script>
+    var services = {{ services|json_encode|raw }};
+    var map;
+    var geocoder;
+    var marker;
+
+    function initMap() {
+      geocoder = new google.maps.Geocoder();
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: {lat: -22.9068, lng: -43.1729}
+      });
+
+      const selectedServiceId = "{{ service_id }}";
+      if (selectedServiceId) {
+        updateMap(selectedServiceId);
+      } else {
+        $('#map').hide();
+      }
+    }
+
+
+    function updateMap(serviceId) {
+      if (!serviceId) {
+        $('#map').hide();
+        return;
+      }
+
+      var service = services.find(s => s.id == serviceId);
+      if (!service || !service.name) {
+        $('#map').hide();
+        return;
+      }
+
+      geocoder.geocode({ 'address': service.name }, function(results, status) {
+        if (status === 'OK') {
+          map.setCenter(results[0].geometry.location);
+          if (marker) {
+            marker.setMap(null);
+          }
+          marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+          $('#map').show();
+        } else {
+          console.log('Geocode failed: ' + status);
+          $('#map').hide();
+        }
+      });
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      $('#input-service').on('change', function () {
+        const serviceId = $(this).val();
+        updateMap(serviceId);
+
+        $.ajax({
+          url: 'index.php?route=checkout/service',
+          type: 'post',
+          data: { service_id: serviceId },
+          dataType: 'json',
+          success: function(response) {
+            debugger;
+            console.log('Selected service saved:', response);
+            $('#checkout-payment-method').load('index.php?route=checkout/payment_method&language={{ language }}');
+          },
+          error: function(xhr, status, error) {
+            console.error('Error saving selected service:', error);
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap" async defer></script>
+{% endif %}
+          
+          {% if shipping_method %}
+            <div id="checkout-shipping-method" class="mb-3">{{ shipping_method }}</div>
+          {% endif %}
+          <div id="checkout-payment-method" class="mb-4">{{ payment_method }}</div>
+          <div id="checkout-confirm">{{ confirm }}</div>
+        </div>
+      </div>
+    </div>
+    {{ content_bottom }}
+  </div>
+  {{ column_right }}
+</div>
+{{ footer }}
