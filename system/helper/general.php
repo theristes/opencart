@@ -308,7 +308,7 @@ if (!function_exists('fetch_image')) {
 
 if (!function_exists('get_geo_code_key')) {
     function get_geo_code_key(): string {
-       return "AAALOHAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALAAALA";
+        return defined('GEO_CODE_KEY') ? GEO_CODE_KEY : 'no key found';
     }
 }
 
