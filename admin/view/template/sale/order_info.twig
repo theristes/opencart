@@ -493,6 +493,12 @@
             <label for="input-telephone" class="form-label">{{ entry_telephone }}</label> <input type="text" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control"/>
             <div id="error-telephone" class="invalid-feedback"></div>
           </div>
+           <div class="row mb-3 required">
+            <label for="input-cpf" class="col-sm-2 col-form-label">{{ entry_cpf }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="cpf" value="{{ cpf }}" placeholder="{{ entry_cpf }}" id="input-cpf" class="form-control"/>
+            </div>
+          </div>
 
           {% for custom_field in custom_fields %}
             {% if custom_field.location == 'account' %}
