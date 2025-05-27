@@ -493,6 +493,18 @@
             <label for="input-telephone" class="form-label">{{ entry_telephone }}</label> <input type="text" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control"/>
             <div id="error-telephone" class="invalid-feedback"></div>
           </div>
+           <div class="row mb-3 required">
+            <label for="input-cpf" class="col-sm-2 col-form-label">{{ entry_cpf }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="cpf" value="{{ cpf }}" placeholder="{{ entry_cpf }}" id="input-cpf" class="form-control"/>
+            </div>
+          </div>
+          <div class="row mb-3 required">
+            <label for="input-birthday" class="col-sm-2 col-form-label">{{ entry_birthday }}</label>
+            <div class="col-sm-10">
+              <input type="date" name="birthday" value="{{ birthday }}" placeholder="{{ entry_birthday }}" id="input-birthday" class="form-control"/>
+            </div>
+          </div>
 
           {% for custom_field in custom_fields %}
             {% if custom_field.location == 'account' %}
@@ -1802,12 +1814,6 @@ $('#form-shipping-address').on('submit', function(e) {
                 $('#form-shipping-address').prepend('<div class="alert alert-success alert-dismissible"><i class="fa-solid fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
 
                 var address = $('#input-shipping-firstname').val() + ' ' + $('#input-shipping-lastname').val() + '<br/>';
-
-                var company = $('#input-shipping-company').val();
-
-                if (company) {
-                    address += $('#input-shipping-company').val() + '<br/>';
-                }
 
                 address += $('#input-shipping-address-1').val() + '<br/>';
 
