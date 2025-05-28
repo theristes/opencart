@@ -92,11 +92,7 @@
 
             // Reload the payment method section
             $('#checkout-payment-method').load('index.php?route=checkout/payment_method&language={{ language }}', function() {
-              // Reinitialize any JavaScript functionality for the payment method section
-              $('#button-payment-methods').off('click').on('click', function() {
-                // Ensure the payment method modal works after reload
-                // ...existing code for handling payment method modal...
-              });
+              console.log('Payment method section reloaded.');
             });
           },
           error: function(xhr, status, error) {
