@@ -24,7 +24,6 @@
         {% endif %}
         <div class="col">
 
-  {% if services %}
   <div class="form-group mt-3">
     <label for="input-service"><strong>Local de Retirada</strong></label>
     <select name="service_id" id="input-service" class="form-control">
@@ -115,7 +114,6 @@
     });
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key={{get_geo_code_key()}}&callback=initMap" async defer></script>
-{% endif %}
           
           <div id="checkout-payment-method" class="mb-4">{{ payment_method }}</div>
           <div id="checkout-shipping-method" class="mb-3">{{ shipping_method }}</div>
