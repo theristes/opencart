@@ -89,11 +89,6 @@
           dataType: 'json',
           success: function(response) {
             console.log('Selected service saved:', response);
-
-            // Reload the payment method section
-            $('#checkout-payment-method').load('index.php?route=checkout/payment_method&language={{ language }}', function() {
-              console.log('Payment method section reloaded.');
-            });
           },
           error: function(xhr, status, error) {
             console.error('Error saving selected service:', error);
