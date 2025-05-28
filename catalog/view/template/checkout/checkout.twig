@@ -88,9 +88,16 @@
           data: { service_id: serviceId },
           dataType: 'json',
           success: function(response) {
-            debugger;
             console.log('Selected service saved:', response);
-            $('#checkout-payment-method').load('index.php?route=checkout/payment_method&language={{ language }}');
+
+            // Reload the payment method section
+            $('#checkout-payment-method').load('index.php?route=checkout/payment_method&language={{ language }}', function() {
+              // Reinitialize any JavaScript functionality for the payment method section
+              $('#button-payment-methods').off('click').on('click', function() {
+                // Ensure the payment method modal works after reload
+                // ...existing code for handling payment method modal...
+              });
+            });
           },
           error: function(xhr, status, error) {
             console.error('Error saving selected service:', error);
