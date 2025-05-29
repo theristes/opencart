@@ -28,7 +28,7 @@ def rgb_to_hue(r, g, b):
     mn = min(r, g, b)
     delta = mx - mn
     if delta == 0:
-        return None  # Grays (no hue)
+        return None  # True gray (no hue)
     if mx == r:
         return (60 * ((g - b) / delta) + 360) % 360
     elif mx == g:
@@ -41,11 +41,6 @@ def is_blue_purple(rgb):
     if hue is None:
         return False
     return 190 <= hue <= 290
-
-def is_gray(rgb, tolerance=10):
-    r, g, b = rgb
-    avg = sum(rgb) / 3
-    return abs(r - g) <= tolerance and abs(g - b) <= tolerance and abs(b - r) <= tolerance and avg < 240
 
 for root, _, files in os.walk(REPO_PATH):
     for file in files:
@@ -65,8 +60,6 @@ for root, _, files in os.walk(REPO_PATH):
                             rgb = parse_rgb(color)
                         else:
                             return color
-                        if is_gray(rgb):
-                            return color  # Keep grays
                         if is_blue_purple(rgb):
                             return MAIN_COLOR
                     except:
