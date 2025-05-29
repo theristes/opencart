@@ -26,7 +26,7 @@ def rgb_distance(rgb1, rgb2):
 def find_closest_color(hexcode):
     input_rgb = hex_to_rgb(hexcode)
     if is_gray(input_rgb):
-        return COLOR_MAP['BLACK_ONE']
+        return COLOR_MAP['DARK_ONE_LIGHTER']
 
     min_diff = float('inf')
     closest = None
