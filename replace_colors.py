@@ -1,7 +1,6 @@
 import os
 import re
 
-# === CONFIG ===
 MAIN_COLOR = 'var(--maincolor)'
 REPO_PATH = './'
 FILE_EXTENSIONS = ('.css', '.scss', '.less', '.html', '.tpl', '.twig', '.js')
@@ -40,12 +39,13 @@ def rgb_to_hue(r, g, b):
 def is_blue_purple(rgb):
     hue = rgb_to_hue(*rgb)
     if hue is None:
-        return False  # Grays, no hue → skip
+        return False
     return 190 <= hue <= 290
 
 def is_gray(rgb, tolerance=10):
     r, g, b = rgb
-    return abs(r - g) <= tolerance and abs(g - b) <= tolerance and abs(b - r) <= tolerance
+    avg = sum(rgb) / 3
+    return abs(r - g) <= tolerance and abs(g - b) <= tolerance and abs(b - r) <= tolerance and avg < 240
 
 for root, _, files in os.walk(REPO_PATH):
     for file in files:
