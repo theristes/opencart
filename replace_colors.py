@@ -3,13 +3,18 @@ import re
 
 # Define your 6 colors
 COLOR_MAP = {
-    'DARK_ONE': '#615dbd',
-    'LIGHT_ONE': '#FFFFFF',
-    'GREEN_ONE': '#615dbd',
-    'RED_ONE': '#DC3545',
-    'BLACK_ONE': '#000000',
-    'DARK_ONE_LIGHTER': '#7a76d6'
+    'MAIN_COLOR': '#615dbd',
+    'WHITE_COLOR': '#FFFFFF',
+    'SECOND_COLOR': '#615dbd',
+    'ALERT_COLOR': '#DC3545',
+    'DARK_COLOR': '#000000',
+    'HOVER_COLOR': '#7a76d6',
+    'GRAY_COLOR': '#DFDFDF',
 }
+
+#Define gray map
+GRAY_MAP = [ '#dee2e6', '#ddd',  '#dddddd']
+
 
 def is_gray(rgb, threshold=10):
     r, g, b = rgb
@@ -24,10 +29,12 @@ def rgb_distance(rgb1, rgb2):
     return sum((a - b) ** 2 for a, b in zip(rgb1, rgb2)) ** 0.5
 
 def find_closest_color(hexcode):
-    input_rgb = hex_to_rgb(hexcode)
-    if is_gray(input_rgb):
-        return COLOR_MAP['DARK_ONE_LIGHTER']
+    hex_lower = hexcode.lower()
+    
+    if hex_lower in [c.lower() for c in GRAY_MAP]:
+        return COLOR_MAP['GRAY_COLOR']
 
+    input_rgb = hex_to_rgb(hexcode)
     min_diff = float('inf')
     closest = None
     for name, color_hex in COLOR_MAP.items():
