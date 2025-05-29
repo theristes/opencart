@@ -5,8 +5,9 @@ import re
 COLOR_MAP = {
     'MAIN_COLOR': '#615dbd',
     'WHITE_COLOR': '#FFFFFF',
-    'ALERT_COLOR': '#DC3545',
-    'DARK_COLOR': '#000000',
+    'ALERT_COLOR': '#fac0c0',
+    'ALERT_COLOR': '#DFFFDD',
+    'DARK_COLOR': '#5F5F5F',
     'HOVER_COLOR': '#7a76d6',
     'GRAY_COLOR': '#DFDFDF',
 }
