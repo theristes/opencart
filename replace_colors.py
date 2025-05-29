@@ -1,9 +1,9 @@
 import os
 import re
-from math import sqrt, atan2, degrees
 
-REPO_PATH = './'
+# === CONFIG ===
 MAIN_COLOR = 'var(--maincolor)'
+REPO_PATH = './'
 FILE_EXTENSIONS = ('.css', '.scss', '.less', '.html', '.tpl', '.twig', '.js')
 
 COLOR_PATTERNS = [
@@ -24,28 +24,28 @@ def parse_rgb(rgb_str):
     return tuple(nums)
 
 def rgb_to_hue(r, g, b):
-    r /= 255
-    g /= 255
-    b /= 255
+    r, g, b = [x/255 for x in (r, g, b)]
     mx = max(r, g, b)
     mn = min(r, g, b)
     delta = mx - mn
-
     if delta == 0:
-        return 0
-    elif mx == r:
-        hue = (60 * ((g - b) / delta) + 360) % 360
+        return None  # Grays (no hue)
+    if mx == r:
+        return (60 * ((g - b) / delta) + 360) % 360
     elif mx == g:
-        hue = (60 * ((b - r) / delta) + 120) % 360
-    elif mx == b:
-        hue = (60 * ((r - g) / delta) + 240) % 360
+        return (60 * ((b - r) / delta) + 120) % 360
     else:
-        hue = 0
-    return hue
+        return (60 * ((r - g) / delta) + 240) % 360
 
 def is_blue_purple(rgb):
     hue = rgb_to_hue(*rgb)
+    if hue is None:
+        return False  # Grays, no hue → skip
     return 190 <= hue <= 290
+
+def is_gray(rgb, tolerance=10):
+    r, g, b = rgb
+    return abs(r - g) <= tolerance and abs(g - b) <= tolerance and abs(b - r) <= tolerance
 
 for root, _, files in os.walk(REPO_PATH):
     for file in files:
@@ -65,6 +65,8 @@ for root, _, files in os.walk(REPO_PATH):
                             rgb = parse_rgb(color)
                         else:
                             return color
+                        if is_gray(rgb):
+                            return color  # Keep grays
                         if is_blue_purple(rgb):
                             return MAIN_COLOR
                     except:
@@ -81,5 +83,5 @@ for root, _, files in os.walk(REPO_PATH):
             except Exception as e:
                 print(f"❌ Error in {file_path}: {e}")
 
-print("\n🎨 Blue, Indigo, Purple tones replaced with your main color!\n")
+print("\n🎨 Script complete! Only blues/purples replaced with maincolor.\n")
 print(":root {\n  --maincolor: rgb(97, 93, 189);\n}")
