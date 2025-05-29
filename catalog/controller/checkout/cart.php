@@ -88,11 +88,17 @@ class Cart extends \Opencart\System\Engine\Controller {
 		}
 
 		if ($this->config->get('config_cart_weight')) {
-			$data['weight'] = $this->weight->format($this->cart->getWeight(), $this->config->get('config_weight_class_id'), $this->language->get('decimal_point'), $this->language->get('thousand_point'));
+			$weight_class_id = (int)$this->config->get('config_weight_class_id'); // Cast to integer
+			$data['weight'] = $this->weight->format(
+				$this->cart->getWeight(), 
+				$weight_class_id, 
+				$this->language->get('decimal_point'), 
+				$this->language->get('thousand_point')
+			);
 		} else {
-			$data['weight'] = 0;
+			$data['weight'] = '';
 		}
-
+		
 		$data['edit'] = $this->url->link('checkout/cart.edit', 'language=' . $this->config->get('config_language'));
 
 		// Display prices
