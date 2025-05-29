@@ -47,7 +47,7 @@ CKEDITOR.dialog.add('codemirrorAboutDialog',
                                 '.cke_about_container a' +
                                 '{' +
                                 'cursor:pointer !important;' +
-                                'color:#00B2CE !important;' +
+                                'color:#615dbd !important;' +
                                 'text-decoration:underline !important;' +
                                 '}' +
                                 '.cke_about_container > p,' +

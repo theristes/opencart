@@ -16,35 +16,35 @@
 }
 .cm-s-liquibyte .cm-tab {
 	text-decoration: line-through;
-	text-decoration-color: #404040;
+	text-decoration-color: #000000;
 	text-decoration-style: dotted;
 }
-.cm-s-liquibyte .CodeMirror-gutters { background-color: #262626; border-right: 1px solid #505050; padding-right: 0.8em; }
+.cm-s-liquibyte .CodeMirror-gutters { background-color: #000000; border-right: 1px solid #615dbd; padding-right: 0.8em; }
 .cm-s-liquibyte .CodeMirror-gutter-elt div { font-size: 1.2em; }
 .cm-s-liquibyte .CodeMirror-guttermarker {  }
 .cm-s-liquibyte .CodeMirror-guttermarker-subtle {  }
-.cm-s-liquibyte .CodeMirror-linenumber { color: #606060; padding-left: 0; }
+.cm-s-liquibyte .CodeMirror-linenumber { color: #615dbd; padding-left: 0; }
 .cm-s-liquibyte .CodeMirror-cursor { border-left: 1px solid #eee; }
 
-.cm-s-liquibyte span.cm-comment     { color: #008000; }
-.cm-s-liquibyte span.cm-def         { color: #ffaf40; font-weight: bold; }
-.cm-s-liquibyte span.cm-keyword     { color: #c080ff; font-weight: bold; }
-.cm-s-liquibyte span.cm-builtin     { color: #ffaf40; font-weight: bold; }
-.cm-s-liquibyte span.cm-variable    { color: #5967ff; font-weight: bold; }
-.cm-s-liquibyte span.cm-string      { color: #ff8000; }
+.cm-s-liquibyte span.cm-comment     { color: #000000; }
+.cm-s-liquibyte span.cm-def         { color: #EA4A3A; font-weight: bold; }
+.cm-s-liquibyte span.cm-keyword     { color: #b5b3e6; font-weight: bold; }
+.cm-s-liquibyte span.cm-builtin     { color: #EA4A3A; font-weight: bold; }
+.cm-s-liquibyte span.cm-variable    { color: #615dbd; font-weight: bold; }
+.cm-s-liquibyte span.cm-string      { color: #EA4A3A; }
 .cm-s-liquibyte span.cm-number      { color: #0f0; font-weight: bold; }
-.cm-s-liquibyte span.cm-atom        { color: #bf3030; font-weight: bold; }
+.cm-s-liquibyte span.cm-atom        { color: #EA4A3A; font-weight: bold; }
 
-.cm-s-liquibyte span.cm-variable-2  { color: #007f7f; font-weight: bold; }
-.cm-s-liquibyte span.cm-variable-3, .cm-s-liquibyte span.cm-type { color: #c080ff; font-weight: bold; }
+.cm-s-liquibyte span.cm-variable-2  { color: #615dbd; font-weight: bold; }
+.cm-s-liquibyte span.cm-variable-3, .cm-s-liquibyte span.cm-type { color: #b5b3e6; font-weight: bold; }
 .cm-s-liquibyte span.cm-property    { color: #999; font-weight: bold; }
 .cm-s-liquibyte span.cm-operator    { color: #fff; }
 
 .cm-s-liquibyte span.cm-meta        { color: #0f0; }
-.cm-s-liquibyte span.cm-qualifier   { color: #fff700; font-weight: bold; }
+.cm-s-liquibyte span.cm-qualifier   { color: #EA4A3A; font-weight: bold; }
 .cm-s-liquibyte span.cm-bracket     { color: #cc7; }
 .cm-s-liquibyte span.cm-tag         { color: #ff0; font-weight: bold; }
-.cm-s-liquibyte span.cm-attribute   { color: #c080ff; font-weight: bold; }
+.cm-s-liquibyte span.cm-attribute   { color: #b5b3e6; font-weight: bold; }
 .cm-s-liquibyte span.cm-error       { color: #f00; }
 
 .cm-s-liquibyte div.CodeMirror-selected { background-color: rgba(255, 0, 0, 0.25); }
@@ -64,32 +64,32 @@
 }
 .cm-s-liquibyte div.CodeMirror-simplescroll-horizontal div, .cm-s-liquibyte div.CodeMirror-simplescroll-vertical div {
 	background-color: rgba(80, 80, 80, .3);
-	border: 1px solid #404040;
+	border: 1px solid #000000;
 	border-radius: 5px;
 }
 .cm-s-liquibyte div.CodeMirror-simplescroll-vertical div {
-	border-top: 1px solid #404040;
-	border-bottom: 1px solid #404040;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
 }
 .cm-s-liquibyte div.CodeMirror-simplescroll-horizontal div {
-	border-left: 1px solid #404040;
-	border-right: 1px solid #404040;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
 }
 .cm-s-liquibyte div.CodeMirror-simplescroll-vertical {
-	background-color: #262626;
+	background-color: #000000;
 }
 .cm-s-liquibyte div.CodeMirror-simplescroll-horizontal {
-	background-color: #262626;
-	border-top: 1px solid #404040;
+	background-color: #000000;
+	border-top: 1px solid #000000;
 }
 /* Overlay */
 .cm-s-liquibyte div.CodeMirror-overlayscroll-horizontal div, div.CodeMirror-overlayscroll-vertical div {
-	background-color: #404040;
+	background-color: #000000;
 	border-radius: 5px;
 }
 .cm-s-liquibyte div.CodeMirror-overlayscroll-vertical div {
-	border: 1px solid #404040;
+	border: 1px solid #000000;
 }
 .cm-s-liquibyte div.CodeMirror-overlayscroll-horizontal div {
-	border: 1px solid #404040;
+	border: 1px solid #000000;
 }

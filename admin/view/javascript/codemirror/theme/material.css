@@ -5,30 +5,30 @@
 */
 
 .cm-s-material.CodeMirror {
-  background-color: #263238;
-  color: #EEFFFF;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .cm-s-material .CodeMirror-gutters {
-  background: #263238;
-  color: #546E7A;
+  background: #000000;
+  color: #615dbd;
   border: none;
 }
 
 .cm-s-material .CodeMirror-guttermarker,
 .cm-s-material .CodeMirror-guttermarker-subtle,
 .cm-s-material .CodeMirror-linenumber {
-  color: #546E7A;
+  color: #615dbd;
 }
 
 .cm-s-material .CodeMirror-cursor {
-  border-left: 1px solid #FFCC00;
+  border-left: 1px solid #EA4A3A;
 }
 .cm-s-material.cm-fat-cursor .CodeMirror-cursor {
-  background-color: #5d6d5c80 !important;
+  background-color: #615dbd80 !important;
 }
 .cm-s-material .cm-animate-fat-cursor {
-  background-color: #5d6d5c80 !important;
+  background-color: #615dbd80 !important;
 }
 
 .cm-s-material div.CodeMirror-selected {
@@ -56,83 +56,83 @@
 }
 
 .cm-s-material .cm-keyword {
-  color: #C792EA;
+  color: #b5b3e6;
 }
 
 .cm-s-material .cm-operator {
-  color: #89DDFF;
+  color: #b5b3e6;
 }
 
 .cm-s-material .cm-variable-2 {
-  color: #EEFFFF;
+  color: #FFFFFF;
 }
 
 .cm-s-material .cm-variable-3,
 .cm-s-material .cm-type {
-  color: #f07178;
+  color: #EA4A3A;
 }
 
 .cm-s-material .cm-builtin {
-  color: #FFCB6B;
+  color: #EA4A3A;
 }
 
 .cm-s-material .cm-atom {
-  color: #F78C6C;
+  color: #EA4A3A;
 }
 
 .cm-s-material .cm-number {
-  color: #FF5370;
+  color: #EA4A3A;
 }
 
 .cm-s-material .cm-def {
-  color: #82AAFF;
+  color: #b5b3e6;
 }
 
 .cm-s-material .cm-string {
-  color: #C3E88D;
+  color: #b5b3e6;
 }
 
 .cm-s-material .cm-string-2 {
-  color: #f07178;
+  color: #EA4A3A;
 }
 
 .cm-s-material .cm-comment {
-  color: #546E7A;
+  color: #615dbd;
 }
 
 .cm-s-material .cm-variable {
-  color: #f07178;
+  color: #EA4A3A;
 }
 
 .cm-s-material .cm-tag {
-  color: #FF5370;
+  color: #EA4A3A;
 }
 
 .cm-s-material .cm-meta {
-  color: #FFCB6B;
+  color: #EA4A3A;
 }
 
 .cm-s-material .cm-attribute {
-  color: #C792EA;
+  color: #b5b3e6;
 }
 
 .cm-s-material .cm-property {
-  color: #C792EA;
+  color: #b5b3e6;
 }
 
 .cm-s-material .cm-qualifier {
-  color: #DECB6B;
+  color: #b5b3e6;
 }
 
 .cm-s-material .cm-variable-3,
 .cm-s-material .cm-type {
-  color: #DECB6B;
+  color: #b5b3e6;
 }
 
 
 .cm-s-material .cm-error {
   color: rgba(255, 255, 255, 1.0);
-  background-color: #FF5370;
+  background-color: #EA4A3A;
 }
 
 .cm-s-material .CodeMirror-matchingbracket {

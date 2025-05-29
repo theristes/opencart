@@ -349,7 +349,7 @@ The plugin allso adds the following methods to the plot object:
         options: {
             selection: {
                 mode: null, // one of null, "x", "y" or "xy"
-                color: "#e8cfac",
+                color: "#b5b3e6",
                 shape: "round", // one of "round", "miter", or "bevel"
                 minSize: 5 // minimum number of pixels
             }

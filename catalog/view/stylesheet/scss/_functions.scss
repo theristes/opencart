@@ -196,7 +196,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 }
 
 // Return opaque color
-// opaque(#fff, rgba(0, 0, 0, .5)) => #808080
+// opaque(#fff, rgba(0, 0, 0, .5)) => #615dbd
 @function opaque($background, $foreground) {
   @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100%);
 }

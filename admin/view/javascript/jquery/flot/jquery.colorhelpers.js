@@ -90,7 +90,7 @@
         return $.color.parse(c);
     }
     
-    // parse CSS color string (like "rgb(10, 32, 43)" or "#fff"),
+    // parse CSS color string (like "#000000" or "#fff"),
     // returns color object, if parsing failed, you get black (0, 0,
     // 0) out
     $.color.parse = function (str) {
@@ -112,7 +112,7 @@
         if (res = /rgba\(\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\s*\)/.exec(str))
             return m(parseFloat(res[1])*2.55, parseFloat(res[2])*2.55, parseFloat(res[3])*2.55, parseFloat(res[4]));
         
-        // Look for #a0b1c2
+        // Look for #b5b3e6
         if (res = /#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/.exec(str))
             return m(parseInt(res[1], 16), parseInt(res[2], 16), parseInt(res[3], 16));
 

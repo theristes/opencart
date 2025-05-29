@@ -4,12 +4,12 @@
 	CodeMirror template by Siamak Mokhtari (https://github.com/siamak/atom-panda-syntax)
 */
 .cm-s-panda-syntax {
-	background: #292A2B;
-	color: #E6E6E6;
+	background: #000000;
+	color: #FFFFFF;
 	line-height: 1.5;
 	font-family: 'Operator Mono', 'Source Code Pro', Menlo, Monaco, Consolas, Courier New, monospace;
 }
-.cm-s-panda-syntax .CodeMirror-cursor { border-color: #ff2c6d; }
+.cm-s-panda-syntax .CodeMirror-cursor { border-color: #EA4A3A; }
 .cm-s-panda-syntax .CodeMirror-activeline-background {
 	background: rgba(99, 123, 156, 0.1);
 }
@@ -18,68 +18,68 @@
 }
 .cm-s-panda-syntax .cm-comment {
 	font-style: italic;
-	color: #676B79;
+	color: #615dbd;
 }
 .cm-s-panda-syntax .cm-operator {
-	color: #f3f3f3;
+	color: #FFFFFF;
 }
 .cm-s-panda-syntax .cm-string {
-	color: #19F9D8;
+	color: #b5b3e6;
 }
 .cm-s-panda-syntax .cm-string-2 {
-    color: #FFB86C;
+    color: #EA4A3A;
 }
 
 .cm-s-panda-syntax .cm-tag {
-	color: #ff2c6d;
+	color: #EA4A3A;
 }
 .cm-s-panda-syntax .cm-meta {
-	color: #b084eb;
+	color: #b5b3e6;
 }
 
 .cm-s-panda-syntax .cm-number {
-	color: #FFB86C;
+	color: #EA4A3A;
 }
 .cm-s-panda-syntax .cm-atom {
-	color: #ff2c6d;
+	color: #EA4A3A;
 }
 .cm-s-panda-syntax .cm-keyword {
-	color: #FF75B5;
+	color: #b5b3e6;
 }
 .cm-s-panda-syntax .cm-variable {
-	color: #ffb86c;
+	color: #EA4A3A;
 }
 .cm-s-panda-syntax .cm-variable-2 {
-	color: #ff9ac1;
+	color: #b5b3e6;
 }
 .cm-s-panda-syntax .cm-variable-3, .cm-s-panda-syntax .cm-type {
-	color: #ff9ac1;
+	color: #b5b3e6;
 }
 
 .cm-s-panda-syntax .cm-def {
-	color: #e6e6e6;
+	color: #FFFFFF;
 }
 .cm-s-panda-syntax .cm-property {
-	color: #f3f3f3;
+	color: #FFFFFF;
 }
 .cm-s-panda-syntax .cm-unit {
-    color: #ffb86c;
+    color: #EA4A3A;
 }
 
 .cm-s-panda-syntax .cm-attribute {
-    color: #ffb86c;
+    color: #EA4A3A;
 }
 
 .cm-s-panda-syntax .CodeMirror-matchingbracket {
-    border-bottom: 1px dotted #19F9D8;
+    border-bottom: 1px dotted #b5b3e6;
     padding-bottom: 2px;
-    color: #e6e6e6;
+    color: #FFFFFF;
 }
 .cm-s-panda-syntax .CodeMirror-gutters {
-    background: #292a2b;
+    background: #000000;
     border-right-color: rgba(255, 255, 255, 0.1);
 }
 .cm-s-panda-syntax .CodeMirror-linenumber {
-    color: #e6e6e6;
+    color: #FFFFFF;
     opacity: 0.6;
 }

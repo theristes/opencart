@@ -14851,27 +14851,27 @@ jQuery.cssHooks.borderColor = {
 // jquery.color.svg-names.js.
 colors = jQuery.Color.names = {
 	// 4.1. Basic color keywords
-	aqua: "#00ffff",
+	aqua: "#b5b3e6",
 	black: "#000000",
-	blue: "#0000ff",
-	fuchsia: "#ff00ff",
-	gray: "#808080",
-	green: "#008000",
-	lime: "#00ff00",
-	maroon: "#800000",
-	navy: "#000080",
-	olive: "#808000",
-	purple: "#800080",
-	red: "#ff0000",
-	silver: "#c0c0c0",
-	teal: "#008080",
-	white: "#ffffff",
-	yellow: "#ffff00",
+	blue: "#615dbd",
+	fuchsia: "#615dbd",
+	gray: "#615dbd",
+	green: "#000000",
+	lime: "#000000",
+	maroon: "#000000",
+	navy: "#000000",
+	olive: "#EA4A3A",
+	purple: "#615dbd",
+	red: "#EA4A3A",
+	silver: "#b5b3e6",
+	teal: "#615dbd",
+	white: "#FFFFFF",
+	yellow: "#EA4A3A",
 
 	// 4.2.3. "transparent" color keyword
 	transparent: [ null, null, null, 0 ],
 
-	_default: "#ffffff"
+	_default: "#FFFFFF"
 };
 
 })( jQuery );
@@ -16019,7 +16019,7 @@ var effectHighlight = $.effects.effect.highlight = function( o, done ) {
 		.show()
 		.css({
 			backgroundImage: "none",
-			backgroundColor: o.color || "#ffff99"
+			backgroundColor: o.color || "#FFFFFF"
 		})
 		.animate( animation, {
 			queue: false,

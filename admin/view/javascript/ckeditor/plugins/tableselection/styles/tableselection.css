@@ -12,7 +12,7 @@
 .cke_editable:focus .cke_table-faked-selection {
 	/* We have to use !important here, as td might specify it's own background, thus table selection
 	would not be visible. */
-	background: #0076cb !important;
+	background: #615dbd !important;
 	color: white;
 }
 .cke_editable:focus .cke_table-faked-selection a {

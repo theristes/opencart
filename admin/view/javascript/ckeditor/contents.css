@@ -54,7 +54,7 @@ blockquote
 
 a
 {
-	color: #0782C1;
+	color: #615dbd;
 }
 
 ol,ul,dl
@@ -131,7 +131,7 @@ a > img {
 	padding: 1px;
 	margin: 1px;
 	border: none;
-	outline: 1px solid #0782C1;
+	outline: 1px solid #615dbd;
 }
 
 /* Widget Styles */

@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6 {
 legend {
   padding: 7px 0;
   margin-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #FFFFFF;
 }
 
 label {
@@ -195,11 +195,11 @@ button:focus {
 
 /* menu */
 #menu {
-  background-color: #615DBD;
-  background-image: linear-gradient(to bottom, #23a1d1, #615DBD);
+  background-color: #615dbd;
+  background-image: linear-gradient(to bottom, #615dbd, #615dbd);
   background-repeat: repeat-x;
-  border: 1px solid #615DBD;
-  border-color: #615DBD #615DBD #145e7a;
+  border: 1px solid #615dbd;
+  border-color: #615dbd #615dbd #615dbd;
   min-height: 40px;
   border-radius: 4px;
   padding: 0 1rem;
@@ -313,9 +313,9 @@ footer {
   bottom: -1px;
   width: 100%;
   padding-top: 30px;
-  background-color: #303030;
+  background-color: #000000;
   border-top: 1px solid #ddd;
-  color: #e2e2e2;
+  color: #FFFFFF;
 }
 
 footer hr {
@@ -468,7 +468,7 @@ footer h5 {
 }
 
 .rating .fa-star + .fa-star {
-  color: #E69500;
+  color: #EA4A3A;
 }
 
 /* product list */
@@ -481,7 +481,7 @@ footer h5 {
 }
 
 .price-old {
-  color: #dc512c;
+  color: #EA4A3A;
   text-decoration: line-through;
 }
 
@@ -523,8 +523,8 @@ footer h5 {
   height: 150px;
   z-index: 9999;
   opacity: 0.95;
-  color: #ecf0f1;
-  background: #343a40;
+  color: #FFFFFF;
+  background: #000000;
 }
 
 #cookie div {

@@ -85,7 +85,7 @@ svg.svg-inline--fa:not(:root), svg.svg-inline--fa:not(:host) {
   transform-origin: center center; }
 
 .fa-layers-counter {
-  background-color: var(--fa-counter-background-color, #ff253a);
+  background-color: var(--fa-counter-background-color, #EA4A3A);
   border-radius: var(--fa-counter-border-radius, 1em);
   box-sizing: border-box;
   color: var(--fa-inverse, #fff);

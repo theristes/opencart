@@ -34,7 +34,7 @@
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   position: relative;
-  background: #f8f8f8;
+  background: #FFFFFF;
 }
 
 .CodeMirror-merge-scrolllock-wrap {
@@ -90,10 +90,10 @@
   background-repeat: repeat-x;
 }
 
-.CodeMirror-merge-r-chunk { background: #ffffe0; }
+.CodeMirror-merge-r-chunk { background: #FFFFFF; }
 .CodeMirror-merge-r-chunk-start { border-top: 1px solid #ee8; }
 .CodeMirror-merge-r-chunk-end { border-bottom: 1px solid #ee8; }
-.CodeMirror-merge-r-connect { fill: #ffffe0; stroke: #ee8; stroke-width: 1px; }
+.CodeMirror-merge-r-connect { fill: #FFFFFF; stroke: #ee8; stroke-width: 1px; }
 
 .CodeMirror-merge-l-chunk { background: #eef; }
 .CodeMirror-merge-l-chunk-start { border-top: 1px solid #88e; }

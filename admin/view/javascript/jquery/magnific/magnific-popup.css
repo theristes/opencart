@@ -7,7 +7,7 @@
   z-index: 1042;
   overflow: hidden;
   position: fixed;
-  background: #0b0b0b;
+  background: #000000;
   opacity: 0.8; }
 
 .mfp-wrap {
@@ -206,7 +206,7 @@ button::-moz-focus-inner {
     margin-left: 31px; }
   .mfp-arrow-left:before {
     margin-left: 25px;
-    border-right: 27px solid #3F3F3F; }
+    border-right: 27px solid #000000; }
 
 .mfp-arrow-right {
   right: 0; }
@@ -214,7 +214,7 @@ button::-moz-focus-inner {
     border-left: 17px solid #FFF;
     margin-left: 39px; }
   .mfp-arrow-right:before {
-    border-left: 27px solid #3F3F3F; }
+    border-left: 27px solid #000000; }
 
 .mfp-iframe-holder {
   padding-top: 40px;
@@ -269,7 +269,7 @@ img.mfp-img {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     background: #444; }
   .mfp-figure small {
-    color: #BDBDBD;
+    color: #b5b3e6;
     display: block;
     font-size: 12px;
     line-height: 14px; }
@@ -287,7 +287,7 @@ img.mfp-img {
 .mfp-title {
   text-align: left;
   line-height: 18px;
-  color: #F3F3F3;
+  color: #FFFFFF;
   word-wrap: break-word;
   padding-right: 36px; }
 

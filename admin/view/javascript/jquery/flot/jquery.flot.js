@@ -239,7 +239,7 @@ Licensed under the MIT license.
 						bottom: 0,
 						right: 0,
 						'font-size': "smaller",
-						color: "#545454"
+						color: "#615dbd"
 					})
 					.insertAfter(this.element);
 			}
@@ -498,7 +498,7 @@ Licensed under the MIT license.
         var series = [],
             options = {
                 // the color theme used for graphs
-                colors: ["#edc240", "#afd8f8", "#cb4b4b", "#4da74d", "#9440ed"],
+                colors: ["#EA4A3A", "#b5b3e6", "#EA4A3A", "#615dbd", "#615dbd"],
                 legend: {
                     show: true,
                     noColumns: 1, // number of colums in legend table
@@ -546,7 +546,7 @@ Licensed under the MIT license.
                         radius: 3,
                         lineWidth: 2, // in pixels
                         fill: true,
-                        fillColor: "#ffffff",
+                        fillColor: "#FFFFFF",
                         symbol: "circle" // or callback
                     },
                     lines: {
@@ -575,7 +575,7 @@ Licensed under the MIT license.
                 grid: {
                     show: true,
                     aboveData: false,
-                    color: "#545454", // primary color used for outline and labels
+                    color: "#615dbd", // primary color used for outline and labels
                     backgroundColor: null, // null for transparent, else color
                     borderColor: null, // set if different from the grid color
                     tickColor: null, // color for the ticks, e.g. "rgba(0,0,0,0.15)"
@@ -585,7 +585,7 @@ Licensed under the MIT license.
                     borderWidth: 2, // in pixels
                     minBorderMargin: null, // in pixels, null means taken from points radius
                     markings: null, // array of ranges or fn: axes -> array of ranges
-                    markingsColor: "#f4f4f4",
+                    markingsColor: "#FFFFFF",
                     markingsLineWidth: 2,
                     // interactive stuff
                     clickable: false,
