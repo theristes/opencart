@@ -1,19 +1,19 @@
 import os
 import re
 
-# Define your 6 colors
+
 COLOR_MAP = {
     'MAIN_COLOR': '#615dbd',
+    'SECONDARY_COLOR': '#b5b3e6',
     'WHITE_COLOR': '#FFFFFF',
-    'ALERT_COLOR': '#fac0c0',
-    'ALERT_COLOR': '#DFFFDD',
-    'DARK_COLOR': '#5F5F5F',
-    'HOVER_COLOR': '#7a76d6',
-    'GRAY_COLOR': '#DFDFDF',
+    'ALERT_COLOR': '#EA4A3A',
+    'DARK_COLOR': '#000000',
 }
+
 
 #Define gray map
 GRAY_MAP = [ '#dee2e6', '#ddd',  '#dddddd']
+GRAY_COLOR = '#DFDFDF'
 
 
 def is_gray(rgb, threshold=10):
@@ -32,7 +32,7 @@ def find_closest_color(hexcode):
     hex_lower = hexcode.lower()
     
     if hex_lower in [c.lower() for c in GRAY_MAP]:
-        return COLOR_MAP['GRAY_COLOR']
+        return GRAY_COLOR
 
     input_rgb = hex_to_rgb(hexcode)
     min_diff = float('inf')
