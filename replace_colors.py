@@ -1,117 +1,81 @@
 import os
 import re
-import math
 
-MAIN_COLOR = 'var(--maincolor)'
-REPO_PATH = './'
-FILE_EXTENSIONS = ('.css', '.scss', '.less', '.html', '.tpl', '.twig', '.js')
+# Define your 6 colors
+COLOR_MAP = {
+    'DARK_ONE': '#615dbd',
+    'LIGHT_ONE': '#FFFFFF',
+    'GREEN_ONE': '#615dbd',
+    'RED_ONE': '#DC3545',
+    'BLACK_ONE': '#000000',
+    'DARK_ONE_LIGHTER': '#7a76d6'
+}
 
-# Color patterns to match
-COLOR_PATTERNS = [
-    r'#[0-9a-fA-F]{3,8}',  # Hex colors (3, 4, 6, or 8 digits)
-    r'rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)',  # RGB colors
-    r'rgba\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*,\s*[\d.]+\s*\)',  # RGBA colors
-]
+def is_gray(rgb, threshold=10):
+    r, g, b = rgb
+    return abs(r - g) < threshold and abs(r - b) < threshold and abs(g - b) < threshold
 
-COLOR_REGEX = re.compile('|'.join(COLOR_PATTERNS), re.IGNORECASE)
 
-# Your main color in RGB (used for similarity comparison)
-MAIN_COLOR_RGB = (97, 93, 189)  # Purple-blue color
+def hex_to_rgb(hexcode):
+    hexcode = hexcode.lstrip('#')
+    return tuple(int(hexcode[i:i+2], 16) for i in (0, 2, 4))
 
-def hex_to_rgb(hex_color):
-    """Convert hex color to RGB tuple."""
-    hex_color = hex_color.lstrip('#')
-    if len(hex_color) == 3:
-        hex_color = ''.join([c*2 for c in hex_color])
-    if len(hex_color) == 6:
-        return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
-    elif len(hex_color) == 8:  # Handle alpha channel
-        return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
-    return None
+def rgb_distance(rgb1, rgb2):
+    return sum((a - b) ** 2 for a, b in zip(rgb1, rgb2)) ** 0.5
 
-def parse_rgb(rgb_str):
-    """Parse RGB/RGBA string to RGB tuple."""
-    parts = [p.strip() for p in rgb_str[rgb_str.find('(')+1:rgb_str.rfind(')')].split(',')]
-    return tuple(int(float(parts[i])) for i in range(3))
+def find_closest_color(hexcode):
+    input_rgb = hex_to_rgb(hexcode)
+    if is_gray(input_rgb):
+        return COLOR_MAP['BLACK_ONE']
 
-def rgb_to_hsl(r, g, b):
-    """Convert RGB to HSL (Hue, Saturation, Lightness)."""
-    r, g, b = [x/255.0 for x in (r, g, b)]
-    max_val = max(r, g, b)
-    min_val = min(r, g, b)
-    h, s, l = 0, 0, (max_val + min_val) / 2
-    
-    if max_val != min_val:
-        d = max_val - min_val
-        s = d / (2 - max_val - min_val) if l > 0.5 else d / (max_val + min_val)
-        if max_val == r:
-            h = (g - b) / d + (6 if g < b else 0)
-        elif max_val == g:
-            h = (b - r) / d + 2
-        else:
-            h = (r - g) / d + 4
-        h *= 60
-    
-    return h, s, l
+    min_diff = float('inf')
+    closest = None
+    for name, color_hex in COLOR_MAP.items():
+        target_rgb = hex_to_rgb(color_hex)
+        diff = rgb_distance(input_rgb, target_rgb)
+        if diff < min_diff:
+            min_diff = diff
+            closest = color_hex
+    return closest
 
-def should_replace_color(rgb):
-    """Determine if a color should be replaced based on similarity to main color."""
-    # Convert both colors to HSL
-    h1, s1, l1 = rgb_to_hsl(*rgb)
-    h2, s2, l2 = rgb_to_hsl(*MAIN_COLOR_RGB)
-    
-    # Check if color is in blue-purple range (190-290 hue)
-    is_blue_purple = 190 <= h1 <= 290 if h1 is not None else False
-    
-    # Check if color has sufficient saturation (>20%)
-    has_sufficient_saturation = s1 > 0.2
-    
-    # Check if color isn't too light/dark (20% < lightness < 80%)
-    has_good_lightness = 0.2 < l1 < 0.8
-    
-    # Check if color is similar to main color (within 30° hue difference)
-    is_similar = abs(h1 - h2) < 30 if h1 is not None and h2 is not None else False
-    
-    return (is_blue_purple and has_sufficient_saturation and 
-            has_good_lightness and is_similar)
+def replace_colors_in_file(filepath):
+    with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+        content = f.read()
 
-for root, _, files in os.walk(REPO_PATH):
-    for file in files:
-        if file.endswith(FILE_EXTENSIONS):
-            file_path = os.path.join(root, file)
-            try:
-                with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                    content = f.read()
-                original_content = content
+    # Regex for hex colors and rgb() colors
+    hex_pattern = r'#[0-9A-Fa-f]{6}'
+    rgb_pattern = r'rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)'
+    changes = 0
 
-                def replace_color(match):
-                    color = match.group(0).lower()
-                    try:
-                        if color.startswith('#'):
-                            rgb = hex_to_rgb(color)
-                        elif color.startswith('rgb'):
-                            rgb = parse_rgb(color)
-                        else:
-                            return color
-                        
-                        if rgb and len(rgb) >= 3 and should_replace_color(rgb[:3]):
-                            return MAIN_COLOR
-                    except Exception as e:
-                        print(f"Color conversion error for {color}: {e}")
-                    return color
+    def hex_replacer(match):
+        original = match.group(0)
+        new_color = find_closest_color(original)
+        nonlocal changes
+        if original.lower() != new_color.lower():
+            changes += 1
+        return new_color
 
-                content = COLOR_REGEX.sub(replace_color, content)
+    def rgb_replacer(match):
+        r, g, b = map(int, match.groups())
+        hex_color = '#%02X%02X%02X' % (r, g, b)
+        new_color = find_closest_color(hex_color)
+        nonlocal changes
+        if hex_color.lower() != new_color.lower():
+            changes += 1
+        return new_color
 
-                if content != original_content:
-                    with open(file_path, 'w', encoding='utf-8') as f:
-                        f.write(content)
-                    print(f"✅ Updated {file_path}")
+    content = re.sub(hex_pattern, hex_replacer, content)
+    content = re.sub(rgb_pattern, rgb_replacer, content)
 
-            except Exception as e:
-                print(f"❌ Error processing {file_path}: {e}")
+    if changes > 0:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f'{filepath}: {changes} colors replaced')
 
-print("\n🎨 Script complete! Only similar blue-purple colors replaced with maincolor.\n")
-print("Suggested CSS variable definition:")
-print(":root {")
-print("  --maincolor: rgb(97, 93, 189);")
-print("}")
+def walk_and_replace(directory):
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.endswith(('.css', '.scss', '.less', '.js', '.html', '.tpl', '.twig')):
+                replace_colors_in_file(os.path.join(root, file))
+
+walk_and_replace('.')
