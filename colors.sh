@@ -75,20 +75,29 @@ escape_sed() {
   echo "$1" | sed 's/[&/\]/\\&/g'
 }
 
-# Function to safely replace colors in files
 replace_colors_in_file() {
   local file="$1"
-  echo "Running sed replacements for file: $file"
+  echo "Running replacements for file: $file"
 
-  # Using # as the delimiter to avoid issues with '#' in colors
-  sed -i \
-    -e "s#$(escape_sed "${NEW_MAIN_COLOR}")#$NEW_MAIN_COLOR#g" \
-    -e "s#$(escape_sed "${NEW_SECONDARY_COLOR}")#$NEW_SECONDARY_COLOR#g" \
-    -e "s#$(escape_sed "${NEW_WHITE_COLOR}")#$NEW_WHITE_COLOR#g" \
-    -e "s#$(escape_sed "${NEW_ALERT_COLOR}")#$NEW_ALERT_COLOR#g" \
-    -e "s#$(escape_sed "${NEW_DARK_COLOR}")#$NEW_DARK_COLOR#g" \
-    -e "s#$(escape_sed "${NEW_GRAY_COLOR}")#$NEW_GRAY_COLOR#g" \
-    "$file"
+  # Only replace if the color is different from the default
+  if [ "$NEW_MAIN_COLOR" != "$DEFAULT_MAIN_COLOR" ]; then
+    sed -i -e "s#$(escape_sed "$DEFAULT_MAIN_COLOR")#$NEW_MAIN_COLOR#g" "$file"
+  fi
+  if [ "$NEW_SECONDARY_COLOR" != "$DEFAULT_SECONDARY_COLOR" ]; then
+    sed -i -e "s#$(escape_sed "$DEFAULT_SECONDARY_COLOR")#$NEW_SECONDARY_COLOR#g" "$file"
+  fi
+  if [ "$NEW_WHITE_COLOR" != "$DEFAULT_WHITE_COLOR" ]; then
+    sed -i -e "s#$(escape_sed "$DEFAULT_WHITE_COLOR")#$NEW_WHITE_COLOR#g" "$file"
+  fi
+  if [ "$NEW_ALERT_COLOR" != "$DEFAULT_ALERT_COLOR" ]; then
+    sed -i -e "s#$(escape_sed "$DEFAULT_ALERT_COLOR")#$NEW_ALERT_COLOR#g" "$file"
+  fi
+  if [ "$NEW_DARK_COLOR" != "$DEFAULT_DARK_COLOR" ]; then
+    sed -i -e "s#$(escape_sed "$DEFAULT_DARK_COLOR")#$NEW_DARK_COLOR#g" "$file"
+  fi
+  if [ "$NEW_GRAY_COLOR" != "$DEFAULT_GRAY_COLOR" ]; then
+    sed -i -e "s#$(escape_sed "$DEFAULT_GRAY_COLOR")#$NEW_GRAY_COLOR#g" "$file"
+  fi
 }
 
 # Find and replace all colors in files (skip binary files and those that don't match extensions)
