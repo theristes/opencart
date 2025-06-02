@@ -55,6 +55,21 @@ EOF
   NEW_GRAY_COLOR=${6:-${COLORS[GRAY_COLOR]}}
 fi
 
+# Debug output to ensure colors are being set correctly
+echo "Using the following colors:"
+echo "MAIN_COLOR: $NEW_MAIN_COLOR"
+echo "SECONDARY_COLOR: $NEW_SECONDARY_COLOR"
+echo "WHITE_COLOR: $NEW_WHITE_COLOR"
+echo "ALERT_COLOR: $NEW_ALERT_COLOR"
+echo "DARK_COLOR: $NEW_DARK_COLOR"
+echo "GRAY_COLOR: $NEW_GRAY_COLOR"
+
+# Ensure that none of the color variables are empty
+if [ -z "$NEW_MAIN_COLOR" ] || [ -z "$NEW_SECONDARY_COLOR" ] || [ -z "$NEW_WHITE_COLOR" ] || [ -z "$NEW_ALERT_COLOR" ] || [ -z "$NEW_DARK_COLOR" ] || [ -z "$NEW_GRAY_COLOR" ]; then
+  echo "Error: One or more color values are empty. Please check your parameters or colors.env."
+  exit 1
+fi
+
 # Function to convert RGB to Hex
 rgb_to_hex() {
     local r=$1 g=$2 b=$3
