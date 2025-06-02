@@ -87,6 +87,8 @@ replace_rgb_colors() {
             g="${BASH_REMATCH[2]}"
             b="${BASH_REMATCH[3]}"
             color_hex=$(rgb_to_hex "$r" "$g" "$b")
+            # Debug: print the sed command before running it
+            echo "Replacing RGB ($color_hex) with $NEW_MAIN_COLOR"
             sed -i "s/$color_hex/$NEW_MAIN_COLOR/g" "$file"
             sed -i "s/$color_hex/$NEW_SECONDARY_COLOR/g" "$file"
             sed -i "s/$color_hex/$NEW_WHITE_COLOR/g" "$file"
@@ -99,6 +101,14 @@ replace_rgb_colors() {
 
 # Find and replace all colors in files (skip binary files and those that don't match extensions)
 find . -type f \( -iname "*.css" -o -iname "*.scss" -o -iname "*.less" -o -iname "*.js" -o -iname "*.html" -o -iname "*.tpl" -o -iname "*.twig" \) ! -name 'colors.env' ! -path './colors' -exec grep -Iq . {} \; -print | while read file; do
+    # Print out the actual sed commands for debugging
+    echo "Running sed replacements for file: $file"
+    echo "sed -i -e \"s/${COLORS[MAIN_COLOR]}/$NEW_MAIN_COLOR/g\""
+    echo "sed -i -e \"s/${COLORS[SECONDARY_COLOR]}/$NEW_SECONDARY_COLOR/g\""
+    echo "sed -i -e \"s/${COLORS[WHITE_COLOR]}/$NEW_WHITE_COLOR/g\""
+    echo "sed -i -e \"s/${COLORS[ALERT_COLOR]}/$NEW_ALERT_COLOR/g\""
+    echo "sed -i -e \"s/${COLORS[DARK_COLOR]}/$NEW_DARK_COLOR/g\""
+    echo "sed -i -e \"s/${COLORS[GRAY_COLOR]}/$NEW_GRAY_COLOR/g\""
     # Replace hex colors first
     sed -i \
       -e "s/${COLORS[MAIN_COLOR]}/$NEW_MAIN_COLOR/g" \
