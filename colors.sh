@@ -75,46 +75,25 @@ escape_sed() {
   echo "$1" | sed 's/[&/\]/\\&/g'
 }
 
-# Function to handle the RGB values and replace them
-replace_rgb_colors() {
-    local file="$1"
-    local regex="rgb\([[:space:]]*\([0-9]\{1,3\}\),[[:space:]]*\([0-9]\{1,3\}\),[[:space:]]*\([0-9]\{1,3\}\)[[:space:]]*\)"
-    local match color_hex
-    while IFS= read -r line; do
-        if [[ $line =~ $regex ]]; then
-            r="${BASH_REMATCH[1]}"
-            g="${BASH_REMATCH[2]}"
-            b="${BASH_REMATCH[3]}"
-            color_hex=$(rgb_to_hex "$r" "$g" "$b")
-            # Debug: print the sed command before running it
-            echo "Replacing RGB ($color_hex) with $NEW_MAIN_COLOR"
-            sed -i "s#$(escape_sed "$color_hex")#$NEW_MAIN_COLOR#g" "$file"
-            sed -i "s#$(escape_sed "$color_hex")#$NEW_SECONDARY_COLOR#g" "$file"
-            sed -i "s#$(escape_sed "$color_hex")#$NEW_WHITE_COLOR#g" "$file"
-            sed -i "s#$(escape_sed "$color_hex")#$NEW_ALERT_COLOR#g" "$file"
-            sed -i "s#$(escape_sed "$color_hex")#$NEW_DARK_COLOR#g" "$file"
-            sed -i "s#$(escape_sed "$color_hex")#$NEW_GRAY_COLOR#g" "$file"
-        fi
-    done < "$file"
+# Function to safely replace colors in files
+replace_colors_in_file() {
+  local file="$1"
+  echo "Running sed replacements for file: $file"
+
+  # Using # as the delimiter to avoid issues with '#' in colors
+  sed -i \
+    -e "s#$(escape_sed "${NEW_MAIN_COLOR}")#$NEW_MAIN_COLOR#g" \
+    -e "s#$(escape_sed "${NEW_SECONDARY_COLOR}")#$NEW_SECONDARY_COLOR#g" \
+    -e "s#$(escape_sed "${NEW_WHITE_COLOR}")#$NEW_WHITE_COLOR#g" \
+    -e "s#$(escape_sed "${NEW_ALERT_COLOR}")#$NEW_ALERT_COLOR#g" \
+    -e "s#$(escape_sed "${NEW_DARK_COLOR}")#$NEW_DARK_COLOR#g" \
+    -e "s#$(escape_sed "${NEW_GRAY_COLOR}")#$NEW_GRAY_COLOR#g" \
+    "$file"
 }
 
 # Find and replace all colors in files (skip binary files and those that don't match extensions)
 find . -type f \( -iname "*.css" -o -iname "*.scss" -o -iname "*.less" -o -iname "*.js" -o -iname "*.html" -o -iname "*.tpl" -o -iname "*.twig" \) ! -name 'colors.env' ! -path './colors' -exec grep -Iq . {} \; -print | while read file; do
-    # Print out the actual sed commands for debugging
-    echo "Running sed replacements for file: $file"
-    # Use # as a delimiter to avoid conflicts with hex values
-    sed -i \
-      -e "s#$(escape_sed "${COLORS[MAIN_COLOR]}")#$NEW_MAIN_COLOR#g" \
-      -e "s#$(escape_sed "${COLORS[SECONDARY_COLOR]}")#$NEW_SECONDARY_COLOR#g" \
-      -e "s#$(escape_sed "${COLORS[WHITE_COLOR]}")#$NEW_WHITE_COLOR#g" \
-      -e "s#$(escape_sed "${COLORS[ALERT_COLOR]}")#$NEW_ALERT_COLOR#g" \
-      -e "s#$(escape_sed "${COLORS[DARK_COLOR]}")#$NEW_DARK_COLOR#g" \
-      -e "s#$(escape_sed "${COLORS[GRAY_COLOR]}")#$NEW_GRAY_COLOR#g" \
-      "$file"
-
-    # Handle RGB color replacements
-    replace_rgb_colors "$file"
-
+  replace_colors_in_file "$file"
 done
 
 # Update colors.env with the new colors
