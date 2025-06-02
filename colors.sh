@@ -20,6 +20,20 @@ NEW_ALERT_COLOR=$4
 NEW_DARK_COLOR=$5
 NEW_GRAY_COLOR=$6
 
+if [ ! -f colors.env ]; then
+  echo "colors.env not found, creating a new one with default values."
+  cat <<EOF > colors.env
+MAIN_COLOR=#615dbd
+SECONDARY_COLOR=#b5b3e6
+WHITE_COLOR=#FFFFFF
+ALERT_COLOR=#EA4A3A
+DARK_COLOR=#000000
+GRAY_COLOR=#DFDFDF
+EOF
+  echo "✅ colors.env created with default values."
+fi
+
+
 # Find and replace all colors in files (skip binary files)
 find . -type f ! -name 'colors.env' ! -path './colors' -exec grep -Iq . {} \; -print | while read file; do
   sed -i \
@@ -31,6 +45,9 @@ find . -type f ! -name 'colors.env' ! -path './colors' -exec grep -Iq . {} \; -p
     -e "s/${COLORS[GRAY_COLOR]}/$NEW_GRAY_COLOR/g" \
     "$file"
 done
+
+
+
 
 # Update colors.env with the new colors
 cat <<EOF > colors.env
