@@ -70,10 +70,9 @@ if [ -z "$NEW_MAIN_COLOR" ] || [ -z "$NEW_SECONDARY_COLOR" ] || [ -z "$NEW_WHITE
   exit 1
 fi
 
-# Function to convert RGB to Hex
-rgb_to_hex() {
-    local r=$1 g=$2 b=$3
-    printf "#%02X%02X%02X\n" "$r" "$g" "$b"
+# Function to escape special characters in sed
+escape_sed() {
+  echo "$1" | sed 's/[&/\]/\\&/g'
 }
 
 # Function to handle the RGB values and replace them
@@ -89,12 +88,12 @@ replace_rgb_colors() {
             color_hex=$(rgb_to_hex "$r" "$g" "$b")
             # Debug: print the sed command before running it
             echo "Replacing RGB ($color_hex) with $NEW_MAIN_COLOR"
-            sed -i "s#$color_hex#$NEW_MAIN_COLOR#g" "$file"
-            sed -i "s#$color_hex#$NEW_SECONDARY_COLOR#g" "$file"
-            sed -i "s#$color_hex#$NEW_WHITE_COLOR#g" "$file"
-            sed -i "s#$color_hex#$NEW_ALERT_COLOR#g" "$file"
-            sed -i "s#$color_hex#$NEW_DARK_COLOR#g" "$file"
-            sed -i "s#$color_hex#$NEW_GRAY_COLOR#g" "$file"
+            sed -i "s#$(escape_sed "$color_hex")#$NEW_MAIN_COLOR#g" "$file"
+            sed -i "s#$(escape_sed "$color_hex")#$NEW_SECONDARY_COLOR#g" "$file"
+            sed -i "s#$(escape_sed "$color_hex")#$NEW_WHITE_COLOR#g" "$file"
+            sed -i "s#$(escape_sed "$color_hex")#$NEW_ALERT_COLOR#g" "$file"
+            sed -i "s#$(escape_sed "$color_hex")#$NEW_DARK_COLOR#g" "$file"
+            sed -i "s#$(escape_sed "$color_hex")#$NEW_GRAY_COLOR#g" "$file"
         fi
     done < "$file"
 }
@@ -105,12 +104,12 @@ find . -type f \( -iname "*.css" -o -iname "*.scss" -o -iname "*.less" -o -iname
     echo "Running sed replacements for file: $file"
     # Use # as a delimiter to avoid conflicts with hex values
     sed -i \
-      -e "s#${COLORS[MAIN_COLOR]}#$NEW_MAIN_COLOR#g" \
-      -e "s#${COLORS[SECONDARY_COLOR]}#$NEW_SECONDARY_COLOR#g" \
-      -e "s#${COLORS[WHITE_COLOR]}#$NEW_WHITE_COLOR#g" \
-      -e "s#${COLORS[ALERT_COLOR]}#$NEW_ALERT_COLOR#g" \
-      -e "s#${COLORS[DARK_COLOR]}#$NEW_DARK_COLOR#g" \
-      -e "s#${COLORS[GRAY_COLOR]}#$NEW_GRAY_COLOR#g" \
+      -e "s#$(escape_sed "${COLORS[MAIN_COLOR]}")#$NEW_MAIN_COLOR#g" \
+      -e "s#$(escape_sed "${COLORS[SECONDARY_COLOR]}")#$NEW_SECONDARY_COLOR#g" \
+      -e "s#$(escape_sed "${COLORS[WHITE_COLOR]}")#$NEW_WHITE_COLOR#g" \
+      -e "s#$(escape_sed "${COLORS[ALERT_COLOR]}")#$NEW_ALERT_COLOR#g" \
+      -e "s#$(escape_sed "${COLORS[DARK_COLOR]}")#$NEW_DARK_COLOR#g" \
+      -e "s#$(escape_sed "${COLORS[GRAY_COLOR]}")#$NEW_GRAY_COLOR#g" \
       "$file"
 
     # Handle RGB color replacements
