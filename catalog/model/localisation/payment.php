@@ -7,7 +7,7 @@ class Payment extends \Opencart\System\Engine\Model {
 			SELECT p.description 
 			FROM farmax_shop.store s
 			INNER JOIN farmax_shop.service se ON s.id = se.storeId
-			INNER JOIN farmax_shop.payment p ON se.id = p.serviceId
+			INNER JOIN farmax_shop.payment p ON s.id = p.storeId
 			WHERE s.storeName = DATABASE() AND se.id = '" . (int)$service_id . "'
 		");
 
