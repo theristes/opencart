@@ -59,6 +59,8 @@ def replace_colors_in_file(file_path, replacements):
         rgb_old = data["rgb_old"]
         rgb_new = data["rgb_new"]
         rgb_new_tuple = data["rgb_new_tuple"]
+        bare_rgb_old = data["bare_rgb_old"]
+        bare_rgb_new = data["bare_rgb_new"]
         regex_rgb_old = data["regex_rgb_old"]
         regex_rgba_old = data["regex_rgba_old"]
 
@@ -68,6 +70,9 @@ def replace_colors_in_file(file_path, replacements):
         # Replace normalized rgb/rgba
         content = content.replace(rgb_old, rgb_new)
         content = content.replace(rgb_old.replace(" ", ""), rgb_new)
+
+        # Replace bare RGB like: 97, 93, 189
+        content = content.replace(bare_rgb_old, bare_rgb_new)
 
         # Regex flexible match
         content = regex_rgb_old.sub(rgb_new, content)
