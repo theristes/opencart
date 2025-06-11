@@ -1,10 +1,41 @@
 import os
+import re
 
 # Constants
 ALLOWED_EXTENSIONS = {".css", ".scss", ".less", ".js", ".html", ".tpl", ".twig"}
 OLD_ENV_FILE = "colors.env"
 NEW_ENV_FILE = "new-colors.env"
 TARGET_DIR = "."
+DRY_RUN = False  # Set to True to preview changes only
+
+def hex_to_rgb_tuple(hex_color):
+    hex_color = hex_color.lstrip("#")
+    if len(hex_color) != 6:
+        return None
+    try:
+        r = int(hex_color[0:2], 16)
+        g = int(hex_color[2:4], 16)
+        b = int(hex_color[4:6], 16)
+        return (r, g, b)
+    except ValueError:
+        return None
+
+def normalize_rgb(r, g, b):
+    return f"rgb({r}, {g}, {b})"
+
+def normalize_rgba(r, g, b, a=1):
+    return f"rgba({r}, {g}, {b}, {a})"
+
+def generate_rgb_regex(r, g, b):
+    """Create regex that matches rgb( r , g , b ) with optional spacing"""
+    return re.compile(
+        rf"rgb\s*\(\s*{r}\s*,\s*{g}\s*,\s*{b}\s*\)", re.IGNORECASE
+    )
+
+def generate_rgba_regex(r, g, b):
+    return re.compile(
+        rf"rgba\s*\(\s*{r}\s*,\s*{g}\s*,\s*{b}\s*,\s*1(?:\.0*)?\s*\)", re.IGNORECASE
+    )
 
 def load_colors(env_file):
     colors = {}
@@ -24,13 +55,27 @@ def replace_colors_in_file(file_path, replacements):
 
     original_content = content
 
-    for old_color, new_color in replacements.items():
-        content = content.replace(old_color, new_color)
+    for hex_old, data in replacements.items():
+        hex_new, rgb_old, rgb_new, regex_rgb_old, regex_rgba_old = data
+
+        # Replace HEX
+        content = content.replace(hex_old, hex_new)
+
+        # Replace normalized rgb/rgba
+        content = content.replace(rgb_old, rgb_new)
+        content = content.replace(rgb_old.replace(" ", ""), rgb_new)
+
+        # Regex flexible match
+        content = regex_rgb_old.sub(rgb_new, content)
+        content = regex_rgba_old.sub(normalize_rgba(*rgb_new_tuple), content)
 
     if content != original_content:
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(content)
-        print(f"Updated: {file_path}")
+        if DRY_RUN:
+            print(f"[DRY-RUN] Would update: {file_path}")
+        else:
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(content)
+            print(f"Updated: {file_path}")
 
 def walk_and_replace(root_dir, replacements):
     for subdir, _, files in os.walk(root_dir):
@@ -46,17 +91,30 @@ def main():
     new_colors = load_colors(NEW_ENV_FILE)
 
     replacements = {}
-    for key, old_val in old_colors.items():
+    for key, hex_old in old_colors.items():
         if key in new_colors:
-            new_val = new_colors[key]
-            if old_val.lower() != new_val.lower():
-                replacements[old_val] = new_val
-
+            hex_new = new_colors[key]
+            if hex_old.lower() != hex_new.lower():
+                rgb_old_tuple = hex_to_rgb_tuple(hex_old)
+                rgb_new_tuple = hex_to_rgb_tuple(hex_new)
+                if rgb_old_tuple and rgb_new_tuple:
+                    rgb_old = normalize_rgb(*rgb_old_tuple)
+                    rgb_new = normalize_rgb(*rgb_new_tuple)
+                    regex_rgb = generate_rgb_regex(*rgb_old_tuple)
+                    regex_rgba = generate_rgba_regex(*rgb_old_tuple)
+                    replacements[hex_old] = (
+                        hex_new,
+                        rgb_old,
+                        rgb_new,
+                        regex_rgb,
+                        regex_rgba,
+                    )
+                    global rgb_new_tuple  # Needed inside replacement function
     if not replacements:
         print("No changes to apply.")
         return
 
-    print("Applying color replacements...")
+    print("Replacing HEX and RGB(A) colors...")
     walk_and_replace(TARGET_DIR, replacements)
     print("Done.")
 
