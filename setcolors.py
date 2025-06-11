@@ -1,7 +1,10 @@
 import os
-import sys
 
+# Constants
 ALLOWED_EXTENSIONS = {".css", ".scss", ".less", ".js", ".html", ".tpl", ".twig"}
+OLD_ENV_FILE = "colors.env"
+NEW_ENV_FILE = "new-colors.env"
+TARGET_DIR = "."
 
 def load_colors(env_file):
     colors = {}
@@ -37,18 +40,11 @@ def walk_and_replace(root_dir, replacements):
                 replace_colors_in_file(file_path, replacements)
 
 def main():
-    if len(sys.argv) != 4:
-        print("Usage: python replace_colors.py colors.env new-colors.env /path/to/search")
-        return
+    print("Reading color mappings...")
 
-    old_env = sys.argv[1]
-    new_env = sys.argv[2]
-    target_dir = sys.argv[3]
+    old_colors = load_colors(OLD_ENV_FILE)
+    new_colors = load_colors(NEW_ENV_FILE)
 
-    old_colors = load_colors(old_env)
-    new_colors = load_colors(new_env)
-
-    # Build replacement dict: {old_color_val: new_color_val}
     replacements = {}
     for key, old_val in old_colors.items():
         if key in new_colors:
@@ -57,10 +53,12 @@ def main():
                 replacements[old_val] = new_val
 
     if not replacements:
-        print("No changes detected between the files.")
+        print("No changes to apply.")
         return
 
-    walk_and_replace(target_dir, replacements)
+    print("Applying color replacements...")
+    walk_and_replace(TARGET_DIR, replacements)
+    print("Done.")
 
 if __name__ == "__main__":
     main()
