@@ -24,11 +24,20 @@
   Header set Referrer-Policy "no-referrer"
 </IfModule>
 
+
 ## Suppress mime type detection in browsers for unknown types and prevent FLOC
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Permissions-Policy "interest-cohort=()"
 </IfModule>
+
+## Allow cross-origin access to font files
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
 
 ## Can be commented out if causes errors, see notes above.
 Options +FollowSymlinks
