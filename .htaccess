@@ -1,3 +1,6 @@
+<IfModule mod_headers.c>
+  Header set X-Debug-Test "htaccess-works"
+</IfModule>
 ##
 # READ THIS COMPLETELY IF YOU CHOOSE TO USE THIS FILE!
 #
