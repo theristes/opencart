@@ -27,7 +27,6 @@ def normalize_rgba(r, g, b, a=1):
     return f"rgba({r}, {g}, {b}, {a})"
 
 def generate_rgb_regex(r, g, b):
-    """Create regex that matches rgb( r , g , b ) with optional spacing"""
     return re.compile(
         rf"rgb\s*\(\s*{r}\s*,\s*{g}\s*,\s*{b}\s*\)", re.IGNORECASE
     )
@@ -56,7 +55,12 @@ def replace_colors_in_file(file_path, replacements):
     original_content = content
 
     for hex_old, data in replacements.items():
-        hex_new, rgb_old, rgb_new, regex_rgb_old, regex_rgba_old = data
+        hex_new = data["hex_new"]
+        rgb_old = data["rgb_old"]
+        rgb_new = data["rgb_new"]
+        rgb_new_tuple = data["rgb_new_tuple"]
+        regex_rgb_old = data["regex_rgb_old"]
+        regex_rgba_old = data["regex_rgba_old"]
 
         # Replace HEX
         content = content.replace(hex_old, hex_new)
@@ -102,14 +106,15 @@ def main():
                     rgb_new = normalize_rgb(*rgb_new_tuple)
                     regex_rgb = generate_rgb_regex(*rgb_old_tuple)
                     regex_rgba = generate_rgba_regex(*rgb_old_tuple)
-                    replacements[hex_old] = (
-                        hex_new,
-                        rgb_old,
-                        rgb_new,
-                        regex_rgb,
-                        regex_rgba,
-                    )
-                    global rgb_new_tuple  # Needed inside replacement function
+                    replacements[hex_old] = {
+                        "hex_new": hex_new,
+                        "rgb_old": rgb_old,
+                        "rgb_new": rgb_new,
+                        "rgb_new_tuple": rgb_new_tuple,
+                        "regex_rgb_old": regex_rgb,
+                        "regex_rgba_old": regex_rgba,
+                    }
+
     if not replacements:
         print("No changes to apply.")
         return
