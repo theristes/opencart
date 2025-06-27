@@ -32,7 +32,7 @@
 }
 
 </style>
-
+<script src="https://sdk.mercadopago.com/js/v2"></script>
 <script type="text/javascript">
 $('#button-payment-methods').on('click', function() {
   var element = this;
@@ -94,6 +94,7 @@ $('#button-payment-methods').on('click', function() {
               html += '<div class="alert alert-danger">' + json['payment_methods'][i]['error'] + '</div>';
             }
           }
+          html += '<div id="payment-extra-content" class="mt-3"></div>';
 
           html += '          <div class="text-end">';
           html += '            <button type="submit" id="button-payment-method" class="btn btn-primary">{{ button_continue|escape("js") }}</button>';
