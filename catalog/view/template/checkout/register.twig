@@ -606,6 +606,10 @@ $('#form-register').on('submit', function(e) {
                     $('#input-payment-method').val('');
 
                     $('#checkout-confirm').load('index.php?route=checkout/confirm.confirm&language={{ language }}');
+
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1000);
                 }
             },
             error: function(xhr, ajaxOptions, thrownError) {
