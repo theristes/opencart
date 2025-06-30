@@ -121,6 +121,9 @@ $(document).on('change', 'input[name="payment_method"]', function () {
   const $extra = $('#payment-extra-content');
   $extra.empty();
 
+
+  alert(selected)
+
   if (selected === 'mercadopago_cartao') {
     $extra.html(`
       <h6>Informações do Cartão</h6>
