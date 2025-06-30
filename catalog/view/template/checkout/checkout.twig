@@ -9,7 +9,6 @@
     <div id="content" class="col">{{ content_top }}
       <h1>{{ heading_title }}</h1>
       <div class="row">
-        {% if register or payment_address or shipping_address %}
           <div class="col-md-7 mb-3">
             {% if register %}
               <div id="checkout-register">{{ register }}</div>
@@ -21,85 +20,81 @@
               <div id="checkout-shipping-address">{{ shipping_address }}</div>
             {% endif %}
           </div>
-        {% endif %}
         <div class="col">
+          <script>
+            var services = {{ services|json_encode|raw }};
+            var map;
+            var geocoder;
+            var marker;
 
-  <script>
-    var services = {{ services|json_encode|raw }};
-    var map;
-    var geocoder;
-    var marker;
+            function initMap() {
+              geocoder = new google.maps.Geocoder();
+              map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: {lat: -22.9068, lng: -43.1729}
+              });
 
-    function initMap() {
-      geocoder = new google.maps.Geocoder();
-      map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: {lat: -22.9068, lng: -43.1729}
-      });
-
-      const selectedServiceId = "{{ service_id }}";
-      if (selectedServiceId) {
-        updateMap(selectedServiceId);
-      } else {
-        $('#map').hide();
-      }
-    }
-
-
-    function updateMap(serviceId) {
-      if (!serviceId) {
-        $('#map').hide();
-        return;
-      }
-
-      var service = services.find(s => s.id == serviceId);
-      if (!service || !service.name) {
-        $('#map').hide();
-        return;
-      }
-
-      geocoder.geocode({ 'address': service.name }, function(results, status) {
-        if (status === 'OK') {
-          map.setCenter(results[0].geometry.location);
-          if (marker) {
-            marker.setMap(null);
-          }
-          marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-          });
-          $('#map').show();
-        } else {
-          console.log('Geocode failed: ' + status);
-          $('#map').hide();
-        }
-      });
-    }
+              const selectedServiceId = "{{ service_id }}";
+              if (selectedServiceId) {
+                updateMap(selectedServiceId);
+              } else {
+                $('#map').hide();
+              }
+            }
 
 
-    document.addEventListener('DOMContentLoaded', function () {
-      $('#input-service').on('change', function () {
-        const serviceId = $(this).val();
-        updateMap(serviceId);
+            function updateMap(serviceId) {
+              if (!serviceId) {
+                $('#map').hide();
+                return;
+              }
 
-        $.ajax({
-          url: 'index.php?route=checkout/service',
-          type: 'post',
-          data: { service_id: serviceId },
-          dataType: 'json',
-          success: function(response) {
-            console.log('Selected service saved:', response);
-          },
-          error: function(xhr, status, error) {
-            console.error('Error saving selected service:', error);
-          }
-        });
-      });
-    });
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key={{get_geo_code_key()}}&callback=initMap" async defer></script>
-          
-          
+              var service = services.find(s => s.id == serviceId);
+              if (!service || !service.name) {
+                $('#map').hide();
+                return;
+              }
+
+              geocoder.geocode({ 'address': service.name }, function(results, status) {
+                if (status === 'OK') {
+                  map.setCenter(results[0].geometry.location);
+                  if (marker) {
+                    marker.setMap(null);
+                  }
+                  marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                  });
+                  $('#map').show();
+                } else {
+                  console.log('Geocode failed: ' + status);
+                  $('#map').hide();
+                }
+              });
+            }
+
+
+            document.addEventListener('DOMContentLoaded', function () {
+              $('#input-service').on('change', function () {
+                const serviceId = $(this).val();
+                updateMap(serviceId);
+
+                $.ajax({
+                  url: 'index.php?route=checkout/service',
+                  type: 'post',
+                  data: { service_id: serviceId },
+                  dataType: 'json',
+                  success: function(response) {
+                    console.log('Selected service saved:', response);
+                  },
+                  error: function(xhr, status, error) {
+                    console.error('Error saving selected service:', error);
+                  }
+                });
+              });
+            });
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key={{get_geo_code_key()}}&callback=initMap" async defer></script> 
           <div id="checkout-shipping-method" class="mb-3">
             <div class="form-group mt-3">
               <fieldset class="border rounded-3 p-3 mb-4">
