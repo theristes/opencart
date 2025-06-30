@@ -93,8 +93,8 @@ $_['entry_birthday']           = 'Data de Nascimento';
 $_['entry_telephone']            = 'Telefone';
 $_['entry_address']              = 'Escolher Endereço';
 
-$_['entry_address_1']            = 'Endereço 1';
-$_['entry_address_2']            = 'Endereço 2';
+$_['entry_address_1']            = 'Logradouro';
+$_['entry_address_2']            = 'Complemento';
 $_['entry_city']                 = 'Cidade';
 $_['entry_postcode']             = 'CEP';
 $_['entry_country']              = 'País';

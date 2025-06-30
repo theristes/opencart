@@ -15,8 +15,8 @@ $_['text_no_results']    = 'Você não tem endereços em sua conta.';
 // Entry
 $_['entry_firstname']    = 'Nome';
 $_['entry_lastname']     = 'Sobrenome';
-$_['entry_address_1']    = 'Endereço 1';
-$_['entry_address_2']    = 'Endereço 2';
+$_['entry_address_1']    = 'Logradouro';
+$_['entry_address_2']    = 'Complemento';
 $_['entry_postcode']     = 'CEP';
 $_['entry_city']         = 'Cidade';
 $_['entry_country']      = 'País';

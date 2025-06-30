@@ -14,8 +14,8 @@ $_['text_recipient']  = 'Destinatário';
 $_['text_email']      = 'E-Mail';
 $_['text_telephone']  = 'Telefone';
 
-$_['text_address_1']  = 'Endereço 1';
-$_['text_address_2']  = 'Endereço 2';
+$_['text_address_1']  = 'Logradouro';
+$_['text_address_2']  = 'Complemento';
 $_['text_postcode']   = 'Código Postal';
 $_['text_city']       = 'Cidade';
 $_['text_country']    = 'País';
