@@ -12,10 +12,8 @@
           <div class="col-12 mb-3">
             {% if register %}
               <div id="checkout-register">{{ register }}</div>
-            {% endif %}
-          </div>
-          <div id="checkout-address-wrapper" style="display: none;">
-            <div class="col">
+            {% else %}
+                <div class="col">
               <script>
                 var services = {{ services|json_encode|raw }};
                 var map;
@@ -114,6 +112,7 @@
               <div id="checkout-payment-method" class="mb-4">{{ payment_method }}</div>
               <div id="checkout-confirm">{{ confirm }}</div>
             </div>
+            {% endif %}
           </div>
       </div>
     </div>
