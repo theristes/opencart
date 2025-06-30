@@ -121,10 +121,7 @@ $(document).on('change', 'input[name="payment_method"]', function () {
   const $extra = $('#payment-extra-content');
   $extra.empty();
 
-
-  alert(selected)
-
-  if (selected === 'mercadopago_cartao') {
+  if (selected === 'cartaocredito.cartaocredito') {
     $extra.html(`
       <h6>Informações do Cartão</h6>
       <input type="text" id="cardNumber" placeholder="Número do cartão" class="form-control mb-2" />
@@ -142,7 +139,7 @@ $(document).on('change', 'input[name="payment_method"]', function () {
     `);
   }
 
-  if (selected === 'mercadopago_pix') {
+  if (selected === 'pix.pix') {
     $extra.html(`
       <h6>Pagamento via Pix</h6>
       <button type="button" class="btn btn-outline-success" id="btn-generate-pix">Gerar código Pix</button>
