@@ -26,7 +26,7 @@ $_['text_semi_month']            = 'Meio-Mês';
 $_['text_month']                 = 'Mês';
 $_['text_year']                  = 'Ano';
 $_['text_payment_method']        = 'Método de Pagamento';
-$_['text_payment']               = 'Selecione o método de pagamento preferido para esta assinatura.';
+$_['text_payment']               = 'Selecione a forma de pagamento preferida para esta assinatura.';
 $_['text_shipping_method']       = 'Método de Envio';
 $_['text_shipping']              = 'Selecione o método de envio preferido para esta assinatura.';
 $_['text_history']               = 'Histórico';
@@ -77,4 +77,4 @@ $_['tab_order']                  = 'Pedidos';
 // Error
 $_['error_permission']           = 'Aviso: Você não tem permissão para modificar as assinaturas!';
 $_['error_subscription_status']  = 'Aviso: O status da assinatura precisa ser selecionado!';
-$_['error_payment_method']       = 'Aviso: O método de pagamento não existe!';
+$_['error_payment_method']       = 'Aviso: O forma de pagamento não existe!';

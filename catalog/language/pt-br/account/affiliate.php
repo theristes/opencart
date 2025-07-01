@@ -28,7 +28,7 @@ $_['entry_bank_account_number'] = 'Número da Conta';
 // Error
 $_['error_token']               = 'Aviso: Token de afiliado inválido!';
 $_['error_agree']               = 'Aviso: Você deve concordar com os %s!';
-$_['error_payment_method']      = 'Método de pagamento obrigatório!';
+$_['error_payment_method']      = 'Forma de pagamento obrigatória!';
 $_['error_cheque']              = 'Nome do beneficiário do cheque obrigatório!';
 $_['error_paypal']              = 'O endereço de e-mail do PayPal não parece ser válido!';
 $_['error_bank_account_name']   = 'Nome da conta obrigatório!';

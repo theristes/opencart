@@ -5,7 +5,7 @@ $_['text_success']           = 'Sucesso: Você modificou as assinaturas!';
 // Error
 $_['error_customer']         = 'Aviso: Detalhes do cliente são obrigatórios!';
 $_['error_payment_address']  = 'Aviso: Endereço de pagamento obrigatório!';
-$_['error_payment_method']   = 'Aviso: Método de pagamento obrigatório!';
+$_['error_payment_method']   = 'Aviso: Forma de pagamento obrigatória!';
 $_['error_shipping_address'] = 'Aviso: Endereço de entrega obrigatório!';
 $_['error_shipping_method']  = 'Aviso: Método de entrega obrigatório!';
 $_['error_product']          = 'Aviso: Produtos são obrigatórios!';
