@@ -120,35 +120,6 @@ $(document).on('change', 'input[name="payment_method"]', function () {
   const selected = $(this).val();
   const $extra = $('#payment-extra-content');
   $extra.empty();
-
-  if (selected === 'cartaocredito.cartaocredito') {
-    $extra.html(`
-      <h6>Informações do Cartão</h6>
-      <input type="text" id="cardNumber" placeholder="Número do cartão" class="form-control mb-2" />
-      <input type="text" id="cardholderName" placeholder="Nome no cartão" class="form-control mb-2" />
-      <div class="row">
-        <div class="col">
-          <input type="text" id="cardExpirationMonth" placeholder="Mês" class="form-control mb-2" />
-        </div>
-        <div class="col">
-          <input type="text" id="cardExpirationYear" placeholder="Ano" class="form-control mb-2" />
-        </div>
-      </div>
-      <input type="text" id="securityCode" placeholder="CVV" class="form-control mb-2" />
-      <input type="text" id="docNumber" placeholder="CPF do titular" class="form-control mb-2" />
-    `);
-  }
-
-  if (selected === 'pix.pix') {
-    $extra.html(`
-      <h6>Pagamento via Pix</h6>
-      <button type="button" class="btn btn-outline-success" id="btn-generate-pix">Gerar código Pix</button>
-      <div id="pix-result" class="mt-3" style="display:none;">
-        <strong>Copia e cola:</strong>
-        <pre id="pix-code" class="bg-light p-2 rounded"></pre>
-      </div>
-    `);
-  }
 });
 
 
