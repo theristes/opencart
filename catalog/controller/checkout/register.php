@@ -457,7 +457,7 @@ class Register extends \Opencart\System\Engine\Controller {
 				'lastname'          => $this->request->post['lastname'],
 				'email'             => $this->request->post['email'],
 				'telephone'         => $this->request->post['telephone'],
-				'cpf'			    => $this.request->post['cpf'],
+				'cpf'			    => $this->request->post['cpf'],
 				'birthday'          => $this->request->post['birthday'],
 				'custom_field'      => $this->request->post['custom_field'] ?? []
 			];
