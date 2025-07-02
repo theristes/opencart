@@ -107,6 +107,7 @@ class Confirm extends \Opencart\System\Engine\Controller {
 			$order_data['custom_field'] = $this->session->data['customer']['custom_field'];
 			$order_data['custom_field']['service_id'] = $this->session->data['service_id'] ?? 0;
 
+			print_r($order_data);
 
 			// Payment Details
 			if ($this->config->get('config_checkout_payment_address')) {
