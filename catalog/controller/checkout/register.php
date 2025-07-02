@@ -188,8 +188,6 @@ class Register extends \Opencart\System\Engine\Controller {
 
 		$json = [];
 
-		print_r($this->request);
-
 		$keys = [
 			'account',
 			'customer_group_id',
