@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']   = 'Métodos de Pagamento';
+$_['heading_title']   = 'Formas de Pagamento';
 
 // Text
 $_['text_account']    = 'Conta';
