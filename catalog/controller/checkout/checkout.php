@@ -12,7 +12,6 @@ class Checkout extends \Opencart\System\Engine\Controller {
 	 * @return void
 	 */
 	public function index(): void {
-		
 		// Validate cart to see if it has products and has stock.
 		if (!$this->cart->hasProducts() || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout')) || !$this->cart->hasMinimum()) {
 			$this->response->redirect($this->url->link('checkout/cart', 'language=' . $this->config->get('config_language'), true));
