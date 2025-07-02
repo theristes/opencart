@@ -185,6 +185,14 @@ class Register extends \Opencart\System\Engine\Controller {
 				$json['error']['email'] = $this->language->get('error_email');
 			}
 
+			if (!oc_validate_length($post_info['cpf'], 11, 11)) {
+				$json['error']['cpf'] = "CPF inválido";
+			}
+			if (!oc_validate_length($post_info['birthday'], 10, 10)) {
+				$json['error']['birthday'] = "Data de nascimento inválida";
+			}
+
+
 			$this->load->model('account/customer');
 
 			if ($this->model_account_customer->getTotalCustomersByEmail($post_info['email'])) {
@@ -261,7 +269,7 @@ class Register extends \Opencart\System\Engine\Controller {
 					'customer_group_id' => $customer_group_id,
 					'firstname'         => $post_info['firstname'],
 					'lastname'          => $post_info['lastname'],
-					'cpf'              => $post_info['cpf'],
+					'cpf'               => $post_info['cpf'],
 					'birthday'          => $post_info['birthday'],
 					'email'             => $post_info['email'],
 					'telephone'         => $post_info['telephone'],
