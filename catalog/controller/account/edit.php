@@ -169,6 +169,8 @@ class Edit extends \Opencart\System\Engine\Controller {
 				'lastname'          => $post_info['lastname'],
 				'email'             => $post_info['email'],
 				'telephone'         => $post_info['telephone'],
+				'cpf'               => $post_info['cpf'] ?? '',
+				'birthday'          => $post_info['birthday'] ?? '',
 				'custom_field'      => $post_info['custom_field'] ?? []
 			];
 
