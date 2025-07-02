@@ -188,6 +188,8 @@ class Register extends \Opencart\System\Engine\Controller {
 
 		$json = [];
 
+		print_r($this->request);
+
 		$keys = [
 			'account',
 			'customer_group_id',
@@ -268,7 +270,7 @@ class Register extends \Opencart\System\Engine\Controller {
 			}
 
 			if (isset($this->request->post['cpf'])) {
-				$json['error']['cpf'] = "CPF não ser informado";
+				$json['error']['cpf'] = "CPF não informado";
 			}
 			if (isset($this->request->post['birthday'])) {
 				$json['error']['birthday'] = "Data de nascimento não informada";
