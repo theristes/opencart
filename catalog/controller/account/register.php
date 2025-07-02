@@ -131,6 +131,8 @@ class Register extends \Opencart\System\Engine\Controller {
 			'lastname'          => '',
 			'email'             => '',
 			'telephone'         => '',
+			'cpf'               => '',
+			'birthday'          => '',
 			'custom_field'      => [],
 			'password'          => '',
 			'agree'             => 0
@@ -259,6 +261,8 @@ class Register extends \Opencart\System\Engine\Controller {
 					'customer_group_id' => $customer_group_id,
 					'firstname'         => $post_info['firstname'],
 					'lastname'          => $post_info['lastname'],
+					'cpf'              => $post_info['cpf'],
+					'birthday'          => $post_info['birthday'],
 					'email'             => $post_info['email'],
 					'telephone'         => $post_info['telephone'],
 					'custom_field'      => $post_info['custom_field']
