@@ -195,6 +195,8 @@ class Register extends \Opencart\System\Engine\Controller {
 			'lastname',
 			'email',
 			'telephone',
+			'cpf',
+			'birthday',
 			'payment_address_1',
 			'payment_address_2',
 			'payment_city',
@@ -263,6 +265,14 @@ class Register extends \Opencart\System\Engine\Controller {
 
 			if (!oc_validate_email($this->request->post['email'])) {
 				$json['error']['email'] = $this->language->get('error_email');
+			}
+
+
+			if (!oc_validate_length($this->request->post['cpf'], 11, 11)) {
+				$json['error']['cpf'] = "CPF inválido";
+			}
+			if (!oc_validate_length($this->request->post['birthday'], 10, 10)) {
+				$json['error']['birthday'] = "Data de nascimento inválida";
 			}
 
 			$this->load->model('account/customer');
