@@ -270,7 +270,7 @@ class Register extends \Opencart\System\Engine\Controller {
 			if (!isset($this->request->post['cpf'])) {
 				$json['error']['cpf'] = "CPF não informado";
 			}
-			if (!isset($this->request->post['birthday'])) {
+			if (!oc_validate_length($this->request->post['birthday'], 6, 10)) {
 				$json['error']['birthday'] = "Data de nascimento não informada";
 			}
 
