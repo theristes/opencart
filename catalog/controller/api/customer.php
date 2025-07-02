@@ -22,6 +22,8 @@ class Customer extends \Opencart\System\Engine\Controller {
 			'firstname'         => '',
 			'lastname'          => '',
 			'email'             => '',
+			'cpf'              => '',
+			'birthday'			=> '',
 			'telephone'         => '',
 			'custom_field'      => []
 		];
@@ -98,6 +100,8 @@ class Customer extends \Opencart\System\Engine\Controller {
 				'customer_group_id' => $this->request->post['customer_group_id'],
 				'firstname'         => $this->request->post['firstname'],
 				'lastname'          => $this->request->post['lastname'],
+				'cpf'              => $this->request->post['cpf'],
+				'birthday'			=> $this->request->post['birthday'],
 				'email'             => $this->request->post['email'],
 				'telephone'         => $this->request->post['telephone'],
 				'custom_field'      => $this->request->post['custom_field'] ?? []

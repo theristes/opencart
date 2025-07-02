@@ -154,7 +154,8 @@ class Returns extends \Opencart\System\Engine\Controller {
 			$data['lastname'] = $return_info['lastname'];
 			$data['email'] = $return_info['email'];
 			$data['telephone'] = $return_info['telephone'];
-
+			$data['cpf'] = $return_info['cpf'];
+			$data['birthday'] = $return_info['birthday'];
 			$data['product'] = $return_info['product'];
 			$data['model'] = $return_info['model'];
 			$data['quantity'] = $return_info['quantity'];

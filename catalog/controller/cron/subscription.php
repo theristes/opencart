@@ -223,6 +223,8 @@ class Subscription extends \Opencart\System\Engine\Controller {
 					$order_data['firstname'] = $customer_info['firstname'];
 					$order_data['lastname'] = $customer_info['lastname'];
 					$order_data['email'] = $customer_info['email'];
+					$order_data['cpf'] = $customer_info['cpf'];
+					$order_data['birthday'] = $customer_info['birthday'];
 					$order_data['telephone'] = $customer_info['telephone'];
 					$order_data['custom_field'] = $customer_info['custom_field'];
 

@@ -155,6 +155,8 @@ class Login extends \Opencart\System\Engine\Controller {
 				'firstname'         => $customer_info['firstname'],
 				'lastname'          => $customer_info['lastname'],
 				'email'             => $customer_info['email'],
+				'cpf'               => $customer_info['cpf'],
+				'birthday'			=> $customer_info['birthday'],
 				'telephone'         => $customer_info['telephone'],
 				'custom_field'      => $customer_info['custom_field']
 			];
@@ -249,6 +251,8 @@ class Login extends \Opencart\System\Engine\Controller {
 				'customer_group_id' => $customer_info['customer_group_id'],
 				'firstname'         => $customer_info['firstname'],
 				'lastname'          => $customer_info['lastname'],
+				'cpf'               => $customer_info['cpf'],
+				'birthday'          => $customer_info['birthday'],
 				'email'             => $customer_info['email'],
 				'telephone'         => $customer_info['telephone'],
 				'custom_field'      => $customer_info['custom_field']
