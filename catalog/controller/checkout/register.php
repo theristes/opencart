@@ -65,6 +65,8 @@ class Register extends \Opencart\System\Engine\Controller {
 			$data['lastname'] = '';
 			$data['email'] = '';
 			$data['telephone'] = '';
+			$data['cpf'] = '';
+			$data['birthday'] = '';
 			$data['account_custom_field'] = [];
 		}
 
