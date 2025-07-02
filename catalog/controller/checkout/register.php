@@ -267,7 +267,7 @@ class Register extends \Opencart\System\Engine\Controller {
 				$json['error']['email'] = $this->language->get('error_email');
 			}
 
-			if (!isset($this->request->post['cpf'])) {
+			if (!oc_validate_length($this->request->post['cpf'], 11, 14)) {
 				$json['error']['cpf'] = "CPF não informado";
 			}
 			if (!oc_validate_length($this->request->post['birthday'], 6, 10)) {
