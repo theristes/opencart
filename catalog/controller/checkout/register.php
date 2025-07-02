@@ -268,7 +268,7 @@ class Register extends \Opencart\System\Engine\Controller {
 			}
 
 
-			if (!oc_validate_length($this->request->post['cpf'], 11, 11)) {
+			if (!oc_validate_length($this->request->post['cpf'], 1, 11)) {
 				$json['error']['cpf'] = "CPF inválido";
 			}
 			if (!oc_validate_length($this->request->post['birthday'], 10, 10)) {
