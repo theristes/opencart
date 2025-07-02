@@ -58,6 +58,8 @@ class Edit extends \Opencart\System\Engine\Controller {
 		$data['firstname'] = $customer_info['firstname'];
 		$data['lastname'] = $customer_info['lastname'];
 		$data['email'] = $customer_info['email'];
+		$data['cpf'] = $customer_info['cpf'];
+		$data['birthday'] = $customer_info['birthday'];
 		$data['telephone'] = $customer_info['telephone'];
 
 		// Custom Fields
