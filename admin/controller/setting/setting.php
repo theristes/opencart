@@ -506,11 +506,11 @@ class Setting extends \Opencart\System\Engine\Controller {
 			$json['error']['name'] = $this->language->get('error_name');
 		}
 
-		if (!$this->request->post['config_asaas_token']) {
+		if (empty($this->request->post['config_asaas_token'])) {
 			$json['error']['asaas_token'] = $this->language->get('error_asaas_token');
 		}
 
-		if (!$this->request->post['config_asaas_url']) {
+		if (empty($this->request->post['config_asaas_url']) || !filter_var($this->request->post['config_asaas_url'], FILTER_VALIDATE_URL)) {
 			$json['error']['asaas_url'] = $this->language->get('error_asaas_url');
 		}
 
