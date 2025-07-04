@@ -1,0 +1,44 @@
+{{ header }}
+{{ column_left }}
+
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        <li><a href="{{ cancel }}"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="{{ cancel }}">Modules</a></li>
+        <li>{{ heading_title }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    {% if error_warning %}
+      <div class="alert alert-danger">{{ error_warning }}</div>
+    {% endif %}
+
+    <form action="{{ action }}" method="post" class="form-horizontal">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="input-token">{{ entry_token }}</label>
+        <div class="col-sm-10">
+          <input type="text" name="asaas_config_CONFIG_ASAAS_TOKEN" value="{{ asaas_config_CONFIG_ASAAS_TOKEN }}" class="form-control" id="input-token" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="input-url">{{ entry_url }}</label>
+        <div class="col-sm-10">
+          <input type="text" name="asaas_config_CONFIG_ASAAS_URL" value="{{ asaas_config_CONFIG_ASAAS_URL }}" class="form-control" id="input-url" />
+        </div>
+      </div>
+
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+        <a href="{{ cancel }}" class="btn btn-default"><i class="fa fa-reply"></i> Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{ footer }}
