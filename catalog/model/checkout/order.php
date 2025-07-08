@@ -86,11 +86,15 @@ class Order extends \Opencart\System\Engine\Model {
 	 * $this->model_checkout_order->addOrder($order_data);
 	 */
 	public function addOrder(array $data): int {
-		// Checa se há order_id
-		$order_id = isset($data['order_id']) ? (int)$data['order_id'] : 0;
+		$order_id = isset($data['order_id']) && (int)$data['order_id'] > 0 ? (int)$data['order_id'] : null;
 	
-		$sql = "INSERT INTO `" . DB_PREFIX . "order` SET
-			`order_id` = " . $order_id . ",
+		$sql = "INSERT INTO `" . DB_PREFIX . "order` SET ";
+	
+		if ($order_id !== null) {
+			$sql .= "`order_id` = " . $order_id . ", ";
+		}
+	
+		$sql .= "
 			`subscription_id` = '" . (int)$data['subscription_id'] . "',
 			`invoice_prefix` = '" . $this->db->escape($data['invoice_prefix']) . "',
 			`store_id` = '" . (int)$data['store_id'] . "',
@@ -150,19 +154,21 @@ class Order extends \Opencart\System\Engine\Model {
 			`accept_language` = '" . $this->db->escape((string)$data['accept_language']) . "',
 			`date_added` = NOW(),
 			`date_modified` = NOW()
-		ON DUPLICATE KEY UPDATE
-			`date_modified` = NOW(),
-			`total` = VALUES(`total`),
-			`comment` = VALUES(`comment`),
-			`payment_method` = VALUES(`payment_method`),
-			`shipping_method` = VALUES(`shipping_method`)";
+		";
+	
+		if ($order_id !== null) {
+			$sql .= " ON DUPLICATE KEY UPDATE
+				`date_modified` = NOW(),
+				`total` = VALUES(`total`),
+				`comment` = VALUES(`comment`),
+				`payment_method` = VALUES(`payment_method`),
+				`shipping_method` = VALUES(`shipping_method`)";
+		}
 	
 		$this->db->query($sql);
 	
-		if ($order_id > 0) {
-			// Em caso de update, mantemos o order_id
-		} else {
-			$order_id = $this->db->getLastId(); // Novo insert
+		if ($order_id === null) {
+			$order_id = $this->db->getLastId();
 		}
 	
 		// Products
@@ -181,6 +187,7 @@ class Order extends \Opencart\System\Engine\Model {
 	
 		return $order_id;
 	}
+	
 	
 	/**
 	 * Edit Order
