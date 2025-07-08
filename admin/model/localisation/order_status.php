@@ -30,7 +30,7 @@ class OrderStatus extends \Opencart\System\Engine\Model {
 
 		foreach ($data['order_status'] as $language_id => $order_status) {
 			if (!$order_status_id) {
-				$this->db->query("INSERT INTO `" . DB_PREFIX . "order_status` SET `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape($order_status['name']) . "'");
+				$this->db->query("REPLACE INTO `" . DB_PREFIX . "order_status` SET `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape($order_status['name']) . "'");
 
 				$order_status_id = $this->db->getLastId();
 			} else {
@@ -204,7 +204,7 @@ class OrderStatus extends \Opencart\System\Engine\Model {
 	 * $this->model_localisation_order_status->addDescription($order_status_id, $language_id, $order_status_data);
 	 */
 	public function addDescription(int $order_status_id, int $language_id, array $data): void {
-		$this->db->query("INSERT INTO `" . DB_PREFIX . "order_status` SET `order_status_id` = '" . (int)$order_status_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape($data['name']) . "'");
+		$this->db->query("REPLACE INTO `" . DB_PREFIX . "order_status` SET `order_status_id` = '" . (int)$order_status_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape($data['name']) . "'");
 	}
 
 	/**
