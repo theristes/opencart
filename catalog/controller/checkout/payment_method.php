@@ -16,7 +16,6 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 
 		if (isset($this->session->data['payment_method'])) {
 			$data['payment_method'] = $this->session->data['payment_method']['name'];
-			echo($data['payment_method']);
 			$data['code'] = $this->session->data['payment_method']['code'];
 		} else {
 			$data['payment_method'] = '';
@@ -241,17 +240,17 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 	 * @return void
 	 */
 	public function agree(): void {
-		$this->load->language('checkout/payment_method');
+		// $this->load->language('checkout/payment_method');
 
-		$json = [];
+		// $json = [];
 
-		if (isset($this->request->post['agree'])) {
-			$this->session->data['agree'] = $this->request->post['agree'];
-		} else {
-			unset($this->session->data['agree']);
-		}
+		// if (isset($this->request->post['agree'])) {
+		// 	$this->session->data['agree'] = $this->request->post['agree'];
+		// } else {
+		// 	unset($this->session->data['agree']);
+		// }
 
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+		// $this->response->addHeader('Content-Type: application/json');
+		// $this->response->setOutput(json_encode($json));
 	}
 }
