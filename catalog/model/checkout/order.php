@@ -88,7 +88,7 @@ class Order extends \Opencart\System\Engine\Model {
 	public function addOrder(array $data): int {
 		$order_id = isset($data['order_id']) && (int)$data['order_id'] > 0 ? (int)$data['order_id'] : null;
 	
-		$sql = "INSERT INTO `" . DB_PREFIX . "order` SET ";
+		$sql = "REPLACE INTO `" . DB_PREFIX . "order` SET ";
 	
 		if ($order_id !== null) {
 			$sql .= "`order_id` = " . $order_id . ", ";
