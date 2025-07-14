@@ -202,10 +202,11 @@ class Address extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!empty($address_info)) {
-			$data['lastname'] = $address_info['lastname'];
+			$data['lastname'] = 'ALOOOOHA'; //$address_info['lastname'];
 		} else {
 			$data['lastname'] = '';
 		}
+
 
 		if (!empty($address_info)) {
 			$data['address_1'] = $address_info['address_1'];
