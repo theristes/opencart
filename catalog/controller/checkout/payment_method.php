@@ -249,7 +249,7 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 		} else {
 			unset($this->session->data['agree']);
 		}
-		echo $json;
+		// echo $json;
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
