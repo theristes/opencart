@@ -202,9 +202,16 @@ class Address extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!empty($address_info)) {
-			$data['lastname'] = 'ALOOOOHA'; //$address_info['lastname'];
+			$data['lastname'] = $address_info['lastname'];
 		} else {
 			$data['lastname'] = '';
+		}
+
+
+		if (!empty($address_info)) {
+			$data['cpf'] = $address_info['cpf'];
+		} else {
+			$data['cpf'] = '';
 		}
 
 
