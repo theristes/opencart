@@ -375,9 +375,9 @@ class Order extends \Opencart\System\Engine\Controller {
 		}
 
 		// 4. Validate payment address if required
-		// if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
-		// 	$output['error']['payment_address'] = $this->language->get('error_payment_address');
-		// }
+		if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
+			$output['error']['payment_address'] = $this->language->get('error_payment_address');
+		}
 
 		// 5. Validate shipping address and method if required
 		if ($this->cart->hasShipping()) {
