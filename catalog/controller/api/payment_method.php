@@ -39,8 +39,7 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 
 		// 4. Validate payment address if required
 		if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
-			// $output['error'] = $this->language->get('error_payment_address');
-			$output['error'] = "Hola que tal";
+			$output['error'] = $this->language->get('error_payment_address');
 		}
 
 		// 5. Validate payment Method
