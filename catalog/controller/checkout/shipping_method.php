@@ -50,7 +50,8 @@ class ShippingMethod extends \Opencart\System\Engine\Controller {
 
 			// Validate if payment address is set if required in settings
 			if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
-				$json['error'] = $this->language->get('error_payment_address');
+				// $json['error'] = $this->language->get('error_payment_address');
+				$json['error'] = "Hola que tal4";
 			}
 
 			// Validate if shipping not required. If not the customer should not have reached this page.

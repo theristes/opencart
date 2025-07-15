@@ -71,7 +71,9 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 			}
 
 			if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
-				$json['error'] = $this->language->get('error_payment_address');
+				// $json['error'] = $this->language->get('error_payment_address');
+				$json['error'] = "Hola que tal2";
+
 			}
 
 			// Validate shipping
@@ -161,7 +163,9 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 		if (!$json) {
 			// Validate has payment address if required
 			if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
-				$json['error'] = $this->language->get('error_payment_address');
+				// $json['error'] = $this->language->get('error_payment_address');
+				$json['error'] = "Hola que tal3";
+
 			}
 
 			// Validate shipping
