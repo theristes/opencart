@@ -1,5 +1,7 @@
 <div class="product-thumb">
-  <div class="image"><a href="{{ href }}"><img src="{{ thumb }}" alt="{{ name }}" title="{{ name }}" class="img-fluid" width="{{ thumb_width}}"  height="{{ thumb_height }}"/></a></div>
+  <div class="image" ><a href="{{ href }}">
+    <img src="{{ thumb }}" alt="{{ name }}" title="{{ name }}" class="img-fluid" width="{{ thumb_width}}"  height="{{ thumb_height }}" 
+         style="width: {{ thumb_width }}px; height: {{ thumb_height }}px; object-fit: cover;" /></a></div>
   <div class="content">
     <div class="description">
       <h4><a href="{{ href }}">{{ name }}</a></h4>
