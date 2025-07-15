@@ -70,12 +70,9 @@ class PaymentMethod extends \Opencart\System\Engine\Controller {
 				$json['error'] = $this->language->get('error_customer');
 			}
 
-			// $this->config->get('config_checkout_payment_address') && 
-			if (!isset($this->session->data['payment_address'])) {
-				// $json['error'] = $this->language->get('error_payment_address');
-				$json['error'] = "Hola que tal2";
-
-			}
+			// if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
+			// 	$json['error'] = $this->language->get('error_payment_address');
+			// }
 
 			// Validate shipping
 			if ($this->cart->hasShipping()) {
