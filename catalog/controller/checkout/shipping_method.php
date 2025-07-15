@@ -49,9 +49,9 @@ class ShippingMethod extends \Opencart\System\Engine\Controller {
 			}
 
 			// Validate if payment address is set if required in settings
-			if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
-				$json['error'] = $this->language->get('error_payment_address');
-			}
+			// if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
+			// 	$json['error'] = $this->language->get('error_payment_address');
+			// }
 
 			// Validate if shipping not required. If not the customer should not have reached this page.
 			if ($this->cart->hasShipping() && !isset($this->session->data['shipping_address']['address_id'])) {
@@ -98,9 +98,9 @@ class ShippingMethod extends \Opencart\System\Engine\Controller {
 			}
 
 			// Validate if payment address is set if required in settings
-			if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
-				$json['error'] = $this->language->get('error_payment_address');
-			}
+			// if ($this->config->get('config_checkout_payment_address') && !isset($this->session->data['payment_address'])) {
+			// 	$json['error'] = $this->language->get('error_payment_address');
+			// }
 
 			// Validate if shipping not required. If not the customer should not have reached this page.
 			if ($this->cart->hasShipping() && !isset($this->session->data['shipping_address']['address_id'])) {
