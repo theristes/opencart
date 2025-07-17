@@ -64,7 +64,7 @@ class Checkout extends \Opencart\System\Engine\Controller {
 		} else {
 			$data['payment_address'] = '';
 		}
-
+		
 		if ($this->customer->isLogged() && $this->cart->hasShipping()) {
 			$data['shipping_address'] = $this->load->controller('checkout/shipping_address');
 		} else {
