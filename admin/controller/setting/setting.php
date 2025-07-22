@@ -175,6 +175,11 @@ class Setting extends \Opencart\System\Engine\Controller {
 		$data['config_product_description_length'] = $this->config->get('config_product_description_length');
 		
 		$data['config_asaas_token'] = $this->config->get('config_asaas_token');
+		
+		$data['config_integration_token'] = $this->config->get('config_integration_token');
+		$data['config_asaas_webhook'] = $this->config->get('config_asaas_webhook');
+		$data['config_asaas_operation'] = $this->config->get('config_asaas_operation');
+
 		$data['config_asaas_url'] = $this->config->get('config_asaas_url');
 
 		$data['config_pagination'] = $this->config->get('config_pagination');
