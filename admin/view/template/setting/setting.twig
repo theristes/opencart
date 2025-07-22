@@ -41,6 +41,25 @@
                 </div>
 
                 <div class="row mt-2 mb-3 required">
+                  <label for="input-asaas-token" class="col-sm-2 col-form-label">{{ entry_asaas_token }}</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="config_asaas_token" value="{{ config_asaas_token }}" placeholder="{{ entry_asaas_token }}" id="input-asaas-token" class="form-control"/>
+                    <div class="form-text">{{ help_asaas_token }}</div>
+                    <div id="error-asaas-token" class="invalid-feedback"></div>
+                  </div>
+                </div>
+
+                <div class="row mt-2 mb-3 required">
+                  <label for="input-asaas-url" class="col-sm-2 col-form-label">{{ entry_asaas_url }}</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="config_asaas_url" value="{{ config_asaas_url }}" placeholder="{{ entry_asaas_url }}" id="input-asaas-url" class="form-control"/>
+                    <div class="form-text">{{ help_asaas_url }}</div>
+                    <div id="error-asaas-url" class="invalid-feedback"></div>
+                  </div>
+                </div>
+                
+
+                  <div class="row mt-2 mb-3 required">
                     <label for="input-asaas-token" class="col-sm-2 col-form-label">{{ entry_asaas_token }}</label>
                     <div class="col-sm-10">
                       <input type="text" name="config_asaas_token" value="{{ config_asaas_token }}" placeholder="{{ entry_asaas_token }}" id="input-asaas-token" class="form-control"/>
@@ -49,14 +68,33 @@
                     </div>
                   </div>
 
-                  <div class="row mt-2 mb-3 required">
-                    <label for="input-asaas-url" class="col-sm-2 col-form-label">{{ entry_asaas_url }}</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="config_asaas_url" value="{{ config_asaas_url }}" placeholder="{{ entry_asaas_url }}" id="input-asaas-url" class="form-control"/>
-                      <div class="form-text">{{ help_asaas_url }}</div>
-                      <div id="error-asaas-url" class="invalid-feedback"></div>
+                    <div class="row mt-2 mb-3 required">
+                      <label for="input-asaas-webhook" class="col-sm-2 col-form-label">{{ entry_asaas_webhook }}</label>
+                      <div class="col-sm-10">
+                      <input type="text" name="config_asaas_webhook" value="{{ config_asaas_webhook }}" placeholder="{{ entry_asaas_webhook }}" id="input-asaas-webhook" class="form-control" readonly style="background-color: #e9ecef;"/>
+                      <div class="form-text">{{ help_asaas_webhook }}</div>
+                      <div id="error-asaas-webhook" class="invalid-feedback"></div>
+                      </div>
                     </div>
-                  </div>
+
+                    <div class="row mt-2 mb-3 required">
+                      <label for="input-asaas-operation" class="col-sm-2 col-form-label">{{ entry_asaas_operation }}</label>
+                      <div class="col-sm-10">
+                      <input type="text" name="config_asaas_operation" value="{{ config_asaas_operation }}" placeholder="{{ entry_asaas_operation }}" id="input-asaas-operation" class="form-control" readonly style="background-color: #e9ecef;"/>
+                      <div class="form-text">{{ help_asaas_operation }}</div>
+                      <div id="error-asaas-operation" class="invalid-feedback"></div>
+                      </div>
+                    </div>
+
+                    <div class="row mt-2 mb-3 required">
+                      <label for="input-integration-token" class="col-sm-2 col-form-label">{{ entry_integration_token }}</label>
+                      <div class="col-sm-10">
+                      <input type="text" name="config_integration_token" value="{{ config_integration_token }}" placeholder="{{ entry_integration_token }}" id="input-integration-token" class="form-control" readonly style="background-color: #e9ecef;"/>
+                      <div class="form-text">{{ help_integration_token }}</div>
+                      <div id="error-integration-token" class="invalid-feedback"></div>
+                      </div>
+                    </div>
+                    
 
 
                 <div class="row mb-3">

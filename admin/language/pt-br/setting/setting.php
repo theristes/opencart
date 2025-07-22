@@ -85,6 +85,9 @@ $_['entry_weight_class']                  = 'Unidade de Peso';
 $_['entry_product_description_length']    = 'Limite de Descrição da Lista';
 $_['entry_asaas_token']            = 'Token do Asaas';
 $_['entry_asaas_url']              = 'URL do Asaas';
+$_['entry_asaas_webhook']         = 'URL do Webhook do Asaas';
+$_['entry_asaas_operation']      = 'Operação do Asaas';
+$_['entry_integration_token']              = 'Token de Integração';
 $_['entry_pagination']                    = 'Itens Padrão por Página';
 $_['entry_pagination_admin']              = 'Itens Padrão por Página (Admin)';
 $_['entry_autocomplete_limit']            = 'Limite Padrão de Autocompletar';
@@ -207,6 +210,10 @@ $_['help_currency_auto']                  = 'Defina sua loja para atualizar as m
 $_['help_product_description_length']     = 'Na visualização da lista, limite de caracteres da descrição curta (categorias, especial etc.)';
 $_['help_asaas_token']             = 'Token do Asaas é necessário para processar pagamentos com o Asaas.';
 $_['help_asaas_url']               = 'URL do Asaas é necessário para processar pagamentos com o Asaas. O padrão é https://www.asaas.com/api/v3/';
+$_['help_asaas_webhook']               = 'URL do Webhook que deverá ser adicionada';
+$_['help_asaas_operation']               = 'Tipo da operação a ser monitorada pelo webhook do Asaas.';
+$_['help_integration_token']              = 'Token de Autenticação para segurança deverá ser adicionado na criação do webhook no Asaas.';
+                    
 
 $_['help_pagination']                     = 'Determina quantos itens do catálogo são mostrados por página (produtos, categorias, etc.)';
 $_['help_autocomplete_limit']             = 'Determina quantas linhas são mostradas por entrada de autocompletar (filtros, produtos, categorias, etc.)';
