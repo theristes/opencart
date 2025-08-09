@@ -274,7 +274,7 @@ class Register extends \Opencart\System\Engine\Controller {
 				$json['error']['birthday'] = "Data de nascimento não informada";
 			}
 
-			$json['error']['telephone']= "Telefone não informado"
+			$json['error']['telephone']= "Telefone não informado";
 			
 
 			$this->load->model('account/customer');
