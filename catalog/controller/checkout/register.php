@@ -278,8 +278,7 @@ class Register extends \Opencart\System\Engine\Controller {
 				$json['error']['telephone']= "Telefone não informado";
 			}
 
-			
-			
+			$json['error']['shipping_address_1'] = "Logradouro não informado";
 
 			$this->load->model('account/customer');
 
