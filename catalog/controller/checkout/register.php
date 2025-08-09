@@ -278,7 +278,27 @@ class Register extends \Opencart\System\Engine\Controller {
 				$json['error']['telephone']= "Telefone não informado";
 			}
 
-			$json['error']['shipping_address_1'] = "Logradouro não informado";
+			
+			if (!oc_validate_length($this->request->post['shipping_address_1'], 3, 128)) {
+				$json['error']['shipping_address_1'] = $this->language->get('error_address_1');
+			}
+
+			if (!oc_validate_length($this->request->post['shipping_city'], 2, 128)) {
+				$json['error']['shipping_city'] = $this->language->get('error_city');
+			}
+				
+			if ($shipping_country_info && $shipping_country_info['postcode_required'] && !oc_validate_length($this->request->post['shipping_postcode'], 2, 10)) {
+				$json['error']['shipping_postcode'] = $this->language->get('error_postcode');
+			}
+
+			if ($this->request->post['shipping_country_id'] == '') {
+				$json['error']['shipping_country'] = $this->language->get('error_country');
+			}
+
+			if ($this->request->post['shipping_zone_id'] == '') {
+				$json['error']['shipping_zone'] = $this->language->get('error_zone');
+			}
+
 
 			$this->load->model('account/customer');
 
