@@ -8,7 +8,7 @@ $_['text_payment']           = 'Por favor, selecione a forma de pagamento para e
 ';
 $_['text_comments']          = 'Adicionar Comentários Sobre Seu Pedido';
 $_['text_agree']             = 'Eu li e concordo com os <a href="%s" class="modal-link"><b>%s</b></a>';
-$_['text_success']           = 'Sucesso: Você alterou a forma de pagamento!';
+$_['text_success']           = 'Sucesso: Você selecionou a forma de pagamento!';
 $_['text_comment']           = 'Sucesso: Comentário adicionado!';
 
 // Entry
