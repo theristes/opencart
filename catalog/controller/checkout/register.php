@@ -274,7 +274,11 @@ class Register extends \Opencart\System\Engine\Controller {
 				$json['error']['birthday'] = "Data de nascimento não informada";
 			}
 
-			$json['error']['telephone']= "Telefone não informado";
+			if (!oc_validate_length($this->request->post['telephone'], 6, 10)) {
+				$json['error']['telephone']= "Telefone não informado";
+			}
+
+			
 			
 
 			$this->load->model('account/customer');
