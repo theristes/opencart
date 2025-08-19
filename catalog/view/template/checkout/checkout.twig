@@ -99,7 +99,7 @@
                               <option value="">-- Por favor, selecione --</option>
                               {% for service in services %}
                                 <option value="{{ service.id }}" {% if service_id == service.id %}selected{% endif %}>
-                                        {{ service.name|title|replace(" De ", " de ") }}
+                                    {{ service.name | title }}
                                 </option>
                               {% endfor %}
                           </select>
