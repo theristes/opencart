@@ -336,7 +336,6 @@ class Confirm extends \Opencart\System\Engine\Controller {
 
 		if ($status && $extension_info) {
 			$data['payment'] = $this->load->controller('extension/' . $extension_info['extension'] . '/payment/' . $extension_info['code']);
-			echo $data['payment'];
 		} else {
 			$data['payment'] = '';
 		}
