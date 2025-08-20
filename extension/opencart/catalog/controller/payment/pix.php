@@ -13,17 +13,14 @@ class pix extends \Opencart\System\Engine\Controller {
      * @return string
      */
 
-     private function getImageBase64(string $imagePathOrUrl, int $maxSize = 300, int $quality = 75): string {
-        if (empty($imagePathOrUrl)) {
+     private function getImageBase64(string $imageUrl, int $maxSize = 300, int $quality = 75): string {
+        if (empty($imageUrl)) {
             return '';
         }
     
-        // If you already store full S3 URLs in $product['image'], just use it directly
-        if (filter_var($imagePathOrUrl, FILTER_VALIDATE_URL)) {
-            $imageUrl = $imagePathOrUrl;
-        } else {
-            // Otherwise let OC build the public URL (works with S3 adapter too)
-            $imageUrl = $this->model_tool_image->resize($imagePathOrUrl, 600, 600);
+        // If it’s not a full URL, build manually
+        if (!filter_var($imageUrl, FILTER_VALIDATE_URL)) {
+            $imageUrl = rtrim($this->config->get('config_url'), '/') . '/image/' . ltrim($imageUrl, '/');
         }
     
         $raw = @file_get_contents($imageUrl);
@@ -39,25 +36,23 @@ class pix extends \Opencart\System\Engine\Controller {
         $origWidth  = imagesx($src);
         $origHeight = imagesy($src);
     
-        // Resize if larger than $maxSize
         $scale = min($maxSize / $origWidth, $maxSize / $origHeight, 1);
         $newWidth  = (int)($origWidth * $scale);
         $newHeight = (int)($origHeight * $scale);
     
         $dst = imagecreatetruecolor($newWidth, $newHeight);
-    
         imagecopyresampled($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
     
         ob_start();
-        imagejpeg($dst, null, $quality); // Always encode as jpeg to reduce size
+        imagejpeg($dst, null, $quality);
         $resizedData = ob_get_clean();
     
         imagedestroy($src);
         imagedestroy($dst);
     
-        // Return as base64 (remove "data:image..." if API expects only raw)
         return 'data:image/jpeg;base64,' . base64_encode($resizedData);
     }
+    
 
     
     public function index(): string {
