@@ -59,9 +59,30 @@ class pix extends \Opencart\System\Engine\Controller {
             }
     
             // --- Recover address ---
-            $address_info = [];
-            if (!empty($customer_info['customer_id'])) {
-                $address_info = $this->model_account_address->getAddresses($customer_info['customer_id']);
+            $addresses = $this->model_account_address->getAddresses($customer_info['customer_id']);
+
+            // Ensure $addresses is an array
+            if (is_array($addresses) && count($addresses) > 0) {
+
+                // Look for default address
+                $address_info = null;
+                foreach ($addresses as $addr) {
+                    if (!empty($addr['default']) && $addr['default'] == '1') {
+                        $address_info = $addr;
+                        break;
+                    }
+                }
+
+                // Fallback: just pick the first address if no default
+                if (!$address_info) {
+                    foreach ($addresses as $addr) {
+                        $address_info = $addr;
+                        break;
+                    }
+                }
+
+            } else {
+                $address_info = []; // empty array if no address found
             }
             
             // --- Build items ---
