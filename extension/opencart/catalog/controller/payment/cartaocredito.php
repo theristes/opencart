@@ -100,7 +100,7 @@ class cartaocredito extends \Opencart\System\Engine\Controller {
 
             // --- Build payload ---
             $payload = [
-                'billingTypes'   => ['CREDIT_CARD'],
+                'billingTypes' => ['CREDIT_CARD'],
                 'chargeTypes'    => ['DETACHED'],
                 'minutesToExpire'=> 60,
                 'callback'       => [
