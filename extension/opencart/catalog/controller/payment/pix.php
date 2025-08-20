@@ -118,7 +118,7 @@ class pix extends \Opencart\System\Engine\Controller {
                     'phone'  => $customer_info['telephone'] ?? '',
                     'cpfCnpj'=> $customer_info['cpf'] ?? '',
                     "address"=> $address_info['address_1'] ?? '',
-                    "addressNumber"=> '',
+                    "addressNumber"=> '-',
                     "complement"=> $address_info['address_2'] ?? '',
                     "postalCode"=> $address_info['postcode'] ?? '',
                     "province"=> $address_info['zone_code'] ?? '',
