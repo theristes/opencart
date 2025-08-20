@@ -585,100 +585,100 @@ class Register extends \Opencart\System\Engine\Controller {
 			}
 
 			// Shipping Address
-			if ($this->cart->hasShipping()) {
-				if (!$this->request->post['address_match']) {
-					if (isset($this->session->data['shipping_address']['address_id'])) {
-						$address_id = $this->session->data['shipping_address']['address_id'];
-					} else {
-						$address_id = 0;
-					}
-
-					if (!$this->config->get('config_checkout_payment_address')) {
-						$firstname = $this->request->post['firstname'];
-						$lastname = $this->request->post['lastname'];
-					} else {
-						$firstname = $this->request->post['shipping_firstname'];
-						$lastname = $this->request->post['shipping_lastname'];
-					}
-
-					if ($shipping_country_info) {
-						$country = $shipping_country_info['name'];
-						$iso_code_2 = $shipping_country_info['iso_code_2'];
-						$iso_code_3 = $shipping_country_info['iso_code_3'];
-						$address_format_id = $shipping_country_info['address_format_id'];
-					} else {
-						$country = '';
-						$iso_code_2 = '';
-						$iso_code_3 = '';
-						$address_format_id = 0;
-					}
-
-					$this->load->model('localisation/address_format');
-
-					$address_format_info = $this->model_localisation_address_format->getAddressFormat($address_format_id);
-
-					if ($address_format_info) {
-						$address_format = $address_format_info['address_format'];
-					} else {
-						$address_format = '';
-					}
-
-					$this->load->model('localisation/zone');
-
-					$zone_info = $this->model_localisation_zone->getZone($this->request->post['shipping_zone_id']);
-
-					if ($zone_info) {
-						$zone = $zone_info['name'];
-						$zone_code = $zone_info['code'];
-					} else {
-						$zone = '';
-						$zone_code = '';
-					}
-
-					$shipping_address_data = [
-						'address_id'     => $address_id,
-						'firstname'      => $firstname,
-						'lastname'       => $lastname,
-						'address_1'      => $this->request->post['shipping_address_1'],
-						'address_2'      => $this->request->post['shipping_address_2'],
-						'city'           => $this->request->post['shipping_city'],
-						'postcode'       => $this->request->post['shipping_postcode'],
-						'zone_id'        => $this->request->post['shipping_zone_id'],
-						'zone'           => $zone,
-						'zone_code'      => $zone_code,
-						'country_id'     => $this->request->post['shipping_country_id'],
-						'country'        => $country,
-						'iso_code_2'     => $iso_code_2,
-						'iso_code_3'     => $iso_code_3,
-						'address_format' => $address_format,
-						'custom_field'   => $this->request->post['shipping_custom_field'] ?? []
-					];
-
-					// Add
-					if ($this->request->post['account']) {
-						if (!$this->config->get('config_checkout_payment_address')) {
-							$shipping_address_data['default'] = 1;
-						}
-
-						$shipping_address_data['address_id'] = $this->model_account_address->addAddress($customer_data['customer_id'], $shipping_address_data);
-					}
-
-					// Edit
-					if ($this->customer->isLogged() && $shipping_address_data['address_id']) {
-						$this->model_account_address->editAddress($this->customer->getId(), $shipping_address_data['address_id'], $shipping_address_data);
-					}
-
-					// Requires Approval
-					if (!$customer_group_info['approval']) {
-						$this->session->data['shipping_address'] = $shipping_address_data;
-					}
-				} elseif (!$customer_group_info['approval'] && $this->config->get('config_checkout_payment_address')) {
-					$this->session->data['shipping_address'] = $this->session->data['payment_address'];
-
-					// Remove the address id so if the customer changes their mind and requires changing a different shipping address it will create a new address.
-					$this->session->data['shipping_address']['address_id'] = 0;
+			// if ($this->cart->hasShipping()) {
+			if (!$this->request->post['address_match']) {
+				if (isset($this->session->data['shipping_address']['address_id'])) {
+					$address_id = $this->session->data['shipping_address']['address_id'];
+				} else {
+					$address_id = 0;
 				}
+
+				if (!$this->config->get('config_checkout_payment_address')) {
+					$firstname = $this->request->post['firstname'];
+					$lastname = $this->request->post['lastname'];
+				} else {
+					$firstname = $this->request->post['shipping_firstname'];
+					$lastname = $this->request->post['shipping_lastname'];
+				}
+
+				if ($shipping_country_info) {
+					$country = $shipping_country_info['name'];
+					$iso_code_2 = $shipping_country_info['iso_code_2'];
+					$iso_code_3 = $shipping_country_info['iso_code_3'];
+					$address_format_id = $shipping_country_info['address_format_id'];
+				} else {
+					$country = '';
+					$iso_code_2 = '';
+					$iso_code_3 = '';
+					$address_format_id = 0;
+				}
+
+				$this->load->model('localisation/address_format');
+
+				$address_format_info = $this->model_localisation_address_format->getAddressFormat($address_format_id);
+
+				if ($address_format_info) {
+					$address_format = $address_format_info['address_format'];
+				} else {
+					$address_format = '';
+				}
+
+				$this->load->model('localisation/zone');
+
+				$zone_info = $this->model_localisation_zone->getZone($this->request->post['shipping_zone_id']);
+
+				if ($zone_info) {
+					$zone = $zone_info['name'];
+					$zone_code = $zone_info['code'];
+				} else {
+					$zone = '';
+					$zone_code = '';
+				}
+
+				$shipping_address_data = [
+					'address_id'     => $address_id,
+					'firstname'      => $firstname,
+					'lastname'       => $lastname,
+					'address_1'      => $this->request->post['shipping_address_1'],
+					'address_2'      => $this->request->post['shipping_address_2'],
+					'city'           => $this->request->post['shipping_city'],
+					'postcode'       => $this->request->post['shipping_postcode'],
+					'zone_id'        => $this->request->post['shipping_zone_id'],
+					'zone'           => $zone,
+					'zone_code'      => $zone_code,
+					'country_id'     => $this->request->post['shipping_country_id'],
+					'country'        => $country,
+					'iso_code_2'     => $iso_code_2,
+					'iso_code_3'     => $iso_code_3,
+					'address_format' => $address_format,
+					'custom_field'   => $this->request->post['shipping_custom_field'] ?? []
+				];
+
+				// Add
+				if ($this->request->post['account']) {
+					if (!$this->config->get('config_checkout_payment_address')) {
+						$shipping_address_data['default'] = 1;
+					}
+
+					$shipping_address_data['address_id'] = $this->model_account_address->addAddress($customer_data['customer_id'], $shipping_address_data);
+				}
+
+				// Edit
+				if ($this->customer->isLogged() && $shipping_address_data['address_id']) {
+					$this->model_account_address->editAddress($this->customer->getId(), $shipping_address_data['address_id'], $shipping_address_data);
+				}
+
+				// Requires Approval
+				if (!$customer_group_info['approval']) {
+					$this->session->data['shipping_address'] = $shipping_address_data;
+				}
+			} elseif (!$customer_group_info['approval'] && $this->config->get('config_checkout_payment_address')) {
+				$this->session->data['shipping_address'] = $this->session->data['payment_address'];
+
+				// Remove the address id so if the customer changes their mind and requires changing a different shipping address it will create a new address.
+				$this->session->data['shipping_address']['address_id'] = 0;
 			}
+			// }
 
 			// If everything good login
 			if (!$customer_group_info['approval']) {
