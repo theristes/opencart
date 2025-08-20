@@ -62,8 +62,9 @@ class pix extends \Opencart\System\Engine\Controller {
             $address_info = [];
             if (!empty($customer_info['customer_id'])) {
                 $address_info = $this->model_account_address->getAddresses($customer_info['customer_id']);
+                $address_info = reset($addresses);
             }
-    
+            
             // --- Build items ---
             $items = [];
             foreach ($this->cart->getProducts() as $product) {
