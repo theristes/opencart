@@ -62,7 +62,6 @@ class pix extends \Opencart\System\Engine\Controller {
             $address_info = [];
             if (!empty($customer_info['customer_id'])) {
                 $address_info = $this->model_account_address->getAddresses($customer_info['customer_id']);
-                $address_info = reset($addresses);
             }
             
             // --- Build items ---
@@ -75,6 +74,8 @@ class pix extends \Opencart\System\Engine\Controller {
                     'value'       => number_format($product['price'], 2, '.', '')
                 ];
             }
+
+            print($address_info);
 
             $json['error'] = json_encode($address_info);
             $this->response->addHeader('Content-Type: application/json');
