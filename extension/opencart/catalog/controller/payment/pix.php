@@ -12,6 +12,54 @@ class pix extends \Opencart\System\Engine\Controller {
      *
      * @return string
      */
+
+     private function getImageBase64(string $imagePathOrUrl, int $maxSize = 300, int $quality = 75): string {
+        if (empty($imagePathOrUrl)) {
+            return '';
+        }
+    
+        // If you already store full S3 URLs in $product['image'], just use it directly
+        if (filter_var($imagePathOrUrl, FILTER_VALIDATE_URL)) {
+            $imageUrl = $imagePathOrUrl;
+        } else {
+            // Otherwise let OC build the public URL (works with S3 adapter too)
+            $imageUrl = $this->model_tool_image->resize($imagePathOrUrl, 600, 600);
+        }
+    
+        $raw = @file_get_contents($imageUrl);
+        if ($raw === false) {
+            return '';
+        }
+    
+        $src = imagecreatefromstring($raw);
+        if (!$src) {
+            return '';
+        }
+    
+        $origWidth  = imagesx($src);
+        $origHeight = imagesy($src);
+    
+        // Resize if larger than $maxSize
+        $scale = min($maxSize / $origWidth, $maxSize / $origHeight, 1);
+        $newWidth  = (int)($origWidth * $scale);
+        $newHeight = (int)($origHeight * $scale);
+    
+        $dst = imagecreatetruecolor($newWidth, $newHeight);
+    
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
+    
+        ob_start();
+        imagejpeg($dst, null, $quality); // Always encode as jpeg to reduce size
+        $resizedData = ob_get_clean();
+    
+        imagedestroy($src);
+        imagedestroy($dst);
+    
+        // Return as base64 (remove "data:image..." if API expects only raw)
+        return 'data:image/jpeg;base64,' . base64_encode($resizedData);
+    }
+
+    
     public function index(): string {
         $data['payable'] = $this->config->get('payment_pix_payable');
         return $this->load->view('extension/opencart/payment/pix', $data);
