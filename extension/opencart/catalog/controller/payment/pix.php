@@ -75,6 +75,9 @@ class pix extends \Opencart\System\Engine\Controller {
                 ];
             }
 
+            echo $address_info;
+            return
+
             // --- Build payload ---
             $payload = [
                 'billingTypes'   => ['PIX'],
