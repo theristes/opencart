@@ -600,18 +600,6 @@ class Register extends \Opencart\System\Engine\Controller {
 					$lastname = $this->request->post['shipping_lastname'];
 				}
 
-				if ($shipping_country_info) {
-					$country = $shipping_country_info['name'];
-					$iso_code_2 = $shipping_country_info['iso_code_2'];
-					$iso_code_3 = $shipping_country_info['iso_code_3'];
-					$address_format_id = $shipping_country_info['address_format_id'];
-				} else {
-					$country = '';
-					$iso_code_2 = '';
-					$iso_code_3 = '';
-					$address_format_id = 0;
-				}
-
 				$this->load->model('localisation/address_format');
 
 				$address_format_info = $this->model_localisation_address_format->getAddressFormat($address_format_id);
