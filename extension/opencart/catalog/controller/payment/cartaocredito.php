@@ -23,67 +23,114 @@ class cartaocredito extends \Opencart\System\Engine\Controller {
      * @return void
      */
     public function confirm(): void {
-        
         $json = [];
-
-        if (isset($this->session->data['order_id'])) {
-            $this->load->model('checkout/order');
-
-            $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
-
-            if (!$order_info) {
-                $json['redirect'] = $this->url->link('checkout/failure', 'language=' . $this->config->get('config_language'), true);
-                unset($this->session->data['order_id']);
-            }
+    
+        if (!isset($this->session->data['order_id'])) {
+            $json['redirect'] = $this->url->link('checkout/failure', 'language=' . $this->config->get('config_language'), true);
         }
-
+    
         // Payment method check
-        if (!isset($this->session->data['payment_method']) || $this->session->data['payment_method']['code'] !== 'cartaocredito.cartaocredito') {
+        if (!isset($this->session->data['payment_method']) || $this->session->data['payment_method']['code'] !== 'pix.pix') {
             $json['error'] = "Invalid payment method selected.";
         }
-
-        // If no errors
+    
+        // If no errors so far
         if (empty($json)) {
             $this->load->model('checkout/order');
-
-            $payable = $this->config->get('payment_cartaocredito_payable') ?? '';
-            $address = $this->config->get('config_address') ?? '';
-
-            $comment = $payable . "\n\n" . $address . "\n\n";
-
+            $this->load->model('account/customer');
+            $this->load->model('account/address');
+    
+            $payable = $this->config->get('payment_pix_payable') ?? '';
+            $address_text = $this->config->get('config_address') ?? '';
+    
+            $comment = $payable . "\n\n" . $address_text . "\n\n";
+    
             $this->model_checkout_order->addHistory(
                 $this->session->data['order_id'],
-                $this->config->get('payment_cartaocredito_order_status_id'),
+                $this->config->get('payment_pix_order_status_id'),
                 $comment,
                 true
             );
+    
+            // --- Recover customer ---
+            $customer_info = [];
+            if ($this->customer->isLogged()) {
+                $customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+            }
+    
+            // --- Recover address ---
+            $addresses = $this->model_account_address->getAddresses($customer_info['customer_id']);
 
+            // Ensure $addresses is an array
+            if (is_array($addresses) && count($addresses) > 0) {
+
+                // Look for default address
+                $address_info = null;
+                foreach ($addresses as $addr) {
+                    if (!empty($addr['default']) && $addr['default'] == '1') {
+                        $address_info = $addr;
+                        break;
+                    }
+                }
+
+                // Fallback: just pick the first address if no default
+                if (!$address_info) {
+                    foreach ($addresses as $addr) {
+                        $address_info = $addr;
+                        break;
+                    }
+                }
+
+            } else {
+                $address_info = []; // empty array if no address found
+            }
+            
+            // --- Build items ---
             $items = [];
             foreach ($this->cart->getProducts() as $product) {
-
                 $items[] = [
-                    'name' => mb_strimwidth($product['name'], 0, 30, '...'),
-                    'description' => mb_strimwidth($product['model'], 0, 150, '...'),
-                    'quantity' => (int) $product['quantity'],
-                    'value' => (float) $product['price']
+                    'name'        => $product['name'],
+                    'description' => $product['model'],
+                    'quantity'    => $product['quantity'],
+                    'imageBase64' => $this->getImageBase64($product['image']),
+                    'value'       => number_format($product['price'], 2, '.', '')
                 ];
             }
 
-            $payload = [
-                'billingTypes' => ['CREDIT_CARD'],
-                'chargeTypes' => ['DETACHED'],
-                'minutesToExpire' => 60,
-                'callback' => [
-                    'cancelUrl' => $this->url->link('checkout/failure'),
-                    'expiredUrl' => $this->url->link('checkout/failure'),
-                    'successUrl' => $this->url->link('checkout/success', 'orderId=' . $order_info['order_id'], 'language=' . $this->config->get('config_language'), true)
-                ],
-                'items' => $items
-            ];
 
-            $token = $this->config->get('config_asaas_token');
+            // --- Build payload ---
+            $payload = [
+                'billingTypes'   => ['CREDIT_CARD'],
+                'chargeTypes'    => ['DETACHED'],
+                'minutesToExpire'=> 60,
+                'callback'       => [
+                    'cancelUrl'  => $this->url->link('checkout/failure'),
+                    'expiredUrl' => $this->url->link('checkout/failure'),
+                    'successUrl' => $this->url->link(
+                        'checkout/success',
+                        'orderId=' . (int)$this->session->data['order_id'] . '&language=' . $this->config->get('config_language'),
+                        true
+                    )
+                ],
+                'items' => $items,
+                'customerData' => [
+                    'name'   => $customer_info['firstname'] . ' ' . $customer_info['lastname'],
+                    'email'  => $customer_info['email'],
+                    'phone'  => $customer_info['telephone'] ?? '',
+                    'cpfCnpj'=> $customer_info['cpf'] ?? '',
+                    "address"=> $address_info['address_1'] ?? '',
+                    "addressNumber"=> '-',
+                    "complement"=> $address_info['address_2'] ?? '',
+                    "postalCode"=> $address_info['postcode'] ?? '',
+                    "province"=> $address_info['zone_code'] ?? '',
+                    "city"=> $address_info['city'] ?? ''
+                ],
+            ];
+    
+            // --- Call Asaas API ---
+            $token    = $this->config->get('config_asaas_token');
             $asas_url = $this->config->get('config_asaas_url');
-            
+    
             $ch = curl_init("$asas_url/checkouts");
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
                 "Content-Type: application/json",
@@ -92,22 +139,70 @@ class cartaocredito extends \Opencart\System\Engine\Controller {
             ]);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
-        
+    
             $result = curl_exec($ch);
+            if ($result === false) {
+                $json['error'] = 'Payment API request failed: ' . curl_error($ch);
+            }
             curl_close($ch);
-        
-            $response = json_decode($result, true);
-	        
-			if (!empty($response['link'])) {
-			    $json['redirect'] = $response['link'];
-        	} else {
-                if (isset($response['errors']) && is_array($response['errors']) && count($response['errors']) > 0) {
-            	    $json['error'] = $response['errors'][0]['description'];
+    
+            if (empty($json['error'])) {
+                $response = json_decode($result, true);
+    
+                if (!empty($response['link'])) {
+                    $json['redirect'] = $response['link'];
+                } else {
+                    if (!empty($response['errors'][0]['description'])) {
+                        $json['error'] = $response['errors'][0]['description'];
+                    } else {
+                        $json['error'] = 'Unexpected response from payment API.';
+                    }
                 }
-        	}
+            }
         }
-
+    
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode($json));
     }
+
+    private function getImageBase64(string $image, int $maxSize = 300, int $quality = 75): string {
+        if (empty($image)) {
+            return '';
+        }
+    
+        // Use your global resize function to get a URL (instead of model_tool_image)
+        $imageUrl = resize_image($image, $maxSize, $maxSize);
+    
+        $raw = @file_get_contents($imageUrl);
+        if ($raw === false) {
+            return '';
+        }
+    
+        $src = imagecreatefromstring($raw);
+        if (!$src) {
+            return '';
+        }
+    
+        $origWidth  = imagesx($src);
+        $origHeight = imagesy($src);
+    
+        // Resize again just in case the returned image is bigger than $maxSize
+        $scale = min($maxSize / $origWidth, $maxSize / $origHeight, 1);
+        $newWidth  = (int)($origWidth * $scale);
+        $newHeight = (int)($origHeight * $scale);
+    
+        $dst = imagecreatetruecolor($newWidth, $newHeight);
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
+    
+        ob_start();
+        imagejpeg($dst, null, $quality);
+        $resizedData = ob_get_clean();
+    
+        imagedestroy($src);
+        imagedestroy($dst);
+    
+        // Return Base64 string (if Asaas only wants raw Base64, remove "data:image...")
+        return base64_encode($resizedData);
+    }
+    
 }
