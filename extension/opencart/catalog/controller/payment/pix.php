@@ -13,15 +13,13 @@ class pix extends \Opencart\System\Engine\Controller {
      * @return string
      */
 
-     private function getImageBase64(string $imageUrl, int $maxSize = 300, int $quality = 75): string {
-        if (empty($imageUrl)) {
+     private function getImageBase64(string $image, int $maxSize = 300, int $quality = 75): string {
+        if (empty($image)) {
             return '';
         }
     
-        // If it’s not a full URL, build manually
-        if (!filter_var($imageUrl, FILTER_VALIDATE_URL)) {
-            $imageUrl = rtrim($this->config->get('config_url'), '/') . '/image/' . ltrim($imageUrl, '/');
-        }
+        // Use your global resize function to get a URL (instead of model_tool_image)
+        $imageUrl = resize_image($image, $maxSize, $maxSize);
     
         $raw = @file_get_contents($imageUrl);
         if ($raw === false) {
@@ -36,6 +34,7 @@ class pix extends \Opencart\System\Engine\Controller {
         $origWidth  = imagesx($src);
         $origHeight = imagesy($src);
     
+        // Resize again just in case the returned image is bigger than $maxSize
         $scale = min($maxSize / $origWidth, $maxSize / $origHeight, 1);
         $newWidth  = (int)($origWidth * $scale);
         $newHeight = (int)($origHeight * $scale);
@@ -50,6 +49,7 @@ class pix extends \Opencart\System\Engine\Controller {
         imagedestroy($src);
         imagedestroy($dst);
     
+        // Return Base64 string (if Asaas only wants raw Base64, remove "data:image...")
         return 'data:image/jpeg;base64,' . base64_encode($resizedData);
     }
     
