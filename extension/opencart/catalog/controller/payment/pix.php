@@ -140,6 +140,7 @@ class pix extends \Opencart\System\Engine\Controller {
                     'name'        => $product['name'],
                     'description' => $product['model'],
                     'quantity'    => $product['quantity'],
+                    'imageBase64' => $this->getImageBase64($product['image']),
                     'value'       => number_format($product['price'], 2, '.', '')
                 ];
             }
