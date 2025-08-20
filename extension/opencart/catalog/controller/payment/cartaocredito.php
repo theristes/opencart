@@ -30,7 +30,7 @@ class cartaocredito extends \Opencart\System\Engine\Controller {
         }
     
         // Payment method check
-        if (!isset($this->session->data['payment_method']) || $this->session->data['payment_method']['code'] !== 'pix.pix') {
+        if (!isset($this->session->data['payment_method']) || $this->session->data['payment_method']['code'] !== 'cartaocredito.cartaocredito') {
             $json['error'] = "Invalid payment method selected.";
         }
     
@@ -40,14 +40,14 @@ class cartaocredito extends \Opencart\System\Engine\Controller {
             $this->load->model('account/customer');
             $this->load->model('account/address');
     
-            $payable = $this->config->get('payment_pix_payable') ?? '';
+            $payable = $this->config->get('payment_cartaocredito_payable') ?? '';
             $address_text = $this->config->get('config_address') ?? '';
     
             $comment = $payable . "\n\n" . $address_text . "\n\n";
     
             $this->model_checkout_order->addHistory(
                 $this->session->data['order_id'],
-                $this->config->get('payment_pix_order_status_id'),
+                $this->config->get('payment_cartaocredito_order_status_id'),
                 $comment,
                 true
             );
@@ -102,7 +102,7 @@ class cartaocredito extends \Opencart\System\Engine\Controller {
             $payload = [
                 'billingTypes' => ['CREDIT_CARD'],
                 'chargeTypes'    => ['DETACHED'],
-                'minutesToExpire'=> 60,
+                'minutesToExpire' => 60,
                 'callback'       => [
                     'cancelUrl'  => $this->url->link('checkout/failure'),
                     'expiredUrl' => $this->url->link('checkout/failure'),
