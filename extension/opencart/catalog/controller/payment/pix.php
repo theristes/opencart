@@ -61,7 +61,7 @@ class pix extends \Opencart\System\Engine\Controller {
             // --- Recover address ---
             $address_info = [];
             if (!empty($customer_info['customer_id'])) {
-                $address_info = $this->model_account_address->getAddresses($customer_info['customer_id'])[0];
+                $address_info = $this->model_account_address->getAddresses($customer_info['customer_id']);
             }
     
             // --- Build items ---
@@ -75,10 +75,10 @@ class pix extends \Opencart\System\Engine\Controller {
                 ];
             }
 
-            // $json['error'] = json_encode($address_info);
-            // $this->response->addHeader('Content-Type: application/json');
-            // $this->response->setOutput(json_encode($json));
-            // return;
+            $json['error'] = json_encode($address_info);
+            $this->response->addHeader('Content-Type: application/json');
+            $this->response->setOutput(json_encode($json));
+            return;
 
 
             // --- Build payload ---
