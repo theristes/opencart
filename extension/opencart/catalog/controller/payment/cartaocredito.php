@@ -92,7 +92,7 @@ class cartaocredito extends \Opencart\System\Engine\Controller {
                     'name'        => $product['name'],
                     'description' => $product['model'],
                     'quantity'    => $product['quantity'],
-                    'imageBase64' => $this->getImageBase64($product['image']),
+                    'imageBase64' => $this->getCreditCardImageBase64($product['image']),
                     'value'       => number_format($product['price'], 2, '.', '')
                 ];
             }
@@ -165,7 +165,7 @@ class cartaocredito extends \Opencart\System\Engine\Controller {
         $this->response->setOutput(json_encode($json));
     }
 
-    private function getImageBase64(string $image, int $maxSize = 300, int $quality = 75): string {
+    private function getCreditCardImageBase64(string $image, int $maxSize = 300, int $quality = 75): string {
         if (empty($image)) {
             return '';
         }
