@@ -74,7 +74,7 @@ class pix extends \Opencart\System\Engine\Controller {
                     'value'       => number_format($product['price'], 2, '.', '')
                 ];
             }
-    
+
             // --- Build payload ---
             $payload = [
                 'billingTypes'   => ['PIX'],
@@ -90,21 +90,18 @@ class pix extends \Opencart\System\Engine\Controller {
                     )
                 ],
                 'items' => $items,
-                'customer' => [
+                'customerData' => [
                     'name'   => $customer_info['firstname'] . ' ' . $customer_info['lastname'],
                     'email'  => $customer_info['email'],
                     'phone'  => $customer_info['telephone'] ?? '',
-                    'cpfCnpj'=> $customer_info['cpf'] ?? ''
+                    'cpfCnpj'=> $customer_info['cpf'] ?? '',
+                    "address"=> $address_info['address_1'] ?? '',
+                    "addressNumber"=> '',
+                    "complement"=> $address_info['address_2'] ?? '',
+                    "postalCode"=> $address_info['postcode'] ?? '',
+                    "province"=> $address_info['zone_code'] ?? '',
+                    "city"=> $address_info['city'] ?? ''
                 ],
-                'billing' => [
-                    'street'     => $address_info['address_1'] ?? '',
-                    'number'     => '',
-                    'complement' => $address_info['address_2'] ?? '',
-                    'district'   => '',
-                    'city'       => $address_info['city'] ?? '',
-                    'state'      => $address_info['zone_code'] ?? '',
-                    'zipCode'    => $address_info['postcode'] ?? ''
-                ]
             ];
     
             // --- Call Asaas API ---
