@@ -12,48 +12,7 @@ class pix extends \Opencart\System\Engine\Controller {
      *
      * @return string
      */
-
-     private function getImageBase64(string $image, int $maxSize = 300, int $quality = 75): string {
-        if (empty($image)) {
-            return '';
-        }
     
-        // Use your global resize function to get a URL (instead of model_tool_image)
-        $imageUrl = resize_image($image, $maxSize, $maxSize);
-    
-        $raw = @file_get_contents($imageUrl);
-        if ($raw === false) {
-            return '';
-        }
-    
-        $src = imagecreatefromstring($raw);
-        if (!$src) {
-            return '';
-        }
-    
-        $origWidth  = imagesx($src);
-        $origHeight = imagesy($src);
-    
-        // Resize again just in case the returned image is bigger than $maxSize
-        $scale = min($maxSize / $origWidth, $maxSize / $origHeight, 1);
-        $newWidth  = (int)($origWidth * $scale);
-        $newHeight = (int)($origHeight * $scale);
-    
-        $dst = imagecreatetruecolor($newWidth, $newHeight);
-        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
-    
-        ob_start();
-        imagejpeg($dst, null, $quality);
-        $resizedData = ob_get_clean();
-    
-        imagedestroy($src);
-        imagedestroy($dst);
-    
-        // Return Base64 string (if Asaas only wants raw Base64, remove "data:image...")
-        return base64_encode($resizedData);
-    }
-    
-
     
     public function index(): string {
         $data['payable'] = $this->config->get('payment_pix_payable');
@@ -135,7 +94,7 @@ class pix extends \Opencart\System\Engine\Controller {
                     'name'        => $product['name'],
                     'description' => $product['model'],
                     'quantity'    => $product['quantity'],
-                    'imageBase64' => $this->getImageBase64($product['image']),
+                    'imageBase64' => get_image_base64($product['image']),
                     'value'       => number_format($product['price'], 2, '.', '')
                 ];
             }
