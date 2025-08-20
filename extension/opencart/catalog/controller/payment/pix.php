@@ -22,13 +22,18 @@ class pix extends \Opencart\System\Engine\Controller {
      *
      * @return void
      */
+    /**
+     * Confirm payment
+     *
+     * @return void
+     */
     public function confirm(): void {
-        
         $json = [];
 
-        if (isset($this->session->data['order_id'])) {
+        if (!isset($this->session->data['order_id'])) {
+            $json['redirect'] = $this->url->link('checkout/failure', 'language=' . $this->config->get('config_language'), true);
+        } else {
             $this->load->model('checkout/order');
-
             $order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
 
             if (!$order_info) {
@@ -46,41 +51,83 @@ class pix extends \Opencart\System\Engine\Controller {
         if (empty($json)) {
             $this->load->model('checkout/order');
 
-            $payable = $this->config->get('payment_pix_payable') ?? '';
-            $address = $this->config->get('config_address') ?? '';
+            // --- 1. Prepare Customer & Address Data ---
 
-            $comment = $payable . "\n\n" . $address . "\n\n";
+            // Sanitize phone number to contain only digits
+            $phone = preg_replace('/[^0-9]/', '', $order_info['telephone']);
 
-            $this->model_checkout_order->addHistory(
-                $this->session->data['order_id'],
-                $this->config->get('payment_pix_order_status_id'),
-                $comment,
-                true
-            );
+            // Get CPF/CNPJ. OpenCart doesn't have a default field for this, so it's usually a custom field.
+            // IMPORTANT: You may need to adjust this logic to match your store's custom fields.
+            $cpfCnpj = '';
+            if (!empty($order_info['payment_cpf'])) {
+                $cpfCnpj = $order_info['payment_cpf'];
+            } elseif (!empty($order_info['payment_cnpj'])) {
+                $cpfCnpj = $order_info['payment_cnpj'];
+            } elseif (isset($order_info['payment_custom_field'][2])) { // Common custom field ID for CPF
+                $cpfCnpj = $order_info['payment_custom_field'][2];
+            }
+            $cpfCnpj = preg_replace('/[^0-9]/', '', $cpfCnpj);
 
+            // Parse address into street and number, as required by the API
+            $address = trim($order_info['payment_address_1']);
+            $addressNumber = 'S/N'; // Default to 'S/N' (No Number)
+            $addressStreet = $address;
+
+            // This regex attempts to find the number at the end of the address string
+            if (preg_match('/^(.*?),?\s+([0-9]+[a-zA-Z]*.*)$/', $address, $matches)) {
+                $addressStreet = trim($matches[1]);
+                $addressNumber = trim($matches[2]);
+            }
+            
+            // The 'province' field is for the neighborhood ('bairro'). OpenCart's 'address_2' is often used for this.
+            $province = $order_info['payment_address_2'] ?? '';
+            $complement = $order_info['payment_address_2'] ?? '';
+            
+            // Sanitize postal code
+            $postalCode = preg_replace('/[^0-9]/', '', $order_info['payment_postcode']);
+
+            // Build the customer data object
+            $customer_data = [
+                'name' => $order_info['payment_firstname'] . ' ' . $order_info['payment_lastname'],
+                'email' => $order_info['email'],
+                'phone' => $phone,
+                'cpfCnpj' => $cpfCnpj
+            ];
+            
+            // --- 2. Build Items Array ---
             $items = [];
             foreach ($this->cart->getProducts() as $product) {
-
                 $items[] = [
                     'name' => $product['name'],
                     'description' => $product['model'],
                     'quantity' => $product['quantity'],
-                    'value' => $product['price']
+                    // Ensure price is a float with 2 decimal places
+                    'value' => round((float)$product['price'], 2) 
                 ];
             }
 
+            // --- 3. Construct the Full Payload ---
             $payload = [
                 'billingTypes' => ['PIX'],
                 'chargeTypes' => ['DETACHED'],
                 'minutesToExpire' => 60,
+                'customer' => $customer_data, // Customer object
+                'postalCode' => $postalCode,
+                'address' => $addressStreet,
+                'addressNumber' => $addressNumber,
+                'complement' => $complement,
+                'province' => $province, // Neighborhood ('bairro')
+                'externalReference' => $order_info['order_id'], // Link payment to the order ID
                 'callback' => [
-                    'cancelUrl' => $this->url->link('checkout/failure'),
-                    'expiredUrl' => $this->url->link('checkout/failure'),
-                    'successUrl' => $this->url->link('checkout/success', 'orderId=' . $order_info['order_id'], 'language=' . $this->config->get('config_language'), true)
+                    'cancelUrl' => $this->url->link('checkout/failure', 'language=' . $this->config->get('config_language'), true),
+                    'expiredUrl' => $this->url->link('checkout/failure', 'language=' . $this->config->get('config_language'), true),
+                    'successUrl' => $this->url->link('checkout/success', 'language=' . $this->config->get('config_language'), true),
+                    'autoRedirect' => true // Automatically redirect user to payment page
                 ],
                 'items' => $items
             ];
 
+            // --- 4. Send cURL Request ---
             $token = $this->config->get('config_asaas_token');
             $asas_url = $this->config->get('config_asaas_url');
             
@@ -97,14 +144,23 @@ class pix extends \Opencart\System\Engine\Controller {
             curl_close($ch);
         
             $response = json_decode($result, true);
-	
-			if (!empty($response['link'])) {
-			    $json['redirect'] = $response['link'];
-        	} else {
+    
+            if (!empty($response['link'])) {
+                // Add the order history before redirecting
+                $this->model_checkout_order->addHistory(
+                    $this->session->data['order_id'],
+                    $this->config->get('payment_pix_order_status_id'),
+                    'Asaas payment link generated.',
+                    true
+                );
+                $json['redirect'] = $response['link'];
+            } else {
+                $error_message = 'Payment gateway error.';
                 if (isset($response['errors']) && is_array($response['errors']) && count($response['errors']) > 0) {
-            	    $json['error'] = $response['errors'][0]['description'];
+                    $error_message = $response['errors'][0]['description'];
                 }
-        	}
+                $json['error'] = $error_message;
+            }
         }
 
         $this->response->addHeader('Content-Type: application/json');
