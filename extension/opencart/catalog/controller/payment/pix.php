@@ -50,7 +50,7 @@ class pix extends \Opencart\System\Engine\Controller {
         imagedestroy($dst);
     
         // Return Base64 string (if Asaas only wants raw Base64, remove "data:image...")
-        return 'data:image/jpeg;base64,' . base64_encode($resizedData);
+        return base64_encode($resizedData);
     }
     
 
