@@ -75,12 +75,11 @@ class pix extends \Opencart\System\Engine\Controller {
                 ];
             }
 
-            $json['error'] = json_encode($address_info);
-            $this->response->addHeader('Content-Type: application/json');
-            $this->response->setOutput(json_encode($json));
-            return;
+            // $json['error'] = json_encode($address_info);
+            // $this->response->addHeader('Content-Type: application/json');
+            // $this->response->setOutput(json_encode($json));
+            // return;
 
-            // {"custom_field":[],"customer_id":"11","customer_group_id":"1","store_id":"0","language_id":"1","firstname":"Theristes","lastname":"Oliveira","email":"theristes@gmail.com","cpf":"058.756.667-14","birthday":"1991-02-14","telephone":"21979588575","password":"$2y$10$W6Nnng7LWF7KIcUbdlkM1eKZdkx6NWTzmmdg97DLVu.PQ6rxucGNK","newsletter":"0","ip":"187.126.153.132","status":"1","safe":null,"commenter":null,"token":null,"code":null,"date_added":"2025-08-20 14:53:45"}
 
             // --- Build payload ---
             $payload = [
