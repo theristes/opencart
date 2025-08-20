@@ -371,7 +371,7 @@ class Register extends \Opencart\System\Engine\Controller {
 				}
 			}
 
-			if ($this->cart->hasShipping() && !$this->request->post['address_match']) {
+			if (!$this->request->post['address_match']) {
 				// If payment address not required we need to use the firstname and lastname from the account.
 				if ($this->config->get('config_checkout_payment_address')) {
 					if (!oc_validate_length($this->request->post['shipping_firstname'], 1, 32)) {
@@ -598,6 +598,18 @@ class Register extends \Opencart\System\Engine\Controller {
 				} else {
 					$firstname = $this->request->post['shipping_firstname'];
 					$lastname = $this->request->post['shipping_lastname'];
+				}
+
+				if ($shipping_country_info) {
+					$country = $shipping_country_info['name'];
+					$iso_code_2 = $shipping_country_info['iso_code_2'];
+					$iso_code_3 = $shipping_country_info['iso_code_3'];
+					$address_format_id = $shipping_country_info['address_format_id'];
+				} else {
+					$country = '';
+					$iso_code_2 = '';
+					$iso_code_3 = '';
+					$address_format_id = 0;
 				}
 
 				$this->load->model('localisation/address_format');
