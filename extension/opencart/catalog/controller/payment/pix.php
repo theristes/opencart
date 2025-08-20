@@ -96,11 +96,11 @@ class pix extends \Opencart\System\Engine\Controller {
                 ];
             }
 
-            print($address_info);
 
-            // $json['error'] = json_encode($address_info);
-            // $this->response->addHeader('Content-Type: application/json');
-            // $this->response->setOutput(json_encode($json));
+
+            $json['error'] = json_encode($address_info);
+            $this->response->addHeader('Content-Type: application/json');
+            $this->response->setOutput(json_encode($json));
             return;
 
 
