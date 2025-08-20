@@ -61,7 +61,7 @@ class pix extends \Opencart\System\Engine\Controller {
             // --- Recover address ---
             $address_info = [];
             if (!empty($customer_info['customer_id'])) {
-                $address_info = $this->model_account_address->getAddresses($customer_info['customer_id']);
+                $address_info = $this->model_account_address->getAddresses($customer_info['customer_id'])[0];
             }
     
             // --- Build items ---
