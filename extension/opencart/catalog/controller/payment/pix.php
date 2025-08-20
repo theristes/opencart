@@ -88,19 +88,10 @@
                 // --- Build items ---
                 $items = [];
                 foreach ($this->cart->getProducts() as $product) {
-                    // $product_image = $product['image'] ?? '';
-                    // if ($product_image && file_exists(DIR_IMAGE . $product_image)) {
-                    //     $image_data = file_get_contents(DIR_IMAGE . $product_image);
-                    //     $image_base64 = 'data:image/' . pathinfo($product_image, PATHINFO_EXTENSION) . ';base64,' . base64_encode($image_data);
-                    // } else {
-                    //     $image_base64 = ''; // fallback if image not found
-                    }
-                    
                     $items[] = [
                         'name'        => $product['name'],
                         'description' => $product['model'],
                         'quantity'    => $product['quantity'],
-                        // 'image'       => $image_base64,
                         'value'       => number_format($product['price'], 2, '.', '')
                     ];
                 }
