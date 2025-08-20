@@ -24,6 +24,7 @@ class pix extends \Opencart\System\Engine\Controller {
      *
      * @return void
      */
+    
     public function confirm(): void {
         $json = [];
     

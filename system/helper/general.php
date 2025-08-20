@@ -237,7 +237,6 @@ if (!function_exists('delete_from_bucket')) {
 }
 
 if (!function_exists('get_image_base64')) {
-
     function get_image_base64(string $image, int $maxSize = 300, int $quality = 75): string {
         if (empty($image)) {
             return '';
