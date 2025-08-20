@@ -585,7 +585,6 @@ class Register extends \Opencart\System\Engine\Controller {
 			}
 
 			// Shipping Address
-			// if ($this->cart->hasShipping()) {
 			if (!$this->request->post['address_match']) {
 				if (isset($this->session->data['shipping_address']['address_id'])) {
 					$address_id = $this->session->data['shipping_address']['address_id'];
@@ -678,7 +677,6 @@ class Register extends \Opencart\System\Engine\Controller {
 				// Remove the address id so if the customer changes their mind and requires changing a different shipping address it will create a new address.
 				$this->session->data['shipping_address']['address_id'] = 0;
 			}
-			// }
 
 			// If everything good login
 			if (!$customer_group_info['approval']) {
