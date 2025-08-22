@@ -9,9 +9,9 @@
               <td class="text-center w-25">{% if product.thumb %}<a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" width="{{ product.thumb_width }}" height="{{ product.thumb_height }}"/></a>{% endif %}</td>
               <td><a href="{{ product.href }}">{{ product.name }}</a>
                 <ul class="list-unstyled mb-0">
-                  <li>
+                  {# <li>
                     <small> - {{ text_model }}: {{ product.model }}</small>
-                  </li>
+                  </li> #}
                   {% for option in product.option %}
                     <li>
                       <small> - {{ option.name }}: {{ option.value }}</small>

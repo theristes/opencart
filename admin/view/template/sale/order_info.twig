@@ -2231,11 +2231,11 @@ function cart_render(products, totals, shipping_required) {
             html += '  <td><a href="index.php?route=catalog/product.form&user_token={{ user_token }}&product_id=' + product['product_id'] + '" target="_blank">' + product['name'] + '</a>' + (!product['stock'] ? ' <span class="text-danger">***</span>' : '');
             html += '    <div id="error-product-' + order_product_row + '-product" class="invalid-feedback mt-0"></div>';
 
-            html += '<ul class="list-unstyled mb-0">';
+            // html += '<ul class="list-unstyled mb-0">';
 
-            html += '<li>';
-            html += '  <small> - {{ text_model|escape('js') }}: ' + product['model'] + '</small>';
-            html += '</li>';
+            // html += '<li>';
+            // html += '  <small> - {{ text_model|escape('js') }}: ' + product['model'] + '</small>';
+            // html += '</li>';
 
             for (j = 0; j < product['option'].length; j++) {
                 option = product['option'][j];

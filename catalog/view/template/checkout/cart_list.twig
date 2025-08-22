@@ -30,9 +30,9 @@
             <td class="text-center">{% if product.thumb %}<a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail"  width="{{ product.thumb_width }}" height="{{ product.thumb_height }}"/></a>{% endif %}</td>
             <td class="text-start text-wrap"><a href="{{ product.href }}">{{ product.name }}</a>{% if not product.stock %} <span class="text-danger">***</span>{% endif %}
               <ul class="list-unstyled mb-0">
-                <li>
+                {# <li>
                   <small> - {{ text_model }}: {{ product.model }}</small>
-                </li>
+                </li> #}
                 {% for option in product.option %}
                   <li>
                     <small> - {{ option.name }}: {{ option.value }}</small>
