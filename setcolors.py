@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 
 # Constants
 ALLOWED_EXTENSIONS = {".css", ".scss", ".less", ".js", ".html", ".tpl", ".twig"}
@@ -44,14 +45,18 @@ def generate_rgba_regex(r, g, b):
 
 def load_colors(env_file):
     colors = {}
-    with open(env_file, "r") as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            if "=" in line:
-                key, val = line.split("=", 1)
-                colors[key.strip()] = val.strip()
+    try:
+        with open(env_file, "r") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if "=" in line:
+                    key, val = line.split("=", 1)
+                    colors[key.strip()] = val.strip()
+    except FileNotFoundError:
+        print(f"Error: {env_file} not found.", file=sys.stderr)
+        sys.exit(1)
     return colors
 
 
@@ -148,12 +153,17 @@ def main():
 
     if not replacements:
         print("No changes to apply.")
+        print("SUCCESS")  # Indicate success even if no changes were made
         return
 
     print("Replacing HEX and RGB(A) colors...")
     walk_and_replace(TARGET_DIR, replacements)
-    print("Done.")
+    print("SUCCESS")  # Indicate success after completing replacements
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
