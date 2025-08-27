@@ -172,6 +172,7 @@ button:focus {
 }
 #menu .navbar-nav > li > a:hover {
   background-color: var(--bs-secondary);
+  color: var(--bs-light);
 }
 #menu .dropdown-menu {
   border-top-left-radius: 0;
