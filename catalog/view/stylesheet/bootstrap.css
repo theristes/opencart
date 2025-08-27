@@ -4,6 +4,10 @@
    * Copyright 2011-2024 The Bootstrap Authors
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    */
+@function to-rgb($value) {
+    @return red($value), green($value), blue($value);
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #615dbd;
   --bs-indigo: #615dbd;
@@ -37,7 +41,9 @@
   --bs-light: #FFFFFF;
   --bs-dark: #000000;
 
-  --bs-primary-rgb: 97, 93, 189;
+  
+  --bs-primary-rgb: rgba(#{to-rgb(#199456)}, 0.5);
+  /* 97, 93, 189; */
   --bs-secondary-rgb: 181, 179, 230;
   --bs-success-rgb: 255, 255, 255;
   --bs-info-rgb: 234, 74, 58;
@@ -45,6 +51,9 @@
   --bs-danger-rgb: 223, 223, 223;
   --bs-light-rgb: 255, 255, 255;
   --bs-dark-rgb: 0, 0, 0;
+
+
+
   --bs-primary-text-emphasis: #000000;
   --bs-secondary-text-emphasis: #000000;
   --bs-success-text-emphasis: #000000;
