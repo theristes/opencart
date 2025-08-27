@@ -169,10 +169,8 @@ button:focus {
   margin-bottom: 20px;
 }
 #menu .navbar-nav > li > a {
-  color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   padding: 10px 15px 10px 15px;
-  background-color: transparent;
 }
 #menu .navbar-nav > li > a:hover {
   background-color: rgba(0, 0, 0, 0.1);
