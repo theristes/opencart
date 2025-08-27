@@ -169,15 +169,19 @@ button:focus {
   padding: 0 1rem;
   margin-bottom: 20px;
 }
+
 #menu .navbar-nav > li > a {
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   padding: 10px 15px 10px 15px;
   background-color: transparent;
+  color: var(--bs-light);
+  font-size: 14px;
 }
 #menu .navbar-nav > li > a:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--bs-light);
+  color: var(--bs-secondary);
 }
+
+
 #menu .dropdown-menu {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
