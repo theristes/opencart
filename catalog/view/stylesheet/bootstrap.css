@@ -5,7 +5,7 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    */
 @function to-rgb($value) {
-    @return red($value), green($value), blue($value);
+    @return "rgba(" + red($value) + ", " + green($value) + ", " + blue($value) + ", 1)";
 }
 
 :root, [data-bs-theme="light"] {
@@ -42,7 +42,7 @@
   --bs-dark: #000000;
 
   
-  --bs-primary-rgb: rgba({to-rgb(#199456)}, 0.5);
+  --bs-primary-rgb: #{to-rgb(#615dbd)};
   /* 97, 93, 189; */
   --bs-secondary-rgb: 181, 179, 230;
   --bs-success-rgb: 255, 255, 255;
