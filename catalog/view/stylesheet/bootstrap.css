@@ -6045,14 +6045,17 @@ textarea.form-control-lg {
   color: #fff !important;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important;
 }
-.link-primary {
+/* .link-primary {
   color: rgba(var(--bs-primary-rgb), var(--bs-link-opacity, 1)) !important;
   text-decoration-color: rgba(var(--bs-primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
-}
+} */
+
 .link-primary:hover, .link-primary:focus {
   color: rgba(27, 123, 160, var(--bs-link-opacity, 1)) !important;
   text-decoration-color: rgba(27, 123, 160, var(--bs-link-underline-opacity, 1)) !important;
 }
+
+
 .link-secondary {
   color: rgba(var(--bs-secondary-rgb), var(--bs-link-opacity, 1)) !important;
   text-decoration-color: rgba(var(--bs-secondary-rgb), var(--bs-link-underline-opacity, 1)) !important;
