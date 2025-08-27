@@ -4,7 +4,7 @@
          style="width: {{ thumb_width }}px; height: {{ thumb_height }}px; object-fit: contain;" /></a></div>
   <div class="content">
     <div class="description">
-      <h4><a style="font-size: 24px;" href="{{ href }}">{{ name|split(' ')|slice(0, 2)|join(' ')|title|length > 20 ? name|split(' ')|slice(0, 2)|join(' ')|title|slice(0, 20) ~ '...' : name|split(' ')|slice(0, 2)|join(' ')|title }}</a></h4>
+      <h4><a style="font-size: 28px;" href="{{ href }}">{{ name|split(' ')|slice(0, 2)|join(' ')|title|length > 20 ? name|split(' ')|slice(0, 2)|join(' ')|title|slice(0, 20) ~ '...' : name|split(' ')|slice(0, 2)|join(' ')|title }}</a></h4>
       <p>{{ description }}</p>
       {% if price %}
         <div class="price">
