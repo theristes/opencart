@@ -12,4 +12,4 @@ $_['text_message']  = '<p>Houve um problema ao processar o seu pagamento, por is
   <li>Não a crédito suficiente.</li>
   <li>Falha na verificação.</li>
 </ul>
-<p>Você pode tentar novamente utilizando outra forma de pagamento.</p>
+<p>Você pode tentar novamente utilizando outra forma de pagamento.</p>';
