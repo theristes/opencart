@@ -13,4 +13,3 @@ $_['text_message']  = '<p>Houve um problema ao processar o seu pagamento, por is
   <li>Falha na verificação.</li>
 </ul>
 <p>Você pode tentar novamente utilizando outra forma de pagamento.</p>
-<p>Se o problema persistir, entre em <a href="%s">contato</a> conosco e nos informe os detalhes do seu pedido.</p>';
