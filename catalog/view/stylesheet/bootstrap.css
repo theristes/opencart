@@ -42,7 +42,7 @@
   --bs-dark: #000000;
 
   
-  --bs-primary-rgb: #{to-rgb(#EA4A3A)};
+  --bs-primary-rgb: #{to-rgb("#EA4A3A")};
   --bs-secondary-rgb: 181, 179, 230;
   --bs-success-rgb: 255, 255, 255;
   --bs-info-rgb: 234, 74, 58;
