@@ -159,6 +159,7 @@ button:focus {
 }
 /* menu */
 #menu {
+  background-color: var(--bs-primary);
   background-repeat: repeat-x;
   min-height: 40px;
   border-radius: 4px;
