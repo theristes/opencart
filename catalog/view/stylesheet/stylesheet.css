@@ -159,7 +159,6 @@ button:focus {
 }
 /* menu */
 #menu {
-  background-color: #615dbd;
   background-repeat: repeat-x;
   min-height: 40px;
   border-radius: 4px;
@@ -168,11 +167,13 @@ button:focus {
 }
 #menu .navbar-nav > li > a {
   padding: 10px 15px 10px 15px;
-  color: var(--bs-primary);
+  background-color: var(--bs-primary);
+  color: var(--bs-light);
+  font-size: 14px;
 }
 #menu .navbar-nav > li > a:hover {
-  background-color: var(--bs-secondary);
-  color: var(--bs-light);
+  background-color: var(--bs-light);
+  color: var(--bs-secondary);
 }
 #menu .dropdown-menu {
   border-top-left-radius: 0;
