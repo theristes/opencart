@@ -159,23 +159,24 @@ button:focus {
 }
 /* menu */
 #menu {
-  background-color: var(--bs-primary);
+  background-color: #615dbd;
+  background-image: linear-gradient(to bottom, #615dbd, #615dbd);
   background-repeat: repeat-x;
+  border: 1px solid #615dbd; 
+  border-color: #615dbd #615dbd #615dbd;
   min-height: 40px;
   border-radius: 4px;
-  width: 100%;
-  padding: 0;
+  padding: 0 1rem;
   margin-bottom: 20px;
 }
 #menu .navbar-nav > li > a {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   padding: 10px 15px 10px 15px;
-  background-color: var(--bs-primary);
-  color: var(--bs-light);
-  font-size: 14px;
+  background-color: transparent;
 }
 #menu .navbar-nav > li > a:hover {
-  background-color: var(--bs-light);
-  color: var(--bs-secondary);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 #menu .dropdown-menu {
   border-top-left-radius: 0;
