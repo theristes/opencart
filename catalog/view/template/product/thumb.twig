@@ -8,14 +8,14 @@
       <p>{{ description }}</p>
       {% if price %}
         <div class="price">
-          {% if not special %}
-            <span class="price-new">{{ price }}</span>
-          {% else %}
-            <span class="price-new">{{ special }}</span> <span class="price-old">{{ price }}</span>
-          {% endif %}
-          {% if tax %}
+            {% if not special %}
+            <span class="price-new" style="font-size: 20px;">{{ price }}</span>
+            {% else %}
+            <span class="price-new" style="font-size: 20px;">{{ special }}</span> <span class="price-old">{{ price }}</span>
+            {% endif %}
+            {% if tax %}
             <span class="price-tax">{{ text_tax }} {{ tax }}</span>
-          {% endif %}
+            {% endif %}
         </div>
       {% endif %}
       {% if review_status and rating %}
