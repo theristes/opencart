@@ -160,7 +160,6 @@ button:focus {
 /* menu */
 #menu {
   background-color: #615dbd;
-  background-image: linear-gradient(to bottom, #615dbd, #615dbd);
   background-repeat: repeat-x;
   border: 1px solid #615dbd; 
   border-color: #615dbd #615dbd #615dbd;
