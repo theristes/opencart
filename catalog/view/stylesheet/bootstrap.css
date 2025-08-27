@@ -166,7 +166,6 @@
   --bs-heading-color: inherit;
   --bs-link-color: #b5b3e6;
   --bs-link-hover-color: #b5b3e6;
-  --bs-link-color-rgb: 122, 194, 222;
   --bs-link-hover-color-rgb: 149, 206, 229;
   --bs-code-color: #b5b3e6;
   --bs-highlight-color: #DFDFDF;
@@ -303,11 +302,11 @@ sup {
   top: -0.5em;
 }
 a {
-  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  color: rgba(var(--bs-primary-rgb), var(--bs-link-opacity, 1));
   text-decoration: none;
 }
 a:hover {
-  --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
+  ----bs-primary-rgb: var(--bs-link-hover-color-rgb);
 }
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
@@ -6148,7 +6147,7 @@ textarea.form-control-lg {
   display: inline-flex;
   gap: 0.375rem;
   align-items: center;
-  text-decoration-color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 0.5));
+  text-decoration-color: rgba(var(--bs-primary-rgb), var(--bs-link-opacity, 0.5));
   text-underline-offset: 0.25em;
   backface-visibility: hidden;
 }
@@ -7491,7 +7490,7 @@ textarea.form-control-lg {
 }
 .link-underline {
   --bs-link-underline-opacity: 1;
-  text-decoration-color: rgba(var(--bs-link-color-rgb), var(--bs-link-underline-opacity, 1)) !important;
+  text-decoration-color: rgba(var(----bs-primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-underline-opacity-0 {
   --bs-link-underline-opacity: 0;
