@@ -281,6 +281,7 @@ sup {
   top: -0.5em;
 }
 a {
+  color: var(--bs-primary);
   text-decoration: none;
 }
 a:hover {
