@@ -161,8 +161,6 @@ button:focus {
 #menu {
   background-color: #615dbd;
   background-repeat: repeat-x;
-  border: 1px solid #615dbd; 
-  border-color: #615dbd #615dbd #615dbd;
   min-height: 40px;
   border-radius: 4px;
   padding: 0 1rem;
