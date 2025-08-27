@@ -36,14 +36,15 @@
   --bs-danger: #EA4A3A;
   --bs-light: #FFFFFF;
   --bs-dark: #000000;
+  
   --bs-primary-rgb: 97, 93, 189;
-  --bs-secondary-rgb: 108, 117, 125;
-  --bs-success-rgb: 25, 135, 84;
-  --bs-info-rgb: 13, 202, 240;
-  --bs-warning-rgb: 250, 167, 50;
-  --bs-danger-rgb: 218, 79, 73;
-  --bs-light-rgb: 248, 249, 250;
-  --bs-dark-rgb: 33, 37, 41;
+  --bs-secondary-rgb: 181, 179, 230;
+  --bs-success-rgb: 255, 255, 255;
+  --bs-info-rgb: 234, 74, 58;
+  --bs-warning-rgb: 0, 0, 0;
+  --bs-danger-rgb: 223, 223, 223;
+  --bs-light-rgb: 255, 255, 255;
+  --bs-dark-rgb: 0, 0, 0;
   --bs-primary-text-emphasis: #000000;
   --bs-secondary-text-emphasis: #000000;
   --bs-success-text-emphasis: #000000;
