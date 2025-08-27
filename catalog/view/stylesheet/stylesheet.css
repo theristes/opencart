@@ -163,7 +163,8 @@ button:focus {
   background-repeat: repeat-x;
   min-height: 40px;
   border-radius: 4px;
-  padding: 0 1rem;
+  width: 100%;
+  padding: 0;
   margin-bottom: 20px;
 }
 #menu .navbar-nav > li > a {
