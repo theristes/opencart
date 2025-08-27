@@ -36,7 +36,7 @@
   --bs-danger: #EA4A3A;
   --bs-light: #FFFFFF;
   --bs-dark: #000000;
-  
+
   --bs-primary-rgb: 97, 93, 189;
   --bs-secondary-rgb: 181, 179, 230;
   --bs-success-rgb: 255, 255, 255;
@@ -94,7 +94,6 @@
   --bs-tertiary-bg-rgb: 248, 249, 250;
   --bs-heading-color: inherit;
   --bs-link-color: #615dbd;
-  --bs-link-color-rgb: 97, 93, 189;
   --bs-link-decoration: none;
   --bs-link-hover-color: #615dbd;
   --bs-link-hover-color-rgb: 248, 249, 250;
